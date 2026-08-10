@@ -4,12 +4,13 @@
 
 Partial
 
-P0.1 and P0.2 are complete. P0.3 (Git/collaboration foundation) is not yet complete, so the P0 exit gate has not passed.
+P0.1 and P0.2 are complete. P0.3 is complete locally and awaits the first push plus remote ruleset confirmation, so the P0 exit gate has not yet passed.
 
 ## Included task handoffs
 
 - `P0.1-codex.md` — complete: source inventory, manifest, ADRs and contracts.
 - `P0.2-owner.md` — complete: accounts, development storage and Neon environment separation exist.
+- `P0.3-codex.md` — partial: local Git/collaboration foundation complete; remote publication pending.
 
 ## Current durable outputs
 
@@ -25,11 +26,14 @@ P0.1 and P0.2 are complete. P0.3 (Git/collaboration foundation) is not yet compl
 - No source document was modified.
 - No cloud resource, credential or production state was accessed.
 - Non-secret cloud resource state is recorded in `docs/cloud-resources.md`.
+- Local root commit `bf149ee` contains the source set and P0 foundation.
 
 ## Open blockers for P0 exit
 
-1. The current `.git` directory is not recognized as a valid Git repository.
-2. Five content-source decisions in `docs/source-inventory.md` need owner answers before affected topic conversion/publication.
+1. Local `main` has not yet been pushed to `origin`.
+2. The GitHub `main` ruleset has not yet been enabled by the owner.
+
+Non-blocking for P1 but blocking affected content publication: five source decisions in `docs/source-inventory.md` remain open.
 
 ## Inputs required for Phase P1
 
@@ -40,4 +44,4 @@ P0.1 and P0.2 are complete. P0.3 (Git/collaboration foundation) is not yet compl
 
 ## Exit-gate result
 
-Not passed. Do not begin parallel P1 implementation until P0.2 and P0.3 are complete and this summary is updated to `Complete`.
+Not passed. Do not assign parallel P1 implementation until the first push succeeds and the repository protection decision is recorded.
