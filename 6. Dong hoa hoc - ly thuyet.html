@@ -1,0 +1,424 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Chuyên đề 6 – Động hóa học | Lý thuyết</title>
+  <style>
+    :root {
+      --ink: #1d2939;
+      --muted: #667085;
+      --brand: #175cd3;
+      --brand-soft: #eff8ff;
+      --accent: #079455;
+      --accent-soft: #ecfdf3;
+      --warn: #b54708;
+      --warn-soft: #fffaeb;
+      --line: #d0d5dd;
+      --paper: #ffffff;
+      --bg: #f5f7fb;
+      --formula: #101828;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--bg);
+      font: 16px/1.72 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+    .layout { display: grid; grid-template-columns: 270px minmax(0, 850px); gap: 28px; max-width: 1200px; margin: 0 auto; padding: 28px 20px 70px; }
+    .toc { position: sticky; top: 18px; align-self: start; max-height: calc(100vh - 36px); overflow: auto; padding: 18px; background: var(--paper); border: 1px solid var(--line); border-radius: 14px; }
+    .toc strong { display: block; margin-bottom: 10px; color: var(--brand); }
+    .toc a { display: block; padding: 4px 0; color: var(--muted); text-decoration: none; font-size: .93rem; }
+    .toc a:hover, .toc a:focus { color: var(--brand); }
+    main { min-width: 0; }
+    .hero, section { background: var(--paper); border: 1px solid var(--line); border-radius: 16px; padding: 30px 34px; margin-bottom: 22px; box-shadow: 0 5px 20px rgba(16, 24, 40, .035); }
+    .hero { border-top: 6px solid var(--brand); }
+    h1, h2, h3, h4 { line-height: 1.25; color: #101828; }
+    h1 { margin: 0 0 8px; font-size: clamp(1.85rem, 4vw, 2.7rem); }
+    h2 { margin: 0 0 20px; padding-bottom: 9px; border-bottom: 2px solid #e4e7ec; font-size: 1.55rem; }
+    h3 { margin: 28px 0 10px; font-size: 1.2rem; color: var(--brand); }
+    h4 { margin: 20px 0 8px; font-size: 1.03rem; }
+    p { margin: 10px 0; }
+    ul, ol { padding-left: 1.4rem; }
+    li + li { margin-top: 5px; }
+    .subtitle { margin: 0; color: var(--muted); font-size: 1.08rem; }
+    .lead { font-size: 1.06rem; }
+    .chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; }
+    .chip { padding: 4px 10px; border-radius: 99px; background: var(--brand-soft); color: var(--brand); font-size: .86rem; font-weight: 650; }
+    .callout { margin: 17px 0; padding: 14px 17px; border-left: 4px solid var(--brand); background: var(--brand-soft); border-radius: 8px; }
+    .callout.success { border-left-color: var(--accent); background: var(--accent-soft); }
+    .callout.warning { border-left-color: var(--warn); background: var(--warn-soft); }
+    .callout strong { color: #101828; }
+    .formula { display: block; overflow-x: auto; margin: 14px 0; padding: 13px 16px; text-align: center; color: var(--formula); background: #f8fafc; border: 1px solid #e4e7ec; border-radius: 9px; font: 600 1.06rem/1.6 "Cambria Math", "Times New Roman", serif; }
+    .formula small { display: block; margin-top: 3px; color: var(--muted); font: .83rem/1.4 system-ui, sans-serif; }
+    .print-btn { float: right; margin: -3px 0 0 12px; padding: 7px 11px; border: 1px solid #b2ddff; border-radius: 8px; color: var(--brand); background: #f5fbff; font: 600 .82rem system-ui, sans-serif; cursor: pointer; }
+    .print-btn:hover, .print-btn:focus { background: var(--brand-soft); border-color: var(--brand); }
+    .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+    .card { padding: 15px 17px; background: #fcfcfd; border: 1px solid #eaecf0; border-radius: 10px; }
+    .card h4 { margin-top: 0; }
+    table { width: 100%; margin: 14px 0; border-collapse: collapse; font-size: .95rem; }
+    th, td { padding: 9px 10px; border: 1px solid var(--line); text-align: left; vertical-align: top; }
+    th { background: #f2f4f7; color: #344054; }
+    code { padding: 1px 5px; border-radius: 4px; background: #f2f4f7; color: #344054; }
+    .checklist { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px 24px; padding-left: 0; list-style: none; }
+    .checklist li::before { content: "✓"; margin-right: 8px; color: var(--accent); font-weight: 800; }
+    .back { float: right; color: var(--muted); text-decoration: none; font-size: .8rem; }
+    footer { color: var(--muted); text-align: center; font-size: .9rem; }
+    @media (max-width: 850px) {
+      .layout { display: block; padding: 12px 10px 40px; }
+      .toc { position: static; max-height: none; margin-bottom: 14px; }
+      .hero, section { padding: 22px 19px; border-radius: 12px; }
+      .grid, .checklist { grid-template-columns: 1fr; }
+    }
+    @media print {
+      body { background: white; }
+      .layout { display: block; max-width: none; padding: 0; }
+      .toc { display: none; }
+      .hero, section { box-shadow: none; border: 0; padding: 10px 0; }
+      h2 { break-after: avoid; }
+    }
+    @media print {
+      /* Khi in một bài, chỉ bài được chọn xuất hiện trong bản PDF. */
+      body.printing .layout { display: block; padding: 0; }
+      body.printing .toc,
+      body.printing main > :not(.print-target) { display: none !important; }
+      body.printing main > .print-target { display: block !important; margin: 0; padding: 0; border: 0; box-shadow: none; }
+      body.printing .print-btn, body.printing .back { display: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="layout">
+    <nav class="toc" aria-label="Mục lục">
+      <strong>Mục lục</strong>
+      <a href="#overview">Cách dùng tài liệu</a>
+      <a href="#symbols">Ký hiệu cần nhớ</a>
+      <a href="#rate">1. Tốc độ phản ứng</a>
+      <a href="#law">2. Phương trình động học</a>
+      <a href="#order">3. Bậc phản ứng</a>
+      <a href="#integrated">4. Các phản ứng đơn giản</a>
+      <a href="#complex">5. Phản ứng phức tạp</a>
+      <a href="#mechanism">6. Cơ chế phản ứng</a>
+      <a href="#temperature">7. Nhiệt độ và Arrhenius</a>
+      <a href="#method">8. Quy trình giải bài</a>
+      <a href="#review">Tự kiểm tra</a>
+    </nav>
+
+    <main>
+      <header class="hero" id="overview">
+        <h1>Chuyên đề 6: Động hóa học</h1>
+        <p class="subtitle">Bản trình bày lại phần lý thuyết cơ bản và nâng cao để học sinh dễ đọc, ghi nhớ và tự học.</p>
+        <div class="chips">
+          <span class="chip">Tốc độ phản ứng</span>
+          <span class="chip">Bậc phản ứng</span>
+          <span class="chip">Cơ chế phản ứng</span>
+          <span class="chip">Năng lượng hoạt hóa</span>
+        </div>
+        <div class="callout success">
+          <strong>Ý tưởng trung tâm:</strong> Động hóa học nghiên cứu phản ứng xảy ra nhanh hay chậm, tốc độ thay đổi thế nào theo nồng độ và nhiệt độ, đồng thời giải thích tốc độ bằng cơ chế các bước của phản ứng.
+        </div>
+        <div class="callout">
+          <strong>Cách xuất PDF:</strong> Bấm nút <b>🖨 Xuất PDF bài này</b> ở tiêu đề mỗi mục, sau đó chọn <b>Save as PDF / Lưu thành PDF</b> trong hộp thoại in của trình duyệt.
+        </div>
+      </header>
+
+      <section id="symbols">
+        <h2>Ký hiệu cần nhớ <a class="back" href="#overview">↑ đầu trang</a></h2>
+        <table>
+          <thead><tr><th>Ký hiệu</th><th>Ý nghĩa</th><th>Đơn vị thường dùng</th></tr></thead>
+          <tbody>
+            <tr><td><b>v</b></td><td>Tốc độ phản ứng</td><td>mol·L<sup>−1</sup>·s<sup>−1</sup> hoặc mol·L<sup>−1</sup>·min<sup>−1</sup></td></tr>
+            <tr><td><b>k</b></td><td>Hằng số tốc độ</td><td>Phụ thuộc bậc phản ứng</td></tr>
+            <tr><td><b>C<sub>A</sub></b> hoặc <b>[A]</b></td><td>Nồng độ mol của A tại thời điểm đang xét</td><td>mol·L<sup>−1</sup></td></tr>
+            <tr><td><b>E<sub>a</sub></b></td><td>Năng lượng hoạt hóa</td><td>J·mol<sup>−1</sup> hoặc kJ·mol<sup>−1</sup></td></tr>
+            <tr><td><b>T</b></td><td>Nhiệt độ tuyệt đối</td><td>K; T(K) = t(°C) + 273,15</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section id="rate">
+        <h2>1. Tốc độ phản ứng <a class="back" href="#overview">↑ đầu trang</a></h2>
+        <h3>1.1. Khái niệm</h3>
+        <p>Tốc độ phản ứng là độ biến thiên nồng độ của một chất phản ứng hoặc sản phẩm trong một đơn vị thời gian. Nồng độ thường tính bằng mol·L<sup>−1</sup>; thời gian có thể tính bằng giây, phút hoặc giờ.</p>
+        <p>Trong trường hợp tổng quát, tốc độ phụ thuộc vào nồng độ và nhiệt độ:</p>
+        <div class="formula">v = f(C, T)</div>
+        <p>Khi nhiệt độ không đổi, tốc độ chỉ còn phụ thuộc vào nồng độ: <span class="formula" style="display:inline; padding:3px 8px; margin:0; white-space:nowrap;">v = f(C)</span>.</p>
+
+        <h3>1.2. Tốc độ trung bình</h3>
+        <p>Với một chất X trong khoảng thời gian từ <i>t</i><sub>1</sub> đến <i>t</i><sub>2</sub>:</p>
+        <div class="formula">v̄<sub>X</sub> = ΔC<sub>X</sub> / Δt = (C<sub>X,2</sub> − C<sub>X,1</sub>) / (t<sub>2</sub> − t<sub>1</sub>)</div>
+        <p>Đối với chất phản ứng, nồng độ giảm nên ΔC &lt; 0; đối với sản phẩm, nồng độ tăng nên ΔC &gt; 0. Vì tốc độ được quy ước là đại lượng dương:</p>
+        <div class="formula">Chất phản ứng: v̄ = −ΔC / Δt &nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp; Sản phẩm: v̄ = +ΔC / Δt</div>
+
+        <h3>1.3. Tốc độ phản ứng theo phương trình hóa học</h3>
+        <p>Với phản ứng:</p>
+        <div class="formula">aA + bB → cC + dD</div>
+        <p>Nếu tính trực tiếp theo từng chất, các giá trị có thể khác nhau. Tốc độ phản ứng được chuẩn hóa bằng cách chia cho hệ số tỉ lượng:</p>
+        <div class="formula">
+          <math xmlns="http://www.w3.org/1998/Math/MathML" display="block" aria-label="v bằng âm một phần a nhân đạo hàm nồng độ A theo thời gian, bằng âm một phần b nhân đạo hàm nồng độ B theo thời gian, bằng một phần c nhân đạo hàm nồng độ C theo thời gian, bằng một phần d nhân đạo hàm nồng độ D theo thời gian">
+            <mrow>
+              <mi>v</mi><mo>=</mo><mo>−</mo><mfrac><mn>1</mn><mi>a</mi></mfrac><mo>·</mo><mfrac><mrow><mi>d</mi><mo>[</mo><mi>A</mi><mo>]</mo></mrow><mrow><mi>d</mi><mi>t</mi></mrow></mfrac>
+              <mo>=</mo><mo>−</mo><mfrac><mn>1</mn><mi>b</mi></mfrac><mo>·</mo><mfrac><mrow><mi>d</mi><mo>[</mo><mi>B</mi><mo>]</mo></mrow><mrow><mi>d</mi><mi>t</mi></mrow></mfrac>
+              <mo>=</mo><mfrac><mn>1</mn><mi>c</mi></mfrac><mo>·</mo><mfrac><mrow><mi>d</mi><mo>[</mo><mi>C</mi><mo>]</mo></mrow><mrow><mi>d</mi><mi>t</mi></mrow></mfrac>
+              <mo>=</mo><mfrac><mn>1</mn><mi>d</mi></mfrac><mo>·</mo><mfrac><mrow><mi>d</mi><mo>[</mo><mi>D</mi><mo>]</mo></mrow><mrow><mi>d</mi><mi>t</mi></mrow></mfrac>
+            </mrow>
+          </math>
+        </div>
+        <p>Trong khoảng thời gian hữu hạn, thay đạo hàm bằng độ biến thiên nồng độ:</p>
+        <div class="formula">
+          <math xmlns="http://www.w3.org/1998/Math/MathML" display="block" aria-label="tốc độ trung bình bằng âm một phần a nhân delta A trên delta t, bằng âm một phần b nhân delta B trên delta t, bằng một phần c nhân delta C trên delta t, bằng một phần d nhân delta D trên delta t">
+            <mrow>
+              <mover accent="true"><mi>v</mi><mo>¯</mo></mover><mo>=</mo><mo>−</mo><mfrac><mn>1</mn><mi>a</mi></mfrac><mo>·</mo><mfrac><mrow><mo>Δ</mo><mo>[</mo><mi>A</mi><mo>]</mo></mrow><mrow><mo>Δ</mo><mi>t</mi></mrow></mfrac>
+              <mo>=</mo><mo>−</mo><mfrac><mn>1</mn><mi>b</mi></mfrac><mo>·</mo><mfrac><mrow><mo>Δ</mo><mo>[</mo><mi>B</mi><mo>]</mo></mrow><mrow><mo>Δ</mo><mi>t</mi></mrow></mfrac>
+              <mo>=</mo><mfrac><mn>1</mn><mi>c</mi></mfrac><mo>·</mo><mfrac><mrow><mo>Δ</mo><mo>[</mo><mi>C</mi><mo>]</mo></mrow><mrow><mo>Δ</mo><mi>t</mi></mrow></mfrac>
+              <mo>=</mo><mfrac><mn>1</mn><mi>d</mi></mfrac><mo>·</mo><mfrac><mrow><mo>Δ</mo><mo>[</mo><mi>D</mi><mo>]</mo></mrow><mrow><mo>Δ</mo><mi>t</mi></mrow></mfrac>
+            </mrow>
+          </math>
+        </div>
+        <div class="callout">
+          <strong>Ví dụ nhanh:</strong> Với 2SO<sub>2</sub> + O<sub>2</sub> → 2SO<sub>3</sub>, ta có<br>
+          <div class="formula">
+            <math xmlns="http://www.w3.org/1998/Math/MathML" display="block" aria-label="v bằng âm một phần hai nhân đạo hàm nồng độ SO2 theo thời gian, bằng âm đạo hàm nồng độ O2 theo thời gian, bằng một phần hai nhân đạo hàm nồng độ SO3 theo thời gian">
+              <mrow>
+                <mi>v</mi><mo>=</mo><mo>−</mo><mfrac><mn>1</mn><mn>2</mn></mfrac><mo>·</mo><mfrac><mrow><mi>d</mi><mo>[</mo><msub><mi>SO</mi><mn>2</mn></msub><mo>]</mo></mrow><mrow><mi>d</mi><mi>t</mi></mrow></mfrac>
+                <mo>=</mo><mo>−</mo><mfrac><mrow><mi>d</mi><mo>[</mo><msub><mi>O</mi><mn>2</mn></msub><mo>]</mo></mrow><mrow><mi>d</mi><mi>t</mi></mrow></mfrac>
+                <mo>=</mo><mfrac><mn>1</mn><mn>2</mn></mfrac><mo>·</mo><mfrac><mrow><mi>d</mi><mo>[</mo><msub><mi>SO</mi><mn>3</mn></msub><mo>]</mo></mrow><mrow><mi>d</mi><mi>t</mi></mrow></mfrac>
+              </mrow>
+            </math>
+          </div>
+        </div>
+      </section>
+
+      <section id="law">
+        <h2>2. Phương trình động học và hằng số tốc độ <a class="back" href="#overview">↑ đầu trang</a></h2>
+        <p>Định luật tác dụng khối lượng cho biết: trong một phản ứng đơn giản, tốc độ tỉ lệ với tích nồng độ các chất tham gia, mỗi nồng độ được lũy thừa bởi hệ số phù hợp.</p>
+        <p>Với phản ứng đơn giản <b>aA + bB → sản phẩm</b>:</p>
+        <div class="formula">v = k[A]<sup>a</sup>[B]<sup>b</sup></div>
+        <ul>
+          <li><b>k</b> là hằng số tốc độ; k càng lớn thì phản ứng càng nhanh trong cùng điều kiện.</li>
+          <li>k phụ thuộc vào bản chất phản ứng, nhiệt độ, dung môi và chất xúc tác.</li>
+          <li>k không phụ thuộc vào nồng độ tại thời điểm đang xét.</li>
+          <li>Phương trình động học phải được xác định bằng thực nghiệm, đặc biệt với phản ứng phức tạp.</li>
+        </ul>
+        <div class="callout warning"><strong>Lưu ý:</strong> Không được tự động lấy hệ số trong phương trình hóa học làm số mũ trong phương trình tốc độ nếu phản ứng không được biết là phản ứng một giai đoạn/ phản ứng đơn giản.</div>
+      </section>
+
+      <section id="order">
+        <h2>3. Bậc phản ứng <a class="back" href="#overview">↑ đầu trang</a></h2>
+        <p>Giả sử phương trình tốc độ có dạng:</p>
+        <div class="formula">v = k[A]<sup>x</sup>[B]<sup>y</sup></div>
+        <div class="grid">
+          <div class="card"><h4>Bậc riêng phần</h4><p><b>x</b> là bậc riêng phần theo A; <b>y</b> là bậc riêng phần theo B.</p></div>
+          <div class="card"><h4>Bậc toàn phần</h4><p>Bậc toàn phần bằng tổng các số mũ: <b>n = x + y</b>.</p></div>
+        </div>
+        <p>Bậc phản ứng thường là 0, 1, 2 hoặc 3, nhưng cũng có thể là phân số. Bậc phản ứng là kết quả thực nghiệm, không nhất thiết là số nguyên và không nhất thiết trùng với hệ số tỉ lượng.</p>
+      </section>
+
+      <section id="integrated">
+        <h2>4. Một số phản ứng đơn giản <a class="back" href="#overview">↑ đầu trang</a></h2>
+        <h3>4.1. Phản ứng một chiều bậc nhất</h3>
+        <p>Với <b>A → sản phẩm</b>, tốc độ tại thời điểm <i>t</i> là:</p>
+        <div class="formula">v = k[A] = −d[A]/dt</div>
+        <p>Gọi <b>a = [A]<sub>0</sub></b> là nồng độ ban đầu và <b>x</b> là nồng độ A đã phản ứng sau thời gian t. Khi đó:</p>
+        <div class="formula">[A] = a − x</div>
+        <p>Phương trình tích phân của phản ứng bậc nhất:</p>
+        <div class="formula">ln(a/[A]) = kt &nbsp; hay &nbsp; ln(a/(a − x)) = kt</div>
+        <p>Dạng logarit thập phân:</p>
+        <div class="formula">k = (2,303/t)·log(a/[A])</div>
+        <p>Thời gian bán hủy:</p>
+        <div class="formula">t<sub>1/2</sub> = ln 2 / k = 0,693 / k</div>
+        <div class="callout success"><strong>Dấu hiệu nhận biết:</strong> Nếu đồ thị ln([A]<sub>0</sub>/[A]) theo t là đường thẳng đi qua gốc tọa độ thì phản ứng phù hợp với bậc nhất; hệ số góc là k.</div>
+
+        <h4>Ví dụ phương pháp: phân hủy H<sub>2</sub>O<sub>2</sub></h4>
+        <p>Phản ứng: 2H<sub>2</sub>O<sub>2</sub> → 2H<sub>2</sub>O + O<sub>2</sub>. Từ thể tích O<sub>2</sub> tạo thành, đổi ra số mol O<sub>2</sub>, suy ra số mol và nồng độ H<sub>2</sub>O<sub>2</sub> đã mất. Sau đó dùng:</p>
+        <div class="formula">k = (1/t)·ln([H<sub>2</sub>O<sub>2</sub>]<sub>0</sub> / [H<sub>2</sub>O<sub>2</sub>]<sub>t</sub>)</div>
+        <p>Với dữ kiện 100 mL H<sub>2</sub>O<sub>2</sub> 0,05 M, tạo 33,6 mL O<sub>2</sub> ở đkc sau 60 s: [H<sub>2</sub>O<sub>2</sub>]<sub>t</sub> = 0,020 M và k ≈ 1,53×10<sup>−2</sup> s<sup>−1</sup>.</p>
+
+        <h3>4.2. Phản ứng một chiều bậc hai</h3>
+        <p>Có hai dạng thường gặp.</p>
+        <div class="grid">
+          <div class="card">
+            <h4>Dạng 1: 2A → sản phẩm</h4>
+            <p>Hoặc A + B → sản phẩm với nồng độ ban đầu của A và B bằng nhau.</p>
+            <div class="formula">v = k[A]<sup>2</sup></div>
+            <div class="formula">1/[A] − 1/[A]<sub>0</sub> = kt</div>
+          </div>
+          <div class="card">
+            <h4>Dạng 2: A + B → sản phẩm</h4>
+            <p>Với [A]<sub>0</sub> = a, [B]<sub>0</sub> = b và a &gt; b:</p>
+            <div class="formula">kt = 1/(a − b) · ln[b(a − x) / (a(b − x))]</div>
+          </div>
+        </div>
+        <p>Với trường hợp nồng độ ban đầu bằng nhau, thời gian bán hủy phụ thuộc nồng độ ban đầu:</p>
+        <div class="formula">t<sub>1/2</sub> = 1/(k[A]<sub>0</sub>)</div>
+        <div class="callout"><strong>Cách kiểm tra bậc phản ứng từ số liệu:</strong> giả sử một bậc, tính k ở nhiều thời điểm. Nếu các giá trị k xấp xỉ không đổi thì giả thiết là phù hợp.</div>
+
+        <h3>4.3. Các bậc khác</h3>
+        <table>
+          <thead><tr><th>Bậc</th><th>Phương trình tốc độ</th><th>Ghi chú</th></tr></thead>
+          <tbody>
+            <tr><td>0</td><td>v = k</td><td>Tốc độ không phụ thuộc nồng độ chất phản ứng trong khoảng xét.</td></tr>
+            <tr><td>Phân số</td><td>v = k[A]<sup>m/n</sup> hoặc dạng tương tự</td><td>Thường xuất hiện ở phản ứng nhiều giai đoạn.</td></tr>
+            <tr><td>Từ 3 trở lên</td><td>Phụ thuộc phương trình cụ thể</td><td>Ít gặp trong thực tế do xác suất va chạm đồng thời thấp.</td></tr>
+          </tbody>
+        </table>
+
+        <h3>4.4. Thời gian bán hủy</h3>
+        <p>Thời gian bán hủy, ký hiệu <b>t<sub>1/2</sub></b> hoặc <b>T<sub>1/2</sub></b>, là thời gian để lượng hoặc nồng độ chất phản ứng giảm còn một nửa giá trị ban đầu.</p>
+        <table>
+          <thead><tr><th>Bậc</th><th>Thời gian bán hủy</th><th>Phụ thuộc</th></tr></thead>
+          <tbody>
+            <tr><td>Bậc nhất</td><td>t<sub>1/2</sub> = 0,693/k</td><td>Không phụ thuộc [A]<sub>0</sub></td></tr>
+            <tr><td>Bậc hai, 2A hoặc A+B bằng nhau</td><td>t<sub>1/2</sub> = 1/(k[A]<sub>0</sub>)</td><td>Phụ thuộc [A]<sub>0</sub></td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section id="complex">
+        <h2>5. Phản ứng phức tạp <a class="back" href="#overview">↑ đầu trang</a></h2>
+        <p>Phản ứng phức tạp diễn ra qua nhiều giai đoạn trung gian. Phương trình hóa học tổng quát chỉ là tổng hợp của các giai đoạn đó nên không nhất thiết biểu thị cơ chế phản ứng.</p>
+        <ul>
+          <li>Bậc phản ứng có thể không trùng với hệ số tỉ lượng trong phương trình tổng quát.</li>
+          <li>Bậc phản ứng có thể là phân số, chẳng hạn phản ứng phân hủy etanal có bậc thực nghiệm 3/2.</li>
+          <li>Muốn biết phương trình tốc độ phải dựa vào thực nghiệm và cơ chế đề xuất.</li>
+        </ul>
+        <div class="callout warning"><strong>Ví dụ về phản ứng ion hóa axeton:</strong> phản ứng tổng thể có thể là bậc một vì một giai đoạn chậm tạo ra trung gian; giai đoạn nhanh tiếp theo sử dụng trung gian đó để tạo sản phẩm. Giai đoạn chậm quyết định tốc độ quan sát được.</div>
+      </section>
+
+      <section id="mechanism">
+        <h2>6. Sơ lược về cơ chế phản ứng <a class="back" href="#overview">↑ đầu trang</a></h2>
+        <p><b>Cơ chế phản ứng</b> là sự mô tả chi tiết quá trình biến đổi từ chất tham gia thành sản phẩm qua một hoặc nhiều giai đoạn. Mỗi giai đoạn riêng lẻ gọi là <b>quá trình cơ sở</b>.</p>
+        <h3>6.1. Phản ứng một giai đoạn</h3>
+        <div class="grid">
+          <div class="card">
+            <h4>Đơn phân tử</h4>
+            <p>Một phân tử tự phân hủy hoặc tự sắp xếp lại liên kết:</p>
+            <div class="formula">A → B + C + …<br>v = k[A]</div>
+            <p>Thường là phản ứng bậc nhất.</p>
+          </div>
+          <div class="card">
+            <h4>Lưỡng phân tử</h4>
+            <p>Hai tiểu phân va chạm tạo sản phẩm:</p>
+            <div class="formula">A + B → sản phẩm<br>v = k[A][B]</div>
+            <p>Hoặc 2A → sản phẩm: v = k[A]<sup>2</sup>.</p>
+          </div>
+        </div>
+        <h4>Tam phân tử</h4>
+        <p>Ba tiểu phân va chạm đồng thời, ví dụ dạng 2A + B → sản phẩm:</p>
+        <div class="formula">v = k[A]<sup>2</sup>[B]</div>
+        <p>Loại này rất ít gặp vì xác suất ba tiểu phân va chạm đồng thời nhỏ. Phản ứng từ bốn tiểu phân trở lên gần như rất hiếm.</p>
+
+        <h3>6.2. Phản ứng nhiều giai đoạn</h3>
+        <p>Đối với một phản ứng nhiều giai đoạn, tốc độ thường bị chi phối bởi giai đoạn chậm nhất. Vì vậy, không được suy ra phương trình tốc độ chỉ bằng cách nhìn vào phương trình tổng quát.</p>
+        <div class="callout success"><strong>Nguyên tắc giai đoạn chậm:</strong> Khi một giai đoạn chậm hơn đáng kể các giai đoạn còn lại, tốc độ của phản ứng tổng thể gần bằng tốc độ của giai đoạn chậm đó.</div>
+        <p>Ví dụ, một phản ứng tổng quát có thể có hình thức như phản ứng bậc hai nhưng thực nghiệm cho thấy là phản ứng bậc nhất; điều này được giải thích khi giai đoạn chậm chỉ phụ thuộc vào một chất.</p>
+      </section>
+
+      <section id="temperature">
+        <h2>7. Ảnh hưởng của nhiệt độ và năng lượng hoạt hóa <a class="back" href="#overview">↑ đầu trang</a></h2>
+        <h3>7.1. Ảnh hưởng của nhiệt độ</h3>
+        <p>Khi tăng nhiệt độ:</p>
+        <ul>
+          <li>Các phân tử chuyển động nhanh hơn, tần số va chạm tăng.</li>
+          <li>Số va chạm có hiệu quả tăng mạnh; đây là nguyên nhân chính làm tốc độ tăng nhanh.</li>
+        </ul>
+        <p><b>Quy tắc Van’t Hoff:</b> trong khoảng gần nhiệt độ phòng, tăng 10°C thường làm tốc độ phản ứng tăng khoảng 2–4 lần.</p>
+        <p>Gọi γ (gamma) là hệ số nhiệt độ:</p>
+        <div class="formula">k<sub>2</sub> = k<sub>1</sub>·γ<sup>(T<sub>2</sub> − T<sub>1</sub>)/10</sup></div>
+        <p>Trong đó T<sub>1</sub>, T<sub>2</sub> có thể dùng °C khi tính độ chênh lệch nhiệt độ. Suy ra:</p>
+        <div class="formula">γ = (k<sub>2</sub>/k<sub>1</sub>)<sup>10/(T<sub>2</sub> − T<sub>1</sub>)</sup></div>
+
+        <h3>7.2. Phương trình Arrhenius</h3>
+        <div class="formula">k = A·e<sup>−E<sub>a</sub>/(RT)</sup></div>
+        <p>Lấy logarit tự nhiên:</p>
+        <div class="formula">ln k = ln A − E<sub>a</sub>/(RT)</div>
+        <p>Với hai nhiệt độ:</p>
+        <div class="formula">ln(k<sub>2</sub>/k<sub>1</sub>) = (E<sub>a</sub>/R)·(1/T<sub>1</sub> − 1/T<sub>2</sub>)</div>
+        <table>
+          <thead><tr><th>Ký hiệu</th><th>Ý nghĩa</th></tr></thead>
+          <tbody>
+            <tr><td>A</td><td>Thừa số Arrhenius, đặc trưng cho phản ứng.</td></tr>
+            <tr><td>R</td><td>Hằng số khí: 8,314 J·mol<sup>−1</sup>·K<sup>−1</sup> hoặc 1,987 cal·mol<sup>−1</sup>·K<sup>−1</sup>.</td></tr>
+            <tr><td>e</td><td>Cơ số logarit tự nhiên, e ≈ 2,7183.</td></tr>
+            <tr><td>T</td><td>Nhiệt độ tuyệt đối tính bằng K.</td></tr>
+            <tr><td>E<sub>a</sub></td><td>Năng lượng hoạt hóa.</td></tr>
+          </tbody>
+        </table>
+
+        <h3>7.3. Năng lượng hoạt hóa</h3>
+        <p>Năng lượng hoạt hóa là phần năng lượng dư so với năng lượng trung bình của các tiểu phân tham gia mà chúng cần có để phản ứng xảy ra.</p>
+        <div class="callout"><strong>Hệ quả:</strong> E<sub>a</sub> càng lớn, tốc độ phản ứng càng nhạy với nhiệt độ. Chất xúc tác làm phản ứng nhanh hơn bằng cách tạo cơ chế mới có E<sub>a</sub> nhỏ hơn; xúc tác không bị tiêu hao về bản chất và không làm thay đổi vị trí cân bằng.</div>
+      </section>
+
+      <section id="method">
+        <h2>8. Quy trình giải bài động hóa học <a class="back" href="#overview">↑ đầu trang</a></h2>
+        <ol>
+          <li><b>Viết và cân bằng phương trình phản ứng.</b> Xác định chất phản ứng, sản phẩm và hệ số tỉ lượng.</li>
+          <li><b>Đổi dữ kiện về cùng hệ đơn vị:</b> nồng độ mol·L<sup>−1</sup>, thời gian s hoặc min, nhiệt độ K khi dùng Arrhenius.</li>
+          <li><b>Chọn biểu thức tốc độ:</b> tốc độ trung bình, tốc độ tức thời hoặc phương trình động học.</li>
+          <li><b>Xác định bậc:</b> dùng dữ kiện thực nghiệm; khi giữ [B] không đổi, so sánh tốc độ theo [A].</li>
+          <li><b>Tính k ở nhiều thời điểm</b> nếu đề cho bảng [A] theo t; k gần như không đổi là dấu hiệu bậc đã chọn đúng.</li>
+          <li><b>Tính bán hủy:</b> dùng công thức đúng với bậc phản ứng, không mặc định t<sub>1/2</sub> = 0,693/k cho mọi phản ứng.</li>
+          <li><b>Đổi nhiệt độ:</b> dùng Van’t Hoff khi đề cho hệ số γ; dùng Arrhenius khi đề cho E<sub>a</sub> hoặc cần tính E<sub>a</sub>.</li>
+        </ol>
+        <div class="callout warning"><strong>Ba lỗi hay gặp:</strong> quên chia tốc độ cho hệ số tỉ lượng; dùng °C trong số hạng 1/T; nhầm bậc phản ứng với hệ số phương trình hóa học.</div>
+      </section>
+
+      <section id="review">
+        <h2>Tự kiểm tra sau khi học <a class="back" href="#overview">↑ đầu trang</a></h2>
+        <p>Hãy thử trả lời mà không xem lại phần trên:</p>
+        <ul class="checklist">
+          <li>Phân biệt tốc độ trung bình và tức thời.</li>
+          <li>Viết tốc độ chuẩn hóa cho aA + bB → cC + dD.</li>
+          <li>Nêu ý nghĩa của hằng số tốc độ k.</li>
+          <li>Phân biệt bậc riêng phần và bậc toàn phần.</li>
+          <li>Viết phương trình tích phân bậc nhất.</li>
+          <li>So sánh t<sub>1/2</sub> của bậc nhất và bậc hai.</li>
+          <li>Giải thích vì sao bậc không luôn bằng hệ số tỉ lượng.</li>
+          <li>Nêu vai trò của giai đoạn chậm nhất.</li>
+          <li>Viết phương trình Arrhenius dạng một nhiệt độ.</li>
+          <li>Đổi đúng nhiệt độ °C sang K.</li>
+        </ul>
+        <div class="callout success"><strong>Tóm tắt một dòng:</strong> Nồng độ quyết định tốc độ qua phương trình động học; nhiệt độ tác động lên tốc độ thông qua số va chạm có hiệu quả và năng lượng hoạt hóa; cơ chế quyết định bậc thực nghiệm.</div>
+      </section>
+
+      <footer>Biên tập từ tài liệu “Chuyên đề 6. Động hóa học” – Phần I: Hệ thống lý thuyết cơ bản và nâng cao.</footer>
+    </main>
+  </div>
+  <script>
+    (() => {
+      const sections = document.querySelectorAll('main > section');
+
+      sections.forEach((section) => {
+        const heading = section.querySelector('h2');
+        if (!heading || !section.id) return;
+
+        const button = document.createElement('button');
+        button.type = 'button';
+        button.className = 'print-btn';
+        button.textContent = '🖨 Xuất PDF bài này';
+        button.title = 'Mở hộp thoại in để lưu riêng mục này thành PDF';
+        button.addEventListener('click', () => printSection(section));
+        heading.prepend(button);
+      });
+
+      function printSection(section) {
+        document.body.classList.add('printing');
+        section.classList.add('print-target');
+
+        const cleanup = () => {
+          document.body.classList.remove('printing');
+          section.classList.remove('print-target');
+          window.removeEventListener('afterprint', cleanup);
+        };
+
+        window.addEventListener('afterprint', cleanup);
+        window.setTimeout(() => window.print(), 80);
+      }
+    })();
+  </script>
+</body>
+</html>
