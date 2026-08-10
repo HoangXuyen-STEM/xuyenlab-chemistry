@@ -2,15 +2,15 @@
 
 ## Phase status
 
-Partial
+Complete
 
-P0.1 and P0.2 are complete. P0.3 is published to GitHub and awaits only remote ruleset confirmation, so the P0 exit gate has not yet passed.
+P0.1, P0.2 and P0.3 are complete. The P0 exit gate has passed.
 
 ## Included task handoffs
 
 - `P0.1-codex.md` — complete: source inventory, manifest, ADRs and contracts.
 - `P0.2-owner.md` — complete: accounts, development storage and Neon environment separation exist.
-- `P0.3-codex.md` — partial: Git/collaboration foundation is published; owner-side `main` ruleset remains.
+- `P0.3-codex.md` — complete: Git/collaboration foundation is published and `main` is protected.
 
 ## Current durable outputs
 
@@ -31,7 +31,7 @@ P0.1 and P0.2 are complete. P0.3 is published to GitHub and awaits only remote r
 
 ## Open blockers for P0 exit
 
-1. The GitHub `main` ruleset has not yet been enabled by the owner.
+None.
 
 Non-blocking for P1 but blocking affected content publication: five source decisions in `docs/source-inventory.md` remain open.
 
@@ -44,4 +44,4 @@ Non-blocking for P1 but blocking affected content publication: five source decis
 
 ## Exit-gate result
 
-Not passed. Do not assign parallel P1 implementation until the repository protection decision is recorded.
+Passed. P1.1 may start. P1 parallel tasks must still wait for the P1.1 foundation commit and contracts described in the project plan.
