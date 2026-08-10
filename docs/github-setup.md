@@ -10,6 +10,13 @@ P0.3 configures the local remote but does not push or mutate GitHub settings wit
 
 ## Ruleset for `main`
 
+Current state reported by the project owner on 2026-08-10:
+
+- ruleset `protect-main`: Active;
+- required pull request: enabled;
+- required approvals: 0;
+- required status checks: not enabled yet; add stable P1 CI checks later.
+
 After the first push, open GitHub repository:
 
 1. **Settings → Rules → Rulesets → New branch ruleset**.
@@ -38,4 +45,3 @@ Do not require a check that does not yet exist; that can make `main` impossible 
 Git LFS is not installed in the current environment. The initial 127.47 MiB source set can be committed as ordinary Git binary files because the largest file is about 17 MiB. Avoid committing repeated renamed versions.
 
 Before a future bulk replacement/version cycle, reassess Git LFS. Enabling it later changes clone/pull requirements for every collaborator, so it must be an explicit ADR rather than an incidental agent action.
-
