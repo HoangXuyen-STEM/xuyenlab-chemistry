@@ -28,6 +28,7 @@ P0.1, P0.2 and P0.3 are complete. The P0 exit gate has passed.
 - Non-secret cloud resource state is recorded in `docs/cloud-resources.md`.
 - Local root commit `bf149ee` contains the source set and P0 foundation.
 - Remote `origin/main` was verified at `64f74a72e993507270b9464875c13aa4eb001137`.
+- P0 completion PR `#1` was merged into `main` at `da7b636` before P1.1 began.
 
 ## Open blockers for P0 exit
 
