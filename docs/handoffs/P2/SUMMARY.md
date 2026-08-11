@@ -2,11 +2,8 @@
 
 ## Status and verdict
 
-**READY FOR P3 — strategy B (hybrid) is approved by the project owner.**
-
-Phase closure remains subject to the project owner/reviewer approving this summary, as
-required by `AGENTS.md`. The P3 start condition in the plan (a recorded P2 A/B/C
-decision) is satisfied.
+**COMPLETE — READY FOR P3.** Strategy B (hybrid) and this P2 summary were approved
+by the project owner on 2026-08-11.
 
 ## Objective
 
