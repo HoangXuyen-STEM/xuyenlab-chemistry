@@ -1,0 +1,48 @@
+.figure {
+  margin: var(--space-6) 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.imgWrapper {
+  width: 100%;
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-bg-subtle);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  padding: var(--space-3);
+}
+
+.caption {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+  text-align: center;
+  font-style: italic;
+}
+
+@media print {
+  .figure {
+    break-inside: avoid;
+    max-width: 100%;
+  }
+
+  .imgWrapper {
+    border: 1px solid var(--color-border);
+  }
+
+  .img {
+    max-width: 100%;
+    max-height: 16cm;
+  }
+}

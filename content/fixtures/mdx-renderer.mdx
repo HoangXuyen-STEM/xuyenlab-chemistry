@@ -1,0 +1,121 @@
+# Fixture kiểm tra renderer MDX
+
+Chuyên đề 6: Động hóa học — Renderer demonstration (không xuất bản)
+
+## 1. Toán học nội tuyến (KaTeX inline)
+
+Năng lượng tự do Gibbs: $\Delta G = \Delta H - T\Delta S$.
+
+Phương trình Arrhenius: $k = A e^{-E_a / RT}$.
+
+Tốc độ phản ứng bậc hai: $v = k[\text{A}][\text{B}]$.
+
+## 2. Toán học hiển thị (KaTeX display)
+
+Hằng số cân bằng:
+
+$$K_c = \frac{[\text{C}]^c[\text{D}]^d}{[\text{A}]^a[\text{B}]^b}$$
+
+Phương trình van't Hoff:
+
+$$\ln K = -\frac{\Delta H^\circ}{RT} + \frac{\Delta S^\circ}{R}$$
+
+## 3. Ký hiệu hóa học (mhchem)
+
+Phân tử nước: $\ce{H2O}$.
+
+Phản ứng tổng hợp nước: $\ce{2H2 + O2 -> 2H2O}$.
+
+Phản ứng cân bằng:
+
+$$\ce{N2(g) + 3H2(g) <=> 2NH3(g)}$$
+
+## 4. Bảng dữ liệu (DataTable)
+
+<DataTable caption="Bảng 1: Hằng số tốc độ phản ứng theo nhiệt độ">
+  <thead>
+    <tr>
+      <th>Nhiệt độ (°C)</th>
+      <th>k (L·mol⁻¹·s⁻¹)</th>
+      <th>ln k</th>
+      <th>1/T (K⁻¹)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>25</td>
+      <td>2.0 × 10⁻³</td>
+      <td>−6.21</td>
+      <td>3.354 × 10⁻³</td>
+    </tr>
+    <tr>
+      <td>35</td>
+      <td>3.8 × 10⁻³</td>
+      <td>−5.57</td>
+      <td>3.247 × 10⁻³</td>
+    </tr>
+    <tr>
+      <td>45</td>
+      <td>7.1 × 10⁻³</td>
+      <td>−4.95</td>
+      <td>3.145 × 10⁻³</td>
+    </tr>
+    <tr>
+      <td>55</td>
+      <td>1.3 × 10⁻²</td>
+      <td>−4.34</td>
+      <td>3.049 × 10⁻³</td>
+    </tr>
+  </tbody>
+</DataTable>
+
+## 5. Hình hóa học (ChemFigure)
+
+<ChemFigure
+  src="/fixtures/chem-diagram-placeholder.svg"
+  alt="Sơ đồ năng lượng của phản ứng tổng hợp amoniac"
+  caption="Hình 1: Giản đồ năng lượng phản ứng tổng hợp NH₃ (nguồn mẫu fixture)"
+  sourceId="fixture-placeholder-001"
+/>
+
+## 6. Ví dụ có gợi ý và lời giải (Example + Hint + Solution)
+
+<Example title="Ví dụ 1: Tính hằng số tốc độ phản ứng">
+
+Cho phản ứng $\ce{A + B -> C}$ có phương trình tốc độ $v = k[\text{A}][\text{B}]$.
+
+<Hint>
+
+Thay trực tiếp vào phương trình tốc độ:
+
+$$k = \frac{v_0}{[\text{A}]_0[\text{B}]_0}$$
+
+</Hint>
+
+<Solution>
+
+$$k = \frac{4{,}0 \times 10^{-4}}{(0{,}10)(0{,}20)} = 2{,}0 \times 10^{-2}\ \text{L·mol}^{-1}\text{s}^{-1}$$
+
+</Solution>
+
+</Example>
+
+## 7. Hộp chú thích (Callout)
+
+<Callout type="definition" title="Năng lượng hoạt hóa (Eₐ)">
+
+Năng lượng tối thiểu mà các tiểu phân va chạm cần có để phản ứng xảy ra.
+
+</Callout>
+
+<Callout type="note" title="Quy tắc Van't Hoff">
+
+Tốc độ phản ứng tăng xấp xỉ 2–4 lần khi nhiệt độ tăng thêm 10 °C.
+
+</Callout>
+
+<Callout type="warning">
+
+Phương trình Arrhenius chỉ áp dụng trong vùng nhiệt độ giới hạn.
+
+</Callout>
