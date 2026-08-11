@@ -1,7 +1,8 @@
 # Phase P2 conversion spike report
 
-- Status: Draft — converter measurements and LibreOffice runtime complete; renderer,
-  regression and owner comparison gates remain open.
+- Status: Decision recorded — converter, renderer and regression gates are complete;
+  project owner selected strategy B on 2026-08-11. Individual sample-by-sample review
+  records are not captured in this report.
 - Date: 2026-08-11
 - Scope: Topic 6 and Topic 8 canonical DOCX candidates plus their derivative HTML
   fidelity references.
@@ -132,9 +133,11 @@ the Python CLI remains pending integration.
 | B — hybrid      | Semantic prose/headings/tables plus reviewed image fallbacks preserves searchability while bounding formula/object work. | **Provisional recommendation.**       |
 | C — image-first | Likely to preserve appearance for exceptional blocks but damages accessibility, responsive layout and search.            | Keep only as an exception fallback.   |
 
-No strategy is approved yet. The project owner must complete the sample comparison,
-and the integration owner must review P2.2/P2.3 evidence before recording the Phase 2
-A/B/C decision.
+**Approved strategy: B — hybrid.** The project owner selected B on 2026-08-11:
+text/headings/tables may be converted semantically; complex formulas, objects and
+figures require reviewed image fallbacks with alt text/captions. The source selected
+for each later draft remains subject to provenance review; the current HTML files are
+derivative references and do not authorize automatic publication.
 
 ## Owner comparison checklist (P2.4)
 
@@ -155,8 +158,11 @@ publication.
 
 ## Open gates
 
-- P2.2 renderer and print preview: in progress.
-- P2.3 schema/regression suite: in progress.
+- P2.2 renderer and print preview: PASS (P2.2 handoff; production build verified in
+  its task worktree).
+- P2.3 schema/regression suite: PASS (including the T06-S02 real-converter black-box
+  regression added during integration).
 - Prototype report validation against the P2.3 schema: PASS for all four pilot reports.
 - Docker/LibreOffice image build and headless Topic 6 PDF smoke test: PASS.
-- Owner 10–20-page comparison and A/B/C approval: pending.
+- Owner A/B/C approval: PASS — B selected on 2026-08-11. The per-sample comparison
+  record is **UNVERIFIED** because it was not supplied to the integration owner.
