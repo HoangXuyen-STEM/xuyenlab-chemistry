@@ -1,0 +1,139 @@
+{
+  "fixtureId": "topic-06-hybrid-sample",
+  "source": {
+    "sourceId": "T06-S01",
+    "sourcePath": "6. Chuyen de 6. Dong hoa hoc.ok.docx",
+    "section": "Phan I > I. Toc do phan ung"
+  },
+  "blocks": [
+    {
+      "id": "T06-S01:h0001",
+      "kind": "heading",
+      "sourceLocator": {
+        "sectionPath": "Phan I > I. Toc do phan ung",
+        "blockOrder": 1,
+        "pathHint": "word/document.xml#body/p[1]",
+        "pageHint": 2,
+        "textAnchor": "I. Toc do phan ung"
+      },
+      "expected": {
+        "outcome": "semantic",
+        "semanticKind": "heading"
+      }
+    },
+    {
+      "id": "T06-S01:p0002",
+      "kind": "paragraph",
+      "sourceLocator": {
+        "sectionPath": "Phan I > I. Toc do phan ung",
+        "blockOrder": 2,
+        "pathHint": "word/document.xml#body/p[2]",
+        "pageHint": 2,
+        "textAnchor": "Toc do phan ung phu thuoc vao nong do va nhiet do."
+      },
+      "expected": {
+        "outcome": "semantic",
+        "semanticKind": "paragraph"
+      }
+    },
+    {
+      "id": "T06-S01:f0003",
+      "kind": "formula",
+      "sourceLocator": {
+        "sectionPath": "Phan I > I. Toc do phan ung",
+        "blockOrder": 3,
+        "pathHint": "word/document.xml#body/p[3]",
+        "pageHint": 2,
+        "textAnchor": "v = k[A]^m[B]^n"
+      },
+      "expected": {
+        "outcome": "semantic",
+        "semanticKind": "math"
+      }
+    },
+    {
+      "id": "T06-S01:t0004",
+      "kind": "table",
+      "sourceLocator": {
+        "sectionPath": "Phan I > I. Toc do phan ung",
+        "blockOrder": 4,
+        "pathHint": "word/document.xml#body/tbl[1]",
+        "pageHint": 3,
+        "textAnchor": "Bang 1. So lieu thi nghiem"
+      },
+      "expected": {
+        "outcome": "semantic",
+        "semanticKind": "datatable"
+      }
+    },
+    {
+      "id": "T06-S01:d0005",
+      "kind": "drawing",
+      "sourceLocator": {
+        "sectionPath": "Phan I > I. Toc do phan ung",
+        "blockOrder": 5,
+        "pathHint": "word/document.xml#body/drawing[1]",
+        "pageHint": 3,
+        "textAnchor": "Mo phong va cham phan tu"
+      },
+      "expected": {
+        "outcome": "fallback",
+        "severity": "warning",
+        "issueCode": "UNSUPPORTED_DRAWING_OBJECT",
+        "message": "Vector drawing rasterized to a ChemFigure fallback.",
+        "fallback": {
+          "strategy": "chemfigure",
+          "reason": "Vector drawings exceed the semantic converter scope in hybrid mode.",
+          "assetPath": "staging/T06-S01/d0005.png",
+          "altText": "Mo phong va cham giua cac phan tu",
+          "caption": "Hinh 1. Mo phong va cham phan tu"
+        }
+      }
+    },
+    {
+      "id": "T06-S01:s0006",
+      "kind": "smartArt",
+      "sourceLocator": {
+        "sectionPath": "Phan I > I. Toc do phan ung",
+        "blockOrder": 6,
+        "pathHint": "word/document.xml#body/drawing[2]",
+        "pageHint": 4,
+        "textAnchor": "So do nang luong hoat hoa"
+      },
+      "expected": {
+        "outcome": "fallback",
+        "severity": "warning",
+        "issueCode": "UNSUPPORTED_SMARTART_OBJECT",
+        "message": "SmartArt flattened to an image fallback for hybrid conversion.",
+        "fallback": {
+          "strategy": "chemfigure",
+          "reason": "SmartArt relationships are not preserved semantically by the prototype.",
+          "assetPath": "staging/T06-S01/s0006.png",
+          "altText": "So do nang luong hoat hoa cua phan ung",
+          "caption": "Hinh 2. So do nang luong hoat hoa"
+        }
+      }
+    },
+    {
+      "id": "T06-S01:e0007",
+      "kind": "embeddedObject",
+      "sourceLocator": {
+        "sectionPath": "Phan I > I. Toc do phan ung",
+        "blockOrder": 7,
+        "pathHint": "word/document.xml#body/object[1]",
+        "pageHint": 4,
+        "textAnchor": "Bang tinh du lieu nhung"
+      },
+      "expected": {
+        "outcome": "omitted",
+        "severity": "blocking",
+        "issueCode": "UNSUPPORTED_EMBEDDED_OBJECT",
+        "message": "Embedded spreadsheet omitted; no safe fallback is available.",
+        "fallback": {
+          "strategy": "none",
+          "reason": "The OLE spreadsheet preview was not extracted by the prototype."
+        }
+      }
+    }
+  ]
+}
