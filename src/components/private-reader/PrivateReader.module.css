@@ -1,0 +1,183 @@
+.reader {
+  max-width: var(--content-width-wide);
+  margin: 0 auto;
+  padding: var(--space-6) var(--space-4);
+}
+.stagingNotice {
+  margin: calc(var(--space-4) * -1) calc(var(--space-4) * -1) var(--space-6);
+  padding: var(--space-3) var(--space-4);
+  background: var(--color-warning-subtle);
+  color: var(--color-warning);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+}
+.breadcrumbs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  color: var(--color-text-muted);
+  font-size: var(--font-size-sm);
+}
+.breadcrumbs a,
+.toc a {
+  color: var(--color-brand);
+}
+.lessonHeader {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: start;
+  justify-content: space-between;
+  gap: var(--space-4);
+  padding: var(--space-6) 0;
+  border-bottom: var(--border-width-default) solid var(--color-border);
+}
+.lessonHeader h1 {
+  max-width: 24ch;
+  margin: var(--space-2) 0;
+  font-size: var(--font-size-3xl);
+  line-height: 1.24;
+}
+.lessonHeader p {
+  max-width: var(--content-width-prose);
+  color: var(--color-text-muted);
+}
+.eyebrow {
+  color: var(--color-brand);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+}
+.readerGrid {
+  display: grid;
+  gap: var(--space-8);
+  margin-top: var(--space-8);
+}
+.lessonContent {
+  max-width: var(--content-width-prose);
+  font-size: var(--font-size-base);
+  line-height: 1.625;
+}
+.lessonContent h2 {
+  margin-top: var(--space-10);
+  font-size: var(--font-size-2xl);
+}
+.toc {
+  padding: var(--space-4);
+  border: var(--border-width-default) solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+}
+.toc h2 {
+  margin-top: 0;
+  font-size: var(--font-size-xl);
+}
+.toc ol {
+  padding-left: var(--space-5);
+}
+.toc li + li {
+  margin-top: var(--space-2);
+}
+.controls {
+  margin-top: var(--space-6);
+  padding-top: var(--space-4);
+  border-top: var(--border-width-default) solid var(--color-border);
+}
+.progressLabel {
+  margin: 0 0 var(--space-2);
+  font-weight: var(--font-weight-semibold);
+}
+.progressTrack {
+  height: var(--space-2);
+  overflow: hidden;
+  border-radius: var(--radius-full);
+  background: var(--color-border);
+}
+.progressTrack span {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: var(--color-brand);
+  transition: width var(--duration-default) var(--easing-standard);
+}
+.controlButtons {
+  display: grid;
+  gap: var(--space-2);
+  margin-top: var(--space-4);
+}
+.primaryButton,
+.secondaryButton {
+  min-height: 44px;
+  padding: var(--space-2) var(--space-3);
+  border: var(--border-width-default) solid var(--color-brand);
+  border-radius: var(--radius-md);
+  font: inherit;
+  font-weight: var(--font-weight-semibold);
+  cursor: pointer;
+}
+.primaryButton {
+  background: var(--color-brand);
+  color: var(--color-on-brand);
+}
+.secondaryButton {
+  background: var(--color-surface);
+  color: var(--color-brand);
+}
+.primaryButton:disabled,
+.secondaryButton:disabled {
+  cursor: not-allowed;
+  opacity: 0.65;
+}
+.primaryButton:focus-visible,
+.secondaryButton:focus-visible,
+.toc a:focus-visible,
+.breadcrumbs a:focus-visible {
+  outline: var(--border-width-focus) solid var(--color-focus-ring);
+  outline-offset: var(--space-1);
+}
+.statusMessage,
+.pdfMessage {
+  margin-bottom: 0;
+  color: var(--color-text-muted);
+  font-size: var(--font-size-sm);
+}
+.lessonNav {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-3);
+  margin-top: var(--space-10);
+  color: var(--color-text-muted);
+  font-size: var(--font-size-sm);
+}
+@media (min-width: 1024px) {
+  .readerGrid {
+    grid-template-columns: minmax(0, var(--content-width-prose)) minmax(
+        15rem,
+        1fr
+      );
+  }
+  .toc {
+    position: sticky;
+    top: var(--space-4);
+    height: fit-content;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .progressTrack span {
+    transition: none;
+  }
+}
+@media print {
+  .stagingNotice,
+  .breadcrumbs,
+  .toc,
+  .lessonNav,
+  .lessonHeader button {
+    display: none;
+  }
+  .reader {
+    max-width: none;
+    padding: 0;
+  }
+  .readerGrid {
+    display: block;
+  }
+}
