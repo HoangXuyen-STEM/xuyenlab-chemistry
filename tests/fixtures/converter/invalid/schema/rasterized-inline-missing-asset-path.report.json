@@ -1,0 +1,51 @@
+{
+  "$schema": "../../../../scripts/import-docx/failure-report.schema.json",
+  "reportVersion": "1.0.0",
+  "fixtureId": "topic-08-rerun-sample",
+  "source": {
+    "sourceId": "T08-S01",
+    "sourcePath": "8.1. Chuyen de 8-  Dung dich can bang hoa hoc- phan I & II OK (1).docx",
+    "section": "Phan I > II. Can bang hoa hoc"
+  },
+  "generator": {
+    "name": "phase-2-docx-converter",
+    "version": "0.0.0-fixture",
+    "strategy": "hybrid"
+  },
+  "run": {
+    "runId": "topic-08-rerun-sample-run-001",
+    "runOrdinal": 1,
+    "generatedAt": "2026-08-11T09:30:00.000Z",
+    "sourceDigest": "sha256:2222222222222222222222222222222222222222222222222222222222222222",
+    "rerunOf": null
+  },
+  "summary": {
+    "totalBlocks": 1,
+    "semanticBlockCount": 0,
+    "fallbackBlockCount": 1,
+    "omittedBlockCount": 0,
+    "issueCount": 1,
+    "warningCount": 1,
+    "blockingCount": 0
+  },
+  "blocks": [
+    {
+      "id": "T08-S01:c0005",
+      "kind": "chart",
+      "sourceLocator": {
+        "sectionPath": "Phan I > II. Can bang hoa hoc",
+        "blockOrder": 5,
+        "pathHint": "word/document.xml#body/chart[1]"
+      },
+      "outcome": "fallback",
+      "severity": "warning",
+      "issueCode": "UNSUPPORTED_CHART_OBJECT",
+      "message": "Chart rasterized inline for hybrid conversion.",
+      "fallback": {
+        "strategy": "rasterized-inline",
+        "reason": "Chart XML is preserved as an image in the current prototype.",
+        "altText": "Do thi su thay doi nong do theo thoi gian"
+      }
+    }
+  ]
+}

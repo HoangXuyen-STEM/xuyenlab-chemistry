@@ -1,0 +1,52 @@
+{
+  "$schema": "../../../../scripts/import-docx/failure-report.schema.json",
+  "reportVersion": "1.0.0",
+  "fixtureId": "topic-06-hybrid-sample",
+  "source": {
+    "sourceId": "T06-S01",
+    "sourcePath": "6. Chuyen de 6. Dong hoa hoc.ok.docx",
+    "section": "Phan I > I. Toc do phan ung"
+  },
+  "generator": {
+    "name": "phase-2-docx-converter",
+    "version": "0.0.0-fixture",
+    "strategy": "hybrid"
+  },
+  "run": {
+    "runId": "topic-06-hybrid-sample-run-001",
+    "runOrdinal": 1,
+    "generatedAt": "2026-08-11T09:00:00.000Z",
+    "sourceDigest": "sha256:1111111111111111111111111111111111111111111111111111111111111111",
+    "rerunOf": null
+  },
+  "summary": {
+    "totalBlocks": 1,
+    "semanticBlockCount": 0,
+    "fallbackBlockCount": 0,
+    "omittedBlockCount": 1,
+    "issueCount": 1,
+    "warningCount": 0,
+    "blockingCount": 1
+  },
+  "blocks": [
+    {
+      "id": "T06-S01:e0007",
+      "kind": "embeddedObject",
+      "sourceLocator": {
+        "sectionPath": "Phan I > I. Toc do phan ung",
+        "blockOrder": 7,
+        "pathHint": "word/document.xml#body/object[1]"
+      },
+      "outcome": "omitted",
+      "severity": "blocking",
+      "issueCode": "UNSUPPORTED_EMBEDDED_OBJECT",
+      "message": "Embedded spreadsheet omitted; no safe fallback is available.",
+      "fallback": {
+        "strategy": "chemfigure",
+        "reason": "This should be rejected because omitted objects cannot claim an image asset.",
+        "assetPath": "staging/T06-S01/e0007.png",
+        "altText": "Bang tinh du lieu nhung"
+      }
+    }
+  ]
+}
