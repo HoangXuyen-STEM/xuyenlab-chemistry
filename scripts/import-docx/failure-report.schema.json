@@ -1,0 +1,396 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://raw.githubusercontent.com/HoangXuyen-STEM/xuyenlab-chemistry/main/scripts/import-docx/failure-report.schema.json",
+  "title": "XuyenLab Chemistry DOCX converter failure report",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "reportVersion",
+    "fixtureId",
+    "source",
+    "generator",
+    "run",
+    "summary",
+    "blocks"
+  ],
+  "properties": {
+    "$schema": {
+      "type": "string",
+      "minLength": 1
+    },
+    "reportVersion": {
+      "const": "1.0.0"
+    },
+    "fixtureId": {
+      "$ref": "#/$defs/fixtureId"
+    },
+    "source": {
+      "$ref": "#/$defs/sourceReference"
+    },
+    "generator": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name", "version", "strategy"],
+      "properties": {
+        "name": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "version": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "strategy": {
+          "enum": ["semantic", "hybrid", "image-first"]
+        }
+      }
+    },
+    "run": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "runId",
+        "runOrdinal",
+        "generatedAt",
+        "sourceDigest",
+        "rerunOf"
+      ],
+      "properties": {
+        "runId": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "runOrdinal": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "generatedAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "sourceDigest": {
+          "type": "string",
+          "pattern": "^sha256:[a-f0-9]{64}$"
+        },
+        "rerunOf": {
+          "type": ["string", "null"],
+          "minLength": 1
+        }
+      }
+    },
+    "summary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "totalBlocks",
+        "semanticBlockCount",
+        "fallbackBlockCount",
+        "omittedBlockCount",
+        "issueCount",
+        "warningCount",
+        "blockingCount"
+      ],
+      "properties": {
+        "totalBlocks": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "semanticBlockCount": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "fallbackBlockCount": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "omittedBlockCount": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "issueCount": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "warningCount": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "blockingCount": {
+          "type": "integer",
+          "minimum": 0
+        }
+      }
+    },
+    "blocks": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/reportBlock"
+      }
+    }
+  },
+  "$defs": {
+    "nonEmptyString": {
+      "type": "string",
+      "minLength": 1
+    },
+    "fixtureId": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+    },
+    "sourceId": {
+      "type": "string",
+      "pattern": "^T\\d{2}-S\\d{2}$"
+    },
+    "sourcePath": {
+      "type": "string",
+      "pattern": "^[^/].+"
+    },
+    "sourceReference": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["sourceId", "sourcePath", "section"],
+      "properties": {
+        "sourceId": {
+          "$ref": "#/$defs/sourceId"
+        },
+        "sourcePath": {
+          "$ref": "#/$defs/sourcePath"
+        },
+        "section": {
+          "$ref": "#/$defs/nonEmptyString"
+        }
+      }
+    },
+    "sourceLocator": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["sectionPath", "blockOrder", "pathHint"],
+      "properties": {
+        "sectionPath": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "blockOrder": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "pathHint": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "pageHint": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "textAnchor": {
+          "$ref": "#/$defs/nonEmptyString"
+        }
+      }
+    },
+    "fallbackMetadata": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["strategy", "reason"],
+      "properties": {
+        "strategy": {
+          "enum": [
+            "none",
+            "chemfigure",
+            "rasterized-inline",
+            "datatable-html",
+            "manual-review"
+          ]
+        },
+        "reason": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "assetPath": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "altText": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "caption": {
+          "$ref": "#/$defs/nonEmptyString"
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "required": ["strategy"],
+            "properties": {
+              "strategy": {
+                "enum": ["chemfigure", "rasterized-inline"]
+              }
+            }
+          },
+          "then": {
+            "required": ["assetPath", "altText"]
+          }
+        },
+        {
+          "if": {
+            "required": ["strategy"],
+            "properties": {
+              "strategy": {
+                "enum": ["datatable-html", "manual-review"]
+              }
+            }
+          },
+          "then": {
+            "not": {
+              "anyOf": [
+                {
+                  "required": ["assetPath"]
+                },
+                {
+                  "required": ["altText"]
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    "reportBlock": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "kind", "sourceLocator", "outcome"],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^T\\d{2}-S\\d{2}:[a-z]\\d{4}$"
+        },
+        "kind": {
+          "enum": [
+            "heading",
+            "paragraph",
+            "list",
+            "table",
+            "formula",
+            "image",
+            "drawing",
+            "chart",
+            "embeddedObject",
+            "smartArt",
+            "shape"
+          ]
+        },
+        "sourceLocator": {
+          "$ref": "#/$defs/sourceLocator"
+        },
+        "outcome": {
+          "enum": ["semantic", "fallback", "omitted"]
+        },
+        "semanticKind": {
+          "enum": [
+            "heading",
+            "paragraph",
+            "list",
+            "datatable",
+            "math",
+            "chemfigure"
+          ]
+        },
+        "severity": {
+          "enum": ["warning", "blocking"]
+        },
+        "issueCode": {
+          "type": "string",
+          "pattern": "^[A-Z0-9_]+$"
+        },
+        "message": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "fallback": {
+          "$ref": "#/$defs/fallbackMetadata"
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "outcome": {
+                "const": "semantic"
+              }
+            }
+          },
+          "then": {
+            "required": ["semanticKind"],
+            "not": {
+              "anyOf": [
+                {
+                  "required": ["severity"]
+                },
+                {
+                  "required": ["issueCode"]
+                },
+                {
+                  "required": ["message"]
+                },
+                {
+                  "required": ["fallback"]
+                }
+              ]
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "outcome": {
+                "const": "fallback"
+              }
+            }
+          },
+          "then": {
+            "required": ["severity", "issueCode", "message", "fallback"],
+            "properties": {
+              "fallback": {
+                "required": ["strategy", "reason"],
+                "properties": {
+                  "strategy": {
+                    "not": {
+                      "const": "none"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "outcome": {
+                "const": "omitted"
+              }
+            }
+          },
+          "then": {
+            "required": ["severity", "issueCode", "message", "fallback"],
+            "properties": {
+              "fallback": {
+                "required": ["strategy", "reason"],
+                "properties": {
+                  "strategy": {
+                    "const": "none"
+                  }
+                },
+                "not": {
+                  "anyOf": [
+                    {
+                      "required": ["assetPath"]
+                    },
+                    {
+                      "required": ["altText"]
+                    },
+                    {
+                      "required": ["caption"]
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,94 @@
+{
+  "fixtureId": "topic-08-rerun-sample",
+  "source": {
+    "sourceId": "T08-S01",
+    "sourcePath": "8.1. Chuyen de 8-  Dung dich can bang hoa hoc- phan I & II OK (1).docx",
+    "section": "Phan I > II. Can bang hoa hoc"
+  },
+  "blocks": [
+    {
+      "id": "T08-S01:h0001",
+      "kind": "heading",
+      "sourceLocator": {
+        "sectionPath": "Phan I > II. Can bang hoa hoc",
+        "blockOrder": 1,
+        "pathHint": "word/document.xml#body/p[11]",
+        "pageHint": 5,
+        "textAnchor": "II. Can bang hoa hoc"
+      },
+      "expected": {
+        "outcome": "semantic",
+        "semanticKind": "heading"
+      }
+    },
+    {
+      "id": "T08-S01:p0002",
+      "kind": "paragraph",
+      "sourceLocator": {
+        "sectionPath": "Phan I > II. Can bang hoa hoc",
+        "blockOrder": 2,
+        "pathHint": "word/document.xml#body/p[12]",
+        "pageHint": 5,
+        "textAnchor": "Can bang hoa hoc la trang thai dong."
+      },
+      "expected": {
+        "outcome": "semantic",
+        "semanticKind": "paragraph"
+      }
+    },
+    {
+      "id": "T08-S01:l0003",
+      "kind": "list",
+      "sourceLocator": {
+        "sectionPath": "Phan I > II. Can bang hoa hoc",
+        "blockOrder": 3,
+        "pathHint": "word/document.xml#body/p[13-15]",
+        "pageHint": 5,
+        "textAnchor": "Cac yeu to anh huong den can bang"
+      },
+      "expected": {
+        "outcome": "semantic",
+        "semanticKind": "list"
+      }
+    },
+    {
+      "id": "T08-S01:f0004",
+      "kind": "formula",
+      "sourceLocator": {
+        "sectionPath": "Phan I > II. Can bang hoa hoc",
+        "blockOrder": 4,
+        "pathHint": "word/document.xml#body/p[16]",
+        "pageHint": 6,
+        "textAnchor": "K = [C]^c[D]^d/[A]^a[B]^b"
+      },
+      "expected": {
+        "outcome": "semantic",
+        "semanticKind": "math"
+      }
+    },
+    {
+      "id": "T08-S01:c0005",
+      "kind": "chart",
+      "sourceLocator": {
+        "sectionPath": "Phan I > II. Can bang hoa hoc",
+        "blockOrder": 5,
+        "pathHint": "word/document.xml#body/chart[1]",
+        "pageHint": 6,
+        "textAnchor": "Do thi su thay doi nong do"
+      },
+      "expected": {
+        "outcome": "fallback",
+        "severity": "warning",
+        "issueCode": "UNSUPPORTED_CHART_OBJECT",
+        "message": "Chart rasterized inline for hybrid conversion.",
+        "fallback": {
+          "strategy": "rasterized-inline",
+          "reason": "Chart XML is preserved as an image in the current prototype.",
+          "assetPath": "staging/T08-S01/c0005.png",
+          "altText": "Do thi su thay doi nong do theo thoi gian",
+          "caption": "Hinh 1. Do thi can bang hoa hoc"
+        }
+      }
+    }
+  ]
+}
