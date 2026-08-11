@@ -5,13 +5,12 @@
 Integration review complete. The application foundation, CI workflow and UX
 documentation are present on `main`, and all local validation passed.
 
-**Verdict: NOT READY FOR P2**
+**Verdict: READY FOR P2**
 
-The P1 exit gate is not fully satisfied because the supplied Vercel deployment URL is
-protected by Vercel Authentication, so its fixture response remains **UNVERIFIED**.
-The public production alias serves the expected fixture. The project owner accepted
-the historical P1.2 sequencing deviation on 2026-08-11; that approval is recorded
-below.
+The P1 exit gate is satisfied. On 2026-08-11, a temporary Vercel Shareable Link
+returned HTTP 200 and served fixture content matching `src/app/page.tsx`; its access
+token is intentionally not recorded. The project owner also accepted the historical
+P1.2 sequencing deviation on 2026-08-11; that approval is recorded below.
 
 ## Phase objective
 
@@ -170,7 +169,7 @@ Integration validation was run on 2026-08-11 at `d67a712` using Node 24.19.0 and
 | Current GitHub Actions/branch-rule API recheck        | **UNVERIFIED** — local `gh` token is invalid and the API connection failed                                                |
 | Supplied Vercel deployment URL                        | PARTIAL — URL recorded; HTTP 302 redirects unauthenticated requests to Vercel SSO                                         |
 | Public Vercel production alias and fixture response   | PASS — `https://xuyenlab-chemistry.vercel.app/` returned HTTP 200 and its fixture text matched `src/app/page.tsx` exactly |
-| Exact protected preview fixture response              | **UNVERIFIED** — requires authenticated access or a temporary shareable URL                                               |
+| Protected Vercel fixture via Shareable Link           | PASS — HTTP 200; all three identifying fixture strings matched `src/app/page.tsx`; share token not retained               |
 
 `npm ci` continues to warn that the transitive `unrs-resolver` install script is not
 explicitly approved. The required install, lint, tests and build pass without granting
@@ -212,9 +211,10 @@ canonical selection/publication for the affected sources.
 - The owner supplied
   `https://xuyenlab-chemistry-75jefi0y5-do-hoang-xuyenxuyens-projects.vercel.app/`
   and reports that its fixture is visible. An unauthenticated request redirects to
-  Vercel SSO because Standard Protection is active, so the exact protected preview
-  response remains **UNVERIFIED**. The public production alias independently returned
-  HTTP 200 with fixture content matching `src/app/page.tsx`.
+  Vercel SSO because Standard Protection is active. A temporary Shareable Link later
+  returned HTTP 200 with fixture content matching `src/app/page.tsx`; its access token
+  was not recorded. The public production alias independently returned the same
+  expected fixture.
 - Current GitHub Actions and branch-protection state cannot be independently queried
   from this environment. P1.2 contains precise successful evidence for pull request
   #2, but current external state remains **UNVERIFIED**.
@@ -230,7 +230,6 @@ canonical selection/publication for the affected sources.
 
 ## Deferred work
 
-- Authenticated or shareable-URL verification of the exact protected Vercel preview.
 - Neon Auth SDK/session behavior, email/password/reset verification, Google OAuth
   callback and RLS/privileged-query strategy — Phase 3.
 - Database migrations, auth/database/R2 adapters and authorization tests — Phase 3.
@@ -242,36 +241,33 @@ canonical selection/publication for the affected sources.
 
 ## Phase-exit checklist
 
-| Criterion                                     | Status                                                | Evidence                                                 |
-| --------------------------------------------- | ----------------------------------------------------- | -------------------------------------------------------- |
-| P0 approved before P1                         | PASS                                                  | `docs/handoffs/P0/SUMMARY.md`                            |
-| P1.1 foundation and handoff complete          | PASS                                                  | Code plus `P1.1-codex.md`                                |
-| P1.2 CI and handoff complete                  | PASS                                                  | Workflow plus `P1.2-copilot.md`                          |
-| P1.3 UX docs and handoff complete             | PASS                                                  | Three docs plus `P1.3-claude.md`                         |
-| One reproducible setup command                | PASS on verified targets                              | `npm ci`                                                 |
-| One aggregate validation command              | PASS                                                  | `npm run verify`                                         |
-| Local production build and fixture smoke test | PASS                                                  | Integration validation above                             |
-| Pull-request validation green                 | PASS for PR #2 per P1.2; current state **UNVERIFIED** | `P1.2-copilot.md`                                        |
-| Protected `main` requires `Validate`          | PASS per P1.2; current state **UNVERIFIED**           | `P1.2-copilot.md`                                        |
-| Vercel preview serves fixture                 | **UNVERIFIED — BLOCKER**                              | URL exists but redirects external requests to Vercel SSO |
-| Public Vercel production alias serves fixture | PASS                                                  | HTTP 200; response matches `src/app/page.tsx`            |
-| Scope/contract changes approved               | PASS — none introduced                                | P1 Git diff                                              |
-| Plan deviations documented and approved       | PASS                                                  | Owner accepted P1.2 sequencing deviation on 2026-08-11   |
-| P1 integration summary exists                 | PASS                                                  | This file                                                |
+| Criterion                                     | Status                                                | Evidence                                               |
+| --------------------------------------------- | ----------------------------------------------------- | ------------------------------------------------------ |
+| P0 approved before P1                         | PASS                                                  | `docs/handoffs/P0/SUMMARY.md`                          |
+| P1.1 foundation and handoff complete          | PASS                                                  | Code plus `P1.1-codex.md`                              |
+| P1.2 CI and handoff complete                  | PASS                                                  | Workflow plus `P1.2-copilot.md`                        |
+| P1.3 UX docs and handoff complete             | PASS                                                  | Three docs plus `P1.3-claude.md`                       |
+| One reproducible setup command                | PASS on verified targets                              | `npm ci`                                               |
+| One aggregate validation command              | PASS                                                  | `npm run verify`                                       |
+| Local production build and fixture smoke test | PASS                                                  | Integration validation above                           |
+| Pull-request validation green                 | PASS for PR #2 per P1.2; current state **UNVERIFIED** | `P1.2-copilot.md`                                      |
+| Protected `main` requires `Validate`          | PASS per P1.2; current state **UNVERIFIED**           | `P1.2-copilot.md`                                      |
+| Vercel preview serves fixture                 | PASS                                                  | Shareable Link returned HTTP 200 and expected fixture  |
+| Public Vercel production alias serves fixture | PASS                                                  | HTTP 200; response matches `src/app/page.tsx`          |
+| Scope/contract changes approved               | PASS — none introduced                                | P1 Git diff                                            |
+| Plan deviations documented and approved       | PASS                                                  | Owner accepted P1.2 sequencing deviation on 2026-08-11 |
+| P1 integration summary exists                 | PASS                                                  | This file                                              |
 
 ## Blockers to clear
 
-1. Project owner provides temporary authenticated access to the supplied preview via
-   a Vercel Shareable Link, or temporarily disables Vercel Authentication while the
-   integration owner verifies the fixture. Any share token must not be committed.
-
-After this blocker is cleared, the integration owner must recheck the affected rows and
-update the verdict. No new application feature is required.
+None.
 
 ## Explicit verdict
 
-**NOT READY FOR P2**
+**READY FOR P2**
 
-Local code quality, buildability and the public Vercel production fixture satisfy the
-technical portion of P1. The full phase exit gate has not passed because the exact
-protected preview response cannot be independently inspected without authentication.
+P1 satisfies its frozen exit criteria: reproducible setup and validation commands,
+green reported pull-request validation, a protected Vercel fixture verified through a
+temporary Shareable Link, complete task handoffs and this integration summary. The
+remaining open questions and known risks are documented and do not block the bounded
+P2 conversion spike.
