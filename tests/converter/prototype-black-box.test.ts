@@ -73,6 +73,12 @@ test("runs prototype.py against the manifest-backed T06-S02 HTML pilot", () => {
     expect(listBlocks).toHaveLength(26);
     expect(semanticListBlocks).toHaveLength(26);
     expect(mdx).toContain("H<sub>2</sub>O<sub>2</sub>");
+    expect(mdx).toContain(
+      '<DataTable caption="Bảng trích từ nguồn HTML">\n\n<tbody>',
+    );
+    expect(mdx).not.toContain(
+      '<DataTable caption="Bảng trích từ nguồn HTML">\n\n|',
+    );
 
     const secondRun = runPrototype(tempRoot);
 
