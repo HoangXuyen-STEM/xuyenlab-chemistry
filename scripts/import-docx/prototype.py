@@ -277,7 +277,9 @@ class PilotHtmlParser(HTMLParser):
                 )
                 self.blocks.append(
                     '<DataTable caption="Bảng trích từ nguồn HTML">\n\n'
-                    f"{mdx_text(summary) or 'Bảng cần đối chiếu thủ công.'}\n\n"
+                    "<tbody><tr><td>"
+                    f"{html.escape(summary) or 'Bảng cần đối chiếu thủ công.'}"
+                    "</td></tr></tbody>\n\n"
                     "</DataTable>"
                 )
         if tag == self.capture_tag:
@@ -376,19 +378,24 @@ def paragraph_text(element: ET.Element) -> str:
     return safe_text("".join(node.text or "" for node in element.findall(".//w:t", NS)))
 
 
-def table_to_markdown(table: ET.Element) -> str:
+def table_to_html(table: ET.Element) -> str:
     rows: list[list[str]] = []
     for row in table.findall("./w:tr", NS):
-        cells = [paragraph_text(cell).replace("|", "\\|") for cell in row.findall("./w:tc", NS)]
+        cells = [paragraph_text(cell) for cell in row.findall("./w:tc", NS)]
         if cells:
             rows.append(cells)
     if not rows:
-        return "Bảng rỗng cần đối chiếu thủ công."
+        return "<tbody><tr><td>Bảng rỗng cần đối chiếu thủ công.</td></tr></tbody>"
     width = max(len(row) for row in rows)
     padded = [row + [""] * (width - len(row)) for row in rows]
-    lines = ["| " + " | ".join(padded[0]) + " |", "| " + " | ".join(["---"] * width) + " |"]
-    lines.extend("| " + " | ".join(row) + " |" for row in padded[1:])
-    return "\n".join(lines)
+    header = "".join(f"<th>{html.escape(value)}</th>" for value in padded[0])
+    body = "\n".join(
+        "<tr>" + "".join(f"<td>{html.escape(value)}</td>" for value in row) + "</tr>"
+        for row in padded[1:]
+    )
+    if not body:
+        body = f"<tr>{''.join('<td></td>' for _ in range(width))}</tr>"
+    return f"<thead><tr>{header}</tr></thead>\n<tbody>{body}</tbody>"
 
 
 def validate_manifest_source(args: argparse.Namespace) -> None:
@@ -475,12 +482,12 @@ def extract_docx(source: Path, collector: IssueCollector, assets_dir: Path) -> l
 
             if tag == "tbl":
                 table_number = next_ordinal("table")
-                table_markdown = table_to_markdown(element)
+                table_html = table_to_html(element)
                 collector.fallback(
                     "table",
                     "warning",
                     "DOCX_TABLE_REQUIRES_VISUAL_REVIEW",
-                    "DOCX table was flattened to a Markdown table and needs visual review.",
+                    "DOCX table was flattened to an HTML table and needs visual review.",
                     f"word/document.xml#body/tbl[{table_number}]",
                     "manual-review",
                     "Merged cells, widths and borders may not survive the prototype.",
@@ -488,7 +495,7 @@ def extract_docx(source: Path, collector: IssueCollector, assets_dir: Path) -> l
                 )
                 blocks.append(
                     f'<DataTable caption="Bảng {table_number} trích từ DOCX">\n\n'
-                    f"{table_markdown}\n\n</DataTable>"
+                    f"{table_html}\n\n</DataTable>"
                 )
             elif tag == "p" and text:
                 style = element.find("./w:pPr/w:pStyle", NS)
