@@ -3,6 +3,8 @@ node_modules/
 
 # Next.js and build output
 .next/
+next-env.d.ts
+tsconfig.tsbuildinfo
 out/
 dist/
 build/
@@ -11,6 +13,7 @@ build/
 coverage/
 playwright-report/
 test-results/
+.vitest/
 
 # Local environment and provider state
 .env
@@ -43,4 +46,3 @@ Thumbs.db
 .vscode/
 *.swp
 *.swo
-
