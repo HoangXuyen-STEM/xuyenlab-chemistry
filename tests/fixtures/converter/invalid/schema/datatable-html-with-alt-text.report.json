@@ -1,0 +1,51 @@
+{
+  "$schema": "../../../../scripts/import-docx/failure-report.schema.json",
+  "reportVersion": "1.0.0",
+  "fixtureId": "topic-06-placeholder-sample",
+  "source": {
+    "sourceId": "T06-S01",
+    "sourcePath": "6. Chuyen de 6. Dong hoa hoc.ok.docx",
+    "section": "Phan I > II. Phuong trinh toc do"
+  },
+  "generator": {
+    "name": "phase-2-docx-converter",
+    "version": "0.0.0-fixture",
+    "strategy": "hybrid"
+  },
+  "run": {
+    "runId": "topic-06-placeholder-sample-run-001",
+    "runOrdinal": 1,
+    "generatedAt": "2026-08-11T10:00:00.000Z",
+    "sourceDigest": "sha256:3333333333333333333333333333333333333333333333333333333333333333",
+    "rerunOf": null
+  },
+  "summary": {
+    "totalBlocks": 1,
+    "semanticBlockCount": 0,
+    "fallbackBlockCount": 1,
+    "omittedBlockCount": 0,
+    "issueCount": 1,
+    "warningCount": 1,
+    "blockingCount": 0
+  },
+  "blocks": [
+    {
+      "id": "T06-S01:t0013",
+      "kind": "table",
+      "sourceLocator": {
+        "sectionPath": "Phan I > II. Phuong trinh toc do",
+        "blockOrder": 3,
+        "pathHint": "word/document.xml#body/tbl[2]"
+      },
+      "outcome": "fallback",
+      "severity": "warning",
+      "issueCode": "TABLE_REQUIRES_HTML_FALLBACK",
+      "message": "Complex table spans are preserved through an HTML table fallback.",
+      "fallback": {
+        "strategy": "datatable-html",
+        "reason": "Merged-cell structure is retained as HTML because a normalized MDX table would lose layout fidelity.",
+        "altText": "Bang du phong"
+      }
+    }
+  ]
+}

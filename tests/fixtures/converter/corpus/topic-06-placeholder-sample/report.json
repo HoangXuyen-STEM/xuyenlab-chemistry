@@ -1,0 +1,86 @@
+{
+  "$schema": "../../../../scripts/import-docx/failure-report.schema.json",
+  "reportVersion": "1.0.0",
+  "fixtureId": "topic-06-placeholder-sample",
+  "source": {
+    "sourceId": "T06-S01",
+    "sourcePath": "6. Chuyen de 6. Dong hoa hoc.ok.docx",
+    "section": "Phan I > II. Phuong trinh toc do"
+  },
+  "generator": {
+    "name": "phase-2-docx-converter",
+    "version": "0.0.0-fixture",
+    "strategy": "hybrid"
+  },
+  "run": {
+    "runId": "topic-06-placeholder-sample-run-001",
+    "runOrdinal": 1,
+    "generatedAt": "2026-08-11T10:00:00.000Z",
+    "sourceDigest": "sha256:3333333333333333333333333333333333333333333333333333333333333333",
+    "rerunOf": null
+  },
+  "summary": {
+    "totalBlocks": 3,
+    "semanticBlockCount": 1,
+    "fallbackBlockCount": 2,
+    "omittedBlockCount": 0,
+    "issueCount": 2,
+    "warningCount": 2,
+    "blockingCount": 0
+  },
+  "blocks": [
+    {
+      "id": "T06-S01:h0011",
+      "kind": "heading",
+      "sourceLocator": {
+        "sectionPath": "Phan I > II. Phuong trinh toc do",
+        "blockOrder": 1,
+        "pathHint": "word/document.xml#body/p[21]",
+        "pageHint": 6,
+        "textAnchor": "II. Phuong trinh toc do"
+      },
+      "outcome": "semantic",
+      "semanticKind": "heading"
+    },
+    {
+      "id": "T06-S01:f0012",
+      "kind": "formula",
+      "sourceLocator": {
+        "sectionPath": "Phan I > II. Phuong trinh toc do",
+        "blockOrder": 2,
+        "pathHint": "word/document.xml#body/oMath[1]",
+        "pageHint": 6,
+        "textAnchor": "He phuong trinh OMML chua ma tran he so"
+      },
+      "outcome": "fallback",
+      "severity": "warning",
+      "issueCode": "OMML_REQUIRES_MANUAL_REVIEW",
+      "message": "Complex OMML is surfaced as a visible warning placeholder pending manual review.",
+      "fallback": {
+        "strategy": "manual-review",
+        "reason": "The OMML matrix layout cannot be normalized to LaTeX without risking semantic drift.",
+        "caption": "Canh bao: cong thuc OMML can doi chieu thu cong"
+      }
+    },
+    {
+      "id": "T06-S01:t0013",
+      "kind": "table",
+      "sourceLocator": {
+        "sectionPath": "Phan I > II. Phuong trinh toc do",
+        "blockOrder": 3,
+        "pathHint": "word/document.xml#body/tbl[2]",
+        "pageHint": 7,
+        "textAnchor": "Bang co o gop nhieu hang"
+      },
+      "outcome": "fallback",
+      "severity": "warning",
+      "issueCode": "TABLE_REQUIRES_HTML_FALLBACK",
+      "message": "Complex table spans are preserved through an HTML table fallback.",
+      "fallback": {
+        "strategy": "datatable-html",
+        "reason": "Merged-cell structure is retained as HTML because a normalized MDX table would lose layout fidelity.",
+        "caption": "Bang 2. Bang co o gop"
+      }
+    }
+  ]
+}
