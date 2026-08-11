@@ -1,0 +1,38 @@
+.app {
+  min-height: 100vh;
+  background: var(--color-bg);
+  color: var(--color-text);
+}
+.header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-3);
+  max-width: var(--content-width-wide);
+  margin: 0 auto;
+  padding: var(--space-3) var(--space-4);
+  border-bottom: var(--border-width-default) solid var(--color-border);
+}
+.brand {
+  color: var(--color-brand);
+  font-weight: var(--font-weight-semibold);
+  text-decoration: none;
+}
+.nav {
+  display: flex;
+  gap: var(--space-3);
+}
+.nav a {
+  color: var(--color-text);
+  text-decoration: none;
+}
+.nav a:focus-visible,
+.brand:focus-visible {
+  outline: var(--border-width-focus) solid var(--color-focus-ring);
+  outline-offset: var(--space-1);
+}
+.account {
+  margin-left: auto;
+  color: var(--color-text-muted);
+  font-size: var(--font-size-sm);
+}
