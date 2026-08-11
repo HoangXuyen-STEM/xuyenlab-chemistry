@@ -1,11 +1,39 @@
 :root {
   color-scheme: light;
-  --ink: #17201d;
-  --muted: #53615c;
-  --paper: #f7f6ef;
-  --surface: #ffffff;
-  --accent: #087f5b;
-  --border: #dfe5df;
+  --color-text: #17201d;
+  --color-text-muted: #53615c;
+  --color-bg: #f7f6ef;
+  --color-surface: #ffffff;
+  --color-brand: #087f5b;
+  --color-on-brand: #ffffff;
+  --color-border: #dfe5df;
+  --color-warning: #8a5a00;
+  --color-warning-subtle: #fbf0da;
+  --color-focus-ring: #2e6be0;
+  --font-family-sans:
+    "Inter", "Noto Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-size-sm: 14px;
+  --font-size-base: 16px;
+  --font-size-xl: 22px;
+  --font-size-2xl: 28px;
+  --font-size-3xl: 34px;
+  --font-weight-semibold: 600;
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --content-width-prose: 720px;
+  --content-width-wide: 1120px;
+  --radius-md: 8px;
+  --radius-full: 9999px;
+  --border-width-default: 1px;
+  --border-width-focus: 2px;
+  --duration-default: 200ms;
+  --easing-standard: cubic-bezier(0.2, 0, 0, 1);
 }
 
 * {
@@ -14,20 +42,14 @@
 
 html {
   min-width: 320px;
-  background: var(--paper);
+  background: var(--color-bg);
 }
 
 body {
   margin: 0;
-  color: var(--ink);
-  background:
-    radial-gradient(
-      circle at top right,
-      rgb(8 127 91 / 10%),
-      transparent 32rem
-    ),
-    var(--paper);
-  font-family: Arial, Helvetica, sans-serif;
+  color: var(--color-text);
+  background: var(--color-bg);
+  font-family: var(--font-family-sans);
 }
 
 .shell {
@@ -40,15 +62,15 @@ body {
 .card {
   width: min(100%, 46rem);
   padding: clamp(1.5rem, 5vw, 3.5rem);
-  border: 1px solid var(--border);
+  border: 1px solid var(--color-border);
   border-radius: 1.5rem;
-  background: var(--surface);
+  background: var(--color-surface);
   box-shadow: 0 1.5rem 4rem rgb(23 32 29 / 10%);
 }
 
 .eyebrow {
   margin: 0 0 0.75rem;
-  color: var(--accent);
+  color: var(--color-brand);
   font-size: 0.8rem;
   font-weight: 700;
   letter-spacing: 0.12em;
@@ -65,7 +87,7 @@ h1 {
 .summary {
   max-width: 60ch;
   margin: 1.5rem 0 2rem;
-  color: var(--muted);
+  color: var(--color-text-muted);
   font-size: 1.05rem;
   line-height: 1.7;
 }
@@ -79,13 +101,13 @@ h1 {
 
 .status-list div {
   padding: 1rem;
-  border: 1px solid var(--border);
+  border: 1px solid var(--color-border);
   border-radius: 0.9rem;
 }
 
 .status-list dt {
   margin-bottom: 0.3rem;
-  color: var(--muted);
+  color: var(--color-text-muted);
   font-size: 0.8rem;
 }
 
