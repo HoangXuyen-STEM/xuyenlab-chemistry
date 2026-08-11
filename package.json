@@ -17,14 +17,21 @@
     "test:watch": "vitest",
     "test:e2e": "playwright test",
     "test:e2e:list": "playwright test --list",
-    "format": "prettier --write src content tests package.json next.config.ts playwright.config.ts tsconfig.json vitest.config.mts vitest.setup.ts eslint.config.mjs",
-    "format:check": "prettier --check src content tests package.json next.config.ts playwright.config.ts tsconfig.json vitest.config.mts vitest.setup.ts eslint.config.mjs",
+    "format": "prettier --write src content tests package.json next.config.ts mdx-components.tsx playwright.config.ts tsconfig.json vitest.config.mts vitest.setup.ts eslint.config.mjs",
+    "format:check": "prettier --check src content tests package.json next.config.ts mdx-components.tsx playwright.config.ts tsconfig.json vitest.config.mts vitest.setup.ts eslint.config.mjs",
     "verify": "npm run format:check && npm run lint && npm run typecheck && npm run test && npm run build"
   },
   "dependencies": {
+    "@mdx-js/loader": "^3.1.1",
+    "@mdx-js/react": "^3.1.1",
+    "@next/mdx": "^16.3.0",
+    "@types/mdx": "^2.0.14",
+    "katex": "^0.16.22",
     "next": "^16.3.0",
     "react": "^19.2.8",
     "react-dom": "^19.2.8",
+    "rehype-katex": "^7.0.1",
+    "remark-math": "^6.0.0",
     "zod": "^4.4.3"
   },
   "devDependencies": {
