@@ -1,0 +1,137 @@
+.fixtureRoot {
+  font-family: var(--font-family-sans);
+  font-size: var(--font-size-base);
+  line-height: 1.625; /* 26px / 16px */
+  color: var(--color-text);
+  background: var(--color-bg);
+  min-height: 100vh;
+}
+
+.fixtureHeader {
+  background: var(--color-brand);
+  color: #fff;
+  padding: var(--space-3) var(--space-6);
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+}
+
+.fixtureHeaderLabel {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  opacity: 0.9;
+}
+
+.prose {
+  max-width: var(--content-width-prose);
+  margin: 0 auto;
+  padding: var(--space-8) var(--space-4);
+}
+
+.prose h1 {
+  font-size: var(--font-size-3xl);
+  font-weight: var(--font-weight-semibold);
+  line-height: 1.24;
+  margin: 0 0 var(--space-2);
+  color: var(--color-text);
+}
+
+.prose h2 {
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-semibold);
+  line-height: 1.28;
+  margin: var(--space-10) 0 var(--space-4);
+  padding-bottom: var(--space-2);
+  border-bottom: 1px solid var(--color-border);
+  color: var(--color-text);
+}
+
+.prose h3 {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-semibold);
+  line-height: 1.36;
+  margin: var(--space-8) 0 var(--space-3);
+  color: var(--color-text);
+}
+
+.prose p {
+  margin: 0 0 var(--space-4);
+}
+
+.prose ul,
+.prose ol {
+  margin: 0 0 var(--space-4);
+  padding-left: var(--space-6);
+}
+
+.prose li {
+  margin-bottom: var(--space-2);
+}
+
+.subtitle {
+  font-size: var(--font-size-lg);
+  color: var(--color-text-muted);
+  margin: 0 0 var(--space-6);
+}
+
+.divider {
+  border: none;
+  border-top: 1px solid var(--color-border);
+  margin: var(--space-8) 0;
+}
+
+@media (max-width: 639px) {
+  .prose {
+    padding: var(--space-6) var(--space-4);
+  }
+
+  .prose h1 {
+    font-size: var(--font-size-2xl);
+  }
+
+  .prose h2 {
+    font-size: var(--font-size-xl);
+  }
+}
+
+/* ── Print: A4, 18mm/16mm margins, 11pt base ── */
+@media print {
+  .fixtureHeader {
+    display: none;
+  }
+
+  .fixtureRoot {
+    font-size: 11pt;
+    line-height: 1.5;
+  }
+
+  .prose {
+    max-width: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  @page {
+    size: A4;
+    margin: 18mm 16mm;
+  }
+
+  .prose h1 {
+    font-size: 20pt;
+  }
+
+  .prose h2 {
+    font-size: 14pt;
+    break-after: avoid;
+  }
+
+  .prose h3 {
+    font-size: 12pt;
+    break-after: avoid;
+  }
+
+  .prose p {
+    orphans: 3;
+    widows: 3;
+  }
+}

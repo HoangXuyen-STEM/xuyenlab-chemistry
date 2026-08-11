@@ -1,0 +1,84 @@
+.callout {
+  margin: var(--space-6) 0;
+  padding: var(--space-4);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
+  border-left-width: 4px;
+}
+
+.typeLabel {
+  margin: 0 0 var(--space-1);
+  font-size: var(--font-size-xs);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.title {
+  margin: 0 0 var(--space-2);
+  font-size: var(--font-size-base);
+  font-weight: 600;
+}
+
+.body {
+  font-size: var(--font-size-base);
+  color: var(--color-text);
+}
+
+/* note type: brand colors */
+.note {
+  background: var(--color-brand-subtle);
+  border-left-color: var(--color-brand);
+}
+
+.note .typeLabel {
+  color: var(--color-brand-strong);
+}
+
+.note .title {
+  color: var(--color-brand-strong);
+}
+
+/* warning type: warning colors */
+.warning {
+  background: var(--color-warning-subtle);
+  border-left-color: var(--color-warning);
+}
+
+.warning .typeLabel {
+  color: var(--color-warning);
+}
+
+.warning .title {
+  color: var(--color-warning);
+}
+
+/* definition type: distinct from note, uses accent-like styling */
+.definition {
+  background: var(--color-bg-subtle);
+  border-left-color: var(--color-border-strong);
+}
+
+.definition .typeLabel {
+  color: var(--color-text-muted);
+}
+
+.definition .title {
+  color: var(--color-text);
+}
+
+@media print {
+  .callout {
+    break-inside: avoid;
+    border-left-width: 3pt;
+  }
+
+  /* Grayscale-safe: use heavier borders instead of color fills */
+  .note,
+  .warning,
+  .definition {
+    background: transparent;
+    border: 1px solid currentcolor;
+    border-left-width: 3pt;
+  }
+}

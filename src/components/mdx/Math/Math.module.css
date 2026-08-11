@@ -1,0 +1,17 @@
+.inline {
+  display: inline;
+}
+
+.display {
+  display: block;
+  overflow-x: auto;
+  padding: var(--space-3) 0;
+  text-align: center;
+}
+
+@media print {
+  .display {
+    overflow-x: visible;
+    break-inside: avoid;
+  }
+}
