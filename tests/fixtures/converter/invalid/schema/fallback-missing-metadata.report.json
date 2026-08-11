@@ -1,0 +1,46 @@
+{
+  "$schema": "../../../../scripts/import-docx/failure-report.schema.json",
+  "reportVersion": "1.0.0",
+  "fixtureId": "topic-06-hybrid-sample",
+  "source": {
+    "sourceId": "T06-S01",
+    "sourcePath": "6. Chuyen de 6. Dong hoa hoc.ok.docx",
+    "section": "Phan I > I. Toc do phan ung"
+  },
+  "generator": {
+    "name": "phase-2-docx-converter",
+    "version": "0.0.0-fixture",
+    "strategy": "hybrid"
+  },
+  "run": {
+    "runId": "topic-06-hybrid-sample-run-001",
+    "runOrdinal": 1,
+    "generatedAt": "2026-08-11T09:00:00.000Z",
+    "sourceDigest": "sha256:1111111111111111111111111111111111111111111111111111111111111111",
+    "rerunOf": null
+  },
+  "summary": {
+    "totalBlocks": 1,
+    "semanticBlockCount": 0,
+    "fallbackBlockCount": 1,
+    "omittedBlockCount": 0,
+    "issueCount": 1,
+    "warningCount": 1,
+    "blockingCount": 0
+  },
+  "blocks": [
+    {
+      "id": "T06-S01:d0005",
+      "kind": "drawing",
+      "sourceLocator": {
+        "sectionPath": "Phan I > I. Toc do phan ung",
+        "blockOrder": 5,
+        "pathHint": "word/document.xml#body/drawing[1]"
+      },
+      "outcome": "fallback",
+      "severity": "warning",
+      "issueCode": "UNSUPPORTED_DRAWING_OBJECT",
+      "message": "Vector drawing rasterized to a ChemFigure fallback."
+    }
+  ]
+}
