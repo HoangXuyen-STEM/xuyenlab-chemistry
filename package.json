@@ -17,6 +17,8 @@
     "test:watch": "vitest",
     "test:e2e": "playwright test",
     "test:e2e:list": "playwright test --list",
+    "db:generate": "drizzle-kit generate",
+    "db:migrate": "drizzle-kit migrate",
     "format": "prettier --write src content tests package.json next.config.ts mdx-components.tsx playwright.config.ts tsconfig.json vitest.config.mts vitest.setup.ts eslint.config.mjs",
     "format:check": "prettier --check src content tests package.json next.config.ts mdx-components.tsx playwright.config.ts tsconfig.json vitest.config.mts vitest.setup.ts eslint.config.mjs",
     "verify": "npm run format:check && npm run lint && npm run typecheck && npm run test && npm run build"
@@ -24,8 +26,11 @@
   "dependencies": {
     "@mdx-js/loader": "^3.1.1",
     "@mdx-js/react": "^3.1.1",
+    "@neondatabase/auth": "^0.4.2-beta",
+    "@neondatabase/serverless": "^1.1.0",
     "@next/mdx": "^16.3.0",
     "@types/mdx": "^2.0.14",
+    "drizzle-orm": "^0.45.2",
     "katex": "^0.16.22",
     "next": "^16.3.0",
     "react": "^19.2.8",
@@ -44,10 +49,13 @@
     "@types/react-dom": "^19.2.4",
     "@vitejs/plugin-react": "^6.0.5",
     "ajv": "^6.15.0",
+    "dotenv": "^17.4.2",
+    "drizzle-kit": "^0.31.10",
     "eslint": "^9.39.5",
     "eslint-config-next": "^16.3.0",
     "jsdom": "^30.0.1",
     "prettier": "^3.9.6",
+    "tsx": "^4.23.12",
     "typescript": "^5.9.3",
     "vitest": "^4.1.10"
   }
