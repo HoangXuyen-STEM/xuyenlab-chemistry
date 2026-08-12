@@ -32,7 +32,26 @@
   outline-offset: var(--space-1);
 }
 .account {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-3);
   margin-left: auto;
   color: var(--color-text-muted);
   font-size: var(--font-size-sm);
+}
+.signOut {
+  min-height: 44px;
+  padding: var(--space-1) var(--space-2);
+  border: var(--border-width-default) solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+  color: var(--color-brand);
+  font: inherit;
+  font-weight: var(--font-weight-semibold);
+  cursor: pointer;
+}
+.signOut:focus-visible {
+  outline: var(--border-width-focus) solid var(--color-focus-ring);
+  outline-offset: var(--space-1);
 }

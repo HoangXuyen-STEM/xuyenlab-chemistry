@@ -1,22 +1,16 @@
 import Link from "next/link";
 
 import { PdfButton } from "@/features/bookmarks/client/PdfButton";
-import type {
-  PrivateReaderFacade,
-  ReaderProgress,
-} from "@/features/content/private-reader-facade";
-import { stagingLesson } from "@/features/content/staging-lesson";
+import type { ReaderProgress } from "@/features/content/private-reader-facade";
+import {
+  STAGING_LESSON_SLUG,
+  stagingLesson,
+} from "@/features/content/staging-lesson";
 import { ReaderControls } from "@/features/progress/client/ReaderControls";
 
 import styles from "./PrivateReader.module.css";
 
-export function PrivateReader({
-  facade,
-  progress,
-}: {
-  facade: PrivateReaderFacade;
-  progress: ReaderProgress;
-}) {
+export function PrivateReader({ progress }: { progress: ReaderProgress }) {
   return (
     <main className={styles.reader}>
       <p className={styles.stagingNotice}>
@@ -35,7 +29,7 @@ export function PrivateReader({
           <h1>{stagingLesson.title}</h1>
           <p>{stagingLesson.summary}</p>
         </div>
-        <PdfButton facade={facade} lessonSlug="p3-can-bang-hoa-hoc" />
+        <PdfButton lessonSlug={STAGING_LESSON_SLUG} />
       </header>
       <div className={styles.readerGrid}>
         <article className={styles.lessonContent}>
@@ -71,9 +65,8 @@ export function PrivateReader({
             </ol>
           </nav>
           <ReaderControls
-            facade={facade}
             initialProgress={progress}
-            lessonSlug="p3-can-bang-hoa-hoc"
+            lessonSlug={STAGING_LESSON_SLUG}
           />
         </aside>
       </div>
