@@ -2197,18 +2197,18 @@
     "kind": "embeddedObject",
     "severity": "blocking",
     "message": "OLE object cannot be converted semantically by the prototype.",
-    "observedType": "formula",
-    "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.DSMT4\"> (MathType (Equation.DSMT4)) read directly from the source DOCX XML.",
+    "observedType": "diagram",
+    "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.DSMT4\"> (MathType). Owner đã mở trực tiếp file Word gốc và xác nhận đây là sơ đồ hai nửa mũi tên ngược chiều: mũi tên trên gắn nhãn 'chiều thuận', mũi tên dưới gắn nhãn 'chiều nghịch' -- sơ đồ minh họa phản ứng thuận nghịch. Phân loại observedType cập nhật formula -> diagram theo xác nhận trực tiếp này (bằng chứng cấp cao hơn ProgID suy luận).",
     "previewPath": "/qa-preview/lessons/chuyen-de-08/e6352.png",
     "status": "blocked",
     "remediationChoice": "reviewed-image-fallback",
     "ownerDecision": {
       "decidedBy": "Chủ dự án (Owner)",
       "decidedAt": "2026-08-12",
-      "altText": "Sơ đồ mũi tên biểu thị chiều thuận và chiều nghịch của phản ứng thuận nghịch",
-      "caption": "Chiều thuận (↑) và chiều nghịch (↓) trong phản ứng thuận nghịch",
+      "altText": "Sơ đồ hai nửa mũi tên ngược chiều biểu thị phản ứng thuận nghịch; mũi tên phía trên là chiều thuận, mũi tên phía dưới là chiều nghịch.",
+      "caption": "Chiều thuận và chiều nghịch của phản ứng thuận nghịch.",
       "reviewedLatex": null,
-      "qaNote": "Owner xác nhận qua QA session 2026-08-12 (P4.5, issue mẫu). KHÔNG được áp dụng vào MDX. Đối chiếu lại ảnh nguồn public/qa-preview/lessons/chuyen-de-08/e6352.png (xác minh bằng ImageMagick identify, phóng to 400%) cho thấy ảnh chỉ có văn bản tiếng Việt bị lỗi font ('chi c à thua ä' / 'chi c à ngh ò ch', không có mũi tên hay biểu tượng nào), không khớp với mô tả đã duyệt 'Sơ đồ mũi tên...' / 'Chiều thuận (↑)...'. Callout fallback trong MDX được GIỮ NGUYÊN, không thay thế. Cần Owner xác nhận lại: (a) đây có đúng là ảnh nguồn Owner đã xem khi duyệt không, (b) nếu đúng, ảnh này có thực sự là 'sơ đồ mũi tên' hay chỉ là nhãn văn bản cần ghép với một ký hiệu khác ngoài phạm vi 7 issue này."
+      "qaNote": "Owner xác nhận qua QA session 2026-08-12 (P4.5, issue mẫu), rồi xác nhận LẠI qua clarification 2026-08-12 sau khi tự mở file Word gốc: đây đúng là sơ đồ hai nửa mũi tên ngược chiều (chiều thuận / chiều nghịch), không phải chỉ là văn bản lỗi. VẪN CHƯA áp dụng vào MDX vì lý do kỹ thuật khác: đối chiếu lại object gốc tại word/document.xml#body/block[7]/w:object[3] (rId13 -> word/media/image3.wmf, rId14 -> word/embeddings/oleObject3.bin), thử render WMF bằng cả ImageMagick (300/600/1200 DPI) lẫn Inkscape (renderer độc lập) -- CẢ HAI đều chỉ ra chữ, không ra mũi tên nào. Đọc bảng font nhúng trong chính file WMF cho thấy nguyên nhân: object dùng font 'VNI-Times' (bảng mã tiếng Việt riêng, giải thích vì sao chữ 'chiều thuận'/'chiều nghịch' hiện thành 'chi c à thua ä'/'chi c à ngh ò ch' -- đây là lỗi bảng mã font, không phải nội dung sai) và 'Euclid Extra' (font ký hiệu của MathType, nơi chứa glyph hai nửa mũi tên). Cả hai font đều không có trong môi trường render này (fc-match không tìm được font thay thế phù hợp; đây là font độc quyền, không có trong kho apt chuẩn, không tự ý cài đặt). Do đó KHÔNG có công cụ nào trong môi trường này tạo được ảnh 'browser-safe từ chính preview của object nguồn' mà vẫn giữ đúng hai mũi tên -- ảnh public/qa-preview/lessons/chuyen-de-08/e6352.png hiện tại KHÔNG đạt yêu cầu 'giữ nguyên hai mũi tên và cả hai nhãn' theo safeguard #3 của Owner, nên KHÔNG được dùng làm asset cuối cùng. Tham khảo thêm (KHÔNG dùng thay thế): file so sánh HTML \"8.1. Chuyen de 8 - Dung dich, Can bang hoa hoc - Ly thuyet (Phan I).html\" (nguồn T08-S02, provenance khác T08-S01, không phải preview của chính object này) biểu diễn hàng 'Phản ứng thuận nghịch' bằng ký tự Unicode đơn '⇌' (rightleftharpoons) thay vì một sơ đồ hai mũi tên có nhãn riêng -- không dùng làm ảnh thay thế vì đây là diễn giải của người viết HTML, không phải ảnh trích xuất từ chính object T08-S01:e6352. KẾT LUẬN: BLOCKED theo đúng safeguard #3 của Owner (không tự vẽ lại sơ đồ, không dùng ảnh còn lỗi). Cần một trong: (a) Owner/người có Word + MathType + font VNI-Times/Euclid Extra xuất ảnh trực tiếp từ object gốc (không phải ảnh chụp màn hình chat), hoặc (b) cài đặt các font này vào môi trường thực thi content pipeline (quyết định vượt phạm vi task này)."
     }
   },
   {
