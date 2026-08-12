@@ -61,6 +61,8 @@ hiểu quy trình trước khi đọc bảng đầy đủ bên dưới.
 - **Vị trí:** `word/document.xml#body/block[9]/w:object[1]`
 - **Loại quan sát được:** Công thức
 - **Căn cứ:** &lt;o:OLEObject ProgID="Equation.DSMT4"&gt; (MathType (Equation.DSMT4)) read directly from the source DOCX XML.
+- **Trạng thái:** `applied`
+- **Quyết định:** `reviewed-latex-mdx`: $\Delta C$
 
   ![preview](/qa-preview/lessons/chuyen-de-06/e6259.png)
 
@@ -71,6 +73,8 @@ hiểu quy trình trước khi đọc bảng đầy đủ bên dưới.
 - **Vị trí:** `word/document.xml#body/block[9]/w:object[2]`
 - **Loại quan sát được:** Công thức
 - **Căn cứ:** &lt;o:OLEObject ProgID="Equation.DSMT4"&gt; (MathType (Equation.DSMT4)) read directly from the source DOCX XML.
+- **Trạng thái:** `applied`
+- **Quyết định:** `reviewed-latex-mdx`: $\Delta t$
 
   ![preview](/qa-preview/lessons/chuyen-de-06/e5248.png)
 
@@ -81,6 +85,8 @@ hiểu quy trình trước khi đọc bảng đầy đủ bên dưới.
 - **Vị trí:** `word/document.xml#body/block[10]/w:object[1]`
 - **Loại quan sát được:** Công thức
 - **Căn cứ:** &lt;o:OLEObject ProgID="Equation.DSMT4"&gt; (MathType (Equation.DSMT4)) read directly from the source DOCX XML.
+- **Trạng thái:** `applied`
+- **Quyết định:** `reviewed-latex-mdx`: $$\bar{v} = \pm\dfrac{\Delta C}{\Delta t}$$
 
   ![preview](/qa-preview/lessons/chuyen-de-06/e4743.png)
 
@@ -91,6 +97,8 @@ hiểu quy trình trước khi đọc bảng đầy đủ bên dưới.
 - **Vị trí:** `word/document.xml#body/block[12]/w:object[1]`
 - **Loại quan sát được:** Công thức
 - **Căn cứ:** &lt;o:OLEObject ProgID="Equation.DSMT4"&gt; (MathType (Equation.DSMT4)) read directly from the source DOCX XML.
+- **Trạng thái:** `applied`
+- **Quyết định:** `reviewed-latex-mdx`: $\bar{v}$
 
   ![preview](/qa-preview/lessons/chuyen-de-06/e9544.png)
 
@@ -101,6 +109,8 @@ hiểu quy trình trước khi đọc bảng đầy đủ bên dưới.
 - **Vị trí:** `word/document.xml#body/block[7]/w:object[1]`
 - **Loại quan sát được:** Công thức
 - **Căn cứ:** &lt;o:OLEObject ProgID="Equation.DSMT4"&gt; (MathType (Equation.DSMT4)) read directly from the source DOCX XML.
+- **Trạng thái:** `applied`
+- **Quyết định:** `reviewed-latex-mdx`: $$\text{aA} + \text{bB} \rightleftharpoons \text{cC} + \text{dD}$$ (kết hợp với T08-S01:e3055 thành 1 khối display)
 
   ![preview](/qa-preview/lessons/chuyen-de-08/e7414.png)
 
@@ -111,6 +121,8 @@ hiểu quy trình trước khi đọc bảng đầy đủ bên dưới.
 - **Vị trí:** `word/document.xml#body/block[7]/w:object[2]`
 - **Loại quan sát được:** Công thức
 - **Căn cứ:** &lt;o:OLEObject ProgID="Equation.DSMT4"&gt; (MathType (Equation.DSMT4)) read directly from the source DOCX XML.
+- **Trạng thái:** `applied`
+- **Quyết định:** `reviewed-latex-mdx`: $$\text{aA} + \text{bB} \rightleftharpoons \text{cC} + \text{dD}$$ (kết hợp với T08-S01:e7414 thành 1 khối display)
 
   ![preview](/qa-preview/lessons/chuyen-de-08/e3055.png)
 
@@ -121,6 +133,8 @@ hiểu quy trình trước khi đọc bảng đầy đủ bên dưới.
 - **Vị trí:** `word/document.xml#body/block[7]/w:object[3]`
 - **Loại quan sát được:** Công thức
 - **Căn cứ:** &lt;o:OLEObject ProgID="Equation.DSMT4"&gt; (MathType (Equation.DSMT4)) read directly from the source DOCX XML.
+- **Trạng thái:** `blocked`
+- **Quyết định:** `reviewed-image-fallback`: alt="Sơ đồ mũi tên biểu thị chiều thuận và chiều nghịch của phản ứng thuận nghịch"
 
   ![preview](/qa-preview/lessons/chuyen-de-08/e6352.png)
 
