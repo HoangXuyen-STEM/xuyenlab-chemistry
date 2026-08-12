@@ -1,0 +1,3903 @@
+{
+  "$schema": "https://raw.githubusercontent.com/HoangXuyen-STEM/xuyenlab-chemistry/main/scripts/import-docx/failure-report.schema.json",
+  "blocks": [
+    {
+      "id": "T06-S01:p0091",
+      "kind": "paragraph",
+      "outcome": "semantic",
+      "semanticKind": "paragraph",
+      "sourceLocator": {
+        "blockOrder": 1,
+        "pathHint": "word/document.xml#body/p[3]",
+        "sectionPath": "Phần I",
+        "textAnchor": "Phần I: HỆ THỐNG LÝ THUYẾT CƠ BẢN VÀ NÂNG CAO"
+      }
+    },
+    {
+      "id": "T06-S01:h3398",
+      "kind": "heading",
+      "outcome": "semantic",
+      "semanticKind": "heading",
+      "sourceLocator": {
+        "blockOrder": 2,
+        "pathHint": "word/document.xml#body/p[4]",
+        "sectionPath": "Phần I",
+        "textAnchor": "I. TỐC ĐỘ PHẢN ỨNG"
+      }
+    },
+    {
+      "id": "T06-S01:h4442",
+      "kind": "heading",
+      "outcome": "semantic",
+      "semanticKind": "heading",
+      "sourceLocator": {
+        "blockOrder": 3,
+        "pathHint": "word/document.xml#body/p[5]",
+        "sectionPath": "Phần I",
+        "textAnchor": "1. Khái niệm về tốc độ phản ứng"
+      }
+    },
+    {
+      "id": "T06-S01:p3427",
+      "kind": "paragraph",
+      "outcome": "semantic",
+      "semanticKind": "paragraph",
+      "sourceLocator": {
+        "blockOrder": 4,
+        "pathHint": "word/document.xml#body/p[6]",
+        "sectionPath": "Phần I",
+        "textAnchor": "Tốc độ của một phản ứng hóa học (thường kí hiệu là v) là độ biến thiên nồng độ của một trong các chất phản ứng hoặc sản phẩm trong một đơn vị thời gian. Theo quy ước, nồng độ tính bằng mol/l, còn đơn vị thời gian có thể là giây (s), phút (p"
+      }
+    },
+    {
+      "id": "T06-S01:p3252",
+      "kind": "paragraph",
+      "outcome": "semantic",
+      "semanticKind": "paragraph",
+      "sourceLocator": {
+        "blockOrder": 5,
+        "pathHint": "word/document.xml#body/p[7]",
+        "sectionPath": "Phần I",
+        "textAnchor": "Trường hợp chung, tốc độ v là hàm của nồng độ và nhiệt độ, nghĩa là v = f (C, T). Khi T = const thì y = f(C)."
+      }
+    },
+    {
+      "id": "T06-S01:h4328",
+      "kind": "heading",
+      "outcome": "semantic",
+      "semanticKind": "heading",
+      "sourceLocator": {
+        "blockOrder": 6,
+        "pathHint": "word/document.xml#body/p[8]",
+        "sectionPath": "Phần I",
+        "textAnchor": "2. Tốc độ trung bình của phản ứng"
+      }
+    },
+    {
+      "id": "T06-S01:p1820",
+      "kind": "paragraph",
+      "outcome": "semantic",
+      "semanticKind": "paragraph",
+      "sourceLocator": {
+        "blockOrder": 7,
+        "pathHint": "word/document.xml#body/p[9]",
+        "sectionPath": "Phần I",
+        "textAnchor": "Xét biến thiên nồng độ trong khoảng thời gian , ta có:"
+      }
+    },
+    {
+      "fallback": {
+        "reason": "A reviewed semantic recreation or browser-safe image fallback is required.",
+        "strategy": "manual-review"
+      },
+      "id": "T06-S01:e6259",
+      "issueCode": "UNSUPPORTED_OLE_OBJECT",
+      "kind": "embeddedObject",
+      "message": "OLE object cannot be converted semantically by the prototype.",
+      "outcome": "fallback",
+      "severity": "blocking",
+      "sourceLocator": {
+        "blockOrder": 8,
+        "pathHint": "word/document.xml#body/block[9]/w:object[1]",
+        "sectionPath": "Phần I"
+      }
+    },
+    {
+      "fallback": {
+        "reason": "A reviewed semantic recreation or browser-safe image fallback is required.",
+        "strategy": "manual-review"
+      },
+      "id": "T06-S01:e5248",
+      "issueCode": "UNSUPPORTED_OLE_OBJECT",
+      "kind": "embeddedObject",
+      "message": "OLE object cannot be converted semantically by the prototype.",
+      "outcome": "fallback",
+      "severity": "blocking",
+      "sourceLocator": {
+        "blockOrder": 9,
+        "pathHint": "word/document.xml#body/block[9]/w:object[2]",
+        "sectionPath": "Phần I"
+      }
+    },
+    {
+      "fallback": {
+        "reason": "A reviewed semantic recreation or browser-safe image fallback is required.",
+        "strategy": "manual-review"
+      },
+      "id": "T06-S01:e4743",
+      "issueCode": "UNSUPPORTED_OLE_OBJECT",
+      "kind": "embeddedObject",
+      "message": "OLE object cannot be converted semantically by the prototype.",
+      "outcome": "fallback",
+      "severity": "blocking",
+      "sourceLocator": {
+        "blockOrder": 10,
+        "pathHint": "word/document.xml#body/block[10]/w:object[1]",
+        "sectionPath": "Phần I"
+      }
+    },
+    {
+      "id": "T06-S01:p7908",
+      "kind": "paragraph",
+      "outcome": "semantic",
+      "semanticKind": "paragraph",
+      "sourceLocator": {
+        "blockOrder": 11,
+        "pathHint": "word/document.xml#body/p[11]",
+        "sectionPath": "Phần I",
+        "textAnchor": "Dấu (+) ứng với chất tạo thành sản phẩm), dấu (-) ứng với chất tham gia (chất đầu)."
+      }
+    },
+    {
+      "id": "T06-S01:p2498",
+      "kind": "paragraph",
+      "outcome": "semantic",
+      "semanticKind": "paragraph",
+      "sourceLocator": {
+        "blockOrder": 12,
+        "pathHint": "word/document.xml#body/p[12]",
+        "sectionPath": "Phần I",
+        "textAnchor": "Giả sử có phản ứng: A + B C + D, với tốc độ trung bình của phản ứng trong khoảng thời gian từ t1 đến t2 là . Như vậy tốc độ phản ứng được xác định theo biểu thức:"
+      }
+    },
+    {
+      "fallback": {
+        "reason": "A reviewed semantic recreation or browser-safe image fallback is required.",
+        "strategy": "manual-review"
+      },
+      "id": "T06-S01:e9544",
+      "issueCode": "UNSUPPORTED_OLE_OBJECT",
+      "kind": "embeddedObject",
+      "message": "OLE object cannot be converted semantically by the prototype.",
+      "outcome": "fallback",
+      "severity": "blocking",
+      "sourceLocator": {
+        "blockOrder": 13,
+        "pathHint": "word/document.xml#body/block[12]/w:object[1]",
+        "sectionPath": "Phần I"
+      }
+    },
+    {
+      "fallback": {
+        "reason": "A reviewed semantic recreation or browser-safe image fallback is required.",
+        "strategy": "manual-review"
+      },
+      "id": "T06-S01:e0469",
+      "issueCode": "UNSUPPORTED_OLE_OBJECT",
+      "kind": "embeddedObject",
+      "message": "OLE object cannot be converted semantically by the prototype.",
+      "outcome": "fallback",
+      "severity": "blocking",
+      "sourceLocator": {
+        "blockOrder": 14,
+        "pathHint": "word/document.xml#body/block[13]/w:object[1]",
+        "sectionPath": "Phần I"
+      }
+    },
+    {
+      "id": "T06-S01:p7438",
+      "kind": "paragraph",
+      "outcome": "semantic",
+      "semanticKind": "paragraph",
+      "sourceLocator": {
+        "blockOrder": 15,
+        "pathHint": "word/document.xml#body/p[14]",
+        "sectionPath": "Phần I",
+        "textAnchor": "Đối với phản ứng tổng quát:"
+      }
+    },
+    {
+      "fallback": {
+        "reason": "A reviewed semantic recreation or browser-safe image fallback is required.",
+        "strategy": "manual-review"
+      },
+      "id": "T06-S01:e0245",
+      "issueCode": "UNSUPPORTED_OLE_OBJECT",
+      "kind": "embeddedObject",
+      "message": "OLE object cannot be converted semantically by the prototype.",
+      "outcome": "fallback",
+      "severity": "blocking",
+      "sourceLocator": {
+        "blockOrder": 16,
+        "pathHint": "word/document.xml#body/block[15]/w:object[1]",
+        "sectionPath": "Phần I"
+      }
+    },
+    {
+      "id": "T06-S01:p2271",
+      "kind": "paragraph",
+      "outcome": "semantic",
+      "semanticKind": "paragraph",
+      "sourceLocator": {
+        "blockOrder": 17,
+        "pathHint": "word/document.xml#body/p[16]",
+        "sectionPath": "Phần I",
+        "textAnchor": "Muốn cho tốc độ phản ứng đơn giá (nghĩa là tính theo bất cứ chất nào: A, B, C hay D đều cho cùng một giá trị) thì độ biến thiên nồng độ phải chia cho hệ số tỉ lượng tương ứng, nghĩa là"
+      }
+    },
+    {
+      "fallback": {
+        "reason": "A reviewed semantic recreation or browser-safe image fallback is required.",
+        "strategy": "manual-review"
+      },
+      "id": "T06-S01:e1520",
+      "issueCode": "UNSUPPORTED_OLE_OBJECT",
+      "kind": "embeddedObject",
+      "message": "OLE object cannot be converted semantically by the prototype.",
+      "outcome": "fallback",
+      "severity": "blocking",
+      "sourceLocator": {
+        "blockOrder": 18,
+        "pathHint": "word/document.xml#body/block[17]/w:object[1]",
+        "sectionPath": "Phần I"
+      }
+    },
+    {
+      "fallback": {
+        "reason": "A reviewed semantic recreation or browser-safe image fallback is required.",
+        "strategy": "manual-review"
+      },
+      "id": "T06-S01:e8803",
+      "issueCode": "UNSUPPORTED_OLE_OBJECT",
+      "kind": "embeddedObject",
+      "message": "OLE object cannot be converted semantically by the prototype.",
+      "outcome": "fallback",
+      "severity": "blocking",
+      "sourceLocator": {
+        "blockOrder": 19,
+        "pathHint": "word/document.xml#body/block[18]/w:object[1]",
+        "sectionPath": "Phần I"
+      }
+    },
+    {
+      "id": "T06-S01:p2190",
+      "kind": "paragraph",
+      "outcome": "semantic",
+      "semanticKind": "paragraph",
+      "sourceLocator": {
+        "blockOrder": 20,
+        "pathHint": "word/document.xml#body/p[19]",
+        "sectionPath": "Phần I",
+        "textAnchor": "Tốc độ tức thời: Xét các đại lượng biến thiên trên đủ nhỏ, nghĩa là"
+      }
+    },
+    {
+      "fallback": {
+        "reason": "A reviewed semantic recreation or browser-safe image fallback is required.",
+        "strategy": "manual-review"
+      },
+      "id": "T06-S01:e2801",
+      "issueCode": "UNSUPPORTED_OLE_OBJECT",
+      "kind": "embeddedObject",
+      "message": "OLE object cannot be converted semantically by the prototype.",
+      "outcome": "fallback",
+      "severity": "blocking",
+      "sourceLocator": {
+        "blockOrder": 21,
+        "pathHint": "word/document.xml#body/block[19]/w:object[1]",
+        "sectionPath": "Phần I"
+      }
+    },
+    {
+      "id": "T06-S01:p1763",
+      "kind": "paragraph",
+      "outcome": "semantic",
+      "semanticKind": "paragraph",
+      "sourceLocator": {
+        "blockOrder": 22,
+        "pathHint": "word/document.xml#body/p[20]",
+        "sectionPath": "Phần I",
+        "textAnchor": "Lúc đó:"
+      }
+    },
+    {
+      "fallback": {
+        "reason": "A reviewed semantic recreation or browser-safe image fallback is required.",
+        "strategy": "manual-review"
+      },
+      "id": "T06-S01:e4916",
+      "issueCode": "UNSUPPORTED_OLE_OBJECT",
+      "kind": "embeddedObject",
+      "message": "OLE object cannot be converted semantically by the prototype.",
+      "outcome": "fallback",
+      "severity": "blocking",
+      "sourceLocator": {
+        "blockOrder": 23,
+        "pathHint": "word/document.xml#body/block[20]/w:object[1]",
+        "sectionPath": "Phần I"
+      }
+    },
+    {
+      "id": "T06-S01:p2643",
+      "kind": "paragraph",
+      "outcome": "semantic",
+      "semanticKind": "paragraph",
+      "sourceLocator": {
+        "blockOrder": 24,
+        "pathHint": "word/document.xml#body/p[21]",
+        "sectionPath": "Phần I",
+        "textAnchor": "v được gọi là tốc độ tức thời của phản ứng."
+      }
+    },
+    {
+      "id": "T06-S01:p4506",
+      "kind": "paragraph",
+      "outcome": "semantic",
+      "semanticKind": "paragraph",
+      "sourceLocator": {
+        "blockOrder": 25,
+        "pathHint": "word/document.xml#body/p[22]",
+        "sectionPath": "Phần I",
+        "textAnchor": "Xét phản ứng tổng quát:"
+      }
+    },
+    {
+      "id": "T06-S01:p7109",
+      "kind": "paragraph",
+      "outcome": "semantic",
+      "semanticKind": "paragraph",
+      "sourceLocator": {
+        "blockOrder": 26,
+        "pathHint": "word/document.xml#body/p[23]",
+        "sectionPath": "Phần I",
+        "textAnchor": "aA + bB cC + dD"
+      }
+    },
+    {
+      "id": "T06-S01:p6109",
+      "kind": "paragraph",
+      "outcome": "semantic",
+      "semanticKind": "paragraph",
+      "sourceLocator": {
+        "blockOrder": 27,
+        "pathHint": "word/document.xml#body/p[24]",
+        "sectionPath": "Phần I",
+        "textAnchor": "Tốc độ của phản ứng trên được xác định bằng một trong các đại lượng sau:"
+      }
+    },
+    {
+      "fallback": {
+        "reason": "A reviewed semantic recreation or browser-safe image fallback is required.",
+        "strategy": "manual-review"
+      },
+      "id": "T06-S01:e3758",
+      "issueCode": "UNSUPPORTED_OLE_OBJECT",
+      "kind": "embeddedObject",
+      "message": "OLE object cannot be converted semantically by the prototype.",
+      "outcome": "fallback",
+      "severity": "blocking",
+      "sourceLocator": {
+        "blockOrder": 28,
+        "pathHint": "word/document.xml#body/block[25]/w:object[1]",
+        "sectionPath": "Phần I"
+      }
+    },
+    {
+      "id": "T06-S01:p5109",
+      "kind": "paragraph",
+      "outcome": "semantic",
+      "semanticKind": "paragraph",
+      "sourceLocator": {
+        "blockOrder": 29,
+        "pathHint": "word/document.xml#body/p[26]",
+        "sectionPath": "Phần I",
+        "textAnchor": "Các đại lượng trên có thể khác nhau. Để tốc độ phản ứng đơn giá thì ta viết:"
+      }
+    },
+    {
+      "fallback": {
+        "reason": "A reviewed semantic recreation or browser-safe image fallback is required.",
+        "strategy": "manual-review"
+      },
+      "id": "T06-S01:e2548",
+      "issueCode": "UNSUPPORTED_OLE_OBJECT",
+      "kind": "embeddedObject",
+      "message": "OLE object cannot be converted semantically by the prototype.",
+      "outcome": "fallback",
+      "severity": "blocking",
+      "sourceLocator": {
+        "blockOrder": 30,
+        "pathHint": "word/document.xml#body/block[27]/w:object[1]",
+        "sectionPath": "Phần I"
+      }
+    },
+    {
+      "id": "T06-S01:p4927",
+      "kind": "paragraph",
+      "outcome": "semantic",
+      "semanticKind": "paragraph",
+      "sourceLocator": {
+        "blockOrder": 31,
+        "pathHint": "word/document.xml#body/p[28]",
+        "sectionPath": "Phần I",
+        "textAnchor": "Ví dụ: Xét phản ứng tổng hợp SO3:"
+      }
+    },
+    {
+      "fallback": {
+        "reason": "A reviewed semantic recreation or browser-safe image fallback is required.",
+        "strategy": "manual-review"
+      },
+      "id": "T06-S01:e7681",
+      "issueCode": "UNSUPPORTED_OLE_OBJECT",
+      "kind": "embeddedObject",
+      "message": "OLE object cannot be converted semantically by the prototype.",
+      "outcome": "fallback",
+      "severity": "blocking",
+      "sourceLocator": {
+        "blockOrder": 32,
+        "pathHint": "word/document.xml#body/block[29]/w:object[1]",
+        "sectionPath": "Phần I"
+      }
+    },
+    {
+      "id": "T06-S01:p3560",
+      "kind": "paragraph",
+      "outcome": "semantic",
+      "semanticKind": "paragraph",
+      "sourceLocator": {
+        "blockOrder": 33,
+        "pathHint": "word/document.xml#body/p[30]",
+        "sectionPath": "Phần I",
+        "textAnchor": "- Tốc độ trung bình của phản ứng:"
+      }
+    },
+    {
+      "fallback": {
+        "reason": "A reviewed semantic recreation or browser-safe image fallback is required.",
+        "strategy": "manual-review"
+      },
+      "id": "T06-S01:e2249",
+      "issueCode": "UNSUPPORTED_OLE_OBJECT",
+      "kind": "embeddedObject",
+      "message": "OLE object cannot be converted semantically by the prototype.",
+      "outcome": "fallback",
+      "severity": "blocking",
+      "sourceLocator": {
+        "blockOrder": 34,
+        "pathHint": "word/document.xml#body/block[31]/w:object[1]",
+        "sectionPath": "Phần I"
+      }
+    },
+    {
+      "id": "T06-S01:p2260",
+      "kind": "paragraph",
+      "outcome": "semantic",
+      "semanticKind": "paragraph",
+      "sourceLocator": {
+        "blockOrder": 35,
+        "pathHint": "word/document.xml#body/p[32]",
+        "sectionPath": "Phần I",
+        "textAnchor": "- Tốc độ tức thời của phản ứng:"
+      }
+    },
+    {
+      "fallback": {
+        "reason": "A reviewed semantic recreation or browser-safe image fallback is required.",
+        "strategy": "manual-review"
+      },
+      "id": "T06-S01:e7685",
+      "issueCode": "UNSUPPORTED_OLE_OBJECT",
+      "kind": "embeddedObject",
+      "message": "OLE object cannot be converted semantically by the prototype.",
+      "outcome": "fallback",
+      "severity": "blocking",
+      "sourceLocator": {
+        "blockOrder": 36,
+        "pathHint": "word/document.xml#body/block[33]/w:object[1]",
+        "sectionPath": "Phần I"
+      }
+    },
+    {
+      "id": "T06-S01:h8605",
+      "kind": "heading",
+      "outcome": "semantic",
+      "semanticKind": "heading",
+      "sourceLocator": {
+        "blockOrder": 37,
+        "pathHint": "word/document.xml#body/p[34]",
+        "sectionPath": "Phần I",
+        "textAnchor": "3. Hằng số tốc độ phản ứng"
+      }
+    },
+    {
+      "id": "T06-S01:p9916",
+      "kind": "paragraph",
+      "outcome": "semantic",
+      "semanticKind": "paragraph",
+      "sourceLocator": {
+        "blockOrder": 38,
+        "pathHint": "word/document.xml#body/p[35]",
+        "sectionPath": "Phần I",
+        "textAnchor": "- Từ thực nghiệm, một quy luật được phát hiện là: Tốc độ của một phản ứng tỉ lệ với tích số nồng độ tại thời điểm đang xét của các chất tham gia, mỗi nông độ đó trong trường hợp đơn giản - có số mũ bằng đúng hệ số các chất trong phản ứng. Đ"
+      }
+    },
+    {
+      "id": "T06-S01:p8968",
+      "kind": "paragraph",
+      "outcome": "semantic",
+      "semanticKind": "paragraph",
+      "sourceLocator": {
+        "blockOrder": 39,
+        "pathHint": "word/document.xml#body/p[36]",
+        "sectionPath": "Phần I",
+        "textAnchor": "Đối với phản ứng:"
+      }
+    },
+    {
+      "id": "T06-S01:p8662",
+      "kind": "paragraph",
+      "outcome": "semantic",
+      "semanticKind": "paragraph",
+      "sourceLocator": {
+        "blockOrder": 40,
+        "pathHint": "word/document.xml#body/p[37]",
+        "sectionPath": "Phần I",
+        "textAnchor": "aA + bB C + dD"
+      }
+    },
+    {
+      "id": "T06-S01:p5993",
+      "kind": "paragraph",
+      "outcome": "semantic",
+      "semanticKind": "paragraph",
+      "sourceLocator": {
+        "blockOrder": 41,
+        "pathHint": "word/document.xml#body/p[38]",
+        "sectionPath": "Phần I",
+        "textAnchor": "Ta có:"
+      }
+    },
+    {
+      "id": "T06-S01:p6603",
+      "kind": "paragraph",
+      "outcome": "semantic",
+      "semanticKind": "paragraph",
+      "sourceLocator": {
+        "blockOrder": 42,
+        "pathHint": "word/document.xml#body/p[39]",
+        "sectionPath": "Phần I",
+        "textAnchor": "(*)"
+      }
+    },
+    {
+      "fallback": {
+        "reason": "A reviewed semantic recreation or browser-safe image fallback is required.",
+        "strategy": "manual-review"
+      },
+      "id": "T06-S01:e4184",
+      "issueCode": "UNSUPPORTED_OLE_OBJECT",
+      "kind": "embeddedObject",
+      "message": "OLE object cannot be converted semantically by the prototype.",
+      "outcome": "fallback",
+      "severity": "blocking",
+      "sourceLocator": {
+        "blockOrder": 43,
+        "pathHint": "word/document.xml#body/block[39]/w:object[1]",
+        "sectionPath": "Phần I"
+      }
+    },
+    {
+      "id": "T06-S01:p5069",
+      "kind": "paragraph",
+      "outcome": "semantic",
+      "semanticKind": "paragraph",
+      "sourceLocator": {
+        "blockOrder": 44,
+        "pathHint": "word/document.xml#body/p[40]",
+        "sectionPath": "Phần I",
+        "textAnchor": "Trong đó: CA, CB là nồng độ chất A và B tại thời điểm đang xét."
+      }
+    },
+    {
+      "id": "T06-S01:p2305",
+      "kind": "paragraph",
+      "outcome": "semantic",
+      "semanticKind": "paragraph",
+      "sourceLocator": {
+        "blockOrder": 45,
+        "pathHint": "word/document.xml#body/p[41]",
+        "sectionPath": "Phần I",
+        "textAnchor": "a, b là hệ số tương ứng của chất A, chất B trong phương trình phản ứng."
+      }
+    },
+    {
+      "id": "T06-S01:p1410",
+      "kind": "paragraph",
+      "outcome": "semantic",
+      "semanticKind": "paragraph",
+      "sourceLocator": {
+        "blockOrder": 46,
+        "pathHint": "word/document.xml#body/p[42]",
+        "sectionPath": "Phần I",
+        "textAnchor": "k là hằng số tốc độ của phản ứng; k càng lớn tốc độ phản ứng càng lớn. Hằng số k phụ thuộc vào bản chất của phản ứng, vào nhiệt độ, vào dung môi và vào chất xúc tác."
+      }
+    },
+    {
+      "id": "T06-S01:p7844",
+      "kind": "paragraph",
+      "outcome": "semantic",
+      "semanticKind": "paragraph",
+      "sourceLocator": {
+        "blockOrder": 47,
+        "pathHint": "word/document.xml#body/p[43]",
+        "sectionPath": "Phần I",
+        "textAnchor": "Biểu thức (*) được gọi là phương trình động học của phản ứng hóa học. Mỗi phản ứng hóa học có một phương trình động học tương ứng."
+      }
+    },
+    {
+      "id": "T06-S01:h5918",
+      "kind": "heading",
+      "outcome": "semantic",
+      "semanticKind": "heading",
+      "sourceLocator": {
+        "blockOrder": 48,
+        "pathHint": "word/document.xml#body/p[44]",
+        "sectionPath": "Phần I",
+        "textAnchor": "4. Bậc phản ứng. Một số phản ứng đơn giản"
+      }
+    },
+    {
+      "id": "T06-S01:p5387",
+      "kind": "paragraph",
+      "outcome": "semantic",
+      "semanticKind": "paragraph",
+      "sourceLocator": {
+        "blockOrder": 49,
+        "pathHint": "word/document.xml#body/p[45]",
+        "sectionPath": "Phần I",
+        "textAnchor": "a) Bậc phản ứng"
+      }
+    },
+    {
+      "id": "T06-S01:p5232",
+      "kind": "paragraph",
+      "outcome": "semantic",
+      "semanticKind": "paragraph",
+      "sourceLocator": {
+        "blockOrder": 50,
+        "pathHint": "word/document.xml#body/p[46]",
+        "sectionPath": "Phần I",
+        "textAnchor": "Bậc riêng phần của phản ứng là trị số riêng rẽ của từng số mũ a, b, ... trong phương trình động học."
+      }
+    },
+    {
+      "id": "T06-S01:p2955",
+      "kind": "paragraph",
+      "outcome": "semantic",
+      "semanticKind": "paragraph",
+      "sourceLocator": {
+        "blockOrder": 51,
+        "pathHint": "word/document.xml#body/p[47]",
+        "sectionPath": "Phần I",
+        "textAnchor": "Bậc toàn phần của một phản ứng là tổng các số mũ của các chất trong phương trình động học của phản ứng đó."
+      }
+    },
+    {
+      "id": "T06-S01:p7797",
+      "kind": "paragraph",
+      "outcome": "semantic",
+      "semanticKind": "paragraph",
+      "sourceLocator": {
+        "blockOrder": 52,
+        "pathHint": "word/document.xml#body/p[48]",
+        "sectionPath": "Phần I",
+        "textAnchor": "Giả sử có phản ứng:"
+      }
+    },
+    {
+      "fallback": {
+        "reason": "A reviewed semantic recreation or browser-safe image fallback is required.",
+        "strategy": "manual-review"
+      },
+      "id": "T06-S01:e4316",
+      "issueCode": "UNSUPPORTED_OLE_OBJECT",
+      "kind": "embeddedObject",
+      "message": "OLE object cannot be converted semantically by the prototype.",
+      "outcome": "fallback",
+      "severity": "blocking",
+      "sourceLocator": {
+        "blockOrder": 53,
+        "pathHint": "word/document.xml#body/block[49]/w:object[1]",
+        "sectionPath": "Phần I"
+      }
+    },
+    {
+      "id": "T06-S01:p3558",
+      "kind": "paragraph",
+      "outcome": "semantic",
+      "semanticKind": "paragraph",
+      "sourceLocator": {
+        "blockOrder": 54,
+        "pathHint": "word/document.xml#body/p[50]",
+        "sectionPath": "Phần I",
+        "textAnchor": "Tốc độ phản ứng được xác định theo biểu thức:"
+      }
+    },
+    {
+      "fallback": {
+        "reason": "A reviewed semantic recreation or browser-safe image fallback is required.",
+        "strategy": "manual-review"
+      },
+      "id": "T06-S01:e4121",
+      "issueCode": "UNSUPPORTED_OLE_OBJECT",
+      "kind": "embeddedObject",
+      "message": "OLE object cannot be converted semantically by the prototype.",
+      "outcome": "fallback",
+      "severity": "blocking",
+      "sourceLocator": {
+        "blockOrder": 55,
+        "pathHint": "word/document.xml#body/block[51]/w:object[1]",
+        "sectionPath": "Phần I"
+      }
+    },
+    {
+      "id": "T06-S01:p1052",
+      "kind": "paragraph",
+      "outcome": "semantic",
+      "semanticKind": "paragraph",
+      "sourceLocator": {
+        "blockOrder": 56,
+        "pathHint": "word/document.xml#body/p[52]",
+        "sectionPath": "Phần I",
+        "textAnchor": "Trong đó x là bậc phản ứng đối với A, y là bậc phản ứng đối với B, tổng x + y là bậc toàn phần của phản ứng trên."
+      }
+    },
+    {
+      "id": "T06-S01:p0302",
+      "kind": "paragraph",
+      "outcome": "semantic",
+      "semanticKind": "paragraph",
+      "sourceLocator": {
+        "blockOrder": 57,
+        "pathHint": "word/document.xml#body/p[53]",
+        "sectionPath": "Phần I",
+        "textAnchor": "Bậc phản ứng thường là những số nguyên nhỏ (0, 1, 2, 3) nhưng cũng có thể là phân số. Thông thường ta gặp phản ứng bậc 1, bậc 2, bậc 3 và các số mũ x, y trùng với giá trị a, b nên tốc độ phản ứng trên được viết:"
+      }
+    },
+    {
+      "fallback": {
+        "reason": "A reviewed semantic recreation or browser-safe image fallback is required.",
+        "strategy": "manual-review"
+      },
+      "id": "T06-S01:e7002",
+      "issueCode": "UNSUPPORTED_OLE_OBJECT",
+      "kind": "embeddedObject",
+      "message": "OLE object cannot be converted semantically by the prototype.",
+      "outcome": "fallback",
+      "severity": "blocking",
+      "sourceLocator": {
+        "blockOrder": 58,
+        "pathHint": "word/document.xml#body/block[54]/w:object[1]",
+        "sectionPath": "Phần I"
+      }
+    },
+    {
+      "id": "T06-S01:p8643",
+      "kind": "paragraph",
+      "outcome": "semantic",
+      "semanticKind": "paragraph",
+      "sourceLocator": {
+        "blockOrder": 59,
+        "pathHint": "word/document.xml#body/p[55]",
+        "sectionPath": "Phần I",
+        "textAnchor": "b) Một số loại phản ứng đơn giản"
+      }
+    },
+    {
+      "id": "T06-S01:p8547",
+      "kind": "paragraph",
+      "outcome": "semantic",
+      "semanticKind": "paragraph",
+      "sourceLocator": {
+        "blockOrder": 60,
+        "pathHint": "word/document.xml#body/p[56]",
+        "sectionPath": "Phần I",
+        "textAnchor": "• Phản ứng một chiều bậc nhất"
+      }
+    },
+    {
+      "id": "T06-S01:p1816",
+      "kind": "paragraph",
+      "outcome": "semantic",
+      "semanticKind": "paragraph",
+      "sourceLocator": {
+        "blockOrder": 61,
+        "pathHint": "word/document.xml#body/p[57]",
+        "sectionPath": "Phần I",
+        "textAnchor": "A Sản phẩm (4.1)"
+      }
+    },
+    {
+      "id": "T06-S01:p3627",
+      "kind": "paragraph",
+      "outcome": "semantic",
+      "semanticKind": "paragraph",
+      "sourceLocator": {
+        "blockOrder": 62,
+        "pathHint": "word/document.xml#body/p[58]",
+        "sectionPath": "Phần I",
+        "textAnchor": "Ta có:"
+      }
+    },
+    {
+      "id": "T06-S01:p8398",
+      "kind": "paragraph",
+      "outcome": "semantic",
+      "semanticKind": "paragraph",
+      "sourceLocator": {
+        "blockOrder": 63,
+        "pathHint": "word/document.xml#body/p[59]",
+        "sectionPath": "Phần I",
+        "textAnchor": "v=kCA"
+      }
+    },
+    {
+      "id": "T06-S01:p0468",
+      "kind": "paragraph",
+      "outcome": "semantic",
+      "semanticKind": "paragraph",
+      "sourceLocator": {
+        "blockOrder": 64,
+        "pathHint": "word/document.xml#body/p[60]",
+        "sectionPath": "Phần I",
+        "textAnchor": "Gọi a là nồng độ ban đầu của A tại thời điểm t = 0; nồng độ của A đã phản ứng sau thời gian dt là x. Khi đó:"
+      }
+    },
+    {
+      "id": "T06-S01:p6172",
+      "kind": "paragraph",
+      "outcome": "semantic",
+      "semanticKind": "paragraph",
+      "sourceLocator": {
+        "blockOrder": 65,
+        "pathHint": "word/document.xml#body/p[61]",
+        "sectionPath": "Phần I",
+        "textAnchor": "CA = a - x"
+      }
+    },
+    {
+      "id": "T06-S01:p9682",
+      "kind": "paragraph",
+      "outcome": "semantic",
+      "semanticKind": "paragraph",
+      "sourceLocator": {
+        "blockOrder": 66,
+        "pathHint": "word/document.xml#body/p[62]",
+        "sectionPath": "Phần I",
+        "textAnchor": "(4.2)"
+      }
+    },
+    {
+      "fallback": {
+        "reason": "A reviewed semantic recreation or browser-safe image fallback is required.",
+        "strategy": "manual-review"
+      },
+      "id": "T06-S01:e0984",
+      "issueCode": "UNSUPPORTED_OLE_OBJECT",
+      "kind": "embeddedObject",
+      "message": "OLE object cannot be converted semantically by the prototype.",
+      "outcome": "fallback",
+      "severity": "blocking",
+      "sourceLocator": {
+        "blockOrder": 67,
+        "pathHint": "word/document.xml#body/block[62]/w:object[1]",
+        "sectionPath": "Phần I"
+      }
+    },
+    {
+      "id": "T06-S01:p2452",
+      "kind": "paragraph",
+      "outcome": "semantic",
+      "semanticKind": "paragraph",
+      "sourceLocator": {
+        "blockOrder": 68,
+        "pathHint": "word/document.xml#body/p[63]",
+        "sectionPath": "Phần I",
+        "textAnchor": "Biểu thức (2) là phương trình động học dưới dạng vi phân của phản ứng (1). Lấy tích phân không xác định hai về biểu thức (2) ta được:"
+      }
+    },
+    {
+      "id": "T06-S01:p9804",
+      "kind": "paragraph",
+      "outcome": "semantic",
+      "semanticKind": "paragraph",
+      "sourceLocator": {
+        "blockOrder": 69,
+        "pathHint": "word/document.xml#body/p[64]",
+        "sectionPath": "Phần I",
+        "textAnchor": "(4.3)"
+      }
+    },
+    {
+      "fallback": {
+        "reason": "A reviewed semantic recreation or browser-safe image fallback is required.",
+        "strategy": "manual-review"
+      },
+      "id": "T06-S01:e9355",
+      "issueCode": "UNSUPPORTED_OLE_OBJECT",
+      "kind": "embeddedObject",
+      "message": "OLE object cannot be converted semantically by the prototype.",
+      "outcome": "fallback",
+      "severity": "blocking",
+      "sourceLocator": {
+        "blockOrder": 70,
+        "pathHint": "word/document.xml#body/block[64]/w:object[1]",
+        "sectionPath": "Phần I"
+      }
+    },
+    {
+      "id": "T06-S01:p9423",
+      "kind": "paragraph",
+      "outcome": "semantic",
+      "semanticKind": "paragraph",
+      "sourceLocator": {
+        "blockOrder": 71,
+        "pathHint": "word/document.xml#body/p[65]",
+        "sectionPath": "Phần I",
+        "textAnchor": "Ví dụ 1: Cho chất xúc tác MnO2 vào 100 ml dung dịch H2O2 0,05M, sau 60 giây thu được 33,6 ml khí O2 (ở đkc). Hãy xác định hằng số tốc độ k của phản ứng."
+      }
+    },
+    {
+      "id": "T06-S01:p7307",
+      "kind": "paragraph",
+      "outcome": "semantic",
+      "semanticKind": "paragraph",
+      "sourceLocator": {
+        "blockOrder": 72,
+        "pathHint": "word/document.xml#body/p[66]",
+        "sectionPath": "Phần I",
+        "textAnchor": "Giải"
+      }
+    },
+    {
+      "fallback": {
+        "reason": "A reviewed semantic recreation or browser-safe image fallback is required.",
+        "strategy": "manual-review"
+      },
+      "id": "T06-S01:e2486",
+      "issueCode": "UNSUPPORTED_OLE_OBJECT",
+      "kind": "embeddedObject",
+      "message": "OLE object cannot be converted semantically by the prototype.",
+      "outcome": "fallback",
+      "severity": "blocking",
+      "sourceLocator": {
+        "blockOrder": 73,
+        "pathHint": "word/document.xml#body/block[67]/w:object[1]",
+        "sectionPath": "Phần I"
+      }
+    },
+    {
+      "id": "T06-S01:p7332",
+      "kind": "paragraph",
+      "outcome": "semantic",
+      "semanticKind": "paragraph",
+      "sourceLocator": {
+        "blockOrder": 74,
+        "pathHint": "word/document.xml#body/p[68]",
+        "sectionPath": "Phần I",
+        "textAnchor": "Mol:3.10-31,5.10-3"
+      }
+    },
+    {
+      "id": "T06-S01:p8700",
+      "kind": "paragraph",
+      "outcome": "semantic",
+      "semanticKind": "paragraph",
+      "sourceLocator": {
+        "blockOrder": 75,
+        "pathHint": "word/document.xml#body/p[69]",
+        "sectionPath": "Phần I",
+        "textAnchor": "Nồng độ HO2 đã mất đi trong khoảng thời gian 60 giây là"
+      }
+    },
+    {
+      "fallback": {
+        "reason": "A reviewed semantic recreation or browser-safe image fallback is required.",
+        "strategy": "manual-review"
+      },
+      "id": "T06-S01:e1418",
+      "issueCode": "UNSUPPORTED_OLE_OBJECT",
+      "kind": "embeddedObject",
+      "message": "OLE object cannot be converted semantically by the prototype.",
+      "outcome": "fallback",
+      "severity": "blocking",
+      "sourceLocator": {
+        "blockOrder": 76,
+        "pathHint": "word/document.xml#body/block[70]/w:object[1]",
+        "sectionPath": "Phần I"
+      }
+    },
+    {
+      "id": "T06-S01:p6523",
+      "kind": "paragraph",
+      "outcome": "semantic",
+      "semanticKind": "paragraph",
+      "sourceLocator": {
+        "blockOrder": 77,
+        "pathHint": "word/document.xml#body/p[71]",
+        "sectionPath": "Phần I",
+        "textAnchor": "Vậy:"
+      }
+    },
+    {
+      "fallback": {
+        "reason": "A reviewed semantic recreation or browser-safe image fallback is required.",
+        "strategy": "manual-review"
+      },
+      "id": "T06-S01:e3135",
+      "issueCode": "UNSUPPORTED_OLE_OBJECT",
+      "kind": "embeddedObject",
+      "message": "OLE object cannot be converted semantically by the prototype.",
+      "outcome": "fallback",
+      "severity": "blocking",
+      "sourceLocator": {
+        "blockOrder": 78,
+        "pathHint": "word/document.xml#body/block[71]/w:object[1]",
+        "sectionPath": "Phần I"
+      }
+    },
+    {
+      "id": "T06-S01:p4908",
+      "kind": "paragraph",
+      "outcome": "semantic",
+      "semanticKind": "paragraph",
+      "sourceLocator": {
+        "blockOrder": 79,
+        "pathHint": "word/document.xml#body/p[72]",
+        "sectionPath": "Phần I",
+        "textAnchor": "• Phản ứng một chiều bậc hai"
+      }
+    },
+    {
+      "id": "T06-S01:p8115",
+      "kind": "paragraph",
+      "outcome": "semantic",
+      "semanticKind": "paragraph",
+      "sourceLocator": {
+        "blockOrder": 80,
+        "pathHint": "word/document.xml#body/p[73]",
+        "sectionPath": "Phần I",
+        "textAnchor": "Có hai trường hợp về loại phản ứng này:"
+      }
+    },
+    {
+      "id": "T06-S01:p0674",
+      "kind": "paragraph",
+      "outcome": "semantic",
+      "semanticKind": "paragraph",
+      "sourceLocator": {
+        "blockOrder": 81,
+        "pathHint": "word/document.xml#body/p[74]",
+        "sectionPath": "Phần I",
+        "textAnchor": "Trường hợp 1: Sơ đồ chung là"
+      }
+    },
+    {
+      "id": "T06-S01:p9330",
+      "kind": "paragraph",
+      "outcome": "semantic",
+      "semanticKind": "paragraph",
+      "sourceLocator": {
+        "blockOrder": 82,
+        "pathHint": "word/document.xml#body/p[75]",
+        "sectionPath": "Phần I",
+        "textAnchor": "2A Sản phẩm (4.4)"
+      }
+    },
+    {
+      "id": "T06-S01:p8078",
+      "kind": "paragraph",
+      "outcome": "semantic",
+      "semanticKind": "paragraph",
+      "sourceLocator": {
+        "blockOrder": 83,
+        "pathHint": "word/document.xml#body/p[76]",
+        "sectionPath": "Phần I",
+        "textAnchor": "Hoặc:"
+      }
+    },
+    {
+      "id": "T06-S01:p8486",
+      "kind": "paragraph",
+      "outcome": "semantic",
+      "semanticKind": "paragraph",
+      "sourceLocator": {
+        "blockOrder": 84,
+        "pathHint": "word/document.xml#body/p[77]",
+        "sectionPath": "Phần I",
+        "textAnchor": "A + B Sản phẩm (4.5)"
+      }
+    },
+    {
+      "id": "T06-S01:p2134",
+      "kind": "paragraph",
+      "outcome": "semantic",
+      "semanticKind": "paragraph",
+      "sourceLocator": {
+        "blockOrder": 85,
+        "pathHint": "word/document.xml#body/p[78]",
+        "sectionPath": "Phần I",
+        "textAnchor": "Với nồng độ ban đầu của A, B bằng nhau. Phương trình động học cho hai loại phản ứng trên là"
+      }
+    },
+    {
+      "fallback": {
+        "reason": "A reviewed semantic recreation or browser-safe image fallback is required.",
+        "strategy": "manual-review"
+      },
+      "id": "T06-S01:e0042",
+      "issueCode": "UNSUPPORTED_OLE_OBJECT",
+      "kind": "embeddedObject",
+      "message": "OLE object cannot be converted semantically by the prototype.",
+      "outcome": "fallback",
+      "severity": "blocking",
+      "sourceLocator": {
+        "blockOrder": 86,
+        "pathHint": "word/document.xml#body/block[79]/w:object[1]",
+        "sectionPath": "Phần I"
+      }
+    },
+    {
+      "id": "T06-S01:p0469",
+      "kind": "paragraph",
+      "outcome": "semantic",
+      "semanticKind": "paragraph",
+      "sourceLocator": {
+        "blockOrder": 87,
+        "pathHint": "word/document.xml#body/p[80]",
+        "sectionPath": "Phần I",
+        "textAnchor": "Lấy tích phân hai vế ta được:"
+      }
+    },
+    {
+      "id": "T06-S01:p9879",
+      "kind": "paragraph",
+      "outcome": "semantic",
+      "semanticKind": "paragraph",
+      "sourceLocator": {
+        "blockOrder": 88,
+        "pathHint": "word/document.xml#body/p[81]",
+        "sectionPath": "Phần I",
+        "textAnchor": "(4.6)"
+      }
+    },
+    {
+      "fallback": {
+        "reason": "A reviewed semantic recreation or browser-safe image fallback is required.",
+        "strategy": "manual-review"
+      },
+      "id": "T06-S01:e9605",
+      "issueCode": "UNSUPPORTED_OLE_OBJECT",
+      "kind": "embeddedObject",
+      "message": "OLE object cannot be converted semantically by the prototype.",
+      "outcome": "fallback",
+      "severity": "blocking",
+      "sourceLocator": {
+        "blockOrder": 89,
+        "pathHint": "word/document.xml#body/block[81]/w:object[1]",
+        "sectionPath": "Phần I"
+      }
+    },
+    {
+      "id": "T06-S01:p5076",
+      "kind": "paragraph",
+      "outcome": "semantic",
+      "semanticKind": "paragraph",
+      "sourceLocator": {
+        "blockOrder": 90,
+        "pathHint": "word/document.xml#body/p[82]",
+        "sectionPath": "Phần I",
+        "textAnchor": "Trường hợp 2: Sơ đồ chung như (4,5) nhưng nồng độ ban đầu của A và B khác nhau. Phương trình động học là"
+      }
+    },
+    {
+      "id": "T06-S01:p5394",
+      "kind": "paragraph",
+      "outcome": "semantic",
+      "semanticKind": "paragraph",
+      "sourceLocator": {
+        "blockOrder": 91,
+        "pathHint": "word/document.xml#body/p[83]",
+        "sectionPath": "Phần I",
+        "textAnchor": "(4.7)"
+      }
+    },
+    {
+      "fallback": {
+        "reason": "A reviewed semantic recreation or browser-safe image fallback is required.",
+        "strategy": "manual-review"
+      },
+      "id": "T06-S01:e8522",
+      "issueCode": "UNSUPPORTED_OLE_OBJECT",
+      "kind": "embeddedObject",
+      "message": "OLE object cannot be converted semantically by the prototype.",
+      "outcome": "fallback",
+      "severity": "blocking",
+      "sourceLocator": {
+        "blockOrder": 92,
+        "pathHint": "word/document.xml#body/block[83]/w:object[1]",
+        "sectionPath": "Phần I"
+      }
+    },
+    {
+      "id": "T06-S01:p8430",
+      "kind": "paragraph",
+      "outcome": "semantic",
+      "semanticKind": "paragraph",
+      "sourceLocator": {
+        "blockOrder": 93,
+        "pathHint": "word/document.xml#body/p[84]",
+        "sectionPath": "Phần I",
+        "textAnchor": "Trong đó a> b; a là nồng độ ban đầu của chất A; b là nồng độ ban đầu của chất B."
+      }
+    },
+    {
+      "id": "T06-S01:p1719",
+      "kind": "paragraph",
+      "outcome": "semantic",
+      "semanticKind": "paragraph",
+      "sourceLocator": {
+        "blockOrder": 94,
+        "pathHint": "word/document.xml#body/p[85]",
+        "sectionPath": "Phần I",
+        "textAnchor": "• Các loại phản ứng đơn giản khác"
+      }
+    },
+    {
+      "id": "T06-S01:p7931",
+      "kind": "paragraph",
+      "outcome": "semantic",
+      "semanticKind": "paragraph",
+      "sourceLocator": {
+        "blockOrder": 95,
+        "pathHint": "word/document.xml#body/p[86]",
+        "sectionPath": "Phần I",
+        "textAnchor": "- Phản ứng bậc 0: Khi đó v=k"
+      }
+    },
+    {
+      "id": "T06-S01:p7049",
+      "kind": "paragraph",
+      "outcome": "semantic",
+      "semanticKind": "paragraph",
+      "sourceLocator": {
+        "blockOrder": 96,
+        "pathHint": "word/document.xml#body/p[87]",
+        "sectionPath": "Phần I",
+        "textAnchor": "- Phản ứng bậc phân số như"
+      }
+    },
+    {
+      "id": "T06-S01:p7205",
+      "kind": "paragraph",
+      "outcome": "semantic",
+      "semanticKind": "paragraph",
+      "sourceLocator": {
+        "blockOrder": 97,
+        "pathHint": "word/document.xml#body/p[88]",
+        "sectionPath": "Phần I",
+        "textAnchor": "H2 + Br2 → 2HBr"
+      }
+    },
+    {
+      "id": "T06-S01:p4994",
+      "kind": "paragraph",
+      "outcome": "semantic",
+      "semanticKind": "paragraph",
+      "sourceLocator": {
+        "blockOrder": 98,
+        "pathHint": "word/document.xml#body/p[89]",
+        "sectionPath": "Phần I",
+        "textAnchor": "- Phản ứng bậc 3 trở lên ít gặp."
+      }
+    },
+    {
+      "id": "T06-S01:p6349",
+      "kind": "paragraph",
+      "outcome": "semantic",
+      "semanticKind": "paragraph",
+      "sourceLocator": {
+        "blockOrder": 99,
+        "pathHint": "word/document.xml#body/p[90]",
+        "sectionPath": "Phần I",
+        "textAnchor": "Ví dụ 2: Người ta nghiên cứu động học của phản ứng xà phòng hóa etyl axetat:"
+      }
+    },
+    {
+      "fallback": {
+        "reason": "A reviewed semantic recreation or browser-safe image fallback is required.",
+        "strategy": "manual-review"
+      },
+      "id": "T06-S01:e3265",
+      "issueCode": "UNSUPPORTED_OLE_OBJECT",
+      "kind": "embeddedObject",
+      "message": "OLE object cannot be converted semantically by the prototype.",
+      "outcome": "fallback",
+      "severity": "blocking",
+      "sourceLocator": {
+        "blockOrder": 100,
+        "pathHint": "word/document.xml#body/block[91]/w:object[1]",
+        "sectionPath": "Phần I"
+      }
+    },
+    {
+      "id": "T06-S01:p7466",
+      "kind": "paragraph",
+      "outcome": "semantic",
+      "semanticKind": "paragraph",
+      "sourceLocator": {
+        "blockOrder": 101,
+        "pathHint": "word/document.xml#body/p[92]",
+        "sectionPath": "Phần I",
+        "textAnchor": "Nồng độ ban đầu của etyl axetat và NaOH đều bằng 0,05M. Phản ứng được theo dõi bằng cách lấy 10 ml dung dịch hỗn hợp phản ứng ở từng thời điểm t và chuẩn độ bằng V ml dung dịch HCl 0,01M. Kết quả như sau:"
+      }
+    },
+    {
+      "fallback": {
+        "reason": "Merged cells, widths and borders may not survive the prototype.",
+        "strategy": "manual-review"
+      },
+      "id": "T06-S01:t3041",
+      "issueCode": "DOCX_TABLE_REQUIRES_VISUAL_REVIEW",
+      "kind": "table",
+      "message": "DOCX table was flattened to an HTML table and needs visual review.",
+      "outcome": "fallback",
+      "severity": "warning",
+      "sourceLocator": {
+        "blockOrder": 102,
+        "pathHint": "word/document.xml#body/tbl[1]",
+        "sectionPath": "Phần I",
+        "textAnchor": "t (phút)4915243753V (ml)44,138,633,727,922,918,5"
+      }
+    },
+    {
+      "id": "T06-S01:p4725",
+      "kind": "paragraph",
+      "outcome": "semantic",
+      "semanticKind": "paragraph",
+      "sourceLocator": {
+        "blockOrder": 103,
+        "pathHint": "word/document.xml#body/p[95]",
+        "sectionPath": "Phần I",
+        "textAnchor": "Tính bậc của phản ứng, hằng số tốc độ phản ứng và chu kì bán hủy của phản ứng."
+      }
+    },
+    {
+      "id": "T06-S01:p1673",
+      "kind": "paragraph",
+      "outcome": "semantic",
+      "semanticKind": "paragraph",
+      "sourceLocator": {
+        "blockOrder": 104,
+        "pathHint": "word/document.xml#body/p[96]",
+        "sectionPath": "Phần I",
+        "textAnchor": "Giải"
+      }
+    },
+    {
+      "id": "T06-S01:p8034",
+      "kind": "paragraph",
+      "outcome": "semantic",
+      "semanticKind": "paragraph",
+      "sourceLocator": {
+        "blockOrder": 105,
+        "pathHint": "word/document.xml#body/p[97]",
+        "sectionPath": "Phần I",
+        "textAnchor": "a)"
+      }
+    },
+    {
+      "fallback": {
+        "reason": "A reviewed semantic recreation or browser-safe image fallback is required.",
+        "strategy": "manual-review"
+      },
+      "id": "T06-S01:e3603",
+      "issueCode": "UNSUPPORTED_OLE_OBJECT",
+      "kind": "embeddedObject",
+      "message": "OLE object cannot be converted semantically by the prototype.",
+      "outcome": "fallback",
+      "severity": "blocking",
+      "sourceLocator": {
+        "blockOrder": 106,
+        "pathHint": "word/document.xml#body/block[98]/w:object[1]",
+        "sectionPath": "Phần I"
+      }
+    },
+    {
+      "id": "T06-S01:p9191",
+      "kind": "paragraph",
+      "outcome": "semantic",
+      "semanticKind": "paragraph",
+      "sourceLocator": {
+        "blockOrder": 107,
+        "pathHint": "word/document.xml#body/p[99]",
+        "sectionPath": "Phần I",
+        "textAnchor": "t = 00,050,05"
+      }
+    },
+    {
+      "id": "T06-S01:p4861",
+      "kind": "paragraph",
+      "outcome": "semantic",
+      "semanticKind": "paragraph",
+      "sourceLocator": {
+        "blockOrder": 108,
+        "pathHint": "word/document.xml#body/p[100]",
+        "sectionPath": "Phần I",
+        "textAnchor": "t0,05 – x0,05 - x"
+      }
+    },
+    {
+      "id": "T06-S01:p1529",
+      "kind": "paragraph",
+      "outcome": "semantic",
+      "semanticKind": "paragraph",
+      "sourceLocator": {
+        "blockOrder": 109,
+        "pathHint": "word/document.xml#body/p[101]",
+        "sectionPath": "Phần I",
+        "textAnchor": "Giả sử phản ứng trên là bậc 2. Ta có: (*)"
+      }
+    },
+    {
+      "fallback": {
+        "reason": "A reviewed semantic recreation or browser-safe image fallback is required.",
+        "strategy": "manual-review"
+      },
+      "id": "T06-S01:e9139",
+      "issueCode": "UNSUPPORTED_OLE_OBJECT",
+      "kind": "embeddedObject",
+      "message": "OLE object cannot be converted semantically by the prototype.",
+      "outcome": "fallback",
+      "severity": "blocking",
+      "sourceLocator": {
+        "blockOrder": 110,
+        "pathHint": "word/document.xml#body/block[101]/w:object[1]",
+        "sectionPath": "Phần I"
+      }
+    },
+    {
+      "id": "T06-S01:p1747",
+      "kind": "paragraph",
+      "outcome": "semantic",
+      "semanticKind": "paragraph",
+      "sourceLocator": {
+        "blockOrder": 111,
+        "pathHint": "word/document.xml#body/p[102]",
+        "sectionPath": "Phần I",
+        "textAnchor": "Theo phép chuẩn độ: 10(a-x) = 0,01V. Xác định được 0,05 - x tại thời điểm t, thay vào (*) ta tính được k. Kết quả k = const, nghĩa là giả thiết phản ứng bậc 2 là đúng."
+      }
+    },
+    {
+      "id": "T06-S01:p8233",
+      "kind": "paragraph",
+      "outcome": "semantic",
+      "semanticKind": "paragraph",
+      "sourceLocator": {
+        "blockOrder": 112,
+        "pathHint": "word/document.xml#body/p[103]",
+        "sectionPath": "Phần I",
+        "textAnchor": "k = 0,651 và t1/2 30 phút."
+      }
+    },
+    {
+      "id": "T06-S01:p4999",
+      "kind": "paragraph",
+      "outcome": "semantic",
+      "semanticKind": "paragraph",
+      "sourceLocator": {
+        "blockOrder": 113,
+        "pathHint": "word/document.xml#body/p[104]",
+        "sectionPath": "Phần I",
+        "textAnchor": "c) Phản ứng phức tạp"
+      }
+    },
+    {
+      "id": "T06-S01:p2533",
+      "kind": "paragraph",
+      "outcome": "semantic",
+      "semanticKind": "paragraph",
+      "sourceLocator": {
+        "blockOrder": 114,
+        "pathHint": "word/document.xml#body/p[105]",
+        "sectionPath": "Phần I",
+        "textAnchor": "Khác với phản ứng đơn giản, phản ứng phức tạp diễn ra theo nhiều giai đoạn trung gian, do đó phương trình hóa học ở dạng tổng quát chỉ là sự tổ hợp của nhiều phản ứng trung gian vì vậy nó không biểu thị cơ chế phản ứng. Trong trường hợp này"
+      }
+    },
+    {
+      "id": "T06-S01:p8680",
+      "kind": "paragraph",
+      "outcome": "semantic",
+      "semanticKind": "paragraph",
+      "sourceLocator": {
+        "blockOrder": 115,
+        "pathHint": "word/document.xml#body/p[106]",
+        "sectionPath": "Phần I",
+        "textAnchor": "Thí dụ 1: Sự nhiệt phân etanal (CH3CHO) không tuân theo quy luật đơn giản về sự biến thiên nồng độ chất theo thời gian:"
+      }
+    },
+    {
+      "id": "T06-S01:p9131",
+      "kind": "paragraph",
+      "outcome": "semantic",
+      "semanticKind": "paragraph",
+      "sourceLocator": {
+        "blockOrder": 116,
+        "pathHint": "word/document.xml#body/p[107]",
+        "sectionPath": "Phần I",
+        "textAnchor": "CH3CHO CH4 + CO"
+      }
+    },
+    {
+      "id": "T06-S01:p5131",
+      "kind": "paragraph",
+      "outcome": "semantic",
+      "semanticKind": "paragraph",
+      "sourceLocator": {
+        "blockOrder": 117,
+        "pathHint": "word/document.xml#body/p[108]",
+        "sectionPath": "Phần I",
+        "textAnchor": "Phương trình động học có dạng:"
+      }
+    },
+    {
+      "fallback": {
+        "reason": "A reviewed semantic recreation or browser-safe image fallback is required.",
+        "strategy": "manual-review"
+      },
+      "id": "T06-S01:e8797",
+      "issueCode": "UNSUPPORTED_OLE_OBJECT",
+      "kind": "embeddedObject",
+      "message": "OLE object cannot be converted semantically by the prototype.",
+      "outcome": "fallback",
+      "severity": "blocking",
+      "sourceLocator": {
+        "blockOrder": 118,
+        "pathHint": "word/document.xml#body/block[108]/w:object[1]",
+        "sectionPath": "Phần I"
+      }
+    },
+    {
+      "id": "T06-S01:p0542",
+      "kind": "paragraph",
+      "outcome": "semantic",
+      "semanticKind": "paragraph",
+      "sourceLocator": {
+        "blockOrder": 119,
+        "pathHint": "word/document.xml#body/p[109]",
+        "sectionPath": "Phần I",
+        "textAnchor": "Bậc động học của phản ứng này là 3/2."
+      }
+    },
+    {
+      "id": "T06-S01:p0277",
+      "kind": "paragraph",
+      "outcome": "semantic",
+      "semanticKind": "paragraph",
+      "sourceLocator": {
+        "blockOrder": 120,
+        "pathHint": "word/document.xml#body/p[110]",
+        "sectionPath": "Phần I",
+        "textAnchor": "Thí dụ 2: Phản ứng ion hóa axeton là phản ứng bậc 1:"
+      }
+    },
+    {
+      "fallback": {
+        "reason": "A reviewed semantic recreation or browser-safe image fallback is required.",
+        "strategy": "manual-review"
+      },
+      "id": "T06-S01:e6161",
+      "issueCode": "UNSUPPORTED_OLE_OBJECT",
+      "kind": "embeddedObject",
+      "message": "OLE object cannot be converted semantically by the prototype.",
+      "outcome": "fallback",
+      "severity": "blocking",
+      "sourceLocator": {
+        "blockOrder": 121,
+        "pathHint": "word/document.xml#body/block[111]/w:object[1]",
+        "sectionPath": "Phần I"
+      }
+    },
+    {
+      "fallback": {
+        "reason": "A reviewed semantic recreation or browser-safe image fallback is required.",
+        "strategy": "manual-review"
+      },
+      "id": "T06-S01:e9221",
+      "issueCode": "UNSUPPORTED_OLE_OBJECT",
+      "kind": "embeddedObject",
+      "message": "OLE object cannot be converted semantically by the prototype.",
+      "outcome": "fallback",
+      "severity": "blocking",
+      "sourceLocator": {
+        "blockOrder": 122,
+        "pathHint": "word/document.xml#body/block[112]/w:object[1]",
+        "sectionPath": "Phần I"
+      }
+    },
+    {
+      "id": "T06-S01:p3995",
+      "kind": "paragraph",
+      "outcome": "semantic",
+      "semanticKind": "paragraph",
+      "sourceLocator": {
+        "blockOrder": 123,
+        "pathHint": "word/document.xml#body/p[113]",
+        "sectionPath": "Phần I",
+        "textAnchor": "Đây là phản ứng phức tạp diễn ra theo hai giai đoạn:"
+      }
+    },
+    {
+      "id": "T06-S01:p3260",
+      "kind": "paragraph",
+      "outcome": "semantic",
+      "semanticKind": "paragraph",
+      "sourceLocator": {
+        "blockOrder": 124,
+        "pathHint": "word/document.xml#body/p[114]",
+        "sectionPath": "Phần I",
+        "textAnchor": "Giai đoạn 1: (1)"
+      }
+    },
+    {
+      "fallback": {
+        "reason": "A reviewed semantic recreation or browser-safe image fallback is required.",
+        "strategy": "manual-review"
+      },
+      "id": "T06-S01:e2635",
+      "issueCode": "UNSUPPORTED_OLE_OBJECT",
+      "kind": "embeddedObject",
+      "message": "OLE object cannot be converted semantically by the prototype.",
+      "outcome": "fallback",
+      "severity": "blocking",
+      "sourceLocator": {
+        "blockOrder": 125,
+        "pathHint": "word/document.xml#body/block[114]/w:object[1]",
+        "sectionPath": "Phần I"
+      }
+    },
+    {
+      "id": "T06-S01:p1508",
+      "kind": "paragraph",
+      "outcome": "semantic",
+      "semanticKind": "paragraph",
+      "sourceLocator": {
+        "blockOrder": 126,
+        "pathHint": "word/document.xml#body/p[115]",
+        "sectionPath": "Phần I",
+        "textAnchor": "Giai đoạn 2: (2)"
+      }
+    },
+    {
+      "fallback": {
+        "reason": "A reviewed semantic recreation or browser-safe image fallback is required.",
+        "strategy": "manual-review"
+      },
+      "id": "T06-S01:e3315",
+      "issueCode": "UNSUPPORTED_OLE_OBJECT",
+      "kind": "embeddedObject",
+      "message": "OLE object cannot be converted semantically by the prototype.",
+      "outcome": "fallback",
+      "severity": "blocking",
+      "sourceLocator": {
+        "blockOrder": 127,
+        "pathHint": "word/document.xml#body/block[115]/w:object[1]",
+        "sectionPath": "Phần I"
+      }
+    },
+    {
+      "id": "T06-S01:p8522",
+      "kind": "paragraph",
+      "outcome": "semantic",
+      "semanticKind": "paragraph",
+      "sourceLocator": {
+        "blockOrder": 128,
+        "pathHint": "word/document.xml#body/p[116]",
+        "sectionPath": "Phần I",
+        "textAnchor": "Phản ứng (1) xảy ra chậm hơn nhiều so với phản ứng (2), do đó tốc độ phản ứng (1) quyết định tốc độ của phản ứng giữa axeton và I2."
+      }
+    },
+    {
+      "id": "T06-S01:p3711",
+      "kind": "paragraph",
+      "outcome": "semantic",
+      "semanticKind": "paragraph",
+      "sourceLocator": {
+        "blockOrder": 129,
+        "pathHint": "word/document.xml#body/p[117]",
+        "sectionPath": "Phần I",
+        "textAnchor": "d) Thời gian bán hủy"
+      }
+    },
+    {
+      "id": "T06-S01:p1819",
+      "kind": "paragraph",
+      "outcome": "semantic",
+      "semanticKind": "paragraph",
+      "sourceLocator": {
+        "blockOrder": 130,
+        "pathHint": "word/document.xml#body/p[118]",
+        "sectionPath": "Phần I",
+        "textAnchor": "Thời điểm để lượng ban đầu của chất phản ứng mất đi (hay còn lại, một nửa được gọi là thời gian bán hủy hay chu kì bán hủy. Kí hiệu: t1/2 hay T1/2."
+      }
+    },
+    {
+      "id": "T06-S01:h0831",
+      "kind": "heading",
+      "outcome": "semantic",
+      "semanticKind": "heading",
+      "sourceLocator": {
+        "blockOrder": 131,
+        "pathHint": "word/document.xml#body/p[120]",
+        "sectionPath": "Phần I",
+        "textAnchor": "5. Sơ lược về cơ chế phản ứng"
+      }
+    },
+    {
+      "id": "T06-S01:p2181",
+      "kind": "paragraph",
+      "outcome": "semantic",
+      "semanticKind": "paragraph",
+      "sourceLocator": {
+        "blockOrder": 132,
+        "pathHint": "word/document.xml#body/p[121]",
+        "sectionPath": "Phần I",
+        "textAnchor": "Sự mô tả chi tiết quá trình biến đổi từ các chất tham gia thành các sản phẩm gọi là cơ chế phản ứng. Dưới đây ta xét một số trường hợp:"
+      }
+    },
+    {
+      "id": "T06-S01:p1920",
+      "kind": "paragraph",
+      "outcome": "semantic",
+      "semanticKind": "paragraph",
+      "sourceLocator": {
+        "blockOrder": 133,
+        "pathHint": "word/document.xml#body/p[122]",
+        "sectionPath": "Phần I",
+        "textAnchor": "a) Các phản ứng một giai đoạn"
+      }
+    },
+    {
+      "id": "T06-S01:p7996",
+      "kind": "paragraph",
+      "outcome": "semantic",
+      "semanticKind": "paragraph",
+      "sourceLocator": {
+        "blockOrder": 134,
+        "pathHint": "word/document.xml#body/p[123]",
+        "sectionPath": "Phần I",
+        "textAnchor": "- Phản ứng đơn phân tử:"
+      }
+    },
+    {
+      "id": "T06-S01:p9096",
+      "kind": "paragraph",
+      "outcome": "semantic",
+      "semanticKind": "paragraph",
+      "sourceLocator": {
+        "blockOrder": 135,
+        "pathHint": "word/document.xml#body/p[124]",
+        "sectionPath": "Phần I",
+        "textAnchor": "Loại phản ứng này xảy ra do sự tự phân hủy chất hoặc tự thay đổi trật tự liên kết của các nguyên tử trong phân tử. Sơ đồ chung:"
+      }
+    },
+    {
+      "id": "T06-S01:p1641",
+      "kind": "paragraph",
+      "outcome": "semantic",
+      "semanticKind": "paragraph",
+      "sourceLocator": {
+        "blockOrder": 136,
+        "pathHint": "word/document.xml#body/p[125]",
+        "sectionPath": "Phần I",
+        "textAnchor": "A B + C + ...."
+      }
+    },
+    {
+      "id": "T06-S01:p4748",
+      "kind": "paragraph",
+      "outcome": "semantic",
+      "semanticKind": "paragraph",
+      "sourceLocator": {
+        "blockOrder": 137,
+        "pathHint": "word/document.xml#body/p[126]",
+        "sectionPath": "Phần I",
+        "textAnchor": "Đây là loại phản ứng bậc nhất, do đó tốc độ phản ứng: v = kCA"
+      }
+    },
+    {
+      "id": "T06-S01:p3982",
+      "kind": "paragraph",
+      "outcome": "semantic",
+      "semanticKind": "paragraph",
+      "sourceLocator": {
+        "blockOrder": 138,
+        "pathHint": "word/document.xml#body/p[127]",
+        "sectionPath": "Phần I",
+        "textAnchor": "Ví dụ:"
+      }
+    },
+    {
+      "fallback": {
+        "reason": "A reviewed semantic recreation or browser-safe image fallback is required.",
+        "strategy": "manual-review"
+      },
+      "id": "T06-S01:e8561",
+      "issueCode": "UNSUPPORTED_OLE_OBJECT",
+      "kind": "embeddedObject",
+      "message": "OLE object cannot be converted semantically by the prototype.",
+      "outcome": "fallback",
+      "severity": "blocking",
+      "sourceLocator": {
+        "blockOrder": 139,
+        "pathHint": "word/document.xml#body/block[128]/w:object[1]",
+        "sectionPath": "Phần I"
+      }
+    },
+    {
+      "id": "T06-S01:p8978",
+      "kind": "paragraph",
+      "outcome": "semantic",
+      "semanticKind": "paragraph",
+      "sourceLocator": {
+        "blockOrder": 140,
+        "pathHint": "word/document.xml#body/p[130]",
+        "sectionPath": "Phần I",
+        "textAnchor": "CH2"
+      }
+    },
+    {
+      "fallback": {
+        "reason": "A reviewed semantic recreation or browser-safe image fallback is required.",
+        "strategy": "manual-review"
+      },
+      "id": "T06-S01:d6703",
+      "issueCode": "UNSUPPORTED_NON_IMAGE_DRAWING",
+      "kind": "drawing",
+      "message": "Drawing or shape has no extractable browser-safe image relationship.",
+      "outcome": "fallback",
+      "severity": "blocking",
+      "sourceLocator": {
+        "blockOrder": 141,
+        "pathHint": "word/document.xml#body/block[130]/w:drawing[1]",
+        "sectionPath": "Phần I"
+      }
+    },
+    {
+      "fallback": {
+        "reason": "A reviewed semantic recreation or browser-safe image fallback is required.",
+        "strategy": "manual-review"
+      },
+      "id": "T06-S01:e8929",
+      "issueCode": "UNSUPPORTED_OLE_OBJECT",
+      "kind": "embeddedObject",
+      "message": "OLE object cannot be converted semantically by the prototype.",
+      "outcome": "fallback",
+      "severity": "blocking",
+      "sourceLocator": {
+        "blockOrder": 142,
+        "pathHint": "word/document.xml#body/block[131]/w:object[1]",
+        "sectionPath": "Phần I"
+      }
+    },
+    {
+      "id": "T06-S01:p6491",
+      "kind": "paragraph",
+      "outcome": "semantic",
+      "semanticKind": "paragraph",
+      "sourceLocator": {
+        "blockOrder": 143,
+        "pathHint": "word/document.xml#body/p[132]",
+        "sectionPath": "Phần I",
+        "textAnchor": "H2CCH2"
+      }
+    },
+    {
+      "id": "T06-S01:p9525",
+      "kind": "paragraph",
+      "outcome": "semantic",
+      "semanticKind": "paragraph",
+      "sourceLocator": {
+        "blockOrder": 144,
+        "pathHint": "word/document.xml#body/p[133]",
+        "sectionPath": "Phần I",
+        "textAnchor": "- Phản ứng lưỡng (hai) phân tử:"
+      }
+    },
+    {
+      "id": "T06-S01:p9908",
+      "kind": "paragraph",
+      "outcome": "semantic",
+      "semanticKind": "paragraph",
+      "sourceLocator": {
+        "blockOrder": 145,
+        "pathHint": "word/document.xml#body/p[134]",
+        "sectionPath": "Phần I",
+        "textAnchor": "Trong loại phản ứng này, chỉ có một giai đoạn, hai phân tử ban đầu va chạm với nhau tạo ra sản phẩm. Đây thường là loại phản ứng bậc 2. Sơ đồ tổng quát:"
+      }
+    },
+    {
+      "id": "T06-S01:p5452",
+      "kind": "paragraph",
+      "outcome": "semantic",
+      "semanticKind": "paragraph",
+      "sourceLocator": {
+        "blockOrder": 146,
+        "pathHint": "word/document.xml#body/p[135]",
+        "sectionPath": "Phần I",
+        "textAnchor": "A + B C + ... Tốc độ phản ứng v=kCA.CB"
+      }
+    },
+    {
+      "id": "T06-S01:p1224",
+      "kind": "paragraph",
+      "outcome": "semantic",
+      "semanticKind": "paragraph",
+      "sourceLocator": {
+        "blockOrder": 147,
+        "pathHint": "word/document.xml#body/p[136]",
+        "sectionPath": "Phần I",
+        "textAnchor": "A + A B + ... Tốc độ phản ứng"
+      }
+    },
+    {
+      "fallback": {
+        "reason": "A reviewed semantic recreation or browser-safe image fallback is required.",
+        "strategy": "manual-review"
+      },
+      "id": "T06-S01:e8707",
+      "issueCode": "UNSUPPORTED_OLE_OBJECT",
+      "kind": "embeddedObject",
+      "message": "OLE object cannot be converted semantically by the prototype.",
+      "outcome": "fallback",
+      "severity": "blocking",
+      "sourceLocator": {
+        "blockOrder": 148,
+        "pathHint": "word/document.xml#body/block[136]/w:object[1]",
+        "sectionPath": "Phần I"
+      }
+    },
+    {
+      "id": "T06-S01:p0882",
+      "kind": "paragraph",
+      "outcome": "semantic",
+      "semanticKind": "paragraph",
+      "sourceLocator": {
+        "blockOrder": 149,
+        "pathHint": "word/document.xml#body/p[137]",
+        "sectionPath": "Phần I",
+        "textAnchor": "Ví dụ:"
+      }
+    },
+    {
+      "fallback": {
+        "reason": "A reviewed semantic recreation or browser-safe image fallback is required.",
+        "strategy": "manual-review"
+      },
+      "id": "T06-S01:e3159",
+      "issueCode": "UNSUPPORTED_OLE_OBJECT",
+      "kind": "embeddedObject",
+      "message": "OLE object cannot be converted semantically by the prototype.",
+      "outcome": "fallback",
+      "severity": "blocking",
+      "sourceLocator": {
+        "blockOrder": 150,
+        "pathHint": "word/document.xml#body/block[138]/w:object[1]",
+        "sectionPath": "Phần I"
+      }
+    },
+    {
+      "id": "T06-S01:p1385",
+      "kind": "paragraph",
+      "outcome": "semantic",
+      "semanticKind": "paragraph",
+      "sourceLocator": {
+        "blockOrder": 151,
+        "pathHint": "word/document.xml#body/p[139]",
+        "sectionPath": "Phần I",
+        "textAnchor": "- Phản ứng tam (ba) phân tử:"
+      }
+    },
+    {
+      "id": "T06-S01:p5365",
+      "kind": "paragraph",
+      "outcome": "semantic",
+      "semanticKind": "paragraph",
+      "sourceLocator": {
+        "blockOrder": 152,
+        "pathHint": "word/document.xml#body/p[140]",
+        "sectionPath": "Phần I",
+        "textAnchor": "Là phản ứng xảy ra do sự va chạm đồng thời của ba phân tử. Số phản ứng loại này rất ít vì xác suất ba phân tử va chạm đồng thời rất nhỏ. Sơ đồ tổng quát:"
+      }
+    },
+    {
+      "id": "T06-S01:p5446",
+      "kind": "paragraph",
+      "outcome": "semantic",
+      "semanticKind": "paragraph",
+      "sourceLocator": {
+        "blockOrder": 153,
+        "pathHint": "word/document.xml#body/p[141]",
+        "sectionPath": "Phần I",
+        "textAnchor": "2A + B C + ..."
+      }
+    },
+    {
+      "id": "T06-S01:p2275",
+      "kind": "paragraph",
+      "outcome": "semantic",
+      "semanticKind": "paragraph",
+      "sourceLocator": {
+        "blockOrder": 154,
+        "pathHint": "word/document.xml#body/p[142]",
+        "sectionPath": "Phần I",
+        "textAnchor": "Đây là phản ứng bậc 3 nên tốc độ phản ứng:"
+      }
+    },
+    {
+      "fallback": {
+        "reason": "A reviewed semantic recreation or browser-safe image fallback is required.",
+        "strategy": "manual-review"
+      },
+      "id": "T06-S01:e1309",
+      "issueCode": "UNSUPPORTED_OLE_OBJECT",
+      "kind": "embeddedObject",
+      "message": "OLE object cannot be converted semantically by the prototype.",
+      "outcome": "fallback",
+      "severity": "blocking",
+      "sourceLocator": {
+        "blockOrder": 155,
+        "pathHint": "word/document.xml#body/block[143]/w:object[1]",
+        "sectionPath": "Phần I"
+      }
+    },
+    {
+      "id": "T06-S01:p9495",
+      "kind": "paragraph",
+      "outcome": "semantic",
+      "semanticKind": "paragraph",
+      "sourceLocator": {
+        "blockOrder": 156,
+        "pathHint": "word/document.xml#body/p[144]",
+        "sectionPath": "Phần I",
+        "textAnchor": "Ví dụ:"
+      }
+    },
+    {
+      "fallback": {
+        "reason": "A reviewed semantic recreation or browser-safe image fallback is required.",
+        "strategy": "manual-review"
+      },
+      "id": "T06-S01:e9697",
+      "issueCode": "UNSUPPORTED_OLE_OBJECT",
+      "kind": "embeddedObject",
+      "message": "OLE object cannot be converted semantically by the prototype.",
+      "outcome": "fallback",
+      "severity": "blocking",
+      "sourceLocator": {
+        "blockOrder": 157,
+        "pathHint": "word/document.xml#body/block[145]/w:object[1]",
+        "sectionPath": "Phần I"
+      }
+    },
+    {
+      "id": "T06-S01:p9296",
+      "kind": "paragraph",
+      "outcome": "semantic",
+      "semanticKind": "paragraph",
+      "sourceLocator": {
+        "blockOrder": 158,
+        "pathHint": "word/document.xml#body/p[146]",
+        "sectionPath": "Phần I",
+        "textAnchor": "Đối với phản ứng từ tứ (bốn) phân tử trở lên rất hiếm gặp."
+      }
+    },
+    {
+      "id": "T06-S01:p6808",
+      "kind": "paragraph",
+      "outcome": "semantic",
+      "semanticKind": "paragraph",
+      "sourceLocator": {
+        "blockOrder": 159,
+        "pathHint": "word/document.xml#body/p[147]",
+        "sectionPath": "Phần I",
+        "textAnchor": "b) Các phản ứng nhiều giai đoạn"
+      }
+    },
+    {
+      "id": "T06-S01:p0397",
+      "kind": "paragraph",
+      "outcome": "semantic",
+      "semanticKind": "paragraph",
+      "sourceLocator": {
+        "blockOrder": 160,
+        "pathHint": "word/document.xml#body/p[148]",
+        "sectionPath": "Phần I",
+        "textAnchor": "Trong phản ứng một giai đoạn, bậc phản ứng đối với từng chất đúng bằng hệ số tỉ lượng (số nguyên) trong phương trình hóa học."
+      }
+    },
+    {
+      "id": "T06-S01:p3595",
+      "kind": "paragraph",
+      "outcome": "semantic",
+      "semanticKind": "paragraph",
+      "sourceLocator": {
+        "blockOrder": 161,
+        "pathHint": "word/document.xml#body/p[149]",
+        "sectionPath": "Phần I",
+        "textAnchor": "Tuy nhiên, đối với rất nhiều phản ứng, bậc phản ứng và do đó tốc độ phản ứng không phù hợp với hệ số tỉ lượng, tức không tuân theo biểu thức định luật tác dụng khối lượng. Nguyên nhân là do phản ứng tổng cộng bao gồm nhiều giai đoạn. Tốc độ"
+      }
+    },
+    {
+      "id": "T06-S01:p2905",
+      "kind": "paragraph",
+      "outcome": "semantic",
+      "semanticKind": "paragraph",
+      "sourceLocator": {
+        "blockOrder": 162,
+        "pathHint": "word/document.xml#body/p[150]",
+        "sectionPath": "Phần I",
+        "textAnchor": "Ví dụ: Xét phản ứng:"
+      }
+    },
+    {
+      "fallback": {
+        "reason": "A reviewed semantic recreation or browser-safe image fallback is required.",
+        "strategy": "manual-review"
+      },
+      "id": "T06-S01:e5216",
+      "issueCode": "UNSUPPORTED_OLE_OBJECT",
+      "kind": "embeddedObject",
+      "message": "OLE object cannot be converted semantically by the prototype.",
+      "outcome": "fallback",
+      "severity": "blocking",
+      "sourceLocator": {
+        "blockOrder": 163,
+        "pathHint": "word/document.xml#body/block[151]/w:object[1]",
+        "sectionPath": "Phần I"
+      }
+    },
+    {
+      "id": "T06-S01:p8244",
+      "kind": "paragraph",
+      "outcome": "semantic",
+      "semanticKind": "paragraph",
+      "sourceLocator": {
+        "blockOrder": 164,
+        "pathHint": "word/document.xml#body/p[152]",
+        "sectionPath": "Phần I",
+        "textAnchor": "Về hình thức đây là phản ứng bậc 2, nhưng thực nghiệm cho biết đây là phản ứng một chiều bậc nhất."
+      }
+    },
+    {
+      "fallback": {
+        "reason": "A reviewed semantic recreation or browser-safe image fallback is required.",
+        "strategy": "manual-review"
+      },
+      "id": "T06-S01:e1428",
+      "issueCode": "UNSUPPORTED_OLE_OBJECT",
+      "kind": "embeddedObject",
+      "message": "OLE object cannot be converted semantically by the prototype.",
+      "outcome": "fallback",
+      "severity": "blocking",
+      "sourceLocator": {
+        "blockOrder": 165,
+        "pathHint": "word/document.xml#body/block[153]/w:object[1]",
+        "sectionPath": "Phần I"
+      }
+    },
+    {
+      "id": "T06-S01:p9385",
+      "kind": "paragraph",
+      "outcome": "semantic",
+      "semanticKind": "paragraph",
+      "sourceLocator": {
+        "blockOrder": 166,
+        "pathHint": "word/document.xml#body/p[154]",
+        "sectionPath": "Phần I",
+        "textAnchor": "Điều này được giải thích như sau: Sự phân hủy N2O5, xảy ra theo ba giai đoạn:"
+      }
+    },
+    {
+      "id": "T06-S01:p1882",
+      "kind": "paragraph",
+      "outcome": "semantic",
+      "semanticKind": "paragraph",
+      "sourceLocator": {
+        "blockOrder": 167,
+        "pathHint": "word/document.xml#body/p[155]",
+        "sectionPath": "Phần I",
+        "textAnchor": "(Chậm) (1)"
+      }
+    },
+    {
+      "fallback": {
+        "reason": "A reviewed semantic recreation or browser-safe image fallback is required.",
+        "strategy": "manual-review"
+      },
+      "id": "T06-S01:e1754",
+      "issueCode": "UNSUPPORTED_OLE_OBJECT",
+      "kind": "embeddedObject",
+      "message": "OLE object cannot be converted semantically by the prototype.",
+      "outcome": "fallback",
+      "severity": "blocking",
+      "sourceLocator": {
+        "blockOrder": 168,
+        "pathHint": "word/document.xml#body/block[155]/w:object[1]",
+        "sectionPath": "Phần I"
+      }
+    },
+    {
+      "id": "T06-S01:p0582",
+      "kind": "paragraph",
+      "outcome": "semantic",
+      "semanticKind": "paragraph",
+      "sourceLocator": {
+        "blockOrder": 169,
+        "pathHint": "word/document.xml#body/p[156]",
+        "sectionPath": "Phần I",
+        "textAnchor": "(Nhanh) (2)"
+      }
+    },
+    {
+      "fallback": {
+        "reason": "A reviewed semantic recreation or browser-safe image fallback is required.",
+        "strategy": "manual-review"
+      },
+      "id": "T06-S01:e9497",
+      "issueCode": "UNSUPPORTED_OLE_OBJECT",
+      "kind": "embeddedObject",
+      "message": "OLE object cannot be converted semantically by the prototype.",
+      "outcome": "fallback",
+      "severity": "blocking",
+      "sourceLocator": {
+        "blockOrder": 170,
+        "pathHint": "word/document.xml#body/block[156]/w:object[1]",
+        "sectionPath": "Phần I"
+      }
+    },
+    {
+      "id": "T06-S01:p1576",
+      "kind": "paragraph",
+      "outcome": "semantic",
+      "semanticKind": "paragraph",
+      "sourceLocator": {
+        "blockOrder": 171,
+        "pathHint": "word/document.xml#body/p[157]",
+        "sectionPath": "Phần I",
+        "textAnchor": "(Nhanh) (3)"
+      }
+    },
+    {
+      "fallback": {
+        "reason": "A reviewed semantic recreation or browser-safe image fallback is required.",
+        "strategy": "manual-review"
+      },
+      "id": "T06-S01:e3885",
+      "issueCode": "UNSUPPORTED_OLE_OBJECT",
+      "kind": "embeddedObject",
+      "message": "OLE object cannot be converted semantically by the prototype.",
+      "outcome": "fallback",
+      "severity": "blocking",
+      "sourceLocator": {
+        "blockOrder": 172,
+        "pathHint": "word/document.xml#body/block[157]/w:object[1]",
+        "sectionPath": "Phần I"
+      }
+    },
+    {
+      "id": "T06-S01:p2376",
+      "kind": "paragraph",
+      "outcome": "semantic",
+      "semanticKind": "paragraph",
+      "sourceLocator": {
+        "blockOrder": 173,
+        "pathHint": "word/document.xml#body/p[158]",
+        "sectionPath": "Phần I",
+        "textAnchor": "Mỗi giai đoạn trên còn được gọi là quá trình cơ sở. Tập hợp các giai đoạn xảy ra tạo thành cơ chế của phản ứng phân hủy N2O5. Trong cơ chế đó giai đoạn chậm nhất quyết định tốc độ quá trình. Giai đoạn (1) là chậm nhất nên tốc độ phản ứng nh"
+      }
+    },
+    {
+      "fallback": {
+        "reason": "A reviewed semantic recreation or browser-safe image fallback is required.",
+        "strategy": "manual-review"
+      },
+      "id": "T06-S01:e3465",
+      "issueCode": "UNSUPPORTED_OLE_OBJECT",
+      "kind": "embeddedObject",
+      "message": "OLE object cannot be converted semantically by the prototype.",
+      "outcome": "fallback",
+      "severity": "blocking",
+      "sourceLocator": {
+        "blockOrder": 174,
+        "pathHint": "word/document.xml#body/block[158]/w:object[1]",
+        "sectionPath": "Phần I"
+      }
+    },
+    {
+      "fallback": {
+        "reason": "A reviewed semantic recreation or browser-safe image fallback is required.",
+        "strategy": "manual-review"
+      },
+      "id": "T06-S01:e9430",
+      "issueCode": "UNSUPPORTED_OLE_OBJECT",
+      "kind": "embeddedObject",
+      "message": "OLE object cannot be converted semantically by the prototype.",
+      "outcome": "fallback",
+      "severity": "blocking",
+      "sourceLocator": {
+        "blockOrder": 175,
+        "pathHint": "word/document.xml#body/block[158]/w:object[2]",
+        "sectionPath": "Phần I"
+      }
+    },
+    {
+      "id": "T06-S01:h4300",
+      "kind": "heading",
+      "outcome": "semantic",
+      "semanticKind": "heading",
+      "sourceLocator": {
+        "blockOrder": 176,
+        "pathHint": "word/document.xml#body/p[159]",
+        "sectionPath": "Phần I",
+        "textAnchor": "6. Ảnh hưởng của nhiệt độ đến tốc độ phản ứng. Năng lượng hoạt động hóa"
+      }
+    },
+    {
+      "id": "T06-S01:p4064",
+      "kind": "paragraph",
+      "outcome": "semantic",
+      "semanticKind": "paragraph",
+      "sourceLocator": {
+        "blockOrder": 177,
+        "pathHint": "word/document.xml#body/p[160]",
+        "sectionPath": "Phần I",
+        "textAnchor": "a) Ảnh hưởng của nhiệt độ đến tốc độ phản ứng. Phương trình trêniuxơ"
+      }
+    },
+    {
+      "id": "T06-S01:p2972",
+      "kind": "paragraph",
+      "outcome": "semantic",
+      "semanticKind": "paragraph",
+      "sourceLocator": {
+        "blockOrder": 178,
+        "pathHint": "word/document.xml#body/p[161]",
+        "sectionPath": "Phần I",
+        "textAnchor": "• Khi tăng nhiệt độ, tốc độ phản ứng tăng. Điều này được giải thích như sau: Khi nhiệt độ phản ứng tăng dẫn đến hai hệ quả sau:"
+      }
+    },
+    {
+      "id": "T06-S01:p4300",
+      "kind": "paragraph",
+      "outcome": "semantic",
+      "semanticKind": "paragraph",
+      "sourceLocator": {
+        "blockOrder": 179,
+        "pathHint": "word/document.xml#body/p[162]",
+        "sectionPath": "Phần I",
+        "textAnchor": "- Tốc độ chuyển động của các phân tử tăng, dẫn đến tần số va chạm giữa các phân tử chất phản ứng tăng."
+      }
+    },
+    {
+      "id": "T06-S01:p3775",
+      "kind": "paragraph",
+      "outcome": "semantic",
+      "semanticKind": "paragraph",
+      "sourceLocator": {
+        "blockOrder": 180,
+        "pathHint": "word/document.xml#body/p[163]",
+        "sectionPath": "Phần I",
+        "textAnchor": "- Tần số va chạm có hiệu quả giữa các phân tử chất phản ứng tăng nhanh. Đây là yếu tố chính làm cho tốc độ phản ứng tăng nhanh theo nhiệt độ."
+      }
+    },
+    {
+      "id": "T06-S01:p5212",
+      "kind": "paragraph",
+      "outcome": "semantic",
+      "semanticKind": "paragraph",
+      "sourceLocator": {
+        "blockOrder": 181,
+        "pathHint": "word/document.xml#body/p[164]",
+        "sectionPath": "Phần I",
+        "textAnchor": "• Quy tắc Van Hốp: Ở khoảng nhiệt độ gần nhiệt độ phòng, khi tăng nhiệt độ thêm 10°C thì tốc độ phản ứng tăng từ 2 đến 4 lần."
+      }
+    },
+    {
+      "id": "T06-S01:p1126",
+      "kind": "paragraph",
+      "outcome": "semantic",
+      "semanticKind": "paragraph",
+      "sourceLocator": {
+        "blockOrder": 182,
+        "pathHint": "word/document.xml#body/p[165]",
+        "sectionPath": "Phần I",
+        "textAnchor": "Kí hiệu (đọc là gama) được gọi là hệ số nhiệt độ của tốc độ phản ứng:"
+      }
+    },
+    {
+      "fallback": {
+        "reason": "A reviewed semantic recreation or browser-safe image fallback is required.",
+        "strategy": "manual-review"
+      },
+      "id": "T06-S01:e4964",
+      "issueCode": "UNSUPPORTED_OLE_OBJECT",
+      "kind": "embeddedObject",
+      "message": "OLE object cannot be converted semantically by the prototype.",
+      "outcome": "fallback",
+      "severity": "blocking",
+      "sourceLocator": {
+        "blockOrder": 183,
+        "pathHint": "word/document.xml#body/block[166]/w:object[1]",
+        "sectionPath": "Phần I"
+      }
+    },
+    {
+      "id": "T06-S01:p3504",
+      "kind": "paragraph",
+      "outcome": "semantic",
+      "semanticKind": "paragraph",
+      "sourceLocator": {
+        "blockOrder": 184,
+        "pathHint": "word/document.xml#body/p[167]",
+        "sectionPath": "Phần I",
+        "textAnchor": "Trong đó: k là tốc độ phản ứng ở nhiệt độ T1"
+      }
+    },
+    {
+      "id": "T06-S01:p7850",
+      "kind": "paragraph",
+      "outcome": "semantic",
+      "semanticKind": "paragraph",
+      "sourceLocator": {
+        "blockOrder": 185,
+        "pathHint": "word/document.xml#body/p[168]",
+        "sectionPath": "Phần I",
+        "textAnchor": "k' là tốc độ phản ứng ở nhiệt độ T2"
+      }
+    },
+    {
+      "id": "T06-S01:p6818",
+      "kind": "paragraph",
+      "outcome": "semantic",
+      "semanticKind": "paragraph",
+      "sourceLocator": {
+        "blockOrder": 186,
+        "pathHint": "word/document.xml#body/p[169]",
+        "sectionPath": "Phần I",
+        "textAnchor": "• Phương trình Arêniuxơ:"
+      }
+    },
+    {
+      "fallback": {
+        "reason": "A reviewed semantic recreation or browser-safe image fallback is required.",
+        "strategy": "manual-review"
+      },
+      "id": "T06-S01:e7326",
+      "issueCode": "UNSUPPORTED_OLE_OBJECT",
+      "kind": "embeddedObject",
+      "message": "OLE object cannot be converted semantically by the prototype.",
+      "outcome": "fallback",
+      "severity": "blocking",
+      "sourceLocator": {
+        "blockOrder": 187,
+        "pathHint": "word/document.xml#body/block[170]/w:object[1]",
+        "sectionPath": "Phần I"
+      }
+    },
+    {
+      "id": "T06-S01:p7851",
+      "kind": "paragraph",
+      "outcome": "semantic",
+      "semanticKind": "paragraph",
+      "sourceLocator": {
+        "blockOrder": 188,
+        "pathHint": "word/document.xml#body/p[171]",
+        "sectionPath": "Phần I",
+        "textAnchor": "Lấy logarit hai vế ta được:"
+      }
+    },
+    {
+      "fallback": {
+        "reason": "A reviewed semantic recreation or browser-safe image fallback is required.",
+        "strategy": "manual-review"
+      },
+      "id": "T06-S01:e6997",
+      "issueCode": "UNSUPPORTED_OLE_OBJECT",
+      "kind": "embeddedObject",
+      "message": "OLE object cannot be converted semantically by the prototype.",
+      "outcome": "fallback",
+      "severity": "blocking",
+      "sourceLocator": {
+        "blockOrder": 189,
+        "pathHint": "word/document.xml#body/block[172]/w:object[1]",
+        "sectionPath": "Phần I"
+      }
+    },
+    {
+      "id": "T06-S01:p5913",
+      "kind": "paragraph",
+      "outcome": "semantic",
+      "semanticKind": "paragraph",
+      "sourceLocator": {
+        "blockOrder": 190,
+        "pathHint": "word/document.xml#body/p[173]",
+        "sectionPath": "Phần I",
+        "textAnchor": "Trong đó:"
+      }
+    },
+    {
+      "id": "T06-S01:p2723",
+      "kind": "paragraph",
+      "outcome": "semantic",
+      "semanticKind": "paragraph",
+      "sourceLocator": {
+        "blockOrder": 191,
+        "pathHint": "word/document.xml#body/p[174]",
+        "sectionPath": "Phần I",
+        "textAnchor": "A là thừa số Arêniuxơ, được đặc trưng cho mỗi phản ứng."
+      }
+    },
+    {
+      "id": "T06-S01:p0410",
+      "kind": "paragraph",
+      "outcome": "semantic",
+      "semanticKind": "paragraph",
+      "sourceLocator": {
+        "blockOrder": 192,
+        "pathHint": "word/document.xml#body/p[175]",
+        "sectionPath": "Phần I",
+        "textAnchor": "R là hằng số khí; R = 1,987 calmol-1. độ-1 hay R = 8,314 J.mol-1. độ-1."
+      }
+    },
+    {
+      "id": "T06-S01:p3005",
+      "kind": "paragraph",
+      "outcome": "semantic",
+      "semanticKind": "paragraph",
+      "sourceLocator": {
+        "blockOrder": 193,
+        "pathHint": "word/document.xml#body/p[176]",
+        "sectionPath": "Phần I",
+        "textAnchor": "e là cơ số logarit Nepe (e = 2,7183)"
+      }
+    },
+    {
+      "id": "T06-S01:p3836",
+      "kind": "paragraph",
+      "outcome": "semantic",
+      "semanticKind": "paragraph",
+      "sourceLocator": {
+        "blockOrder": 194,
+        "pathHint": "word/document.xml#body/p[177]",
+        "sectionPath": "Phần I",
+        "textAnchor": "T là nhiệt độ Kenvin.."
+      }
+    },
+    {
+      "id": "T06-S01:p1270",
+      "kind": "paragraph",
+      "outcome": "semantic",
+      "semanticKind": "paragraph",
+      "sourceLocator": {
+        "blockOrder": 195,
+        "pathHint": "word/document.xml#body/p[178]",
+        "sectionPath": "Phần I",
+        "textAnchor": "Ea là năng lượng hoạt động hóa."
+      }
+    },
+    {
+      "id": "T06-S01:p1081",
+      "kind": "paragraph",
+      "outcome": "semantic",
+      "semanticKind": "paragraph",
+      "sourceLocator": {
+        "blockOrder": 196,
+        "pathHint": "word/document.xml#body/p[179]",
+        "sectionPath": "Phần I",
+        "textAnchor": "b) Năng lượng hoạt động hóa (Ea)"
+      }
+    },
+    {
+      "id": "T06-S01:p2268",
+      "kind": "paragraph",
+      "outcome": "semantic",
+      "semanticKind": "paragraph",
+      "sourceLocator": {
+        "blockOrder": 197,
+        "pathHint": "word/document.xml#body/p[180]",
+        "sectionPath": "Phần I",
+        "textAnchor": "Năng lượng dư so với năng lượng trung bình vốn có của tiêu phần tham gia phản ứng mà các tiểu phân này cần để cho phản ứng xảy ra được, gọi là năng lượng hoạt động hóa."
+      }
+    },
+    {
+      "id": "T06-S01:p2975",
+      "kind": "paragraph",
+      "outcome": "semantic",
+      "semanticKind": "paragraph",
+      "sourceLocator": {
+        "blockOrder": 198,
+        "pathHint": "word/document.xml#body/p[181]",
+        "sectionPath": "Phần I",
+        "textAnchor": "Ví dụ 1: Hòa tan 10-2 mol NaOH vào 10-2mol vào 1 x1,107 lít H2O ở 27oC."
+      }
+    },
+    {
+      "fallback": {
+        "reason": "A reviewed semantic recreation or browser-safe image fallback is required.",
+        "strategy": "manual-review"
+      },
+      "id": "T06-S01:e0189",
+      "issueCode": "UNSUPPORTED_OLE_OBJECT",
+      "kind": "embeddedObject",
+      "message": "OLE object cannot be converted semantically by the prototype.",
+      "outcome": "fallback",
+      "severity": "blocking",
+      "sourceLocator": {
+        "blockOrder": 199,
+        "pathHint": "word/document.xml#body/block[181]/w:object[1]",
+        "sectionPath": "Phần I"
+      }
+    },
+    {
+      "id": "T06-S01:p7329",
+      "kind": "paragraph",
+      "outcome": "semantic",
+      "semanticKind": "paragraph",
+      "sourceLocator": {
+        "blockOrder": 200,
+        "pathHint": "word/document.xml#body/p[182]",
+        "sectionPath": "Phần I",
+        "textAnchor": "a) Biết rằng phản ứng có bậc động học bằng 2 và 3/4 este đã bị phân hủy sau 2 giờ. Tính hằng số tốc độ và thời gian nửa phản ứng."
+      }
+    },
+    {
+      "id": "T06-S01:p3052",
+      "kind": "paragraph",
+      "outcome": "semantic",
+      "semanticKind": "paragraph",
+      "sourceLocator": {
+        "blockOrder": 201,
+        "pathHint": "word/document.xml#body/p[183]",
+        "sectionPath": "Phần I",
+        "textAnchor": "b) Khi nhiệt độ tăng từ 27°C lên 127°C, thì tốc độ phản ứng tăng lên gấp 4 lần. Tính thời gian nửa phản ứng tại 127°C và năng lượng hoạt động hóa của phản ứng."
+      }
+    },
+    {
+      "id": "T06-S01:p0386",
+      "kind": "paragraph",
+      "outcome": "semantic",
+      "semanticKind": "paragraph",
+      "sourceLocator": {
+        "blockOrder": 202,
+        "pathHint": "word/document.xml#body/p[184]",
+        "sectionPath": "Phần I",
+        "textAnchor": "Giải"
+      }
+    },
+    {
+      "id": "T06-S01:p9885",
+      "kind": "paragraph",
+      "outcome": "semantic",
+      "semanticKind": "paragraph",
+      "sourceLocator": {
+        "blockOrder": 203,
+        "pathHint": "word/document.xml#body/p[185]",
+        "sectionPath": "Phần I",
+        "textAnchor": "a) Đối với phản ứng bậc 2 có nồng độ ban đầu của các chất bằng nhau, ta có:"
+      }
+    },
+    {
+      "fallback": {
+        "reason": "A reviewed semantic recreation or browser-safe image fallback is required.",
+        "strategy": "manual-review"
+      },
+      "id": "T06-S01:e6474",
+      "issueCode": "UNSUPPORTED_OLE_OBJECT",
+      "kind": "embeddedObject",
+      "message": "OLE object cannot be converted semantically by the prototype.",
+      "outcome": "fallback",
+      "severity": "blocking",
+      "sourceLocator": {
+        "blockOrder": 204,
+        "pathHint": "word/document.xml#body/block[186]/w:object[1]",
+        "sectionPath": "Phần I"
+      }
+    },
+    {
+      "id": "T06-S01:p1829",
+      "kind": "paragraph",
+      "outcome": "semantic",
+      "semanticKind": "paragraph",
+      "sourceLocator": {
+        "blockOrder": 205,
+        "pathHint": "word/document.xml#body/p[187]",
+        "sectionPath": "Phần I",
+        "textAnchor": "Với thì"
+      }
+    },
+    {
+      "fallback": {
+        "reason": "A reviewed semantic recreation or browser-safe image fallback is required.",
+        "strategy": "manual-review"
+      },
+      "id": "T06-S01:e8721",
+      "issueCode": "UNSUPPORTED_OLE_OBJECT",
+      "kind": "embeddedObject",
+      "message": "OLE object cannot be converted semantically by the prototype.",
+      "outcome": "fallback",
+      "severity": "blocking",
+      "sourceLocator": {
+        "blockOrder": 206,
+        "pathHint": "word/document.xml#body/block[187]/w:object[1]",
+        "sectionPath": "Phần I"
+      }
+    },
+    {
+      "fallback": {
+        "reason": "A reviewed semantic recreation or browser-safe image fallback is required.",
+        "strategy": "manual-review"
+      },
+      "id": "T06-S01:e0969",
+      "issueCode": "UNSUPPORTED_OLE_OBJECT",
+      "kind": "embeddedObject",
+      "message": "OLE object cannot be converted semantically by the prototype.",
+      "outcome": "fallback",
+      "severity": "blocking",
+      "sourceLocator": {
+        "blockOrder": 207,
+        "pathHint": "word/document.xml#body/block[188]/w:object[1]",
+        "sectionPath": "Phần I"
+      }
+    },
+    {
+      "id": "T06-S01:p4777",
+      "kind": "paragraph",
+      "outcome": "semantic",
+      "semanticKind": "paragraph",
+      "sourceLocator": {
+        "blockOrder": 208,
+        "pathHint": "word/document.xml#body/p[189]",
+        "sectionPath": "Phần I",
+        "textAnchor": "Thời gian nửa phản ứng: phút"
+      }
+    },
+    {
+      "fallback": {
+        "reason": "A reviewed semantic recreation or browser-safe image fallback is required.",
+        "strategy": "manual-review"
+      },
+      "id": "T06-S01:e5909",
+      "issueCode": "UNSUPPORTED_OLE_OBJECT",
+      "kind": "embeddedObject",
+      "message": "OLE object cannot be converted semantically by the prototype.",
+      "outcome": "fallback",
+      "severity": "blocking",
+      "sourceLocator": {
+        "blockOrder": 209,
+        "pathHint": "word/document.xml#body/block[189]/w:object[1]",
+        "sectionPath": "Phần I"
+      }
+    },
+    {
+      "id": "T06-S01:p1438",
+      "kind": "paragraph",
+      "outcome": "semantic",
+      "semanticKind": "paragraph",
+      "sourceLocator": {
+        "blockOrder": 210,
+        "pathHint": "word/document.xml#body/p[190]",
+        "sectionPath": "Phần I",
+        "textAnchor": "b) Thời gian nữa phản ứng tại 127°c:"
+      }
+    },
+    {
+      "id": "T06-S01:p1932",
+      "kind": "paragraph",
+      "outcome": "semantic",
+      "semanticKind": "paragraph",
+      "sourceLocator": {
+        "blockOrder": 211,
+        "pathHint": "word/document.xml#body/p[191]",
+        "sectionPath": "Phần I",
+        "textAnchor": "phút"
+      }
+    },
+    {
+      "fallback": {
+        "reason": "A reviewed semantic recreation or browser-safe image fallback is required.",
+        "strategy": "manual-review"
+      },
+      "id": "T06-S01:e0530",
+      "issueCode": "UNSUPPORTED_OLE_OBJECT",
+      "kind": "embeddedObject",
+      "message": "OLE object cannot be converted semantically by the prototype.",
+      "outcome": "fallback",
+      "severity": "blocking",
+      "sourceLocator": {
+        "blockOrder": 212,
+        "pathHint": "word/document.xml#body/block[191]/w:object[1]",
+        "sectionPath": "Phần I"
+      }
+    },
+    {
+      "id": "T06-S01:p5153",
+      "kind": "paragraph",
+      "outcome": "semantic",
+      "semanticKind": "paragraph",
+      "sourceLocator": {
+        "blockOrder": 213,
+        "pathHint": "word/document.xml#body/p[192]",
+        "sectionPath": "Phần I",
+        "textAnchor": "Năng lượng hoạt động hóa:"
+      }
+    },
+    {
+      "fallback": {
+        "reason": "A reviewed semantic recreation or browser-safe image fallback is required.",
+        "strategy": "manual-review"
+      },
+      "id": "T06-S01:e4567",
+      "issueCode": "UNSUPPORTED_OLE_OBJECT",
+      "kind": "embeddedObject",
+      "message": "OLE object cannot be converted semantically by the prototype.",
+      "outcome": "fallback",
+      "severity": "blocking",
+      "sourceLocator": {
+        "blockOrder": 214,
+        "pathHint": "word/document.xml#body/block[193]/w:object[1]",
+        "sectionPath": "Phần I"
+      }
+    },
+    {
+      "fallback": {
+        "reason": "A reviewed semantic recreation or browser-safe image fallback is required.",
+        "strategy": "manual-review"
+      },
+      "id": "T06-S01:e7135",
+      "issueCode": "UNSUPPORTED_OLE_OBJECT",
+      "kind": "embeddedObject",
+      "message": "OLE object cannot be converted semantically by the prototype.",
+      "outcome": "fallback",
+      "severity": "blocking",
+      "sourceLocator": {
+        "blockOrder": 215,
+        "pathHint": "word/document.xml#body/block[194]/w:object[1]",
+        "sectionPath": "Phần I"
+      }
+    },
+    {
+      "id": "T06-S01:p7348",
+      "kind": "paragraph",
+      "outcome": "semantic",
+      "semanticKind": "paragraph",
+      "sourceLocator": {
+        "blockOrder": 216,
+        "pathHint": "word/document.xml#body/p[195]",
+        "sectionPath": "Phần I",
+        "textAnchor": "Ví dụ 2: Trong một phản ứng bậc nhất tiến hành ở, nồng độ chất phản ứng giảm xuống một nửa sau 5000s. Ở nồng độ giảm đi hai lần sau 1000s."
+      }
+    },
+    {
+      "fallback": {
+        "reason": "A reviewed semantic recreation or browser-safe image fallback is required.",
+        "strategy": "manual-review"
+      },
+      "id": "T06-S01:e8081",
+      "issueCode": "UNSUPPORTED_OLE_OBJECT",
+      "kind": "embeddedObject",
+      "message": "OLE object cannot be converted semantically by the prototype.",
+      "outcome": "fallback",
+      "severity": "blocking",
+      "sourceLocator": {
+        "blockOrder": 217,
+        "pathHint": "word/document.xml#body/block[195]/w:object[1]",
+        "sectionPath": "Phần I"
+      }
+    },
+    {
+      "fallback": {
+        "reason": "A reviewed semantic recreation or browser-safe image fallback is required.",
+        "strategy": "manual-review"
+      },
+      "id": "T06-S01:e8680",
+      "issueCode": "UNSUPPORTED_OLE_OBJECT",
+      "kind": "embeddedObject",
+      "message": "OLE object cannot be converted semantically by the prototype.",
+      "outcome": "fallback",
+      "severity": "blocking",
+      "sourceLocator": {
+        "blockOrder": 218,
+        "pathHint": "word/document.xml#body/block[195]/w:object[2]",
+        "sectionPath": "Phần I"
+      }
+    },
+    {
+      "id": "T06-S01:p6287",
+      "kind": "paragraph",
+      "outcome": "semantic",
+      "semanticKind": "paragraph",
+      "sourceLocator": {
+        "blockOrder": 219,
+        "pathHint": "word/document.xml#body/p[196]",
+        "sectionPath": "Phần I",
+        "textAnchor": "Tính:"
+      }
+    },
+    {
+      "id": "T06-S01:p2614",
+      "kind": "paragraph",
+      "outcome": "semantic",
+      "semanticKind": "paragraph",
+      "sourceLocator": {
+        "blockOrder": 220,
+        "pathHint": "word/document.xml#body/p[197]",
+        "sectionPath": "Phần I",
+        "textAnchor": "a) Hằng số tốc độ phản ứng ở ."
+      }
+    },
+    {
+      "fallback": {
+        "reason": "A reviewed semantic recreation or browser-safe image fallback is required.",
+        "strategy": "manual-review"
+      },
+      "id": "T06-S01:e0742",
+      "issueCode": "UNSUPPORTED_OLE_OBJECT",
+      "kind": "embeddedObject",
+      "message": "OLE object cannot be converted semantically by the prototype.",
+      "outcome": "fallback",
+      "severity": "blocking",
+      "sourceLocator": {
+        "blockOrder": 221,
+        "pathHint": "word/document.xml#body/block[197]/w:object[1]",
+        "sectionPath": "Phần I"
+      }
+    },
+    {
+      "id": "T06-S01:p3626",
+      "kind": "paragraph",
+      "outcome": "semantic",
+      "semanticKind": "paragraph",
+      "sourceLocator": {
+        "blockOrder": 222,
+        "pathHint": "word/document.xml#body/p[198]",
+        "sectionPath": "Phần I",
+        "textAnchor": "b) Thời gian để nồng độ giảm xuống còn 1/4 ở ."
+      }
+    },
+    {
+      "fallback": {
+        "reason": "A reviewed semantic recreation or browser-safe image fallback is required.",
+        "strategy": "manual-review"
+      },
+      "id": "T06-S01:e2673",
+      "issueCode": "UNSUPPORTED_OLE_OBJECT",
+      "kind": "embeddedObject",
+      "message": "OLE object cannot be converted semantically by the prototype.",
+      "outcome": "fallback",
+      "severity": "blocking",
+      "sourceLocator": {
+        "blockOrder": 223,
+        "pathHint": "word/document.xml#body/block[198]/w:object[1]",
+        "sectionPath": "Phần I"
+      }
+    },
+    {
+      "id": "T06-S01:p9836",
+      "kind": "paragraph",
+      "outcome": "semantic",
+      "semanticKind": "paragraph",
+      "sourceLocator": {
+        "blockOrder": 224,
+        "pathHint": "word/document.xml#body/p[199]",
+        "sectionPath": "Phần I",
+        "textAnchor": "c) Năng lượng hoạt động hóa của phản ứng."
+      }
+    },
+    {
+      "id": "T06-S01:p6307",
+      "kind": "paragraph",
+      "outcome": "semantic",
+      "semanticKind": "paragraph",
+      "sourceLocator": {
+        "blockOrder": 225,
+        "pathHint": "word/document.xml#body/p[200]",
+        "sectionPath": "Phần I",
+        "textAnchor": "Giải"
+      }
+    },
+    {
+      "id": "T06-S01:p5370",
+      "kind": "paragraph",
+      "outcome": "semantic",
+      "semanticKind": "paragraph",
+      "sourceLocator": {
+        "blockOrder": 226,
+        "pathHint": "word/document.xml#body/p[201]",
+        "sectionPath": "Phần I",
+        "textAnchor": "a) Phản ứng bậc nhất nên:"
+      }
+    },
+    {
+      "fallback": {
+        "reason": "A reviewed semantic recreation or browser-safe image fallback is required.",
+        "strategy": "manual-review"
+      },
+      "id": "T06-S01:e9792",
+      "issueCode": "UNSUPPORTED_OLE_OBJECT",
+      "kind": "embeddedObject",
+      "message": "OLE object cannot be converted semantically by the prototype.",
+      "outcome": "fallback",
+      "severity": "blocking",
+      "sourceLocator": {
+        "blockOrder": 227,
+        "pathHint": "word/document.xml#body/block[202]/w:object[1]",
+        "sectionPath": "Phần I"
+      }
+    },
+    {
+      "id": "T06-S01:p6316",
+      "kind": "paragraph",
+      "outcome": "semantic",
+      "semanticKind": "paragraph",
+      "sourceLocator": {
+        "blockOrder": 228,
+        "pathHint": "word/document.xml#body/p[203]",
+        "sectionPath": "Phần I",
+        "textAnchor": "b)"
+      }
+    },
+    {
+      "fallback": {
+        "reason": "A reviewed semantic recreation or browser-safe image fallback is required.",
+        "strategy": "manual-review"
+      },
+      "id": "T06-S01:e9097",
+      "issueCode": "UNSUPPORTED_OLE_OBJECT",
+      "kind": "embeddedObject",
+      "message": "OLE object cannot be converted semantically by the prototype.",
+      "outcome": "fallback",
+      "severity": "blocking",
+      "sourceLocator": {
+        "blockOrder": 229,
+        "pathHint": "word/document.xml#body/block[203]/w:object[1]",
+        "sectionPath": "Phần I"
+      }
+    },
+    {
+      "fallback": {
+        "reason": "A reviewed semantic recreation or browser-safe image fallback is required.",
+        "strategy": "manual-review"
+      },
+      "id": "T06-S01:e5962",
+      "issueCode": "UNSUPPORTED_OLE_OBJECT",
+      "kind": "embeddedObject",
+      "message": "OLE object cannot be converted semantically by the prototype.",
+      "outcome": "fallback",
+      "severity": "blocking",
+      "sourceLocator": {
+        "blockOrder": 230,
+        "pathHint": "word/document.xml#body/block[204]/w:object[1]",
+        "sectionPath": "Phần I"
+      }
+    },
+    {
+      "id": "T06-S01:p7689",
+      "kind": "paragraph",
+      "outcome": "semantic",
+      "semanticKind": "paragraph",
+      "sourceLocator": {
+        "blockOrder": 231,
+        "pathHint": "word/document.xml#body/p[205]",
+        "sectionPath": "Phần I",
+        "textAnchor": "c)"
+      }
+    },
+    {
+      "fallback": {
+        "reason": "A reviewed semantic recreation or browser-safe image fallback is required.",
+        "strategy": "manual-review"
+      },
+      "id": "T06-S01:e6260",
+      "issueCode": "UNSUPPORTED_OLE_OBJECT",
+      "kind": "embeddedObject",
+      "message": "OLE object cannot be converted semantically by the prototype.",
+      "outcome": "fallback",
+      "severity": "blocking",
+      "sourceLocator": {
+        "blockOrder": 232,
+        "pathHint": "word/document.xml#body/block[205]/w:object[1]",
+        "sectionPath": "Phần I"
+      }
+    },
+    {
+      "id": "T06-S01:p6686",
+      "kind": "paragraph",
+      "outcome": "semantic",
+      "semanticKind": "paragraph",
+      "sourceLocator": {
+        "blockOrder": 233,
+        "pathHint": "word/document.xml#body/p[206]",
+        "sectionPath": "Phần I",
+        "textAnchor": "Ví dụ 3: Khảo sát bằng thực nghiệm ở phản ứng thủy phân metyl axetat với sự có mặt của HCl dư, nồng độ 0,05M. Thể tích dung dịch NaOH có nồng độ cố định dùng để trung hòa 20 ml hỗn hợp phản ứng theo thời gian như sau:"
+      }
+    },
+    {
+      "fallback": {
+        "reason": "A reviewed semantic recreation or browser-safe image fallback is required.",
+        "strategy": "manual-review"
+      },
+      "id": "T06-S01:e7784",
+      "issueCode": "UNSUPPORTED_OLE_OBJECT",
+      "kind": "embeddedObject",
+      "message": "OLE object cannot be converted semantically by the prototype.",
+      "outcome": "fallback",
+      "severity": "blocking",
+      "sourceLocator": {
+        "blockOrder": 234,
+        "pathHint": "word/document.xml#body/block[206]/w:object[1]",
+        "sectionPath": "Phần I"
+      }
+    },
+    {
+      "fallback": {
+        "reason": "Merged cells, widths and borders may not survive the prototype.",
+        "strategy": "manual-review"
+      },
+      "id": "T06-S01:t2740",
+      "issueCode": "DOCX_TABLE_REQUIRES_VISUAL_REVIEW",
+      "kind": "table",
+      "message": "DOCX table was flattened to an HTML table and needs visual review.",
+      "outcome": "fallback",
+      "severity": "warning",
+      "sourceLocator": {
+        "blockOrder": 235,
+        "pathHint": "word/document.xml#body/tbl[2]",
+        "sectionPath": "Phần I",
+        "textAnchor": "t (phút)02175119V dung dịch NaOH (ml)19,5220,6423,4425,3637,76"
+      }
+    },
+    {
+      "fallback": {
+        "reason": "A reviewed semantic recreation or browser-safe image fallback is required.",
+        "strategy": "manual-review"
+      },
+      "id": "T06-S01:e2971",
+      "issueCode": "UNSUPPORTED_OLE_OBJECT",
+      "kind": "embeddedObject",
+      "message": "OLE object cannot be converted semantically by the prototype.",
+      "outcome": "fallback",
+      "severity": "blocking",
+      "sourceLocator": {
+        "blockOrder": 236,
+        "pathHint": "word/document.xml#body/block[207]/w:object[1]",
+        "sectionPath": "Phần I"
+      }
+    },
+    {
+      "id": "T06-S01:p3158",
+      "kind": "paragraph",
+      "outcome": "semantic",
+      "semanticKind": "paragraph",
+      "sourceLocator": {
+        "blockOrder": 237,
+        "pathHint": "word/document.xml#body/p[208]",
+        "sectionPath": "Phần I",
+        "textAnchor": "a) Viết phương trình hóa học của các phản ứng xảy ra."
+      }
+    },
+    {
+      "id": "T06-S01:p9377",
+      "kind": "paragraph",
+      "outcome": "semantic",
+      "semanticKind": "paragraph",
+      "sourceLocator": {
+        "blockOrder": 238,
+        "pathHint": "word/document.xml#body/p[209]",
+        "sectionPath": "Phần I",
+        "textAnchor": "b) Chứng minh phản ứng thủy phân metyl axetat là phản ứng bậc 1. Tính hằng số tốc độ và thời gian nửa phản ứng."
+      }
+    },
+    {
+      "id": "T06-S01:p7322",
+      "kind": "paragraph",
+      "outcome": "semantic",
+      "semanticKind": "paragraph",
+      "sourceLocator": {
+        "blockOrder": 239,
+        "pathHint": "word/document.xml#body/p[210]",
+        "sectionPath": "Phần I",
+        "textAnchor": "Giải"
+      }
+    },
+    {
+      "id": "T06-S01:p5170",
+      "kind": "paragraph",
+      "outcome": "semantic",
+      "semanticKind": "paragraph",
+      "sourceLocator": {
+        "blockOrder": 240,
+        "pathHint": "word/document.xml#body/p[211]",
+        "sectionPath": "Phần I",
+        "textAnchor": "a) Phương trình hóa học:"
+      }
+    },
+    {
+      "fallback": {
+        "reason": "A reviewed semantic recreation or browser-safe image fallback is required.",
+        "strategy": "manual-review"
+      },
+      "id": "T06-S01:e6018",
+      "issueCode": "UNSUPPORTED_OLE_OBJECT",
+      "kind": "embeddedObject",
+      "message": "OLE object cannot be converted semantically by the prototype.",
+      "outcome": "fallback",
+      "severity": "blocking",
+      "sourceLocator": {
+        "blockOrder": 241,
+        "pathHint": "word/document.xml#body/block[212]/w:object[1]",
+        "sectionPath": "Phần I"
+      }
+    },
+    {
+      "fallback": {
+        "reason": "A reviewed semantic recreation or browser-safe image fallback is required.",
+        "strategy": "manual-review"
+      },
+      "id": "T06-S01:e2170",
+      "issueCode": "UNSUPPORTED_OLE_OBJECT",
+      "kind": "embeddedObject",
+      "message": "OLE object cannot be converted semantically by the prototype.",
+      "outcome": "fallback",
+      "severity": "blocking",
+      "sourceLocator": {
+        "blockOrder": 242,
+        "pathHint": "word/document.xml#body/block[212]/w:object[2]",
+        "sectionPath": "Phần I"
+      }
+    },
+    {
+      "fallback": {
+        "reason": "A reviewed semantic recreation or browser-safe image fallback is required.",
+        "strategy": "manual-review"
+      },
+      "id": "T06-S01:e6303",
+      "issueCode": "UNSUPPORTED_OLE_OBJECT",
+      "kind": "embeddedObject",
+      "message": "OLE object cannot be converted semantically by the prototype.",
+      "outcome": "fallback",
+      "severity": "blocking",
+      "sourceLocator": {
+        "blockOrder": 243,
+        "pathHint": "word/document.xml#body/block[213]/w:object[1]",
+        "sectionPath": "Phần I"
+      }
+    },
+    {
+      "fallback": {
+        "reason": "A reviewed semantic recreation or browser-safe image fallback is required.",
+        "strategy": "manual-review"
+      },
+      "id": "T06-S01:e9281",
+      "issueCode": "UNSUPPORTED_OLE_OBJECT",
+      "kind": "embeddedObject",
+      "message": "OLE object cannot be converted semantically by the prototype.",
+      "outcome": "fallback",
+      "severity": "blocking",
+      "sourceLocator": {
+        "blockOrder": 244,
+        "pathHint": "word/document.xml#body/block[213]/w:object[2]",
+        "sectionPath": "Phần I"
+      }
+    },
+    {
+      "fallback": {
+        "reason": "A reviewed semantic recreation or browser-safe image fallback is required.",
+        "strategy": "manual-review"
+      },
+      "id": "T06-S01:e3386",
+      "issueCode": "UNSUPPORTED_OLE_OBJECT",
+      "kind": "embeddedObject",
+      "message": "OLE object cannot be converted semantically by the prototype.",
+      "outcome": "fallback",
+      "severity": "blocking",
+      "sourceLocator": {
+        "blockOrder": 245,
+        "pathHint": "word/document.xml#body/block[214]/w:object[1]",
+        "sectionPath": "Phần I"
+      }
+    },
+    {
+      "fallback": {
+        "reason": "A reviewed semantic recreation or browser-safe image fallback is required.",
+        "strategy": "manual-review"
+      },
+      "id": "T06-S01:e3814",
+      "issueCode": "UNSUPPORTED_OLE_OBJECT",
+      "kind": "embeddedObject",
+      "message": "OLE object cannot be converted semantically by the prototype.",
+      "outcome": "fallback",
+      "severity": "blocking",
+      "sourceLocator": {
+        "blockOrder": 246,
+        "pathHint": "word/document.xml#body/block[214]/w:object[2]",
+        "sectionPath": "Phần I"
+      }
+    },
+    {
+      "id": "T06-S01:p7538",
+      "kind": "paragraph",
+      "outcome": "semantic",
+      "semanticKind": "paragraph",
+      "sourceLocator": {
+        "blockOrder": 247,
+        "pathHint": "word/document.xml#body/p[215]",
+        "sectionPath": "Phần I",
+        "textAnchor": "b) HCl chỉ đóng vai trò xúc tác cho phản ứng , nên khi chuẩn độ mẫu trích từ hỗn hợp phản ứng, thì thể tích dung dịch NaOH cần dùng tại thời điểm t một phần là để chuẩn độ HCl, một phần là để chuẩn độ CH3COOH sinh ra."
+      }
+    },
+    {
+      "fallback": {
+        "reason": "A reviewed semantic recreation or browser-safe image fallback is required.",
+        "strategy": "manual-review"
+      },
+      "id": "T06-S01:e5556",
+      "issueCode": "UNSUPPORTED_OLE_OBJECT",
+      "kind": "embeddedObject",
+      "message": "OLE object cannot be converted semantically by the prototype.",
+      "outcome": "fallback",
+      "severity": "blocking",
+      "sourceLocator": {
+        "blockOrder": 248,
+        "pathHint": "word/document.xml#body/block[215]/w:object[1]",
+        "sectionPath": "Phần I"
+      }
+    },
+    {
+      "id": "T06-S01:p3426",
+      "kind": "paragraph",
+      "outcome": "semantic",
+      "semanticKind": "paragraph",
+      "sourceLocator": {
+        "blockOrder": 249,
+        "pathHint": "word/document.xml#body/p[216]",
+        "sectionPath": "Phần I",
+        "textAnchor": "V (t) = V (phản ứng với HCl) + V (phản ứng với CH3COOH)"
+      }
+    },
+    {
+      "fallback": {
+        "reason": "A reviewed semantic recreation or browser-safe image fallback is required.",
+        "strategy": "manual-review"
+      },
+      "id": "T06-S01:e6224",
+      "issueCode": "UNSUPPORTED_OLE_OBJECT",
+      "kind": "embeddedObject",
+      "message": "OLE object cannot be converted semantically by the prototype.",
+      "outcome": "fallback",
+      "severity": "blocking",
+      "sourceLocator": {
+        "blockOrder": 250,
+        "pathHint": "word/document.xml#body/block[216]/w:object[1]",
+        "sectionPath": "Phần I"
+      }
+    },
+    {
+      "id": "T06-S01:p7103",
+      "kind": "paragraph",
+      "outcome": "semantic",
+      "semanticKind": "paragraph",
+      "sourceLocator": {
+        "blockOrder": 251,
+        "pathHint": "word/document.xml#body/p[217]",
+        "sectionPath": "Phần I",
+        "textAnchor": "Trong đó: V (phản ứng với HCl) = const"
+      }
+    },
+    {
+      "id": "T06-S01:p0895",
+      "kind": "paragraph",
+      "outcome": "semantic",
+      "semanticKind": "paragraph",
+      "sourceLocator": {
+        "blockOrder": 252,
+        "pathHint": "word/document.xml#body/p[218]",
+        "sectionPath": "Phần I",
+        "textAnchor": "Theo phương trình chuẩn độ, ta luôn có:"
+      }
+    },
+    {
+      "id": "T06-S01:p9808",
+      "kind": "paragraph",
+      "outcome": "semantic",
+      "semanticKind": "paragraph",
+      "sourceLocator": {
+        "blockOrder": 253,
+        "pathHint": "word/document.xml#body/p[219]",
+        "sectionPath": "Phần I",
+        "textAnchor": "V (phản ứng với CH3COOH)"
+      }
+    },
+    {
+      "fallback": {
+        "reason": "A reviewed semantic recreation or browser-safe image fallback is required.",
+        "strategy": "manual-review"
+      },
+      "id": "T06-S01:e3184",
+      "issueCode": "UNSUPPORTED_OLE_OBJECT",
+      "kind": "embeddedObject",
+      "message": "OLE object cannot be converted semantically by the prototype.",
+      "outcome": "fallback",
+      "severity": "blocking",
+      "sourceLocator": {
+        "blockOrder": 254,
+        "pathHint": "word/document.xml#body/block[219]/w:object[1]",
+        "sectionPath": "Phần I"
+      }
+    },
+    {
+      "id": "T06-S01:p7981",
+      "kind": "paragraph",
+      "outcome": "semantic",
+      "semanticKind": "paragraph",
+      "sourceLocator": {
+        "blockOrder": 255,
+        "pathHint": "word/document.xml#body/p[220]",
+        "sectionPath": "Phần I",
+        "textAnchor": "(phản ứng với CH3COOH ở ) – V (phản ứng với ở t)"
+      }
+    },
+    {
+      "fallback": {
+        "reason": "A reviewed semantic recreation or browser-safe image fallback is required.",
+        "strategy": "manual-review"
+      },
+      "id": "T06-S01:e4982",
+      "issueCode": "UNSUPPORTED_OLE_OBJECT",
+      "kind": "embeddedObject",
+      "message": "OLE object cannot be converted semantically by the prototype.",
+      "outcome": "fallback",
+      "severity": "blocking",
+      "sourceLocator": {
+        "blockOrder": 256,
+        "pathHint": "word/document.xml#body/block[220]/w:object[1]",
+        "sectionPath": "Phần I"
+      }
+    },
+    {
+      "fallback": {
+        "reason": "A reviewed semantic recreation or browser-safe image fallback is required.",
+        "strategy": "manual-review"
+      },
+      "id": "T06-S01:e1570",
+      "issueCode": "UNSUPPORTED_OLE_OBJECT",
+      "kind": "embeddedObject",
+      "message": "OLE object cannot be converted semantically by the prototype.",
+      "outcome": "fallback",
+      "severity": "blocking",
+      "sourceLocator": {
+        "blockOrder": 257,
+        "pathHint": "word/document.xml#body/block[220]/w:object[2]",
+        "sectionPath": "Phần I"
+      }
+    },
+    {
+      "fallback": {
+        "reason": "A reviewed semantic recreation or browser-safe image fallback is required.",
+        "strategy": "manual-review"
+      },
+      "id": "T06-S01:e9635",
+      "issueCode": "UNSUPPORTED_OLE_OBJECT",
+      "kind": "embeddedObject",
+      "message": "OLE object cannot be converted semantically by the prototype.",
+      "outcome": "fallback",
+      "severity": "blocking",
+      "sourceLocator": {
+        "blockOrder": 258,
+        "pathHint": "word/document.xml#body/block[220]/w:object[3]",
+        "sectionPath": "Phần I"
+      }
+    },
+    {
+      "fallback": {
+        "reason": "A reviewed semantic recreation or browser-safe image fallback is required.",
+        "strategy": "manual-review"
+      },
+      "id": "T06-S01:e1191",
+      "issueCode": "UNSUPPORTED_OLE_OBJECT",
+      "kind": "embeddedObject",
+      "message": "OLE object cannot be converted semantically by the prototype.",
+      "outcome": "fallback",
+      "severity": "blocking",
+      "sourceLocator": {
+        "blockOrder": 259,
+        "pathHint": "word/document.xml#body/block[220]/w:object[4]",
+        "sectionPath": "Phần I"
+      }
+    },
+    {
+      "id": "T06-S01:p1901",
+      "kind": "paragraph",
+      "outcome": "semantic",
+      "semanticKind": "paragraph",
+      "sourceLocator": {
+        "blockOrder": 260,
+        "pathHint": "word/document.xml#body/p[221]",
+        "sectionPath": "Phần I",
+        "textAnchor": "CCH3COOH ở - CCH3COOH ở t"
+      }
+    },
+    {
+      "fallback": {
+        "reason": "A reviewed semantic recreation or browser-safe image fallback is required.",
+        "strategy": "manual-review"
+      },
+      "id": "T06-S01:e7854",
+      "issueCode": "UNSUPPORTED_OLE_OBJECT",
+      "kind": "embeddedObject",
+      "message": "OLE object cannot be converted semantically by the prototype.",
+      "outcome": "fallback",
+      "severity": "blocking",
+      "sourceLocator": {
+        "blockOrder": 261,
+        "pathHint": "word/document.xml#body/block[221]/w:object[1]",
+        "sectionPath": "Phần I"
+      }
+    },
+    {
+      "fallback": {
+        "reason": "A reviewed semantic recreation or browser-safe image fallback is required.",
+        "strategy": "manual-review"
+      },
+      "id": "T06-S01:e2310",
+      "issueCode": "UNSUPPORTED_OLE_OBJECT",
+      "kind": "embeddedObject",
+      "message": "OLE object cannot be converted semantically by the prototype.",
+      "outcome": "fallback",
+      "severity": "blocking",
+      "sourceLocator": {
+        "blockOrder": 262,
+        "pathHint": "word/document.xml#body/block[221]/w:object[2]",
+        "sectionPath": "Phần I"
+      }
+    },
+    {
+      "id": "T06-S01:p1793",
+      "kind": "paragraph",
+      "outcome": "semantic",
+      "semanticKind": "paragraph",
+      "sourceLocator": {
+        "blockOrder": 263,
+        "pathHint": "word/document.xml#body/p[222]",
+        "sectionPath": "Phần I",
+        "textAnchor": "Ta có: CCH3COOH ở = CCH3COOH ở t=0 CCH3COOH ở - CCH3COOH ở t = CCH3COOH3 ở t"
+      }
+    },
+    {
+      "fallback": {
+        "reason": "A reviewed semantic recreation or browser-safe image fallback is required.",
+        "strategy": "manual-review"
+      },
+      "id": "T06-S01:e0202",
+      "issueCode": "UNSUPPORTED_OLE_OBJECT",
+      "kind": "embeddedObject",
+      "message": "OLE object cannot be converted semantically by the prototype.",
+      "outcome": "fallback",
+      "severity": "blocking",
+      "sourceLocator": {
+        "blockOrder": 264,
+        "pathHint": "word/document.xml#body/block[222]/w:object[1]",
+        "sectionPath": "Phần I"
+      }
+    },
+    {
+      "fallback": {
+        "reason": "A reviewed semantic recreation or browser-safe image fallback is required.",
+        "strategy": "manual-review"
+      },
+      "id": "T06-S01:e2195",
+      "issueCode": "UNSUPPORTED_OLE_OBJECT",
+      "kind": "embeddedObject",
+      "message": "OLE object cannot be converted semantically by the prototype.",
+      "outcome": "fallback",
+      "severity": "blocking",
+      "sourceLocator": {
+        "blockOrder": 265,
+        "pathHint": "word/document.xml#body/block[222]/w:object[2]",
+        "sectionPath": "Phần I"
+      }
+    },
+    {
+      "fallback": {
+        "reason": "A reviewed semantic recreation or browser-safe image fallback is required.",
+        "strategy": "manual-review"
+      },
+      "id": "T06-S01:e0493",
+      "issueCode": "UNSUPPORTED_OLE_OBJECT",
+      "kind": "embeddedObject",
+      "message": "OLE object cannot be converted semantically by the prototype.",
+      "outcome": "fallback",
+      "severity": "blocking",
+      "sourceLocator": {
+        "blockOrder": 266,
+        "pathHint": "word/document.xml#body/block[222]/w:object[3]",
+        "sectionPath": "Phần I"
+      }
+    },
+    {
+      "id": "T06-S01:p0597",
+      "kind": "paragraph",
+      "outcome": "semantic",
+      "semanticKind": "paragraph",
+      "sourceLocator": {
+        "blockOrder": 267,
+        "pathHint": "word/document.xml#body/p[223]",
+        "sectionPath": "Phần I",
+        "textAnchor": "Do đó: CCH3COOH3 ở t"
+      }
+    },
+    {
+      "fallback": {
+        "reason": "A reviewed semantic recreation or browser-safe image fallback is required.",
+        "strategy": "manual-review"
+      },
+      "id": "T06-S01:e4328",
+      "issueCode": "UNSUPPORTED_OLE_OBJECT",
+      "kind": "embeddedObject",
+      "message": "OLE object cannot be converted semantically by the prototype.",
+      "outcome": "fallback",
+      "severity": "blocking",
+      "sourceLocator": {
+        "blockOrder": 268,
+        "pathHint": "word/document.xml#body/block[223]/w:object[1]",
+        "sectionPath": "Phần I"
+      }
+    },
+    {
+      "id": "T06-S01:p2635",
+      "kind": "paragraph",
+      "outcome": "semantic",
+      "semanticKind": "paragraph",
+      "sourceLocator": {
+        "blockOrder": 269,
+        "pathHint": "word/document.xml#body/p[224]",
+        "sectionPath": "Phần I",
+        "textAnchor": "Từ đó suy ra, nếu phản ứng đã cho là bậc 1, ta có mối liên hệ:"
+      }
+    },
+    {
+      "fallback": {
+        "reason": "A reviewed semantic recreation or browser-safe image fallback is required.",
+        "strategy": "manual-review"
+      },
+      "id": "T06-S01:e9229",
+      "issueCode": "UNSUPPORTED_OLE_OBJECT",
+      "kind": "embeddedObject",
+      "message": "OLE object cannot be converted semantically by the prototype.",
+      "outcome": "fallback",
+      "severity": "blocking",
+      "sourceLocator": {
+        "blockOrder": 270,
+        "pathHint": "word/document.xml#body/block[225]/w:object[1]",
+        "sectionPath": "Phần I"
+      }
+    },
+    {
+      "id": "T06-S01:p4105",
+      "kind": "paragraph",
+      "outcome": "semantic",
+      "semanticKind": "paragraph",
+      "sourceLocator": {
+        "blockOrder": 271,
+        "pathHint": "word/document.xml#body/p[226]",
+        "sectionPath": "Phần I",
+        "textAnchor": "Ta có bảng sau:"
+      }
+    },
+    {
+      "fallback": {
+        "reason": "Merged cells, widths and borders may not survive the prototype.",
+        "strategy": "manual-review"
+      },
+      "id": "T06-S01:t6560",
+      "issueCode": "DOCX_TABLE_REQUIRES_VISUAL_REVIEW",
+      "kind": "table",
+      "message": "DOCX table was flattened to an HTML table and needs visual review.",
+      "outcome": "fallback",
+      "severity": "warning",
+      "sourceLocator": {
+        "blockOrder": 272,
+        "pathHint": "word/document.xml#body/tbl[3]",
+        "sectionPath": "Phần I",
+        "textAnchor": "Thời gian (ph)V (t)219,2518,241,9032120,6417,122,8407523,4414,322,66211925,3612,42,51837,76"
+      }
+    },
+    {
+      "fallback": {
+        "reason": "A reviewed semantic recreation or browser-safe image fallback is required.",
+        "strategy": "manual-review"
+      },
+      "id": "T06-S01:e4172",
+      "issueCode": "UNSUPPORTED_OLE_OBJECT",
+      "kind": "embeddedObject",
+      "message": "OLE object cannot be converted semantically by the prototype.",
+      "outcome": "fallback",
+      "severity": "blocking",
+      "sourceLocator": {
+        "blockOrder": 273,
+        "pathHint": "word/document.xml#body/block[227]/w:object[1]",
+        "sectionPath": "Phần I"
+      }
+    },
+    {
+      "fallback": {
+        "reason": "A reviewed semantic recreation or browser-safe image fallback is required.",
+        "strategy": "manual-review"
+      },
+      "id": "T06-S01:e0904",
+      "issueCode": "UNSUPPORTED_OLE_OBJECT",
+      "kind": "embeddedObject",
+      "message": "OLE object cannot be converted semantically by the prototype.",
+      "outcome": "fallback",
+      "severity": "blocking",
+      "sourceLocator": {
+        "blockOrder": 274,
+        "pathHint": "word/document.xml#body/block[227]/w:object[2]",
+        "sectionPath": "Phần I"
+      }
+    },
+    {
+      "fallback": {
+        "reason": "A reviewed semantic recreation or browser-safe image fallback is required.",
+        "strategy": "manual-review"
+      },
+      "id": "T06-S01:e5843",
+      "issueCode": "UNSUPPORTED_OLE_OBJECT",
+      "kind": "embeddedObject",
+      "message": "OLE object cannot be converted semantically by the prototype.",
+      "outcome": "fallback",
+      "severity": "blocking",
+      "sourceLocator": {
+        "blockOrder": 275,
+        "pathHint": "word/document.xml#body/block[227]/w:object[3]",
+        "sectionPath": "Phần I"
+      }
+    },
+    {
+      "id": "T06-S01:p7602",
+      "kind": "paragraph",
+      "outcome": "semantic",
+      "semanticKind": "paragraph",
+      "sourceLocator": {
+        "blockOrder": 276,
+        "pathHint": "word/document.xml#body/p[229]",
+        "sectionPath": "Phần I",
+        "textAnchor": "Từ đồ thị của phụ thuộc t phải là đường thẳng với độ dốc chứng tỏ phản ứng là bậc nhất."
+      }
+    },
+    {
+      "fallback": {
+        "reason": "A reviewed semantic recreation or browser-safe image fallback is required.",
+        "strategy": "manual-review"
+      },
+      "id": "T06-S01:e0067",
+      "issueCode": "UNSUPPORTED_OLE_OBJECT",
+      "kind": "embeddedObject",
+      "message": "OLE object cannot be converted semantically by the prototype.",
+      "outcome": "fallback",
+      "severity": "blocking",
+      "sourceLocator": {
+        "blockOrder": 277,
+        "pathHint": "word/document.xml#body/block[229]/w:object[1]",
+        "sectionPath": "Phần I"
+      }
+    },
+    {
+      "id": "T06-S01:p8396",
+      "kind": "paragraph",
+      "outcome": "semantic",
+      "semanticKind": "paragraph",
+      "sourceLocator": {
+        "blockOrder": 278,
+        "pathHint": "word/document.xml#body/p[230]",
+        "sectionPath": "Phần I",
+        "textAnchor": "Từ đồ thị trên, hằng số tốc độ phản ứng là: phút-1"
+      }
+    },
+    {
+      "fallback": {
+        "reason": "A reviewed semantic recreation or browser-safe image fallback is required.",
+        "strategy": "manual-review"
+      },
+      "id": "T06-S01:e4186",
+      "issueCode": "UNSUPPORTED_OLE_OBJECT",
+      "kind": "embeddedObject",
+      "message": "OLE object cannot be converted semantically by the prototype.",
+      "outcome": "fallback",
+      "severity": "blocking",
+      "sourceLocator": {
+        "blockOrder": 279,
+        "pathHint": "word/document.xml#body/block[230]/w:object[1]",
+        "sectionPath": "Phần I"
+      }
+    },
+    {
+      "id": "T06-S01:p6100",
+      "kind": "paragraph",
+      "outcome": "semantic",
+      "semanticKind": "paragraph",
+      "sourceLocator": {
+        "blockOrder": 280,
+        "pathHint": "word/document.xml#body/p[231]",
+        "sectionPath": "Phần I",
+        "textAnchor": "Do đó thời gian bản phản ứng là: phút"
+      }
+    },
+    {
+      "fallback": {
+        "reason": "A reviewed semantic recreation or browser-safe image fallback is required.",
+        "strategy": "manual-review"
+      },
+      "id": "T06-S01:e5276",
+      "issueCode": "UNSUPPORTED_OLE_OBJECT",
+      "kind": "embeddedObject",
+      "message": "OLE object cannot be converted semantically by the prototype.",
+      "outcome": "fallback",
+      "severity": "blocking",
+      "sourceLocator": {
+        "blockOrder": 281,
+        "pathHint": "word/document.xml#body/block[231]/w:object[1]",
+        "sectionPath": "Phần I"
+      }
+    }
+  ],
+  "fixtureId": "t06-s01-docx-part-i",
+  "generator": {
+    "name": "xuyenlab-hybrid-pilot-importer",
+    "strategy": "hybrid",
+    "version": "0.2.0"
+  },
+  "reportVersion": "1.0.0",
+  "run": {
+    "generatedAt": "2026-08-11T00:00:00Z",
+    "rerunOf": null,
+    "runId": "t06-s01-docx-part-i-a5ec53698719",
+    "runOrdinal": 1,
+    "sourceDigest": "sha256:a5ec536987194ea8907435b8852e50ddca0aa98b28ab4754e83820e015e331f5"
+  },
+  "source": {
+    "section": "Phần I",
+    "sourceId": "T06-S01",
+    "sourcePath": "6. Chuyen de 6. Dong hoa hoc.ok.docx"
+  },
+  "summary": {
+    "blockingCount": 96,
+    "fallbackBlockCount": 99,
+    "issueCount": 99,
+    "omittedBlockCount": 0,
+    "semanticBlockCount": 182,
+    "totalBlocks": 281,
+    "warningCount": 3
+  }
+}
