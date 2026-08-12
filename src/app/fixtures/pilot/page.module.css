@@ -1,0 +1,83 @@
+.page {
+  min-height: 100vh;
+  font-family: var(--font-family-sans);
+  color: var(--color-text);
+  background: var(--color-bg);
+}
+
+.banner {
+  background: var(--color-brand);
+  color: #fff;
+  padding: var(--space-3) var(--space-4);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+}
+
+.content {
+  max-width: var(--content-width-prose);
+  margin: 0 auto;
+  padding: var(--space-8) var(--space-4);
+}
+
+.content h1 {
+  margin: 0 0 var(--space-2);
+  font-size: var(--font-size-3xl);
+}
+
+.intro {
+  margin: 0 0 var(--space-8);
+  color: var(--color-text-muted);
+}
+
+.list {
+  display: grid;
+  gap: var(--space-4);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.card {
+  padding: var(--space-4);
+  border: var(--border-width-default) solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+}
+
+.eyebrow {
+  margin: 0;
+  color: var(--color-brand);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+}
+
+.card h2 {
+  margin: var(--space-1) 0 var(--space-2);
+  font-size: var(--font-size-xl);
+}
+
+.card h2 a {
+  color: var(--color-text);
+}
+
+.card h2 a:focus-visible {
+  outline: var(--border-width-focus) solid var(--color-focus-ring);
+  outline-offset: var(--space-1);
+}
+
+.meta {
+  margin: 0;
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+  overflow-wrap: break-word;
+}
+
+.blockingCount {
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-danger);
+}
+
+.warningCount {
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-warning);
+}
