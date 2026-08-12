@@ -3,10 +3,8 @@ import { describe, expect, it, vi } from "vitest";
 const { redirect } = vi.hoisted(() => ({ redirect: vi.fn() }));
 
 vi.mock("next/navigation", () => ({ redirect }));
-vi.mock("@/features/content/private-reader-facade", () => ({
-  stagingPrivateReaderFacade: {
-    getViewer: vi.fn().mockResolvedValue({ role: "student" }),
-  },
+vi.mock("@/features/content/reader-session", () => ({
+  getReaderViewer: vi.fn().mockResolvedValue({ role: "student" }),
 }));
 
 import TeacherPage from "./page";
