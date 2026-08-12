@@ -1,0 +1,860 @@
+{
+  "approvedForPublish": false,
+  "checks": {
+    "chemistryVerified": false,
+    "figuresVerified": false,
+    "formulasVerified": false,
+    "mobileVerified": false,
+    "printVerified": false,
+    "scopePartIOnly": false,
+    "tablesVerified": false
+  },
+  "lessonSlug": "dung-dich-va-can-bang-hoa-hoc",
+  "lessonVersion": 1,
+  "reviewStatus": "pending",
+  "reviewedAt": null,
+  "reviewer": null,
+  "sourceIds": ["T08-S01"],
+  "unresolved": [
+    {
+      "description": "DOCX table was flattened to an HTML table and needs visual review.",
+      "id": "T08-S01:t4104",
+      "severity": "warning"
+    },
+    {
+      "description": "OLE object cannot be converted semantically by the prototype.",
+      "id": "T08-S01:e7414",
+      "severity": "blocking"
+    },
+    {
+      "description": "OLE object cannot be converted semantically by the prototype.",
+      "id": "T08-S01:e3055",
+      "severity": "blocking"
+    },
+    {
+      "description": "OLE object cannot be converted semantically by the prototype.",
+      "id": "T08-S01:e6352",
+      "severity": "blocking"
+    },
+    {
+      "description": "Extracted image needs meaningful alt text and visual verification.",
+      "id": "T08-S01:i1133",
+      "severity": "warning"
+    },
+    {
+      "description": "OLE object cannot be converted semantically by the prototype.",
+      "id": "T08-S01:e0245",
+      "severity": "blocking"
+    },
+    {
+      "description": "OLE object cannot be converted semantically by the prototype.",
+      "id": "T08-S01:e4430",
+      "severity": "blocking"
+    },
+    {
+      "description": "OLE object cannot be converted semantically by the prototype.",
+      "id": "T08-S01:e2249",
+      "severity": "blocking"
+    },
+    {
+      "description": "Extracted image needs meaningful alt text and visual verification.",
+      "id": "T08-S01:i7023",
+      "severity": "warning"
+    },
+    {
+      "description": "Extracted image needs meaningful alt text and visual verification.",
+      "id": "T08-S01:i0658",
+      "severity": "warning"
+    },
+    {
+      "description": "Extracted image needs meaningful alt text and visual verification.",
+      "id": "T08-S01:i1129",
+      "severity": "warning"
+    },
+    {
+      "description": "OLE object cannot be converted semantically by the prototype.",
+      "id": "T08-S01:e0730",
+      "severity": "blocking"
+    },
+    {
+      "description": "Extracted image needs meaningful alt text and visual verification.",
+      "id": "T08-S01:i1131",
+      "severity": "warning"
+    },
+    {
+      "description": "Extracted image needs meaningful alt text and visual verification.",
+      "id": "T08-S01:i8352",
+      "severity": "warning"
+    },
+    {
+      "description": "Extracted image needs meaningful alt text and visual verification.",
+      "id": "T08-S01:i3500",
+      "severity": "warning"
+    },
+    {
+      "description": "OLE object cannot be converted semantically by the prototype.",
+      "id": "T08-S01:e6659",
+      "severity": "blocking"
+    },
+    {
+      "description": "OLE object cannot be converted semantically by the prototype.",
+      "id": "T08-S01:e9542",
+      "severity": "blocking"
+    },
+    {
+      "description": "OLE object cannot be converted semantically by the prototype.",
+      "id": "T08-S01:e9403",
+      "severity": "blocking"
+    },
+    {
+      "description": "OLE object cannot be converted semantically by the prototype.",
+      "id": "T08-S01:e5555",
+      "severity": "blocking"
+    },
+    {
+      "description": "Extracted image needs meaningful alt text and visual verification.",
+      "id": "T08-S01:i5098",
+      "severity": "warning"
+    },
+    {
+      "description": "OLE object cannot be converted semantically by the prototype.",
+      "id": "T08-S01:e3504",
+      "severity": "blocking"
+    },
+    {
+      "description": "Extracted image needs meaningful alt text and visual verification.",
+      "id": "T08-S01:i8415",
+      "severity": "warning"
+    },
+    {
+      "description": "Extracted image needs meaningful alt text and visual verification.",
+      "id": "T08-S01:i0303",
+      "severity": "warning"
+    },
+    {
+      "description": "Extracted image needs meaningful alt text and visual verification.",
+      "id": "T08-S01:i6682",
+      "severity": "warning"
+    },
+    {
+      "description": "OMML equation requires semantic conversion or a reviewed image fallback.",
+      "id": "T08-S01:f7778",
+      "severity": "blocking"
+    },
+    {
+      "description": "Extracted image needs meaningful alt text and visual verification.",
+      "id": "T08-S01:i9400",
+      "severity": "warning"
+    },
+    {
+      "description": "OMML equation requires semantic conversion or a reviewed image fallback.",
+      "id": "T08-S01:f3655",
+      "severity": "blocking"
+    },
+    {
+      "description": "OLE object cannot be converted semantically by the prototype.",
+      "id": "T08-S01:e7271",
+      "severity": "blocking"
+    },
+    {
+      "description": "OLE object cannot be converted semantically by the prototype.",
+      "id": "T08-S01:e6005",
+      "severity": "blocking"
+    },
+    {
+      "description": "DOCX table was flattened to an HTML table and needs visual review.",
+      "id": "T08-S01:t0013",
+      "severity": "warning"
+    },
+    {
+      "description": "DOCX table was flattened to an HTML table and needs visual review.",
+      "id": "T08-S01:t1405",
+      "severity": "warning"
+    },
+    {
+      "description": "OLE object cannot be converted semantically by the prototype.",
+      "id": "T08-S01:e7680",
+      "severity": "blocking"
+    },
+    {
+      "description": "OLE object cannot be converted semantically by the prototype.",
+      "id": "T08-S01:e2337",
+      "severity": "blocking"
+    },
+    {
+      "description": "OLE object cannot be converted semantically by the prototype.",
+      "id": "T08-S01:e8580",
+      "severity": "blocking"
+    },
+    {
+      "description": "OLE object cannot be converted semantically by the prototype.",
+      "id": "T08-S01:e8433",
+      "severity": "blocking"
+    },
+    {
+      "description": "OLE object cannot be converted semantically by the prototype.",
+      "id": "T08-S01:e2086",
+      "severity": "blocking"
+    },
+    {
+      "description": "OLE object cannot be converted semantically by the prototype.",
+      "id": "T08-S01:e3007",
+      "severity": "blocking"
+    },
+    {
+      "description": "OLE object cannot be converted semantically by the prototype.",
+      "id": "T08-S01:e3903",
+      "severity": "blocking"
+    },
+    {
+      "description": "OLE object cannot be converted semantically by the prototype.",
+      "id": "T08-S01:e9836",
+      "severity": "blocking"
+    },
+    {
+      "description": "OLE object cannot be converted semantically by the prototype.",
+      "id": "T08-S01:e6957",
+      "severity": "blocking"
+    },
+    {
+      "description": "OLE object cannot be converted semantically by the prototype.",
+      "id": "T08-S01:e0375",
+      "severity": "blocking"
+    },
+    {
+      "description": "Extracted image needs meaningful alt text and visual verification.",
+      "id": "T08-S01:i3060",
+      "severity": "warning"
+    },
+    {
+      "description": "OLE object cannot be converted semantically by the prototype.",
+      "id": "T08-S01:e5177",
+      "severity": "blocking"
+    },
+    {
+      "description": "OLE object cannot be converted semantically by the prototype.",
+      "id": "T08-S01:e7307",
+      "severity": "blocking"
+    },
+    {
+      "description": "OLE object cannot be converted semantically by the prototype.",
+      "id": "T08-S01:e1552",
+      "severity": "blocking"
+    },
+    {
+      "description": "OLE object cannot be converted semantically by the prototype.",
+      "id": "T08-S01:e2462",
+      "severity": "blocking"
+    },
+    {
+      "description": "OLE object cannot be converted semantically by the prototype.",
+      "id": "T08-S01:e0161",
+      "severity": "blocking"
+    },
+    {
+      "description": "Extracted image needs meaningful alt text and visual verification.",
+      "id": "T08-S01:i9592",
+      "severity": "warning"
+    },
+    {
+      "description": "Extracted image needs meaningful alt text and visual verification.",
+      "id": "T08-S01:i7535",
+      "severity": "warning"
+    },
+    {
+      "description": "Extracted image needs meaningful alt text and visual verification.",
+      "id": "T08-S01:i6446",
+      "severity": "warning"
+    },
+    {
+      "description": "OLE object cannot be converted semantically by the prototype.",
+      "id": "T08-S01:e7633",
+      "severity": "blocking"
+    },
+    {
+      "description": "OLE object cannot be converted semantically by the prototype.",
+      "id": "T08-S01:e1723",
+      "severity": "blocking"
+    },
+    {
+      "description": "OLE object cannot be converted semantically by the prototype.",
+      "id": "T08-S01:e4801",
+      "severity": "blocking"
+    },
+    {
+      "description": "OLE object cannot be converted semantically by the prototype.",
+      "id": "T08-S01:e2199",
+      "severity": "blocking"
+    },
+    {
+      "description": "OLE object cannot be converted semantically by the prototype.",
+      "id": "T08-S01:e8707",
+      "severity": "blocking"
+    },
+    {
+      "description": "OLE object cannot be converted semantically by the prototype.",
+      "id": "T08-S01:e3829",
+      "severity": "blocking"
+    },
+    {
+      "description": "OLE object cannot be converted semantically by the prototype.",
+      "id": "T08-S01:e0946",
+      "severity": "blocking"
+    },
+    {
+      "description": "OLE object cannot be converted semantically by the prototype.",
+      "id": "T08-S01:e9968",
+      "severity": "blocking"
+    },
+    {
+      "description": "OLE object cannot be converted semantically by the prototype.",
+      "id": "T08-S01:e2121",
+      "severity": "blocking"
+    },
+    {
+      "description": "OLE object cannot be converted semantically by the prototype.",
+      "id": "T08-S01:e9612",
+      "severity": "blocking"
+    },
+    {
+      "description": "OLE object cannot be converted semantically by the prototype.",
+      "id": "T08-S01:e6075",
+      "severity": "blocking"
+    },
+    {
+      "description": "OLE object cannot be converted semantically by the prototype.",
+      "id": "T08-S01:e5882",
+      "severity": "blocking"
+    },
+    {
+      "description": "OLE object cannot be converted semantically by the prototype.",
+      "id": "T08-S01:e9957",
+      "severity": "blocking"
+    },
+    {
+      "description": "OLE object cannot be converted semantically by the prototype.",
+      "id": "T08-S01:e3781",
+      "severity": "blocking"
+    },
+    {
+      "description": "OLE object cannot be converted semantically by the prototype.",
+      "id": "T08-S01:e1753",
+      "severity": "blocking"
+    },
+    {
+      "description": "OLE object cannot be converted semantically by the prototype.",
+      "id": "T08-S01:e6304",
+      "severity": "blocking"
+    },
+    {
+      "description": "OLE object cannot be converted semantically by the prototype.",
+      "id": "T08-S01:e7260",
+      "severity": "blocking"
+    },
+    {
+      "description": "OLE object cannot be converted semantically by the prototype.",
+      "id": "T08-S01:e1606",
+      "severity": "blocking"
+    },
+    {
+      "description": "OLE object cannot be converted semantically by the prototype.",
+      "id": "T08-S01:e5216",
+      "severity": "blocking"
+    },
+    {
+      "description": "OLE object cannot be converted semantically by the prototype.",
+      "id": "T08-S01:e1428",
+      "severity": "blocking"
+    },
+    {
+      "description": "OLE object cannot be converted semantically by the prototype.",
+      "id": "T08-S01:e5363",
+      "severity": "blocking"
+    },
+    {
+      "description": "OLE object cannot be converted semantically by the prototype.",
+      "id": "T08-S01:e5598",
+      "severity": "blocking"
+    },
+    {
+      "description": "OLE object cannot be converted semantically by the prototype.",
+      "id": "T08-S01:e7554",
+      "severity": "blocking"
+    },
+    {
+      "description": "OLE object cannot be converted semantically by the prototype.",
+      "id": "T08-S01:e5939",
+      "severity": "blocking"
+    },
+    {
+      "description": "OLE object cannot be converted semantically by the prototype.",
+      "id": "T08-S01:e4286",
+      "severity": "blocking"
+    },
+    {
+      "description": "OLE object cannot be converted semantically by the prototype.",
+      "id": "T08-S01:e9993",
+      "severity": "blocking"
+    },
+    {
+      "description": "OLE object cannot be converted semantically by the prototype.",
+      "id": "T08-S01:e7165",
+      "severity": "blocking"
+    },
+    {
+      "description": "OLE object cannot be converted semantically by the prototype.",
+      "id": "T08-S01:e7676",
+      "severity": "blocking"
+    },
+    {
+      "description": "OLE object cannot be converted semantically by the prototype.",
+      "id": "T08-S01:e2007",
+      "severity": "blocking"
+    },
+    {
+      "description": "OLE object cannot be converted semantically by the prototype.",
+      "id": "T08-S01:e0530",
+      "severity": "blocking"
+    },
+    {
+      "description": "OLE object cannot be converted semantically by the prototype.",
+      "id": "T08-S01:e7846",
+      "severity": "blocking"
+    },
+    {
+      "description": "OLE object cannot be converted semantically by the prototype.",
+      "id": "T08-S01:e0170",
+      "severity": "blocking"
+    },
+    {
+      "description": "OLE object cannot be converted semantically by the prototype.",
+      "id": "T08-S01:e6368",
+      "severity": "blocking"
+    },
+    {
+      "description": "OLE object cannot be converted semantically by the prototype.",
+      "id": "T08-S01:e9711",
+      "severity": "blocking"
+    },
+    {
+      "description": "OLE object cannot be converted semantically by the prototype.",
+      "id": "T08-S01:e5058",
+      "severity": "blocking"
+    },
+    {
+      "description": "OLE object cannot be converted semantically by the prototype.",
+      "id": "T08-S01:e3801",
+      "severity": "blocking"
+    },
+    {
+      "description": "OLE object cannot be converted semantically by the prototype.",
+      "id": "T08-S01:e4060",
+      "severity": "blocking"
+    },
+    {
+      "description": "OLE object cannot be converted semantically by the prototype.",
+      "id": "T08-S01:e3312",
+      "severity": "blocking"
+    },
+    {
+      "description": "OLE object cannot be converted semantically by the prototype.",
+      "id": "T08-S01:e4172",
+      "severity": "blocking"
+    },
+    {
+      "description": "OLE object cannot be converted semantically by the prototype.",
+      "id": "T08-S01:e0904",
+      "severity": "blocking"
+    },
+    {
+      "description": "OLE object cannot be converted semantically by the prototype.",
+      "id": "T08-S01:e4796",
+      "severity": "blocking"
+    },
+    {
+      "description": "OLE object cannot be converted semantically by the prototype.",
+      "id": "T08-S01:e0365",
+      "severity": "blocking"
+    },
+    {
+      "description": "OLE object cannot be converted semantically by the prototype.",
+      "id": "T08-S01:e5977",
+      "severity": "blocking"
+    },
+    {
+      "description": "OLE object cannot be converted semantically by the prototype.",
+      "id": "T08-S01:e4186",
+      "severity": "blocking"
+    },
+    {
+      "description": "OLE object cannot be converted semantically by the prototype.",
+      "id": "T08-S01:e2693",
+      "severity": "blocking"
+    },
+    {
+      "description": "OLE object cannot be converted semantically by the prototype.",
+      "id": "T08-S01:e3854",
+      "severity": "blocking"
+    },
+    {
+      "description": "OLE object cannot be converted semantically by the prototype.",
+      "id": "T08-S01:e9063",
+      "severity": "blocking"
+    },
+    {
+      "description": "OLE object cannot be converted semantically by the prototype.",
+      "id": "T08-S01:e3179",
+      "severity": "blocking"
+    },
+    {
+      "description": "OLE object cannot be converted semantically by the prototype.",
+      "id": "T08-S01:e4628",
+      "severity": "blocking"
+    },
+    {
+      "description": "Extracted image needs meaningful alt text and visual verification.",
+      "id": "T08-S01:i8171",
+      "severity": "warning"
+    },
+    {
+      "description": "OLE object cannot be converted semantically by the prototype.",
+      "id": "T08-S01:e1846",
+      "severity": "blocking"
+    },
+    {
+      "description": "Extracted image needs meaningful alt text and visual verification.",
+      "id": "T08-S01:i3942",
+      "severity": "warning"
+    },
+    {
+      "description": "DOCX table was flattened to an HTML table and needs visual review.",
+      "id": "T08-S01:t2280",
+      "severity": "warning"
+    },
+    {
+      "description": "Extracted image needs meaningful alt text and visual verification.",
+      "id": "T08-S01:i1798",
+      "severity": "warning"
+    },
+    {
+      "description": "OLE object cannot be converted semantically by the prototype.",
+      "id": "T08-S01:e6483",
+      "severity": "blocking"
+    },
+    {
+      "description": "OLE object cannot be converted semantically by the prototype.",
+      "id": "T08-S01:e7788",
+      "severity": "blocking"
+    },
+    {
+      "description": "Drawing or shape has no extractable browser-safe image relationship.",
+      "id": "T08-S01:d1378",
+      "severity": "blocking"
+    },
+    {
+      "description": "Extracted image needs meaningful alt text and visual verification.",
+      "id": "T08-S01:i3457",
+      "severity": "warning"
+    },
+    {
+      "description": "OLE object cannot be converted semantically by the prototype.",
+      "id": "T08-S01:e2230",
+      "severity": "blocking"
+    },
+    {
+      "description": "OLE object cannot be converted semantically by the prototype.",
+      "id": "T08-S01:e0626",
+      "severity": "blocking"
+    },
+    {
+      "description": "OLE object cannot be converted semantically by the prototype.",
+      "id": "T08-S01:e2178",
+      "severity": "blocking"
+    },
+    {
+      "description": "Extracted image needs meaningful alt text and visual verification.",
+      "id": "T08-S01:i6185",
+      "severity": "warning"
+    },
+    {
+      "description": "OLE object cannot be converted semantically by the prototype.",
+      "id": "T08-S01:e6513",
+      "severity": "blocking"
+    },
+    {
+      "description": "Extracted image needs meaningful alt text and visual verification.",
+      "id": "T08-S01:i4651",
+      "severity": "warning"
+    },
+    {
+      "description": "Extracted image needs meaningful alt text and visual verification.",
+      "id": "T08-S01:i2043",
+      "severity": "warning"
+    },
+    {
+      "description": "Extracted image needs meaningful alt text and visual verification.",
+      "id": "T08-S01:i1944",
+      "severity": "warning"
+    },
+    {
+      "description": "Extracted image needs meaningful alt text and visual verification.",
+      "id": "T08-S01:i8482",
+      "severity": "warning"
+    },
+    {
+      "description": "Extracted image needs meaningful alt text and visual verification.",
+      "id": "T08-S01:i1384",
+      "severity": "warning"
+    },
+    {
+      "description": "Extracted image needs meaningful alt text and visual verification.",
+      "id": "T08-S01:i8488",
+      "severity": "warning"
+    },
+    {
+      "description": "Extracted image needs meaningful alt text and visual verification.",
+      "id": "T08-S01:i7747",
+      "severity": "warning"
+    },
+    {
+      "description": "Extracted image needs meaningful alt text and visual verification.",
+      "id": "T08-S01:i9232",
+      "severity": "warning"
+    },
+    {
+      "description": "Extracted image needs meaningful alt text and visual verification.",
+      "id": "T08-S01:i5029",
+      "severity": "warning"
+    },
+    {
+      "description": "OLE object cannot be converted semantically by the prototype.",
+      "id": "T08-S01:e4552",
+      "severity": "blocking"
+    },
+    {
+      "description": "OLE object cannot be converted semantically by the prototype.",
+      "id": "T08-S01:e9866",
+      "severity": "blocking"
+    },
+    {
+      "description": "OLE object cannot be converted semantically by the prototype.",
+      "id": "T08-S01:e5096",
+      "severity": "blocking"
+    },
+    {
+      "description": "OLE object cannot be converted semantically by the prototype.",
+      "id": "T08-S01:e7625",
+      "severity": "blocking"
+    },
+    {
+      "description": "OLE object cannot be converted semantically by the prototype.",
+      "id": "T08-S01:e7620",
+      "severity": "blocking"
+    },
+    {
+      "description": "OLE object cannot be converted semantically by the prototype.",
+      "id": "T08-S01:e5005",
+      "severity": "blocking"
+    },
+    {
+      "description": "OLE object cannot be converted semantically by the prototype.",
+      "id": "T08-S01:e1086",
+      "severity": "blocking"
+    },
+    {
+      "description": "OLE object cannot be converted semantically by the prototype.",
+      "id": "T08-S01:e6378",
+      "severity": "blocking"
+    },
+    {
+      "description": "OLE object cannot be converted semantically by the prototype.",
+      "id": "T08-S01:e6756",
+      "severity": "blocking"
+    },
+    {
+      "description": "OLE object cannot be converted semantically by the prototype.",
+      "id": "T08-S01:e7312",
+      "severity": "blocking"
+    },
+    {
+      "description": "OLE object cannot be converted semantically by the prototype.",
+      "id": "T08-S01:e2046",
+      "severity": "blocking"
+    },
+    {
+      "description": "OLE object cannot be converted semantically by the prototype.",
+      "id": "T08-S01:e7572",
+      "severity": "blocking"
+    },
+    {
+      "description": "OLE object cannot be converted semantically by the prototype.",
+      "id": "T08-S01:e6015",
+      "severity": "blocking"
+    },
+    {
+      "description": "OLE object cannot be converted semantically by the prototype.",
+      "id": "T08-S01:e2783",
+      "severity": "blocking"
+    },
+    {
+      "description": "OLE object cannot be converted semantically by the prototype.",
+      "id": "T08-S01:e7879",
+      "severity": "blocking"
+    },
+    {
+      "description": "Drawing or shape has no extractable browser-safe image relationship.",
+      "id": "T08-S01:d4234",
+      "severity": "blocking"
+    },
+    {
+      "description": "OLE object cannot be converted semantically by the prototype.",
+      "id": "T08-S01:e1700",
+      "severity": "blocking"
+    },
+    {
+      "description": "OLE object cannot be converted semantically by the prototype.",
+      "id": "T08-S01:e7647",
+      "severity": "blocking"
+    },
+    {
+      "description": "OLE object cannot be converted semantically by the prototype.",
+      "id": "T08-S01:e6811",
+      "severity": "blocking"
+    },
+    {
+      "description": "OLE object cannot be converted semantically by the prototype.",
+      "id": "T08-S01:e7792",
+      "severity": "blocking"
+    },
+    {
+      "description": "OLE object cannot be converted semantically by the prototype.",
+      "id": "T08-S01:e7730",
+      "severity": "blocking"
+    },
+    {
+      "description": "OLE object cannot be converted semantically by the prototype.",
+      "id": "T08-S01:e3946",
+      "severity": "blocking"
+    },
+    {
+      "description": "OLE object cannot be converted semantically by the prototype.",
+      "id": "T08-S01:e0585",
+      "severity": "blocking"
+    },
+    {
+      "description": "OLE object cannot be converted semantically by the prototype.",
+      "id": "T08-S01:e4941",
+      "severity": "blocking"
+    },
+    {
+      "description": "OLE object cannot be converted semantically by the prototype.",
+      "id": "T08-S01:e6939",
+      "severity": "blocking"
+    },
+    {
+      "description": "OLE object cannot be converted semantically by the prototype.",
+      "id": "T08-S01:e2690",
+      "severity": "blocking"
+    },
+    {
+      "description": "OLE object cannot be converted semantically by the prototype.",
+      "id": "T08-S01:e9425",
+      "severity": "blocking"
+    },
+    {
+      "description": "OLE object cannot be converted semantically by the prototype.",
+      "id": "T08-S01:e8505",
+      "severity": "blocking"
+    },
+    {
+      "description": "OLE object cannot be converted semantically by the prototype.",
+      "id": "T08-S01:e0091",
+      "severity": "blocking"
+    },
+    {
+      "description": "OLE object cannot be converted semantically by the prototype.",
+      "id": "T08-S01:e5508",
+      "severity": "blocking"
+    },
+    {
+      "description": "OLE object cannot be converted semantically by the prototype.",
+      "id": "T08-S01:e4479",
+      "severity": "blocking"
+    },
+    {
+      "description": "Drawing or shape has no extractable browser-safe image relationship.",
+      "id": "T08-S01:d4779",
+      "severity": "blocking"
+    },
+    {
+      "description": "Extracted image needs meaningful alt text and visual verification.",
+      "id": "T08-S01:i8731",
+      "severity": "warning"
+    },
+    {
+      "description": "OLE object cannot be converted semantically by the prototype.",
+      "id": "T08-S01:e9222",
+      "severity": "blocking"
+    },
+    {
+      "description": "DOCX table was flattened to an HTML table and needs visual review.",
+      "id": "T08-S01:t1490",
+      "severity": "warning"
+    },
+    {
+      "description": "DOCX table was flattened to an HTML table and needs visual review.",
+      "id": "T08-S01:t9444",
+      "severity": "warning"
+    },
+    {
+      "description": "OLE object cannot be converted semantically by the prototype.",
+      "id": "T08-S01:e1070",
+      "severity": "blocking"
+    },
+    {
+      "description": "OLE object cannot be converted semantically by the prototype.",
+      "id": "T08-S01:e3944",
+      "severity": "blocking"
+    },
+    {
+      "description": "OLE object cannot be converted semantically by the prototype.",
+      "id": "T08-S01:e1415",
+      "severity": "blocking"
+    },
+    {
+      "description": "DOCX table was flattened to an HTML table and needs visual review.",
+      "id": "T08-S01:t6862",
+      "severity": "warning"
+    },
+    {
+      "description": "DOCX table was flattened to an HTML table and needs visual review.",
+      "id": "T08-S01:t4907",
+      "severity": "warning"
+    },
+    {
+      "description": "OLE object cannot be converted semantically by the prototype.",
+      "id": "T08-S01:e6950",
+      "severity": "blocking"
+    },
+    {
+      "description": "OLE object cannot be converted semantically by the prototype.",
+      "id": "T08-S01:e3171",
+      "severity": "blocking"
+    },
+    {
+      "description": "DOCX table was flattened to an HTML table and needs visual review.",
+      "id": "T08-S01:t6152",
+      "severity": "warning"
+    },
+    {
+      "description": "DOCX table was flattened to an HTML table and needs visual review.",
+      "id": "T08-S01:t7141",
+      "severity": "warning"
+    },
+    {
+      "description": "DOCX table was flattened to an HTML table and needs visual review.",
+      "id": "T08-S01:t0572",
+      "severity": "warning"
+    }
+  ]
+}

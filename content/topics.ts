@@ -4,5 +4,11 @@ export interface TopicDefinition {
   order: number;
 }
 
-// Topic metadata will be populated from the approved source manifest in Phase 2.
-export const topics: TopicDefinition[] = [];
+export const topics: TopicDefinition[] = [
+  { slug: "chuyen-de-06", title: "Động hóa học", order: 6 },
+  {
+    slug: "chuyen-de-08",
+    title: "Dung dịch và cân bằng hóa học",
+    order: 8,
+  },
+];
