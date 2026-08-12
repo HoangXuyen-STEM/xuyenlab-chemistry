@@ -33,6 +33,7 @@ interface QueueItem {
     decidedAt: string | null;
     altText: string | null;
     caption: string | null;
+    reviewedLatex: string | null;
     qaNote: string | null;
   };
 }
@@ -81,6 +82,27 @@ const VALID_REMEDIATION_CHOICES = new Set([
   "reviewed-image-fallback",
   "remain-blocking",
 ]);
+const VALID_STATUSES = new Set(["pending-owner-review", "applied", "blocked"]);
+
+/**
+ * P4.5 processed these 7 sample issues (the same 7 named in the P4.4
+ * triage request): 6 got Owner-approved LaTeX applied to the canonical MDX
+ * (`status: "applied"`), and 1 (`T08-S01:e6352`) got an Owner-approved
+ * image-fallback decision that was deliberately NOT applied because the
+ * source image doesn't match the approved alt/caption text
+ * (`status: "blocked"`; see its `ownerDecision.qaNote`). Every other entry
+ * must remain untouched (`status: "pending-owner-review"`, no decision).
+ */
+const PROCESSED_ISSUE_IDS = new Set([
+  "T06-S01:e6259",
+  "T06-S01:e5248",
+  "T06-S01:e4743",
+  "T06-S01:e9544",
+  "T08-S01:e7414",
+  "T08-S01:e3055",
+  "T08-S01:e6352",
+]);
+const BLOCKED_ISSUE_IDS = new Set(["T08-S01:e6352"]);
 
 describe.each(LESSONS)(
   "remediation queue for $lessonSlug",
@@ -104,17 +126,38 @@ describe.each(LESSONS)(
       }
     });
 
-    it("every entry stays pending-owner-review with no decision applied yet", () => {
+    it("every entry not processed by P4.5 stays pending-owner-review with no decision", () => {
       for (const item of queue) {
+        if (PROCESSED_ISSUE_IDS.has(item.issueId)) continue;
         expect(item.status).toBe("pending-owner-review");
         expect(item.remediationChoice).toBeNull();
         expect(item.ownerDecision.decidedBy).toBeNull();
         expect(item.ownerDecision.decidedAt).toBeNull();
+        expect(item.ownerDecision.reviewedLatex).toBeNull();
       }
     });
 
-    it("every entry has a valid observedType and remediationChoice enum value", () => {
+    it("every P4.5-processed entry records a real Owner decision", () => {
       for (const item of queue) {
+        if (!PROCESSED_ISSUE_IDS.has(item.issueId)) continue;
+        expect(item.remediationChoice).not.toBeNull();
+        expect(item.ownerDecision.decidedBy).not.toBeNull();
+        expect(item.ownerDecision.decidedAt).not.toBeNull();
+        if (BLOCKED_ISSUE_IDS.has(item.issueId)) {
+          // Owner approved a decision, but it was not safe to apply as-is
+          // (source/caption mismatch) -- recorded, not silently actioned.
+          expect(item.status).toBe("blocked");
+        } else {
+          expect(item.status).toBe("applied");
+          expect(item.remediationChoice).toBe("reviewed-latex-mdx");
+          expect(item.ownerDecision.reviewedLatex).not.toBeNull();
+        }
+      }
+    });
+
+    it("every entry has a valid status/observedType/remediationChoice enum value", () => {
+      for (const item of queue) {
+        expect(VALID_STATUSES.has(item.status)).toBe(true);
         expect(VALID_OBSERVED_TYPES.has(item.observedType)).toBe(true);
         expect(VALID_REMEDIATION_CHOICES.has(item.remediationChoice)).toBe(
           true,
@@ -181,7 +224,10 @@ describe("remediation queue counts match the P4.1 pilot manifest", () => {
     },
   );
 
-  it("canonical lesson MDX files are unchanged by this triage task", () => {
+  it("canonical lesson MDX files match the hash recorded in the manifest", () => {
+    // Any authorized content edit (e.g. P4.5 applying Owner-approved LaTeX)
+    // must update this manifest hash in the same change, so this keeps
+    // catching *unrecorded* drift without hard-coding one task's hash.
     for (const lesson of manifest.lessons) {
       const bytes = readFileSync(path.join(repoRoot, lesson.mdxPath));
       const sha256 = createHash("sha256").update(bytes).digest("hex");
@@ -223,5 +269,62 @@ describe("P4 total (both lessons)", () => {
       expect(item!.severity).toBe("blocking");
       expect(item!.observedType).toBe("formula");
     }
+  });
+});
+
+describe("P4.5: applied LaTeX is actually present in the canonical MDX", () => {
+  const t06Mdx = readFileSync(
+    path.join(repoRoot, "content/topics/chuyen-de-06/dong-hoa-hoc.mdx"),
+    "utf8",
+  );
+  const t08Mdx = readFileSync(
+    path.join(
+      repoRoot,
+      "content/topics/chuyen-de-08/dung-dich-va-can-bang-hoa-hoc.mdx",
+    ),
+    "utf8",
+  );
+
+  it("every blocking id -- processed or not -- stays traceable in its MDX body", () => {
+    // Mirrors scripts/validate-content/validate.py's "hidden unresolved
+    // blocking issue" check: an id must never silently vanish from the body,
+    // whether it's still a Callout or now a one-line {/* ... */} marker next
+    // to the content that replaced it.
+    for (const [mdx, ids] of [
+      [
+        t06Mdx,
+        ["T06-S01:e6259", "T06-S01:e5248", "T06-S01:e4743", "T06-S01:e9544"],
+      ],
+      [t08Mdx, ["T08-S01:e7414", "T08-S01:e3055", "T08-S01:e6352"]],
+    ] as const) {
+      for (const id of ids) {
+        expect(mdx).toContain(id);
+      }
+    }
+  });
+
+  it("T06 inline/display LaTeX for the 4 applied issues is present", () => {
+    expect(t06Mdx).toContain(String.raw`$\Delta C$`);
+    expect(t06Mdx).toContain(String.raw`$\Delta t$`);
+    expect(t06Mdx).toContain(
+      String.raw`$$\bar{v} = \pm\dfrac{\Delta C}{\Delta t}$$`,
+    );
+    expect(t06Mdx).toContain(String.raw`$\bar{v}$`);
+    // The 3 replaced Callouts are gone; e0469 (out of this task's scope)
+    // must still be an untouched Callout.
+    expect(t06Mdx).not.toMatch(/Chưa chuyển đối tượng `T06-S01:e6259`/);
+    expect(t06Mdx).toContain("Chưa chuyển đối tượng `T06-S01:e0469`");
+  });
+
+  it("T08 combined reversible-reaction LaTeX is present exactly once", () => {
+    const formula = String.raw`$$\text{aA} + \text{bB} \rightleftharpoons \text{cC} + \text{dD}$$`;
+    expect(t08Mdx.split(formula)).toHaveLength(2); // exactly one occurrence
+  });
+
+  it("T08-S01:e6352's Callout fallback is deliberately untouched (blocked decision)", () => {
+    expect(t08Mdx).toContain("Chưa chuyển đối tượng `T08-S01:e6352`");
+    expect(t08Mdx).toContain(
+      '<Callout type="warning" title="Đối tượng Word cần biên tập">',
+    );
   });
 });
