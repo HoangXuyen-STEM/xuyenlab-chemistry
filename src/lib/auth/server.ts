@@ -1,5 +1,6 @@
 import { AppError } from "@/lib/validation/app-error";
 
+import { getNeonAuth } from "./neon";
 import type { AppSession, AppUser } from "./types";
 
 type NeonSession = {
@@ -39,19 +40,10 @@ function toAppUser(user: NeonSession["user"]): AppUser {
 async function getNeonSessionReader(): Promise<SessionReader> {
   if (neonSessionReader) return neonSessionReader;
 
-  const baseUrl = process.env.NEON_AUTH_BASE_URL;
-  const cookieSecret = process.env.NEON_AUTH_COOKIE_SECRET;
-  if (!baseUrl || !cookieSecret) {
-    throw new AppError("INTERNAL", "Neon Auth is not configured.");
-  }
-
-  // Keep this provider import lazy so backend unit tests and non-auth build paths do
-  // not load Next request APIs. This module is the only Neon Auth import boundary.
-  const { createNeonAuth } = await import("@neondatabase/auth/next/server");
-  const auth = createNeonAuth({
-    baseUrl,
-    cookies: { secret: cookieSecret },
-  });
+  // `./neon` keeps the provider import lazy so backend unit tests and non-auth
+  // build paths do not load Next request APIs, and shares one instance with the
+  // `/api/auth` handler, the proxy and the sign-in actions.
+  const auth = await getNeonAuth();
   neonSessionReader = async () => {
     const { data } = await auth.getSession();
     return (data as NeonSession | null) ?? null;
