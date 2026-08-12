@@ -1,5 +1,6 @@
 import Link from "next/link";
 
+import { signOutAction } from "@/lib/auth/actions";
 import type { ReaderViewer } from "@/features/content/private-reader-facade";
 
 import styles from "./AppShell.module.css";
@@ -24,7 +25,14 @@ export function AppShell({
             <Link href="/giao-vien">Giáo viên</Link>
           ) : null}
         </nav>
-        <span className={styles.account}>{viewer.displayName}</span>
+        <div className={styles.account}>
+          <span>{viewer.displayName}</span>
+          <form action={signOutAction}>
+            <button className={styles.signOut} type="submit">
+              Đăng xuất
+            </button>
+          </form>
+        </div>
       </header>
       {children}
     </div>

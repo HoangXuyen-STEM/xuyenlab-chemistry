@@ -2,21 +2,21 @@
 
 import { useState } from "react";
 
-import type {
-  PrivateReaderFacade,
-  ReaderProgress,
-} from "@/features/content/private-reader-facade";
+import {
+  markLessonCompleteAction,
+  saveReadingPositionAction,
+  toggleBookmarkAction,
+} from "@/features/content/reader-actions";
+import type { ReaderProgress } from "@/features/content/private-reader-facade";
 
 import styles from "@/components/private-reader/PrivateReader.module.css";
 
 interface ReaderControlsProps {
-  facade: PrivateReaderFacade;
   lessonSlug: string;
   initialProgress: ReaderProgress;
 }
 
 export function ReaderControls({
-  facade,
   lessonSlug,
   initialProgress,
 }: ReaderControlsProps) {
@@ -29,7 +29,7 @@ export function ReaderControls({
     setIsSaving(true);
     setMessage(null);
     try {
-      const saved = await facade.saveReadingPosition({
+      const saved = await saveReadingPositionAction({
         lessonSlug,
         lastHeading: "vi-du",
         readPercent: 67,
@@ -47,7 +47,7 @@ export function ReaderControls({
     setIsSaving(true);
     setMessage(null);
     try {
-      const saved = await facade.markLessonComplete(lessonSlug);
+      const saved = await markLessonCompleteAction(lessonSlug);
       setProgress(saved);
       setMessage("Đã đánh dấu hoàn thành.");
     } catch {
@@ -61,7 +61,7 @@ export function ReaderControls({
     setIsSaving(true);
     setMessage(null);
     try {
-      const saved = await facade.toggleBookmark({
+      const saved = await toggleBookmarkAction({
         lessonSlug,
         anchor: "vi-du",
       });
