@@ -326,7 +326,7 @@ class PilotHtmlParser(HTMLParser):
             except ValueError:
                 payload = b""
             if payload and extension in BROWSER_IMAGE_EXTENSIONS:
-                digest = sha256_bytes(payload)[:16]
+                digest = sha256_bytes(payload)
                 filename = f"{digest}{extension}"
                 (self.assets_dir / filename).write_bytes(payload)
                 self.blocks.append(
@@ -577,7 +577,7 @@ def extract_docx(source: Path, collector: IssueCollector, assets_dir: Path) -> l
                 extension = Path(member).suffix.lower()
                 if member in archive.namelist() and extension in BROWSER_IMAGE_EXTENSIONS:
                     payload = archive.read(member)
-                    filename = f"{sha256_bytes(payload)[:16]}{extension}"
+                    filename = f"{sha256_bytes(payload)}{extension}"
                     (assets_dir / filename).write_bytes(payload)
                     blocks.append(
                         f'<ChemFigure src="./assets/{filename}" alt="Hình trích từ DOCX; cần chủ dự án bổ sung mô tả" '
@@ -621,6 +621,7 @@ def extract_html(source: Path, collector: IssueCollector, assets_dir: Path) -> l
 
 
 def frontmatter(args: argparse.Namespace) -> str:
+    source_path = args.source.relative_to(REPO_ROOT).as_posix()
     return "\n".join(
         [
             "---",
@@ -633,7 +634,7 @@ def frontmatter(args: argparse.Namespace) -> str:
             "estimatedMinutes: 1",
             "sourceFiles:",
             f"  - sourceId: {args.source_id}",
-            f"    sourcePath: {yaml_quote(args.source.name)}",
+            f"    sourcePath: {yaml_quote(source_path)}",
             f"    section: {yaml_quote('Phần I conversion spike')}",
             "version: 1",
             "status: draft",
@@ -652,13 +653,14 @@ def build_report(
     warning_count = sum(block.get("severity") == "warning" for block in collector.blocks)
     blocking_count = sum(block.get("severity") == "blocking" for block in collector.blocks)
     fixture_id = f"{args.source_id.lower()}-{args.source.suffix.lower().lstrip('.')}-part-i"
+    source_path = args.source.relative_to(REPO_ROOT).as_posix()
     return {
         "$schema": "https://raw.githubusercontent.com/HoangXuyen-STEM/xuyenlab-chemistry/main/scripts/import-docx/failure-report.schema.json",
         "reportVersion": "1.0.0",
         "fixtureId": fixture_id,
         "source": {
             "sourceId": args.source_id,
-            "sourcePath": args.source.name,
+            "sourcePath": source_path,
             "section": "Phần I",
         },
         "generator": {
