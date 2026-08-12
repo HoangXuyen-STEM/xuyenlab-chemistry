@@ -39,6 +39,10 @@ generated-pdf/
 ~$*.doc
 ~$*.docx
 
+# Python bytecode cache (scripts/import-docx, docs/qa/tools)
+__pycache__/
+*.pyc
+
 # OS/editor state
 .DS_Store
 Thumbs.db
