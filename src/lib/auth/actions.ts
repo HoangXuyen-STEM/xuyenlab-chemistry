@@ -85,6 +85,34 @@ export async function signInWithPasswordAction(
   redirect(AFTER_LOGIN_PATH);
 }
 
+export async function signUpWithPasswordAction(
+  _previous: AuthFormState,
+  formData: FormData,
+): Promise<AuthFormState> {
+  const email = field(formData, "email").toLowerCase();
+  const password = field(formData, "password");
+  if (!email || !password) return { error: MESSAGES.missingCredentials };
+  if (password.length < MIN_PASSWORD_LENGTH) {
+    return { error: MESSAGES.weakPassword };
+  }
+
+  try {
+    const auth = await getNeonAuth();
+    const name = email.split("@")[0] || "hoc-sinh";
+    const { error } = await auth.signUp.email({ email, password, name });
+    if (error) {
+      return {
+        error:
+          "Không tạo được tài khoản. Email này có thể đã được đăng ký trước đó.",
+      };
+    }
+  } catch (error) {
+    return { error: thrownMessage(error) };
+  }
+
+  redirect(AFTER_LOGIN_PATH);
+}
+
 export async function signInWithGoogleAction(): Promise<void> {
   let providerUrl: string | undefined;
   try {
