@@ -136,7 +136,7 @@
       "failureReportPath": "content/qa/import-reports/dung-dich-va-can-bang-hoa-hoc.failure.json",
       "failureReportSha256": "69f6fdbb8ca708205042baec15343607eab14be35061c3ef822bb8082ccca0de",
       "mdxPath": "content/topics/chuyen-de-08/dung-dich-va-can-bang-hoa-hoc.mdx",
-      "mdxSha256": "5e00aec1bc8c4b9b537c4957df2f257081df684a7473d8b872477ce7f6179657",
+      "mdxSha256": "73fa53c9da5f2106db9810c1ac6ccb1131039c7d5f72047927bcd3ecc44aec61",
       "qaPath": "content/qa/pending/dung-dich-va-can-bang-hoa-hoc.json",
       "qaSha256": "4e083a821890c091ae2c97db686c4430418367834c64668d0460889efc6da7d6",
       "slug": "dung-dich-va-can-bang-hoa-hoc",
