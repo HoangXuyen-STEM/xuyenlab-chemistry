@@ -88,10 +88,12 @@ const VALID_STATUSES = new Set(["pending-owner-review", "applied", "blocked"]);
  * P4.5 processed these 7 sample issues (the same 7 named in the P4.4
  * triage request): 6 got Owner-approved LaTeX applied to the canonical MDX
  * (`status: "applied"`), and 1 (`T08-S01:e6352`) got an Owner-approved
- * image-fallback decision that was deliberately NOT applied because the
- * source image doesn't match the approved alt/caption text
- * (`status: "blocked"`; see its `ownerDecision.qaNote`). Every other entry
- * must remain untouched (`status: "pending-owner-review"`, no decision).
+ * image-fallback decision that is still `status: "blocked"` -- the Owner
+ * confirmed the source object's real content (a two-arrow diagram), but no
+ * renderer available in this environment can produce a faithful asset from
+ * it (missing proprietary fonts; see its `ownerDecision.qaNote`). Every
+ * other entry must remain untouched (`status: "pending-owner-review"`, no
+ * decision).
  */
 const PROCESSED_ISSUE_IDS = new Set([
   "T06-S01:e6259",
@@ -144,8 +146,9 @@ describe.each(LESSONS)(
         expect(item.ownerDecision.decidedBy).not.toBeNull();
         expect(item.ownerDecision.decidedAt).not.toBeNull();
         if (BLOCKED_ISSUE_IDS.has(item.issueId)) {
-          // Owner approved a decision, but it was not safe to apply as-is
-          // (source/caption mismatch) -- recorded, not silently actioned.
+          // Owner approved a decision, but no available renderer can
+          // produce a faithful asset (missing fonts) -- recorded, not
+          // silently actioned.
           expect(item.status).toBe("blocked");
         } else {
           expect(item.status).toBe("applied");
@@ -267,7 +270,13 @@ describe("P4 total (both lessons)", () => {
       expect(item, `${id} missing from queue`).toBeDefined();
       expect(item!.issueCode).toBe("UNSUPPORTED_OLE_OBJECT");
       expect(item!.severity).toBe("blocking");
-      expect(item!.observedType).toBe("formula");
+      // All 7 were inferred "formula" from their Equation.DSMT4 ProgID at
+      // triage time. T08-S01:e6352 was later reclassified "diagram" on the
+      // Owner's own direct inspection of the source Word object -- stronger
+      // evidence than the ProgID inference, and the whole point of keeping
+      // this field owner-correctable rather than locking it at triage time.
+      const expectedType = id === "T08-S01:e6352" ? "diagram" : "formula";
+      expect(item!.observedType).toBe(expectedType);
     }
   });
 });
@@ -326,5 +335,41 @@ describe("P4.5: applied LaTeX is actually present in the canonical MDX", () => {
     expect(t08Mdx).toContain(
       '<Callout type="warning" title="Đối tượng Word cần biên tập">',
     );
+  });
+
+  it("T08-S01:e6352 is traceable as an Owner-approved (but not-yet-applied) image fallback", () => {
+    const queue = readJson<QueueItem[]>(
+      "content/qa/pending/dung-dich-va-can-bang-hoa-hoc.remediation-queue.json",
+    );
+    const item = queue.find((i) => i.issueId === "T08-S01:e6352");
+    expect(item, "T08-S01:e6352 missing from the T08 queue").toBeDefined();
+    // The Owner-approved decision is fully recorded even though it isn't
+    // live yet -- this is what makes it "traceable" rather than lost.
+    expect(item!.remediationChoice).toBe("reviewed-image-fallback");
+    expect(item!.ownerDecision.altText).toBeTruthy();
+    expect(item!.ownerDecision.caption).toBeTruthy();
+    expect(item!.ownerDecision.decidedBy).toBeTruthy();
+    expect(item!.ownerDecision.decidedAt).toBeTruthy();
+    expect(item!.ownerDecision.qaNote).toBeTruthy();
+    // Not applied: no ChemFigure exists yet, so there is no publish asset
+    // path to assert on. previewPath still points at the QA-preview-only
+    // image (public/qa-preview/README.md: never a ChemFigure fallback
+    // source on its own), and status reflects "approved but blocked", not
+    // "applied".
+    expect(item!.status).toBe("blocked");
+    expect(item!.previewPath).toBe(
+      "/qa-preview/lessons/chuyen-de-08/e6352.png",
+    );
+    expect(existsSync(path.join(repoRoot, "public", item!.previewPath!))).toBe(
+      true,
+    );
+    // T08 already has 31 legitimate ChemFigure usages from P4.1; this task
+    // must not add a 32nd one for e6352 (that would mean it got applied
+    // despite being blocked). No `qa-preview` path appears in a ChemFigure
+    // `src`, since public/qa-preview/README.md forbids using those images
+    // as a publish fallback source.
+    const chemFigureCount = (t08Mdx.match(/<ChemFigure/g) ?? []).length;
+    expect(chemFigureCount).toBe(31);
+    expect(t08Mdx).not.toMatch(/<ChemFigure[^>]*qa-preview/);
   });
 });

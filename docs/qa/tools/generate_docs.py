@@ -169,7 +169,7 @@ def build_index(lessons_data: list[dict], all_items_by_id: dict) -> str:
     lines.append("| Loại | Chuyên đề 6 | Chuyên đề 8 | Tổng |")
     lines.append("| --- | ---: | ---: | ---: |")
     from collections import Counter
-    for t in ["formula", "table", "figure", "unknown"]:
+    for t in ["formula", "diagram", "table", "figure", "unknown"]:
         c6 = sum(1 for i in lessons_data[0]["items"] if i["observedType"] == t)
         c8 = sum(1 for i in lessons_data[1]["items"] if i["observedType"] == t)
         lines.append(f"| {TYPE_LABEL[t]} (`{t}`) | {c6} | {c8} | {c6 + c8} |")
@@ -217,7 +217,7 @@ def build_topic_doc(data: dict) -> str:
     for item in items:
         by_type[item["observedType"]].append(item)
 
-    for t in ["formula", "table", "figure", "unknown"]:
+    for t in ["formula", "diagram", "table", "figure", "unknown"]:
         group = sorted(by_type.get(t, []), key=lambda i: i["sourceLocator"]["blockOrder"])
         if not group:
             continue
