@@ -86,6 +86,21 @@ interface LessonQaRecord {
     description: string;
   }>;
   approvedForPublish: boolean;
+  // Required when approvedForPublish is true for a P6.2-named exception lesson;
+  // see Amendments and scripts/validate-content/README.md for the exact shape.
+  publishWaiver?: {
+    type: "P6.2-owner-exception";
+    scope: "in_review";
+    authorizedBy: string;
+    authorizedAt: string; // ISO 8601
+    doesNotAuthorize: Array<
+      "published" | "productionDeployment" | "publicBucketAccess" | "automaticPublication"
+    >;
+    remediationDebtRetained: true;
+    unresolvedBlockingCount: number; // must equal unresolved.filter(blocking).length
+    acknowledgedBlockedItems: string[]; // ids from unresolved
+    reference: { contractAmendment: string; handoff: string };
+  };
 }
 ```
 
@@ -112,4 +127,17 @@ interface LessonQaRecord {
   contract, does not change lesson `status` away from `in_review`, and does not
   authorize production publication. See `docs/handoffs/P6/P6.2-claude.md` for full
   evidence.
+- **P6.2 follow-up (2026-08-13):** the project owner required the exception above to
+  also be recorded at the QA-record source of truth, not only in this contract and
+  the handoff. Each of the two named QA records now carries a structured
+  `publishWaiver` object (see `LessonQaRecord` below and
+  `scripts/validate-content/README.md` for the exact required shape) naming the
+  P6.2 exception, its `in_review`-only scope, what it explicitly does not
+  authorize (`published` status, production deployment, public bucket access,
+  automatic publication), that remediation debt is retained (with a
+  validator-checked count of remaining blocking items), that
+  `dung-dich-va-can-bang-hoa-hoc` still acknowledges `T08-S01:e6352` as blocked,
+  and a durable reference back to this amendment and the P6.2 handoff. The
+  validator rejects `approvedForPublish: true` on either lesson if this waiver is
+  missing, malformed, or its counts/references don't match reality.
 
