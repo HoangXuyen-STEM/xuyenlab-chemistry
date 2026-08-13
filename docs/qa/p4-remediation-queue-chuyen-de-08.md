@@ -9,13 +9,12 @@ tài liệu (`blockOrder`). Cột **Quyết định** để trống — Oldman g
 chọn (`reviewed-latex-mdx` / `reviewed-image-fallback` / `remain-blocking`)
 trực tiếp vào `content/qa/pending/dung-dich-va-can-bang-hoa-hoc.remediation-queue.json`.
 
-## Công thức (`formula`) — 123 mục
+## Công thức (`formula`) — 122 mục
 
 | issueId | Mức độ | Preview | Vị trí (pathHint) | Căn cứ | Trạng thái | Quyết định |
 | --- | --- | --- | --- | --- | --- | --- |
-| `T08-S01:e7414` | 🔴 Chặn xuất bản | Công thức | [Xem preview](/qa-preview/lessons/chuyen-de-08/e7414.png) | word/document.xml#body/block[7]/w:object[1] | &lt;o:OLEObject ProgID="Equation.DSMT4"&gt; (MathType (Equation.DSMT4)) read directly from the source DOCX XML. | pending-owner-review | |
-| `T08-S01:e3055` | 🔴 Chặn xuất bản | Công thức | [Xem preview](/qa-preview/lessons/chuyen-de-08/e3055.png) | word/document.xml#body/block[7]/w:object[2] | &lt;o:OLEObject ProgID="Equation.DSMT4"&gt; (MathType (Equation.DSMT4)) read directly from the source DOCX XML. | pending-owner-review | |
-| `T08-S01:e6352` | 🔴 Chặn xuất bản | Công thức | [Xem preview](/qa-preview/lessons/chuyen-de-08/e6352.png) | word/document.xml#body/block[7]/w:object[3] | &lt;o:OLEObject ProgID="Equation.DSMT4"&gt; (MathType (Equation.DSMT4)) read directly from the source DOCX XML. | pending-owner-review | |
+| `T08-S01:e7414` | 🔴 Chặn xuất bản | Công thức | [Xem preview](/qa-preview/lessons/chuyen-de-08/e7414.png) | word/document.xml#body/block[7]/w:object[1] | &lt;o:OLEObject ProgID="Equation.DSMT4"&gt; (MathType (Equation.DSMT4)) read directly from the source DOCX XML. | applied | `reviewed-latex-mdx`: $$\text{aA} + \text{bB} \rightleftharpoons \text{cC} + \text{dD}$$ (kết hợp với T08-S01:e3055 thành 1 khối display)|
+| `T08-S01:e3055` | 🔴 Chặn xuất bản | Công thức | [Xem preview](/qa-preview/lessons/chuyen-de-08/e3055.png) | word/document.xml#body/block[7]/w:object[2] | &lt;o:OLEObject ProgID="Equation.DSMT4"&gt; (MathType (Equation.DSMT4)) read directly from the source DOCX XML. | applied | `reviewed-latex-mdx`: $$\text{aA} + \text{bB} \rightleftharpoons \text{cC} + \text{dD}$$ (kết hợp với T08-S01:e7414 thành 1 khối display)|
 | `T08-S01:e0245` | 🔴 Chặn xuất bản | Công thức | [Xem preview](/qa-preview/lessons/chuyen-de-08/e0245.png) | word/document.xml#body/block[15]/w:object[1] | &lt;o:OLEObject ProgID="Equation.DSMT4"&gt; (MathType (Equation.DSMT4)) read directly from the source DOCX XML. | pending-owner-review | |
 | `T08-S01:e4430` | 🔴 Chặn xuất bản | Công thức | [Xem preview](/qa-preview/lessons/chuyen-de-08/e4430.png) | word/document.xml#body/block[16]/w:object[1] | &lt;o:OLEObject ProgID="Equation.DSMT4"&gt; (MathType (Equation.DSMT4)) read directly from the source DOCX XML. | pending-owner-review | |
 | `T08-S01:e2249` | 🔴 Chặn xuất bản | Công thức | [Xem preview](/qa-preview/lessons/chuyen-de-08/e2249.png) | word/document.xml#body/block[31]/w:object[1] | &lt;o:OLEObject ProgID="Equation.DSMT4"&gt; (MathType (Equation.DSMT4)) read directly from the source DOCX XML. | pending-owner-review | |
@@ -136,6 +135,12 @@ trực tiếp vào `content/qa/pending/dung-dich-va-can-bang-hoa-hoc.remediation
 | `T08-S01:e1415` | 🔴 Chặn xuất bản | Công thức | [Xem preview](/qa-preview/lessons/chuyen-de-08/e1415.png) | word/document.xml#body/block[569]/w:object[3] | &lt;o:OLEObject ProgID="Equation.DSMT4"&gt; (MathType (Equation.DSMT4)) read directly from the source DOCX XML. | pending-owner-review | |
 | `T08-S01:e6950` | 🔴 Chặn xuất bản | Công thức | [Xem preview](/qa-preview/lessons/chuyen-de-08/e6950.png) | word/document.xml#body/block[577]/w:object[1] | &lt;o:OLEObject ProgID="Equation.DSMT4"&gt; (MathType (Equation.DSMT4)) read directly from the source DOCX XML. | pending-owner-review | |
 | `T08-S01:e3171` | 🔴 Chặn xuất bản | Công thức | [Xem preview](/qa-preview/lessons/chuyen-de-08/e3171.png) | word/document.xml#body/block[577]/w:object[2] | &lt;o:OLEObject ProgID="Equation.DSMT4"&gt; (MathType (Equation.DSMT4)) read directly from the source DOCX XML. | pending-owner-review | |
+
+## Sơ đồ (`diagram`) — 1 mục
+
+| issueId | Mức độ | Preview | Vị trí (pathHint) | Căn cứ | Trạng thái | Quyết định |
+| --- | --- | --- | --- | --- | --- | --- |
+| `T08-S01:e6352` | 🔴 Chặn xuất bản | Sơ đồ | [Xem preview](/qa-preview/lessons/chuyen-de-08/e6352.png) | word/document.xml#body/block[7]/w:object[3] | &lt;o:OLEObject ProgID="Equation.DSMT4"&gt; (MathType). Owner đã mở trực tiếp file Word gốc và xác nhận đây là sơ đồ hai nửa mũi tên ngược chiều: mũi tên trên gắn nhãn 'chiều thuận', mũi tên dưới gắn nhãn 'chiều nghịch' … | blocked | `reviewed-image-fallback`: alt="Sơ đồ hai nửa mũi tên ngược chiều biểu thị phản ứng thuận nghịch; mũi tên phía trên là chiều thuận, mũi tên phía dưới là chiều nghịch."|
 
 ## Bảng (`table`) — 11 mục
 
