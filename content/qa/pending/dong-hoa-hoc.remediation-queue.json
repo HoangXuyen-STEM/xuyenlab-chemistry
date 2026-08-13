@@ -1,0 +1,2675 @@
+[
+  {
+    "issueId": "T06-S01:d6703",
+    "sourceId": "T06-S01",
+    "topic": "chuyen-de-06",
+    "lessonSlug": "dong-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[130]/w:drawing[1]",
+      "sectionPath": "Phần I",
+      "blockOrder": 141
+    },
+    "issueCode": "UNSUPPORTED_NON_IMAGE_DRAWING",
+    "kind": "drawing",
+    "severity": "blocking",
+    "message": "Drawing or shape has no extractable browser-safe image relationship.",
+    "observedType": "unknown",
+    "observedTypeEvidence": "Native vector w:drawing (grouped shapes/connectors), no ProgID, no browser-safe raster relationship, no LibreOffice available in this environment to render it safely. shape presets: straightConnector1; surrounding text: CH2 |  ",
+    "previewPath": null,
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T06-S01:e0042",
+    "sourceId": "T06-S01",
+    "topic": "chuyen-de-06",
+    "lessonSlug": "dong-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[79]/w:object[1]",
+      "sectionPath": "Phần I",
+      "blockOrder": 86
+    },
+    "issueCode": "UNSUPPORTED_OLE_OBJECT",
+    "kind": "embeddedObject",
+    "severity": "blocking",
+    "message": "OLE object cannot be converted semantically by the prototype.",
+    "observedType": "formula",
+    "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.DSMT4\"> (MathType (Equation.DSMT4)) read directly from the source DOCX XML.",
+    "previewPath": "/qa-preview/lessons/chuyen-de-06/e0042.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T06-S01:e0067",
+    "sourceId": "T06-S01",
+    "topic": "chuyen-de-06",
+    "lessonSlug": "dong-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[229]/w:object[1]",
+      "sectionPath": "Phần I",
+      "blockOrder": 277
+    },
+    "issueCode": "UNSUPPORTED_OLE_OBJECT",
+    "kind": "embeddedObject",
+    "severity": "blocking",
+    "message": "OLE object cannot be converted semantically by the prototype.",
+    "observedType": "formula",
+    "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.DSMT4\"> (MathType (Equation.DSMT4)) read directly from the source DOCX XML.",
+    "previewPath": "/qa-preview/lessons/chuyen-de-06/e0067.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T06-S01:e0189",
+    "sourceId": "T06-S01",
+    "topic": "chuyen-de-06",
+    "lessonSlug": "dong-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[181]/w:object[1]",
+      "sectionPath": "Phần I",
+      "blockOrder": 199
+    },
+    "issueCode": "UNSUPPORTED_OLE_OBJECT",
+    "kind": "embeddedObject",
+    "severity": "blocking",
+    "message": "OLE object cannot be converted semantically by the prototype.",
+    "observedType": "formula",
+    "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.DSMT4\"> (MathType (Equation.DSMT4)) read directly from the source DOCX XML.",
+    "previewPath": "/qa-preview/lessons/chuyen-de-06/e0189.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T06-S01:e0202",
+    "sourceId": "T06-S01",
+    "topic": "chuyen-de-06",
+    "lessonSlug": "dong-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[222]/w:object[1]",
+      "sectionPath": "Phần I",
+      "blockOrder": 264
+    },
+    "issueCode": "UNSUPPORTED_OLE_OBJECT",
+    "kind": "embeddedObject",
+    "severity": "blocking",
+    "message": "OLE object cannot be converted semantically by the prototype.",
+    "observedType": "formula",
+    "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.DSMT4\"> (MathType (Equation.DSMT4)) read directly from the source DOCX XML.",
+    "previewPath": "/qa-preview/lessons/chuyen-de-06/e0202.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T06-S01:e0245",
+    "sourceId": "T06-S01",
+    "topic": "chuyen-de-06",
+    "lessonSlug": "dong-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[15]/w:object[1]",
+      "sectionPath": "Phần I",
+      "blockOrder": 16
+    },
+    "issueCode": "UNSUPPORTED_OLE_OBJECT",
+    "kind": "embeddedObject",
+    "severity": "blocking",
+    "message": "OLE object cannot be converted semantically by the prototype.",
+    "observedType": "formula",
+    "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.DSMT4\"> (MathType (Equation.DSMT4)) read directly from the source DOCX XML.",
+    "previewPath": "/qa-preview/lessons/chuyen-de-06/e0245.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T06-S01:e0469",
+    "sourceId": "T06-S01",
+    "topic": "chuyen-de-06",
+    "lessonSlug": "dong-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[13]/w:object[1]",
+      "sectionPath": "Phần I",
+      "blockOrder": 14
+    },
+    "issueCode": "UNSUPPORTED_OLE_OBJECT",
+    "kind": "embeddedObject",
+    "severity": "blocking",
+    "message": "OLE object cannot be converted semantically by the prototype.",
+    "observedType": "formula",
+    "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.DSMT4\"> (MathType (Equation.DSMT4)) read directly from the source DOCX XML.",
+    "previewPath": "/qa-preview/lessons/chuyen-de-06/e0469.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T06-S01:e0493",
+    "sourceId": "T06-S01",
+    "topic": "chuyen-de-06",
+    "lessonSlug": "dong-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[222]/w:object[3]",
+      "sectionPath": "Phần I",
+      "blockOrder": 266
+    },
+    "issueCode": "UNSUPPORTED_OLE_OBJECT",
+    "kind": "embeddedObject",
+    "severity": "blocking",
+    "message": "OLE object cannot be converted semantically by the prototype.",
+    "observedType": "formula",
+    "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.DSMT4\"> (MathType (Equation.DSMT4)) read directly from the source DOCX XML.",
+    "previewPath": "/qa-preview/lessons/chuyen-de-06/e0493.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T06-S01:e0530",
+    "sourceId": "T06-S01",
+    "topic": "chuyen-de-06",
+    "lessonSlug": "dong-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[191]/w:object[1]",
+      "sectionPath": "Phần I",
+      "blockOrder": 212
+    },
+    "issueCode": "UNSUPPORTED_OLE_OBJECT",
+    "kind": "embeddedObject",
+    "severity": "blocking",
+    "message": "OLE object cannot be converted semantically by the prototype.",
+    "observedType": "formula",
+    "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.DSMT4\"> (MathType (Equation.DSMT4)) read directly from the source DOCX XML.",
+    "previewPath": "/qa-preview/lessons/chuyen-de-06/e0530.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T06-S01:e0742",
+    "sourceId": "T06-S01",
+    "topic": "chuyen-de-06",
+    "lessonSlug": "dong-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[197]/w:object[1]",
+      "sectionPath": "Phần I",
+      "blockOrder": 221
+    },
+    "issueCode": "UNSUPPORTED_OLE_OBJECT",
+    "kind": "embeddedObject",
+    "severity": "blocking",
+    "message": "OLE object cannot be converted semantically by the prototype.",
+    "observedType": "formula",
+    "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.DSMT4\"> (MathType (Equation.DSMT4)) read directly from the source DOCX XML.",
+    "previewPath": "/qa-preview/lessons/chuyen-de-06/e0742.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T06-S01:e0904",
+    "sourceId": "T06-S01",
+    "topic": "chuyen-de-06",
+    "lessonSlug": "dong-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[227]/w:object[2]",
+      "sectionPath": "Phần I",
+      "blockOrder": 274
+    },
+    "issueCode": "UNSUPPORTED_OLE_OBJECT",
+    "kind": "embeddedObject",
+    "severity": "blocking",
+    "message": "OLE object cannot be converted semantically by the prototype.",
+    "observedType": "formula",
+    "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.DSMT4\"> (MathType (Equation.DSMT4)) read directly from the source DOCX XML.",
+    "previewPath": "/qa-preview/lessons/chuyen-de-06/e0904.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T06-S01:e0969",
+    "sourceId": "T06-S01",
+    "topic": "chuyen-de-06",
+    "lessonSlug": "dong-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[188]/w:object[1]",
+      "sectionPath": "Phần I",
+      "blockOrder": 207
+    },
+    "issueCode": "UNSUPPORTED_OLE_OBJECT",
+    "kind": "embeddedObject",
+    "severity": "blocking",
+    "message": "OLE object cannot be converted semantically by the prototype.",
+    "observedType": "formula",
+    "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.DSMT4\"> (MathType (Equation.DSMT4)) read directly from the source DOCX XML.",
+    "previewPath": "/qa-preview/lessons/chuyen-de-06/e0969.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T06-S01:e0984",
+    "sourceId": "T06-S01",
+    "topic": "chuyen-de-06",
+    "lessonSlug": "dong-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[62]/w:object[1]",
+      "sectionPath": "Phần I",
+      "blockOrder": 67
+    },
+    "issueCode": "UNSUPPORTED_OLE_OBJECT",
+    "kind": "embeddedObject",
+    "severity": "blocking",
+    "message": "OLE object cannot be converted semantically by the prototype.",
+    "observedType": "formula",
+    "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.DSMT4\"> (MathType (Equation.DSMT4)) read directly from the source DOCX XML.",
+    "previewPath": "/qa-preview/lessons/chuyen-de-06/e0984.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T06-S01:e1191",
+    "sourceId": "T06-S01",
+    "topic": "chuyen-de-06",
+    "lessonSlug": "dong-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[220]/w:object[4]",
+      "sectionPath": "Phần I",
+      "blockOrder": 259
+    },
+    "issueCode": "UNSUPPORTED_OLE_OBJECT",
+    "kind": "embeddedObject",
+    "severity": "blocking",
+    "message": "OLE object cannot be converted semantically by the prototype.",
+    "observedType": "formula",
+    "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.DSMT4\"> (MathType (Equation.DSMT4)) read directly from the source DOCX XML.",
+    "previewPath": "/qa-preview/lessons/chuyen-de-06/e1191.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T06-S01:e1309",
+    "sourceId": "T06-S01",
+    "topic": "chuyen-de-06",
+    "lessonSlug": "dong-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[143]/w:object[1]",
+      "sectionPath": "Phần I",
+      "blockOrder": 155
+    },
+    "issueCode": "UNSUPPORTED_OLE_OBJECT",
+    "kind": "embeddedObject",
+    "severity": "blocking",
+    "message": "OLE object cannot be converted semantically by the prototype.",
+    "observedType": "formula",
+    "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.DSMT4\"> (MathType (Equation.DSMT4)) read directly from the source DOCX XML.",
+    "previewPath": "/qa-preview/lessons/chuyen-de-06/e1309.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T06-S01:e1418",
+    "sourceId": "T06-S01",
+    "topic": "chuyen-de-06",
+    "lessonSlug": "dong-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[70]/w:object[1]",
+      "sectionPath": "Phần I",
+      "blockOrder": 76
+    },
+    "issueCode": "UNSUPPORTED_OLE_OBJECT",
+    "kind": "embeddedObject",
+    "severity": "blocking",
+    "message": "OLE object cannot be converted semantically by the prototype.",
+    "observedType": "formula",
+    "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.DSMT4\"> (MathType (Equation.DSMT4)) read directly from the source DOCX XML.",
+    "previewPath": "/qa-preview/lessons/chuyen-de-06/e1418.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T06-S01:e1428",
+    "sourceId": "T06-S01",
+    "topic": "chuyen-de-06",
+    "lessonSlug": "dong-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[153]/w:object[1]",
+      "sectionPath": "Phần I",
+      "blockOrder": 165
+    },
+    "issueCode": "UNSUPPORTED_OLE_OBJECT",
+    "kind": "embeddedObject",
+    "severity": "blocking",
+    "message": "OLE object cannot be converted semantically by the prototype.",
+    "observedType": "formula",
+    "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.DSMT4\"> (MathType (Equation.DSMT4)) read directly from the source DOCX XML.",
+    "previewPath": "/qa-preview/lessons/chuyen-de-06/e1428.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T06-S01:e1520",
+    "sourceId": "T06-S01",
+    "topic": "chuyen-de-06",
+    "lessonSlug": "dong-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[17]/w:object[1]",
+      "sectionPath": "Phần I",
+      "blockOrder": 18
+    },
+    "issueCode": "UNSUPPORTED_OLE_OBJECT",
+    "kind": "embeddedObject",
+    "severity": "blocking",
+    "message": "OLE object cannot be converted semantically by the prototype.",
+    "observedType": "formula",
+    "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.DSMT4\"> (MathType (Equation.DSMT4)) read directly from the source DOCX XML.",
+    "previewPath": "/qa-preview/lessons/chuyen-de-06/e1520.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T06-S01:e1570",
+    "sourceId": "T06-S01",
+    "topic": "chuyen-de-06",
+    "lessonSlug": "dong-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[220]/w:object[2]",
+      "sectionPath": "Phần I",
+      "blockOrder": 257
+    },
+    "issueCode": "UNSUPPORTED_OLE_OBJECT",
+    "kind": "embeddedObject",
+    "severity": "blocking",
+    "message": "OLE object cannot be converted semantically by the prototype.",
+    "observedType": "formula",
+    "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.DSMT4\"> (MathType (Equation.DSMT4)) read directly from the source DOCX XML.",
+    "previewPath": "/qa-preview/lessons/chuyen-de-06/e1570.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T06-S01:e1754",
+    "sourceId": "T06-S01",
+    "topic": "chuyen-de-06",
+    "lessonSlug": "dong-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[155]/w:object[1]",
+      "sectionPath": "Phần I",
+      "blockOrder": 168
+    },
+    "issueCode": "UNSUPPORTED_OLE_OBJECT",
+    "kind": "embeddedObject",
+    "severity": "blocking",
+    "message": "OLE object cannot be converted semantically by the prototype.",
+    "observedType": "formula",
+    "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.DSMT4\"> (MathType (Equation.DSMT4)) read directly from the source DOCX XML.",
+    "previewPath": "/qa-preview/lessons/chuyen-de-06/e1754.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T06-S01:e2170",
+    "sourceId": "T06-S01",
+    "topic": "chuyen-de-06",
+    "lessonSlug": "dong-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[212]/w:object[2]",
+      "sectionPath": "Phần I",
+      "blockOrder": 242
+    },
+    "issueCode": "UNSUPPORTED_OLE_OBJECT",
+    "kind": "embeddedObject",
+    "severity": "blocking",
+    "message": "OLE object cannot be converted semantically by the prototype.",
+    "observedType": "formula",
+    "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.DSMT4\"> (MathType (Equation.DSMT4)) read directly from the source DOCX XML.",
+    "previewPath": "/qa-preview/lessons/chuyen-de-06/e2170.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T06-S01:e2195",
+    "sourceId": "T06-S01",
+    "topic": "chuyen-de-06",
+    "lessonSlug": "dong-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[222]/w:object[2]",
+      "sectionPath": "Phần I",
+      "blockOrder": 265
+    },
+    "issueCode": "UNSUPPORTED_OLE_OBJECT",
+    "kind": "embeddedObject",
+    "severity": "blocking",
+    "message": "OLE object cannot be converted semantically by the prototype.",
+    "observedType": "formula",
+    "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.DSMT4\"> (MathType (Equation.DSMT4)) read directly from the source DOCX XML.",
+    "previewPath": "/qa-preview/lessons/chuyen-de-06/e2195.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T06-S01:e2249",
+    "sourceId": "T06-S01",
+    "topic": "chuyen-de-06",
+    "lessonSlug": "dong-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[31]/w:object[1]",
+      "sectionPath": "Phần I",
+      "blockOrder": 34
+    },
+    "issueCode": "UNSUPPORTED_OLE_OBJECT",
+    "kind": "embeddedObject",
+    "severity": "blocking",
+    "message": "OLE object cannot be converted semantically by the prototype.",
+    "observedType": "formula",
+    "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.DSMT4\"> (MathType (Equation.DSMT4)) read directly from the source DOCX XML.",
+    "previewPath": "/qa-preview/lessons/chuyen-de-06/e2249.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T06-S01:e2310",
+    "sourceId": "T06-S01",
+    "topic": "chuyen-de-06",
+    "lessonSlug": "dong-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[221]/w:object[2]",
+      "sectionPath": "Phần I",
+      "blockOrder": 262
+    },
+    "issueCode": "UNSUPPORTED_OLE_OBJECT",
+    "kind": "embeddedObject",
+    "severity": "blocking",
+    "message": "OLE object cannot be converted semantically by the prototype.",
+    "observedType": "formula",
+    "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.DSMT4\"> (MathType (Equation.DSMT4)) read directly from the source DOCX XML.",
+    "previewPath": "/qa-preview/lessons/chuyen-de-06/e2310.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T06-S01:e2486",
+    "sourceId": "T06-S01",
+    "topic": "chuyen-de-06",
+    "lessonSlug": "dong-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[67]/w:object[1]",
+      "sectionPath": "Phần I",
+      "blockOrder": 73
+    },
+    "issueCode": "UNSUPPORTED_OLE_OBJECT",
+    "kind": "embeddedObject",
+    "severity": "blocking",
+    "message": "OLE object cannot be converted semantically by the prototype.",
+    "observedType": "formula",
+    "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.DSMT4\"> (MathType (Equation.DSMT4)) read directly from the source DOCX XML.",
+    "previewPath": "/qa-preview/lessons/chuyen-de-06/e2486.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T06-S01:e2548",
+    "sourceId": "T06-S01",
+    "topic": "chuyen-de-06",
+    "lessonSlug": "dong-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[27]/w:object[1]",
+      "sectionPath": "Phần I",
+      "blockOrder": 30
+    },
+    "issueCode": "UNSUPPORTED_OLE_OBJECT",
+    "kind": "embeddedObject",
+    "severity": "blocking",
+    "message": "OLE object cannot be converted semantically by the prototype.",
+    "observedType": "formula",
+    "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.DSMT4\"> (MathType (Equation.DSMT4)) read directly from the source DOCX XML.",
+    "previewPath": "/qa-preview/lessons/chuyen-de-06/e2548.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T06-S01:e2635",
+    "sourceId": "T06-S01",
+    "topic": "chuyen-de-06",
+    "lessonSlug": "dong-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[114]/w:object[1]",
+      "sectionPath": "Phần I",
+      "blockOrder": 125
+    },
+    "issueCode": "UNSUPPORTED_OLE_OBJECT",
+    "kind": "embeddedObject",
+    "severity": "blocking",
+    "message": "OLE object cannot be converted semantically by the prototype.",
+    "observedType": "formula",
+    "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.DSMT4\"> (MathType (Equation.DSMT4)) read directly from the source DOCX XML.",
+    "previewPath": "/qa-preview/lessons/chuyen-de-06/e2635.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T06-S01:e2673",
+    "sourceId": "T06-S01",
+    "topic": "chuyen-de-06",
+    "lessonSlug": "dong-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[198]/w:object[1]",
+      "sectionPath": "Phần I",
+      "blockOrder": 223
+    },
+    "issueCode": "UNSUPPORTED_OLE_OBJECT",
+    "kind": "embeddedObject",
+    "severity": "blocking",
+    "message": "OLE object cannot be converted semantically by the prototype.",
+    "observedType": "formula",
+    "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.DSMT4\"> (MathType (Equation.DSMT4)) read directly from the source DOCX XML.",
+    "previewPath": "/qa-preview/lessons/chuyen-de-06/e2673.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T06-S01:e2801",
+    "sourceId": "T06-S01",
+    "topic": "chuyen-de-06",
+    "lessonSlug": "dong-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[19]/w:object[1]",
+      "sectionPath": "Phần I",
+      "blockOrder": 21
+    },
+    "issueCode": "UNSUPPORTED_OLE_OBJECT",
+    "kind": "embeddedObject",
+    "severity": "blocking",
+    "message": "OLE object cannot be converted semantically by the prototype.",
+    "observedType": "formula",
+    "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.DSMT4\"> (MathType (Equation.DSMT4)) read directly from the source DOCX XML.",
+    "previewPath": "/qa-preview/lessons/chuyen-de-06/e2801.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T06-S01:e2971",
+    "sourceId": "T06-S01",
+    "topic": "chuyen-de-06",
+    "lessonSlug": "dong-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[207]/w:object[1]",
+      "sectionPath": "Phần I",
+      "blockOrder": 236
+    },
+    "issueCode": "UNSUPPORTED_OLE_OBJECT",
+    "kind": "embeddedObject",
+    "severity": "blocking",
+    "message": "OLE object cannot be converted semantically by the prototype.",
+    "observedType": "formula",
+    "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.DSMT4\"> (MathType (Equation.DSMT4)) read directly from the source DOCX XML.",
+    "previewPath": "/qa-preview/lessons/chuyen-de-06/e2971.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T06-S01:e3135",
+    "sourceId": "T06-S01",
+    "topic": "chuyen-de-06",
+    "lessonSlug": "dong-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[71]/w:object[1]",
+      "sectionPath": "Phần I",
+      "blockOrder": 78
+    },
+    "issueCode": "UNSUPPORTED_OLE_OBJECT",
+    "kind": "embeddedObject",
+    "severity": "blocking",
+    "message": "OLE object cannot be converted semantically by the prototype.",
+    "observedType": "formula",
+    "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.DSMT4\"> (MathType (Equation.DSMT4)) read directly from the source DOCX XML.",
+    "previewPath": "/qa-preview/lessons/chuyen-de-06/e3135.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T06-S01:e3159",
+    "sourceId": "T06-S01",
+    "topic": "chuyen-de-06",
+    "lessonSlug": "dong-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[138]/w:object[1]",
+      "sectionPath": "Phần I",
+      "blockOrder": 150
+    },
+    "issueCode": "UNSUPPORTED_OLE_OBJECT",
+    "kind": "embeddedObject",
+    "severity": "blocking",
+    "message": "OLE object cannot be converted semantically by the prototype.",
+    "observedType": "formula",
+    "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.DSMT4\"> (MathType (Equation.DSMT4)) read directly from the source DOCX XML.",
+    "previewPath": "/qa-preview/lessons/chuyen-de-06/e3159.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T06-S01:e3184",
+    "sourceId": "T06-S01",
+    "topic": "chuyen-de-06",
+    "lessonSlug": "dong-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[219]/w:object[1]",
+      "sectionPath": "Phần I",
+      "blockOrder": 254
+    },
+    "issueCode": "UNSUPPORTED_OLE_OBJECT",
+    "kind": "embeddedObject",
+    "severity": "blocking",
+    "message": "OLE object cannot be converted semantically by the prototype.",
+    "observedType": "formula",
+    "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.DSMT4\"> (MathType (Equation.DSMT4)) read directly from the source DOCX XML.",
+    "previewPath": "/qa-preview/lessons/chuyen-de-06/e3184.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T06-S01:e3265",
+    "sourceId": "T06-S01",
+    "topic": "chuyen-de-06",
+    "lessonSlug": "dong-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[91]/w:object[1]",
+      "sectionPath": "Phần I",
+      "blockOrder": 100
+    },
+    "issueCode": "UNSUPPORTED_OLE_OBJECT",
+    "kind": "embeddedObject",
+    "severity": "blocking",
+    "message": "OLE object cannot be converted semantically by the prototype.",
+    "observedType": "formula",
+    "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.DSMT4\"> (MathType (Equation.DSMT4)) read directly from the source DOCX XML.",
+    "previewPath": "/qa-preview/lessons/chuyen-de-06/e3265.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T06-S01:e3315",
+    "sourceId": "T06-S01",
+    "topic": "chuyen-de-06",
+    "lessonSlug": "dong-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[115]/w:object[1]",
+      "sectionPath": "Phần I",
+      "blockOrder": 127
+    },
+    "issueCode": "UNSUPPORTED_OLE_OBJECT",
+    "kind": "embeddedObject",
+    "severity": "blocking",
+    "message": "OLE object cannot be converted semantically by the prototype.",
+    "observedType": "formula",
+    "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.DSMT4\"> (MathType (Equation.DSMT4)) read directly from the source DOCX XML.",
+    "previewPath": "/qa-preview/lessons/chuyen-de-06/e3315.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T06-S01:e3386",
+    "sourceId": "T06-S01",
+    "topic": "chuyen-de-06",
+    "lessonSlug": "dong-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[214]/w:object[1]",
+      "sectionPath": "Phần I",
+      "blockOrder": 245
+    },
+    "issueCode": "UNSUPPORTED_OLE_OBJECT",
+    "kind": "embeddedObject",
+    "severity": "blocking",
+    "message": "OLE object cannot be converted semantically by the prototype.",
+    "observedType": "formula",
+    "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.DSMT4\"> (MathType (Equation.DSMT4)) read directly from the source DOCX XML.",
+    "previewPath": "/qa-preview/lessons/chuyen-de-06/e3386.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T06-S01:e3465",
+    "sourceId": "T06-S01",
+    "topic": "chuyen-de-06",
+    "lessonSlug": "dong-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[158]/w:object[1]",
+      "sectionPath": "Phần I",
+      "blockOrder": 174
+    },
+    "issueCode": "UNSUPPORTED_OLE_OBJECT",
+    "kind": "embeddedObject",
+    "severity": "blocking",
+    "message": "OLE object cannot be converted semantically by the prototype.",
+    "observedType": "formula",
+    "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.DSMT4\"> (MathType (Equation.DSMT4)) read directly from the source DOCX XML.",
+    "previewPath": "/qa-preview/lessons/chuyen-de-06/e3465.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T06-S01:e3603",
+    "sourceId": "T06-S01",
+    "topic": "chuyen-de-06",
+    "lessonSlug": "dong-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[98]/w:object[1]",
+      "sectionPath": "Phần I",
+      "blockOrder": 106
+    },
+    "issueCode": "UNSUPPORTED_OLE_OBJECT",
+    "kind": "embeddedObject",
+    "severity": "blocking",
+    "message": "OLE object cannot be converted semantically by the prototype.",
+    "observedType": "formula",
+    "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.DSMT4\"> (MathType (Equation.DSMT4)) read directly from the source DOCX XML.",
+    "previewPath": "/qa-preview/lessons/chuyen-de-06/e3603.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T06-S01:e3758",
+    "sourceId": "T06-S01",
+    "topic": "chuyen-de-06",
+    "lessonSlug": "dong-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[25]/w:object[1]",
+      "sectionPath": "Phần I",
+      "blockOrder": 28
+    },
+    "issueCode": "UNSUPPORTED_OLE_OBJECT",
+    "kind": "embeddedObject",
+    "severity": "blocking",
+    "message": "OLE object cannot be converted semantically by the prototype.",
+    "observedType": "formula",
+    "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.DSMT4\"> (MathType (Equation.DSMT4)) read directly from the source DOCX XML.",
+    "previewPath": "/qa-preview/lessons/chuyen-de-06/e3758.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T06-S01:e3814",
+    "sourceId": "T06-S01",
+    "topic": "chuyen-de-06",
+    "lessonSlug": "dong-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[214]/w:object[2]",
+      "sectionPath": "Phần I",
+      "blockOrder": 246
+    },
+    "issueCode": "UNSUPPORTED_OLE_OBJECT",
+    "kind": "embeddedObject",
+    "severity": "blocking",
+    "message": "OLE object cannot be converted semantically by the prototype.",
+    "observedType": "formula",
+    "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.DSMT4\"> (MathType (Equation.DSMT4)) read directly from the source DOCX XML.",
+    "previewPath": "/qa-preview/lessons/chuyen-de-06/e3814.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T06-S01:e3885",
+    "sourceId": "T06-S01",
+    "topic": "chuyen-de-06",
+    "lessonSlug": "dong-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[157]/w:object[1]",
+      "sectionPath": "Phần I",
+      "blockOrder": 172
+    },
+    "issueCode": "UNSUPPORTED_OLE_OBJECT",
+    "kind": "embeddedObject",
+    "severity": "blocking",
+    "message": "OLE object cannot be converted semantically by the prototype.",
+    "observedType": "formula",
+    "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.DSMT4\"> (MathType (Equation.DSMT4)) read directly from the source DOCX XML.",
+    "previewPath": "/qa-preview/lessons/chuyen-de-06/e3885.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T06-S01:e4121",
+    "sourceId": "T06-S01",
+    "topic": "chuyen-de-06",
+    "lessonSlug": "dong-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[51]/w:object[1]",
+      "sectionPath": "Phần I",
+      "blockOrder": 55
+    },
+    "issueCode": "UNSUPPORTED_OLE_OBJECT",
+    "kind": "embeddedObject",
+    "severity": "blocking",
+    "message": "OLE object cannot be converted semantically by the prototype.",
+    "observedType": "formula",
+    "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.DSMT4\"> (MathType (Equation.DSMT4)) read directly from the source DOCX XML.",
+    "previewPath": "/qa-preview/lessons/chuyen-de-06/e4121.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T06-S01:e4172",
+    "sourceId": "T06-S01",
+    "topic": "chuyen-de-06",
+    "lessonSlug": "dong-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[227]/w:object[1]",
+      "sectionPath": "Phần I",
+      "blockOrder": 273
+    },
+    "issueCode": "UNSUPPORTED_OLE_OBJECT",
+    "kind": "embeddedObject",
+    "severity": "blocking",
+    "message": "OLE object cannot be converted semantically by the prototype.",
+    "observedType": "formula",
+    "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.DSMT4\"> (MathType (Equation.DSMT4)) read directly from the source DOCX XML.",
+    "previewPath": "/qa-preview/lessons/chuyen-de-06/e4172.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T06-S01:e4184",
+    "sourceId": "T06-S01",
+    "topic": "chuyen-de-06",
+    "lessonSlug": "dong-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[39]/w:object[1]",
+      "sectionPath": "Phần I",
+      "blockOrder": 43
+    },
+    "issueCode": "UNSUPPORTED_OLE_OBJECT",
+    "kind": "embeddedObject",
+    "severity": "blocking",
+    "message": "OLE object cannot be converted semantically by the prototype.",
+    "observedType": "formula",
+    "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.DSMT4\"> (MathType (Equation.DSMT4)) read directly from the source DOCX XML.",
+    "previewPath": "/qa-preview/lessons/chuyen-de-06/e4184.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T06-S01:e4186",
+    "sourceId": "T06-S01",
+    "topic": "chuyen-de-06",
+    "lessonSlug": "dong-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[230]/w:object[1]",
+      "sectionPath": "Phần I",
+      "blockOrder": 279
+    },
+    "issueCode": "UNSUPPORTED_OLE_OBJECT",
+    "kind": "embeddedObject",
+    "severity": "blocking",
+    "message": "OLE object cannot be converted semantically by the prototype.",
+    "observedType": "formula",
+    "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.DSMT4\"> (MathType (Equation.DSMT4)) read directly from the source DOCX XML.",
+    "previewPath": "/qa-preview/lessons/chuyen-de-06/e4186.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T06-S01:e4316",
+    "sourceId": "T06-S01",
+    "topic": "chuyen-de-06",
+    "lessonSlug": "dong-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[49]/w:object[1]",
+      "sectionPath": "Phần I",
+      "blockOrder": 53
+    },
+    "issueCode": "UNSUPPORTED_OLE_OBJECT",
+    "kind": "embeddedObject",
+    "severity": "blocking",
+    "message": "OLE object cannot be converted semantically by the prototype.",
+    "observedType": "formula",
+    "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.DSMT4\"> (MathType (Equation.DSMT4)) read directly from the source DOCX XML.",
+    "previewPath": "/qa-preview/lessons/chuyen-de-06/e4316.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T06-S01:e4328",
+    "sourceId": "T06-S01",
+    "topic": "chuyen-de-06",
+    "lessonSlug": "dong-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[223]/w:object[1]",
+      "sectionPath": "Phần I",
+      "blockOrder": 268
+    },
+    "issueCode": "UNSUPPORTED_OLE_OBJECT",
+    "kind": "embeddedObject",
+    "severity": "blocking",
+    "message": "OLE object cannot be converted semantically by the prototype.",
+    "observedType": "formula",
+    "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.DSMT4\"> (MathType (Equation.DSMT4)) read directly from the source DOCX XML.",
+    "previewPath": "/qa-preview/lessons/chuyen-de-06/e4328.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T06-S01:e4567",
+    "sourceId": "T06-S01",
+    "topic": "chuyen-de-06",
+    "lessonSlug": "dong-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[193]/w:object[1]",
+      "sectionPath": "Phần I",
+      "blockOrder": 214
+    },
+    "issueCode": "UNSUPPORTED_OLE_OBJECT",
+    "kind": "embeddedObject",
+    "severity": "blocking",
+    "message": "OLE object cannot be converted semantically by the prototype.",
+    "observedType": "formula",
+    "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.DSMT4\"> (MathType (Equation.DSMT4)) read directly from the source DOCX XML.",
+    "previewPath": "/qa-preview/lessons/chuyen-de-06/e4567.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T06-S01:e4743",
+    "sourceId": "T06-S01",
+    "topic": "chuyen-de-06",
+    "lessonSlug": "dong-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[10]/w:object[1]",
+      "sectionPath": "Phần I",
+      "blockOrder": 10
+    },
+    "issueCode": "UNSUPPORTED_OLE_OBJECT",
+    "kind": "embeddedObject",
+    "severity": "blocking",
+    "message": "OLE object cannot be converted semantically by the prototype.",
+    "observedType": "formula",
+    "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.DSMT4\"> (MathType (Equation.DSMT4)) read directly from the source DOCX XML.",
+    "previewPath": "/qa-preview/lessons/chuyen-de-06/e4743.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T06-S01:e4916",
+    "sourceId": "T06-S01",
+    "topic": "chuyen-de-06",
+    "lessonSlug": "dong-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[20]/w:object[1]",
+      "sectionPath": "Phần I",
+      "blockOrder": 23
+    },
+    "issueCode": "UNSUPPORTED_OLE_OBJECT",
+    "kind": "embeddedObject",
+    "severity": "blocking",
+    "message": "OLE object cannot be converted semantically by the prototype.",
+    "observedType": "formula",
+    "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.DSMT4\"> (MathType (Equation.DSMT4)) read directly from the source DOCX XML.",
+    "previewPath": "/qa-preview/lessons/chuyen-de-06/e4916.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T06-S01:e4964",
+    "sourceId": "T06-S01",
+    "topic": "chuyen-de-06",
+    "lessonSlug": "dong-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[166]/w:object[1]",
+      "sectionPath": "Phần I",
+      "blockOrder": 183
+    },
+    "issueCode": "UNSUPPORTED_OLE_OBJECT",
+    "kind": "embeddedObject",
+    "severity": "blocking",
+    "message": "OLE object cannot be converted semantically by the prototype.",
+    "observedType": "formula",
+    "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.DSMT4\"> (MathType (Equation.DSMT4)) read directly from the source DOCX XML.",
+    "previewPath": "/qa-preview/lessons/chuyen-de-06/e4964.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T06-S01:e4982",
+    "sourceId": "T06-S01",
+    "topic": "chuyen-de-06",
+    "lessonSlug": "dong-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[220]/w:object[1]",
+      "sectionPath": "Phần I",
+      "blockOrder": 256
+    },
+    "issueCode": "UNSUPPORTED_OLE_OBJECT",
+    "kind": "embeddedObject",
+    "severity": "blocking",
+    "message": "OLE object cannot be converted semantically by the prototype.",
+    "observedType": "formula",
+    "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.DSMT4\"> (MathType (Equation.DSMT4)) read directly from the source DOCX XML.",
+    "previewPath": "/qa-preview/lessons/chuyen-de-06/e4982.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T06-S01:e5216",
+    "sourceId": "T06-S01",
+    "topic": "chuyen-de-06",
+    "lessonSlug": "dong-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[151]/w:object[1]",
+      "sectionPath": "Phần I",
+      "blockOrder": 163
+    },
+    "issueCode": "UNSUPPORTED_OLE_OBJECT",
+    "kind": "embeddedObject",
+    "severity": "blocking",
+    "message": "OLE object cannot be converted semantically by the prototype.",
+    "observedType": "formula",
+    "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.DSMT4\"> (MathType (Equation.DSMT4)) read directly from the source DOCX XML.",
+    "previewPath": "/qa-preview/lessons/chuyen-de-06/e5216.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T06-S01:e5248",
+    "sourceId": "T06-S01",
+    "topic": "chuyen-de-06",
+    "lessonSlug": "dong-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[9]/w:object[2]",
+      "sectionPath": "Phần I",
+      "blockOrder": 9
+    },
+    "issueCode": "UNSUPPORTED_OLE_OBJECT",
+    "kind": "embeddedObject",
+    "severity": "blocking",
+    "message": "OLE object cannot be converted semantically by the prototype.",
+    "observedType": "formula",
+    "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.DSMT4\"> (MathType (Equation.DSMT4)) read directly from the source DOCX XML.",
+    "previewPath": "/qa-preview/lessons/chuyen-de-06/e5248.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T06-S01:e5276",
+    "sourceId": "T06-S01",
+    "topic": "chuyen-de-06",
+    "lessonSlug": "dong-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[231]/w:object[1]",
+      "sectionPath": "Phần I",
+      "blockOrder": 281
+    },
+    "issueCode": "UNSUPPORTED_OLE_OBJECT",
+    "kind": "embeddedObject",
+    "severity": "blocking",
+    "message": "OLE object cannot be converted semantically by the prototype.",
+    "observedType": "formula",
+    "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.DSMT4\"> (MathType (Equation.DSMT4)) read directly from the source DOCX XML.",
+    "previewPath": "/qa-preview/lessons/chuyen-de-06/e5276.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T06-S01:e5556",
+    "sourceId": "T06-S01",
+    "topic": "chuyen-de-06",
+    "lessonSlug": "dong-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[215]/w:object[1]",
+      "sectionPath": "Phần I",
+      "blockOrder": 248
+    },
+    "issueCode": "UNSUPPORTED_OLE_OBJECT",
+    "kind": "embeddedObject",
+    "severity": "blocking",
+    "message": "OLE object cannot be converted semantically by the prototype.",
+    "observedType": "formula",
+    "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.DSMT4\"> (MathType (Equation.DSMT4)) read directly from the source DOCX XML.",
+    "previewPath": "/qa-preview/lessons/chuyen-de-06/e5556.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T06-S01:e5843",
+    "sourceId": "T06-S01",
+    "topic": "chuyen-de-06",
+    "lessonSlug": "dong-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[227]/w:object[3]",
+      "sectionPath": "Phần I",
+      "blockOrder": 275
+    },
+    "issueCode": "UNSUPPORTED_OLE_OBJECT",
+    "kind": "embeddedObject",
+    "severity": "blocking",
+    "message": "OLE object cannot be converted semantically by the prototype.",
+    "observedType": "formula",
+    "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.DSMT4\"> (MathType (Equation.DSMT4)) read directly from the source DOCX XML.",
+    "previewPath": "/qa-preview/lessons/chuyen-de-06/e5843.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T06-S01:e5909",
+    "sourceId": "T06-S01",
+    "topic": "chuyen-de-06",
+    "lessonSlug": "dong-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[189]/w:object[1]",
+      "sectionPath": "Phần I",
+      "blockOrder": 209
+    },
+    "issueCode": "UNSUPPORTED_OLE_OBJECT",
+    "kind": "embeddedObject",
+    "severity": "blocking",
+    "message": "OLE object cannot be converted semantically by the prototype.",
+    "observedType": "formula",
+    "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.DSMT4\"> (MathType (Equation.DSMT4)) read directly from the source DOCX XML.",
+    "previewPath": "/qa-preview/lessons/chuyen-de-06/e5909.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T06-S01:e5962",
+    "sourceId": "T06-S01",
+    "topic": "chuyen-de-06",
+    "lessonSlug": "dong-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[204]/w:object[1]",
+      "sectionPath": "Phần I",
+      "blockOrder": 230
+    },
+    "issueCode": "UNSUPPORTED_OLE_OBJECT",
+    "kind": "embeddedObject",
+    "severity": "blocking",
+    "message": "OLE object cannot be converted semantically by the prototype.",
+    "observedType": "formula",
+    "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.DSMT4\"> (MathType (Equation.DSMT4)) read directly from the source DOCX XML.",
+    "previewPath": "/qa-preview/lessons/chuyen-de-06/e5962.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T06-S01:e6018",
+    "sourceId": "T06-S01",
+    "topic": "chuyen-de-06",
+    "lessonSlug": "dong-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[212]/w:object[1]",
+      "sectionPath": "Phần I",
+      "blockOrder": 241
+    },
+    "issueCode": "UNSUPPORTED_OLE_OBJECT",
+    "kind": "embeddedObject",
+    "severity": "blocking",
+    "message": "OLE object cannot be converted semantically by the prototype.",
+    "observedType": "formula",
+    "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.DSMT4\"> (MathType (Equation.DSMT4)) read directly from the source DOCX XML.",
+    "previewPath": "/qa-preview/lessons/chuyen-de-06/e6018.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T06-S01:e6161",
+    "sourceId": "T06-S01",
+    "topic": "chuyen-de-06",
+    "lessonSlug": "dong-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[111]/w:object[1]",
+      "sectionPath": "Phần I",
+      "blockOrder": 121
+    },
+    "issueCode": "UNSUPPORTED_OLE_OBJECT",
+    "kind": "embeddedObject",
+    "severity": "blocking",
+    "message": "OLE object cannot be converted semantically by the prototype.",
+    "observedType": "formula",
+    "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.DSMT4\"> (MathType (Equation.DSMT4)) read directly from the source DOCX XML.",
+    "previewPath": "/qa-preview/lessons/chuyen-de-06/e6161.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T06-S01:e6224",
+    "sourceId": "T06-S01",
+    "topic": "chuyen-de-06",
+    "lessonSlug": "dong-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[216]/w:object[1]",
+      "sectionPath": "Phần I",
+      "blockOrder": 250
+    },
+    "issueCode": "UNSUPPORTED_OLE_OBJECT",
+    "kind": "embeddedObject",
+    "severity": "blocking",
+    "message": "OLE object cannot be converted semantically by the prototype.",
+    "observedType": "formula",
+    "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.DSMT4\"> (MathType (Equation.DSMT4)) read directly from the source DOCX XML.",
+    "previewPath": "/qa-preview/lessons/chuyen-de-06/e6224.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T06-S01:e6259",
+    "sourceId": "T06-S01",
+    "topic": "chuyen-de-06",
+    "lessonSlug": "dong-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[9]/w:object[1]",
+      "sectionPath": "Phần I",
+      "blockOrder": 8
+    },
+    "issueCode": "UNSUPPORTED_OLE_OBJECT",
+    "kind": "embeddedObject",
+    "severity": "blocking",
+    "message": "OLE object cannot be converted semantically by the prototype.",
+    "observedType": "formula",
+    "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.DSMT4\"> (MathType (Equation.DSMT4)) read directly from the source DOCX XML.",
+    "previewPath": "/qa-preview/lessons/chuyen-de-06/e6259.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T06-S01:e6260",
+    "sourceId": "T06-S01",
+    "topic": "chuyen-de-06",
+    "lessonSlug": "dong-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[205]/w:object[1]",
+      "sectionPath": "Phần I",
+      "blockOrder": 232
+    },
+    "issueCode": "UNSUPPORTED_OLE_OBJECT",
+    "kind": "embeddedObject",
+    "severity": "blocking",
+    "message": "OLE object cannot be converted semantically by the prototype.",
+    "observedType": "formula",
+    "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.DSMT4\"> (MathType (Equation.DSMT4)) read directly from the source DOCX XML.",
+    "previewPath": "/qa-preview/lessons/chuyen-de-06/e6260.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T06-S01:e6303",
+    "sourceId": "T06-S01",
+    "topic": "chuyen-de-06",
+    "lessonSlug": "dong-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[213]/w:object[1]",
+      "sectionPath": "Phần I",
+      "blockOrder": 243
+    },
+    "issueCode": "UNSUPPORTED_OLE_OBJECT",
+    "kind": "embeddedObject",
+    "severity": "blocking",
+    "message": "OLE object cannot be converted semantically by the prototype.",
+    "observedType": "formula",
+    "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.DSMT4\"> (MathType (Equation.DSMT4)) read directly from the source DOCX XML.",
+    "previewPath": "/qa-preview/lessons/chuyen-de-06/e6303.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T06-S01:e6474",
+    "sourceId": "T06-S01",
+    "topic": "chuyen-de-06",
+    "lessonSlug": "dong-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[186]/w:object[1]",
+      "sectionPath": "Phần I",
+      "blockOrder": 204
+    },
+    "issueCode": "UNSUPPORTED_OLE_OBJECT",
+    "kind": "embeddedObject",
+    "severity": "blocking",
+    "message": "OLE object cannot be converted semantically by the prototype.",
+    "observedType": "formula",
+    "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.DSMT4\"> (MathType (Equation.DSMT4)) read directly from the source DOCX XML.",
+    "previewPath": "/qa-preview/lessons/chuyen-de-06/e6474.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T06-S01:e6997",
+    "sourceId": "T06-S01",
+    "topic": "chuyen-de-06",
+    "lessonSlug": "dong-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[172]/w:object[1]",
+      "sectionPath": "Phần I",
+      "blockOrder": 189
+    },
+    "issueCode": "UNSUPPORTED_OLE_OBJECT",
+    "kind": "embeddedObject",
+    "severity": "blocking",
+    "message": "OLE object cannot be converted semantically by the prototype.",
+    "observedType": "formula",
+    "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.DSMT4\"> (MathType (Equation.DSMT4)) read directly from the source DOCX XML.",
+    "previewPath": "/qa-preview/lessons/chuyen-de-06/e6997.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T06-S01:e7002",
+    "sourceId": "T06-S01",
+    "topic": "chuyen-de-06",
+    "lessonSlug": "dong-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[54]/w:object[1]",
+      "sectionPath": "Phần I",
+      "blockOrder": 58
+    },
+    "issueCode": "UNSUPPORTED_OLE_OBJECT",
+    "kind": "embeddedObject",
+    "severity": "blocking",
+    "message": "OLE object cannot be converted semantically by the prototype.",
+    "observedType": "formula",
+    "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.DSMT4\"> (MathType (Equation.DSMT4)) read directly from the source DOCX XML.",
+    "previewPath": "/qa-preview/lessons/chuyen-de-06/e7002.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T06-S01:e7135",
+    "sourceId": "T06-S01",
+    "topic": "chuyen-de-06",
+    "lessonSlug": "dong-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[194]/w:object[1]",
+      "sectionPath": "Phần I",
+      "blockOrder": 215
+    },
+    "issueCode": "UNSUPPORTED_OLE_OBJECT",
+    "kind": "embeddedObject",
+    "severity": "blocking",
+    "message": "OLE object cannot be converted semantically by the prototype.",
+    "observedType": "formula",
+    "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.DSMT4\"> (MathType (Equation.DSMT4)) read directly from the source DOCX XML.",
+    "previewPath": "/qa-preview/lessons/chuyen-de-06/e7135.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T06-S01:e7326",
+    "sourceId": "T06-S01",
+    "topic": "chuyen-de-06",
+    "lessonSlug": "dong-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[170]/w:object[1]",
+      "sectionPath": "Phần I",
+      "blockOrder": 187
+    },
+    "issueCode": "UNSUPPORTED_OLE_OBJECT",
+    "kind": "embeddedObject",
+    "severity": "blocking",
+    "message": "OLE object cannot be converted semantically by the prototype.",
+    "observedType": "formula",
+    "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.DSMT4\"> (MathType (Equation.DSMT4)) read directly from the source DOCX XML.",
+    "previewPath": "/qa-preview/lessons/chuyen-de-06/e7326.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T06-S01:e7681",
+    "sourceId": "T06-S01",
+    "topic": "chuyen-de-06",
+    "lessonSlug": "dong-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[29]/w:object[1]",
+      "sectionPath": "Phần I",
+      "blockOrder": 32
+    },
+    "issueCode": "UNSUPPORTED_OLE_OBJECT",
+    "kind": "embeddedObject",
+    "severity": "blocking",
+    "message": "OLE object cannot be converted semantically by the prototype.",
+    "observedType": "formula",
+    "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.DSMT4\"> (MathType (Equation.DSMT4)) read directly from the source DOCX XML.",
+    "previewPath": "/qa-preview/lessons/chuyen-de-06/e7681.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T06-S01:e7685",
+    "sourceId": "T06-S01",
+    "topic": "chuyen-de-06",
+    "lessonSlug": "dong-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[33]/w:object[1]",
+      "sectionPath": "Phần I",
+      "blockOrder": 36
+    },
+    "issueCode": "UNSUPPORTED_OLE_OBJECT",
+    "kind": "embeddedObject",
+    "severity": "blocking",
+    "message": "OLE object cannot be converted semantically by the prototype.",
+    "observedType": "formula",
+    "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.DSMT4\"> (MathType (Equation.DSMT4)) read directly from the source DOCX XML.",
+    "previewPath": "/qa-preview/lessons/chuyen-de-06/e7685.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T06-S01:e7784",
+    "sourceId": "T06-S01",
+    "topic": "chuyen-de-06",
+    "lessonSlug": "dong-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[206]/w:object[1]",
+      "sectionPath": "Phần I",
+      "blockOrder": 234
+    },
+    "issueCode": "UNSUPPORTED_OLE_OBJECT",
+    "kind": "embeddedObject",
+    "severity": "blocking",
+    "message": "OLE object cannot be converted semantically by the prototype.",
+    "observedType": "formula",
+    "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.DSMT4\"> (MathType (Equation.DSMT4)) read directly from the source DOCX XML.",
+    "previewPath": "/qa-preview/lessons/chuyen-de-06/e7784.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T06-S01:e7854",
+    "sourceId": "T06-S01",
+    "topic": "chuyen-de-06",
+    "lessonSlug": "dong-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[221]/w:object[1]",
+      "sectionPath": "Phần I",
+      "blockOrder": 261
+    },
+    "issueCode": "UNSUPPORTED_OLE_OBJECT",
+    "kind": "embeddedObject",
+    "severity": "blocking",
+    "message": "OLE object cannot be converted semantically by the prototype.",
+    "observedType": "formula",
+    "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.DSMT4\"> (MathType (Equation.DSMT4)) read directly from the source DOCX XML.",
+    "previewPath": "/qa-preview/lessons/chuyen-de-06/e7854.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T06-S01:e8081",
+    "sourceId": "T06-S01",
+    "topic": "chuyen-de-06",
+    "lessonSlug": "dong-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[195]/w:object[1]",
+      "sectionPath": "Phần I",
+      "blockOrder": 217
+    },
+    "issueCode": "UNSUPPORTED_OLE_OBJECT",
+    "kind": "embeddedObject",
+    "severity": "blocking",
+    "message": "OLE object cannot be converted semantically by the prototype.",
+    "observedType": "formula",
+    "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.DSMT4\"> (MathType (Equation.DSMT4)) read directly from the source DOCX XML.",
+    "previewPath": "/qa-preview/lessons/chuyen-de-06/e8081.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T06-S01:e8522",
+    "sourceId": "T06-S01",
+    "topic": "chuyen-de-06",
+    "lessonSlug": "dong-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[83]/w:object[1]",
+      "sectionPath": "Phần I",
+      "blockOrder": 92
+    },
+    "issueCode": "UNSUPPORTED_OLE_OBJECT",
+    "kind": "embeddedObject",
+    "severity": "blocking",
+    "message": "OLE object cannot be converted semantically by the prototype.",
+    "observedType": "formula",
+    "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.DSMT4\"> (MathType (Equation.DSMT4)) read directly from the source DOCX XML.",
+    "previewPath": "/qa-preview/lessons/chuyen-de-06/e8522.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T06-S01:e8561",
+    "sourceId": "T06-S01",
+    "topic": "chuyen-de-06",
+    "lessonSlug": "dong-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[128]/w:object[1]",
+      "sectionPath": "Phần I",
+      "blockOrder": 139
+    },
+    "issueCode": "UNSUPPORTED_OLE_OBJECT",
+    "kind": "embeddedObject",
+    "severity": "blocking",
+    "message": "OLE object cannot be converted semantically by the prototype.",
+    "observedType": "formula",
+    "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.DSMT4\"> (MathType (Equation.DSMT4)) read directly from the source DOCX XML.",
+    "previewPath": "/qa-preview/lessons/chuyen-de-06/e8561.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T06-S01:e8680",
+    "sourceId": "T06-S01",
+    "topic": "chuyen-de-06",
+    "lessonSlug": "dong-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[195]/w:object[2]",
+      "sectionPath": "Phần I",
+      "blockOrder": 218
+    },
+    "issueCode": "UNSUPPORTED_OLE_OBJECT",
+    "kind": "embeddedObject",
+    "severity": "blocking",
+    "message": "OLE object cannot be converted semantically by the prototype.",
+    "observedType": "formula",
+    "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.DSMT4\"> (MathType (Equation.DSMT4)) read directly from the source DOCX XML.",
+    "previewPath": "/qa-preview/lessons/chuyen-de-06/e8680.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T06-S01:e8707",
+    "sourceId": "T06-S01",
+    "topic": "chuyen-de-06",
+    "lessonSlug": "dong-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[136]/w:object[1]",
+      "sectionPath": "Phần I",
+      "blockOrder": 148
+    },
+    "issueCode": "UNSUPPORTED_OLE_OBJECT",
+    "kind": "embeddedObject",
+    "severity": "blocking",
+    "message": "OLE object cannot be converted semantically by the prototype.",
+    "observedType": "formula",
+    "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.DSMT4\"> (MathType (Equation.DSMT4)) read directly from the source DOCX XML.",
+    "previewPath": "/qa-preview/lessons/chuyen-de-06/e8707.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T06-S01:e8721",
+    "sourceId": "T06-S01",
+    "topic": "chuyen-de-06",
+    "lessonSlug": "dong-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[187]/w:object[1]",
+      "sectionPath": "Phần I",
+      "blockOrder": 206
+    },
+    "issueCode": "UNSUPPORTED_OLE_OBJECT",
+    "kind": "embeddedObject",
+    "severity": "blocking",
+    "message": "OLE object cannot be converted semantically by the prototype.",
+    "observedType": "formula",
+    "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.DSMT4\"> (MathType (Equation.DSMT4)) read directly from the source DOCX XML.",
+    "previewPath": "/qa-preview/lessons/chuyen-de-06/e8721.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T06-S01:e8797",
+    "sourceId": "T06-S01",
+    "topic": "chuyen-de-06",
+    "lessonSlug": "dong-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[108]/w:object[1]",
+      "sectionPath": "Phần I",
+      "blockOrder": 118
+    },
+    "issueCode": "UNSUPPORTED_OLE_OBJECT",
+    "kind": "embeddedObject",
+    "severity": "blocking",
+    "message": "OLE object cannot be converted semantically by the prototype.",
+    "observedType": "formula",
+    "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.DSMT4\"> (MathType (Equation.DSMT4)) read directly from the source DOCX XML.",
+    "previewPath": "/qa-preview/lessons/chuyen-de-06/e8797.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T06-S01:e8803",
+    "sourceId": "T06-S01",
+    "topic": "chuyen-de-06",
+    "lessonSlug": "dong-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[18]/w:object[1]",
+      "sectionPath": "Phần I",
+      "blockOrder": 19
+    },
+    "issueCode": "UNSUPPORTED_OLE_OBJECT",
+    "kind": "embeddedObject",
+    "severity": "blocking",
+    "message": "OLE object cannot be converted semantically by the prototype.",
+    "observedType": "formula",
+    "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.DSMT4\"> (MathType (Equation.DSMT4)) read directly from the source DOCX XML.",
+    "previewPath": "/qa-preview/lessons/chuyen-de-06/e8803.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T06-S01:e8929",
+    "sourceId": "T06-S01",
+    "topic": "chuyen-de-06",
+    "lessonSlug": "dong-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[131]/w:object[1]",
+      "sectionPath": "Phần I",
+      "blockOrder": 142
+    },
+    "issueCode": "UNSUPPORTED_OLE_OBJECT",
+    "kind": "embeddedObject",
+    "severity": "blocking",
+    "message": "OLE object cannot be converted semantically by the prototype.",
+    "observedType": "formula",
+    "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.DSMT4\"> (MathType (Equation.DSMT4)) read directly from the source DOCX XML.",
+    "previewPath": "/qa-preview/lessons/chuyen-de-06/e8929.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T06-S01:e9097",
+    "sourceId": "T06-S01",
+    "topic": "chuyen-de-06",
+    "lessonSlug": "dong-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[203]/w:object[1]",
+      "sectionPath": "Phần I",
+      "blockOrder": 229
+    },
+    "issueCode": "UNSUPPORTED_OLE_OBJECT",
+    "kind": "embeddedObject",
+    "severity": "blocking",
+    "message": "OLE object cannot be converted semantically by the prototype.",
+    "observedType": "formula",
+    "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.DSMT4\"> (MathType (Equation.DSMT4)) read directly from the source DOCX XML.",
+    "previewPath": "/qa-preview/lessons/chuyen-de-06/e9097.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T06-S01:e9139",
+    "sourceId": "T06-S01",
+    "topic": "chuyen-de-06",
+    "lessonSlug": "dong-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[101]/w:object[1]",
+      "sectionPath": "Phần I",
+      "blockOrder": 110
+    },
+    "issueCode": "UNSUPPORTED_OLE_OBJECT",
+    "kind": "embeddedObject",
+    "severity": "blocking",
+    "message": "OLE object cannot be converted semantically by the prototype.",
+    "observedType": "formula",
+    "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.DSMT4\"> (MathType (Equation.DSMT4)) read directly from the source DOCX XML.",
+    "previewPath": "/qa-preview/lessons/chuyen-de-06/e9139.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T06-S01:e9221",
+    "sourceId": "T06-S01",
+    "topic": "chuyen-de-06",
+    "lessonSlug": "dong-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[112]/w:object[1]",
+      "sectionPath": "Phần I",
+      "blockOrder": 122
+    },
+    "issueCode": "UNSUPPORTED_OLE_OBJECT",
+    "kind": "embeddedObject",
+    "severity": "blocking",
+    "message": "OLE object cannot be converted semantically by the prototype.",
+    "observedType": "formula",
+    "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.DSMT4\"> (MathType (Equation.DSMT4)) read directly from the source DOCX XML.",
+    "previewPath": "/qa-preview/lessons/chuyen-de-06/e9221.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T06-S01:e9229",
+    "sourceId": "T06-S01",
+    "topic": "chuyen-de-06",
+    "lessonSlug": "dong-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[225]/w:object[1]",
+      "sectionPath": "Phần I",
+      "blockOrder": 270
+    },
+    "issueCode": "UNSUPPORTED_OLE_OBJECT",
+    "kind": "embeddedObject",
+    "severity": "blocking",
+    "message": "OLE object cannot be converted semantically by the prototype.",
+    "observedType": "formula",
+    "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.DSMT4\"> (MathType (Equation.DSMT4)) read directly from the source DOCX XML.",
+    "previewPath": "/qa-preview/lessons/chuyen-de-06/e9229.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T06-S01:e9281",
+    "sourceId": "T06-S01",
+    "topic": "chuyen-de-06",
+    "lessonSlug": "dong-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[213]/w:object[2]",
+      "sectionPath": "Phần I",
+      "blockOrder": 244
+    },
+    "issueCode": "UNSUPPORTED_OLE_OBJECT",
+    "kind": "embeddedObject",
+    "severity": "blocking",
+    "message": "OLE object cannot be converted semantically by the prototype.",
+    "observedType": "formula",
+    "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.DSMT4\"> (MathType (Equation.DSMT4)) read directly from the source DOCX XML.",
+    "previewPath": "/qa-preview/lessons/chuyen-de-06/e9281.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T06-S01:e9355",
+    "sourceId": "T06-S01",
+    "topic": "chuyen-de-06",
+    "lessonSlug": "dong-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[64]/w:object[1]",
+      "sectionPath": "Phần I",
+      "blockOrder": 70
+    },
+    "issueCode": "UNSUPPORTED_OLE_OBJECT",
+    "kind": "embeddedObject",
+    "severity": "blocking",
+    "message": "OLE object cannot be converted semantically by the prototype.",
+    "observedType": "formula",
+    "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.DSMT4\"> (MathType (Equation.DSMT4)) read directly from the source DOCX XML.",
+    "previewPath": "/qa-preview/lessons/chuyen-de-06/e9355.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T06-S01:e9430",
+    "sourceId": "T06-S01",
+    "topic": "chuyen-de-06",
+    "lessonSlug": "dong-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[158]/w:object[2]",
+      "sectionPath": "Phần I",
+      "blockOrder": 175
+    },
+    "issueCode": "UNSUPPORTED_OLE_OBJECT",
+    "kind": "embeddedObject",
+    "severity": "blocking",
+    "message": "OLE object cannot be converted semantically by the prototype.",
+    "observedType": "formula",
+    "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.DSMT4\"> (MathType (Equation.DSMT4)) read directly from the source DOCX XML.",
+    "previewPath": "/qa-preview/lessons/chuyen-de-06/e9430.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T06-S01:e9497",
+    "sourceId": "T06-S01",
+    "topic": "chuyen-de-06",
+    "lessonSlug": "dong-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[156]/w:object[1]",
+      "sectionPath": "Phần I",
+      "blockOrder": 170
+    },
+    "issueCode": "UNSUPPORTED_OLE_OBJECT",
+    "kind": "embeddedObject",
+    "severity": "blocking",
+    "message": "OLE object cannot be converted semantically by the prototype.",
+    "observedType": "formula",
+    "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.DSMT4\"> (MathType (Equation.DSMT4)) read directly from the source DOCX XML.",
+    "previewPath": "/qa-preview/lessons/chuyen-de-06/e9497.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T06-S01:e9544",
+    "sourceId": "T06-S01",
+    "topic": "chuyen-de-06",
+    "lessonSlug": "dong-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[12]/w:object[1]",
+      "sectionPath": "Phần I",
+      "blockOrder": 13
+    },
+    "issueCode": "UNSUPPORTED_OLE_OBJECT",
+    "kind": "embeddedObject",
+    "severity": "blocking",
+    "message": "OLE object cannot be converted semantically by the prototype.",
+    "observedType": "formula",
+    "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.DSMT4\"> (MathType (Equation.DSMT4)) read directly from the source DOCX XML.",
+    "previewPath": "/qa-preview/lessons/chuyen-de-06/e9544.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T06-S01:e9605",
+    "sourceId": "T06-S01",
+    "topic": "chuyen-de-06",
+    "lessonSlug": "dong-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[81]/w:object[1]",
+      "sectionPath": "Phần I",
+      "blockOrder": 89
+    },
+    "issueCode": "UNSUPPORTED_OLE_OBJECT",
+    "kind": "embeddedObject",
+    "severity": "blocking",
+    "message": "OLE object cannot be converted semantically by the prototype.",
+    "observedType": "formula",
+    "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.DSMT4\"> (MathType (Equation.DSMT4)) read directly from the source DOCX XML.",
+    "previewPath": "/qa-preview/lessons/chuyen-de-06/e9605.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T06-S01:e9635",
+    "sourceId": "T06-S01",
+    "topic": "chuyen-de-06",
+    "lessonSlug": "dong-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[220]/w:object[3]",
+      "sectionPath": "Phần I",
+      "blockOrder": 258
+    },
+    "issueCode": "UNSUPPORTED_OLE_OBJECT",
+    "kind": "embeddedObject",
+    "severity": "blocking",
+    "message": "OLE object cannot be converted semantically by the prototype.",
+    "observedType": "formula",
+    "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.DSMT4\"> (MathType (Equation.DSMT4)) read directly from the source DOCX XML.",
+    "previewPath": "/qa-preview/lessons/chuyen-de-06/e9635.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T06-S01:e9697",
+    "sourceId": "T06-S01",
+    "topic": "chuyen-de-06",
+    "lessonSlug": "dong-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[145]/w:object[1]",
+      "sectionPath": "Phần I",
+      "blockOrder": 157
+    },
+    "issueCode": "UNSUPPORTED_OLE_OBJECT",
+    "kind": "embeddedObject",
+    "severity": "blocking",
+    "message": "OLE object cannot be converted semantically by the prototype.",
+    "observedType": "formula",
+    "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.DSMT4\"> (MathType (Equation.DSMT4)) read directly from the source DOCX XML.",
+    "previewPath": "/qa-preview/lessons/chuyen-de-06/e9697.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T06-S01:e9792",
+    "sourceId": "T06-S01",
+    "topic": "chuyen-de-06",
+    "lessonSlug": "dong-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[202]/w:object[1]",
+      "sectionPath": "Phần I",
+      "blockOrder": 227
+    },
+    "issueCode": "UNSUPPORTED_OLE_OBJECT",
+    "kind": "embeddedObject",
+    "severity": "blocking",
+    "message": "OLE object cannot be converted semantically by the prototype.",
+    "observedType": "formula",
+    "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.DSMT4\"> (MathType (Equation.DSMT4)) read directly from the source DOCX XML.",
+    "previewPath": "/qa-preview/lessons/chuyen-de-06/e9792.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T06-S01:t2740",
+    "sourceId": "T06-S01",
+    "topic": "chuyen-de-06",
+    "lessonSlug": "dong-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/tbl[2]",
+      "sectionPath": "Phần I",
+      "blockOrder": 235
+    },
+    "issueCode": "DOCX_TABLE_REQUIRES_VISUAL_REVIEW",
+    "kind": "table",
+    "severity": "warning",
+    "message": "DOCX table was flattened to an HTML table and needs visual review.",
+    "observedType": "table",
+    "observedTypeEvidence": "DOCX <w:tbl> element; already rendered as DataTable on the P4.2 staging page (/fixtures/pilot/...).",
+    "previewPath": null,
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T06-S01:t3041",
+    "sourceId": "T06-S01",
+    "topic": "chuyen-de-06",
+    "lessonSlug": "dong-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/tbl[1]",
+      "sectionPath": "Phần I",
+      "blockOrder": 102
+    },
+    "issueCode": "DOCX_TABLE_REQUIRES_VISUAL_REVIEW",
+    "kind": "table",
+    "severity": "warning",
+    "message": "DOCX table was flattened to an HTML table and needs visual review.",
+    "observedType": "table",
+    "observedTypeEvidence": "DOCX <w:tbl> element; already rendered as DataTable on the P4.2 staging page (/fixtures/pilot/...).",
+    "previewPath": null,
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T06-S01:t6560",
+    "sourceId": "T06-S01",
+    "topic": "chuyen-de-06",
+    "lessonSlug": "dong-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/tbl[3]",
+      "sectionPath": "Phần I",
+      "blockOrder": 272
+    },
+    "issueCode": "DOCX_TABLE_REQUIRES_VISUAL_REVIEW",
+    "kind": "table",
+    "severity": "warning",
+    "message": "DOCX table was flattened to an HTML table and needs visual review.",
+    "observedType": "table",
+    "observedTypeEvidence": "DOCX <w:tbl> element; already rendered as DataTable on the P4.2 staging page (/fixtures/pilot/...).",
+    "previewPath": null,
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  }
+]
