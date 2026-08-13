@@ -89,7 +89,7 @@ interface LessonQaRecord {
 }
 ```
 
-`approvedForPublish` may be set only by the project owner. A validator must reject `approvedForPublish: true` when any check is false or a blocking issue remains.
+`approvedForPublish` may be set only by the project owner. A validator must reject `approvedForPublish: true` when any check is false or a blocking issue remains, **except** for a lesson the project owner has individually named as an approved exception (see Amendments). An approved exception still requires every check `true`, a signed `reviewer`/`reviewedAt`, and every blocking issue to stay visibly present in the MDX body — only the blanket "no blocking issue remains" clause is waived, and only for that named lesson.
 
 ## Import safety
 
@@ -97,4 +97,19 @@ interface LessonQaRecord {
 - Re-running an importer must not overwrite manually edited MDX without an explicit flag and backup/diff report.
 - Every omitted/failed source object appears in a machine-readable failure report.
 - HTML pilot sources are comparison inputs, not canonical replacements unless the owner changes their manifest role.
+
+## Amendments
+
+- **P6.2 (2026-08-13):** the project owner explicitly authorized `approvedForPublish: true`
+  for exactly two `in_review` pilot lessons — `dong-hoa-hoc` (Chuyên đề 06) and
+  `dung-dich-va-can-bang-hoa-hoc` (Chuyên đề 08) — despite most of each lesson's
+  `unresolved` blocking QA items (96/99 and 126/168 respectively) still being
+  `pending-owner-review` in the P4 remediation queue, not individually
+  reviewed/resolved. The owner reviewed this exact scale before authorizing it. This
+  is a per-lesson exception to the "no blocking issue remains" clause above, tracked
+  in code as `P6_OWNER_APPROVED_PUBLISH_SLUGS` in
+  `scripts/validate-content/validate.py`; it does not relax any other rule in this
+  contract, does not change lesson `status` away from `in_review`, and does not
+  authorize production publication. See `docs/handoffs/P6/P6.2-claude.md` for full
+  evidence.
 

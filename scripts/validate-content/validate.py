@@ -37,6 +37,10 @@ QA_CHECKS = {
     "mobileVerified",
     "printVerified",
 }
+# P6.2: the project owner explicitly authorized approvedForPublish: true for
+# exactly these two in_review pilot lessons, despite remaining pending-owner-review
+# blocking items. Every other lesson keeps the P4 "must stay false" rule.
+P6_OWNER_APPROVED_PUBLISH_SLUGS = {"dong-hoa-hoc", "dung-dich-va-can-bang-hoa-hoc"}
 
 
 def sha256(path: Path) -> str:
@@ -193,8 +197,13 @@ def validate(root: Path) -> list[str]:
                 errors.append(f"{relative}: hidden unresolved blocking issue {block.get('id')}")
         if qa_path.is_file():
             qa = read_json(qa_path)
-            if qa.get("approvedForPublish") is not False:
-                errors.append(f"{relative}: P4 QA must not approve publication")
+            approved = qa.get("approvedForPublish")
+            if approved not in (True, False):
+                errors.append(f"{relative}: approvedForPublish must be true or false")
+            elif approved is True and qa.get("lessonSlug") not in P6_OWNER_APPROVED_PUBLISH_SLUGS:
+                errors.append(
+                    f"{relative}: approvedForPublish is only permitted for the P6 owner-approved pilot lessons"
+                )
             if manifest_status == "in_review":
                 if not isinstance(qa.get("reviewer"), str) or not qa["reviewer"].strip():
                     errors.append(f"{relative}: in_review QA requires a reviewer")
