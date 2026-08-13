@@ -232,6 +232,83 @@ test("validator rejects unsigned or incomplete in_review QA", () => {
   }
 }, 30_000);
 
+test("validator permits approvedForPublish:true only for the P6 owner-approved pilot slugs", () => {
+  const target = mkdtempSync(path.join(tmpdir(), "xuyenlab-p6-approval-"));
+  try {
+    expect(run(importer, ["--target-root", target]).status).toBe(0);
+    const manifestPath = path.join(
+      target,
+      "content/pilot-staging-manifest.json",
+    );
+    const manifest = readJson(manifestPath) as PilotManifest;
+    manifest.publicationStatus = "in_review";
+
+    for (const lesson of manifest.lessons) {
+      const mdxPath = path.join(target, lesson.mdxPath);
+      writeFileSync(
+        mdxPath,
+        readFileSync(mdxPath, "utf8").replace(
+          "status: draft",
+          "status: in_review",
+        ),
+      );
+      lesson.mdxSha256 = sha256(mdxPath);
+
+      const qaPath = path.join(target, lesson.qaPath);
+      const qa = readJson(qaPath) as QaRecord;
+      qa.reviewer = "Project owner";
+      qa.reviewedAt = "2026-08-13T12:00:00+07:00";
+      for (const check of Object.keys(qa.checks)) qa.checks[check] = true;
+      writeFileSync(qaPath, `${JSON.stringify(qa, null, 2)}\n`);
+      lesson.qaSha256 = sha256(qaPath);
+    }
+    writeFileSync(manifestPath, `${JSON.stringify(manifest, null, 2)}\n`);
+
+    // Every non-approved lesson (both, at this point) must still keep
+    // approvedForPublish: false — this baseline must already validate clean.
+    expect(validate(target)).toEqual([]);
+
+    const approvedLesson = manifest.lessons[0];
+    const approvedQaPath = path.join(target, approvedLesson.qaPath);
+    const approvedQa = readJson(approvedQaPath) as QaRecord;
+    const originalLessonSlug = approvedQa.lessonSlug;
+
+    const writeApprovedQa = () => {
+      writeFileSync(approvedQaPath, `${JSON.stringify(approvedQa, null, 2)}\n`);
+      approvedLesson.qaSha256 = sha256(approvedQaPath);
+      writeFileSync(manifestPath, `${JSON.stringify(manifest, null, 2)}\n`);
+    };
+
+    // Positive: the real pilot lesson slugs (dong-hoa-hoc,
+    // dung-dich-va-can-bang-hoa-hoc) are the P6.2 owner-approved allowlist, and
+    // this lesson still has unresolved blocking items, matching production.
+    approvedQa.approvedForPublish = true;
+    writeApprovedQa();
+    expect(validate(target)).toEqual([]);
+
+    // Negative: an otherwise identical, fully-signed QA record is still rejected
+    // for any lesson slug outside the owner-approved allowlist.
+    approvedQa.lessonSlug = "not-an-approved-pilot";
+    writeApprovedQa();
+    expect(validate(target).join("\n")).toContain(
+      "approvedForPublish is only permitted for the P6 owner-approved pilot lessons",
+    );
+
+    // Negative: a non-boolean approvedForPublish is always rejected, even for an
+    // approved slug.
+    approvedQa.lessonSlug = originalLessonSlug;
+    (
+      approvedQa as unknown as { approvedForPublish: unknown }
+    ).approvedForPublish = "yes";
+    writeApprovedQa();
+    expect(validate(target).join("\n")).toContain(
+      "approvedForPublish must be true or false",
+    );
+  } finally {
+    rmSync(target, { recursive: true, force: true });
+  }
+}, 30_000);
+
 function run(script: string, args: string[]) {
   return spawnSync("python3", [script, ...args], {
     cwd: repoRoot,
@@ -271,6 +348,8 @@ interface QaRecord {
   reviewer: string | null;
   reviewedAt: string | null;
   checks: Record<string, boolean>;
+  approvedForPublish: boolean;
+  lessonSlug: string;
 }
 
 interface FailureReport {
