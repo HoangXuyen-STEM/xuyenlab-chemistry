@@ -77,6 +77,16 @@ def is_iso_8601(value: Any) -> bool:
     return True
 
 
+def is_iso_date(value: Any) -> bool:
+    if not isinstance(value, str) or not re.fullmatch(r"\d{4}-\d{2}-\d{2}", value):
+        return False
+    try:
+        datetime.fromisoformat(value)
+    except ValueError:
+        return False
+    return True
+
+
 def validate_publish_waiver(qa: dict[str, Any], relative: str, root: Path) -> list[str]:
     errors: list[str] = []
     waiver = qa.get("publishWaiver")
@@ -89,8 +99,11 @@ def validate_publish_waiver(qa: dict[str, Any], relative: str, root: Path) -> li
         errors.append(f"{relative}: publishWaiver.scope must be {PUBLISH_WAIVER_SCOPE!r}")
     if not isinstance(waiver.get("authorizedBy"), str) or not waiver["authorizedBy"].strip():
         errors.append(f"{relative}: publishWaiver.authorizedBy is required")
-    if not is_iso_8601(waiver.get("authorizedAt")):
-        errors.append(f"{relative}: publishWaiver.authorizedAt must be ISO 8601")
+    # Date-only, not a timestamp: the exact authorization time is not reliably
+    # established from the source record, so this intentionally avoids asserting
+    # a fabricated time-of-day (see docs/contracts/content.md Amendments).
+    if not is_iso_date(waiver.get("authorizedDate")):
+        errors.append(f"{relative}: publishWaiver.authorizedDate must be an ISO 8601 date (YYYY-MM-DD)")
 
     does_not_authorize = waiver.get("doesNotAuthorize")
     if not isinstance(does_not_authorize, list) or set(does_not_authorize) != PUBLISH_WAIVER_DOES_NOT_AUTHORIZE:

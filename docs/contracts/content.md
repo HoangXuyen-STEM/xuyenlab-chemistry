@@ -92,7 +92,10 @@ interface LessonQaRecord {
     type: "P6.2-owner-exception";
     scope: "in_review";
     authorizedBy: string;
-    authorizedAt: string; // ISO 8601
+    // ISO 8601 date (YYYY-MM-DD), not a timestamp: the exact authorization time
+    // is not reliably established from the source record, so only the date is
+    // recorded rather than a fabricated time-of-day.
+    authorizedDate: string;
     doesNotAuthorize: Array<
       "published" | "productionDeployment" | "publicBucketAccess" | "automaticPublication"
     >;
@@ -140,4 +143,11 @@ interface LessonQaRecord {
   and a durable reference back to this amendment and the P6.2 handoff. The
   validator rejects `approvedForPublish: true` on either lesson if this waiver is
   missing, malformed, or its counts/references don't match reality.
+- **P6.2 audit-trail correction (2026-08-13):** the initial `publishWaiver`
+  implementation recorded `authorizedAt` as a full ISO 8601 timestamp with an
+  invented `T00:00:00+07:00` time-of-day that was not evidence-backed. The
+  project owner flagged this before merge. The field is now `authorizedDate`, an
+  ISO 8601 date only (`2026-08-13`), matching the actual precision the source
+  record supports. No time-of-day is asserted. See
+  `docs/handoffs/P6/P6.2-claude.md` for the correction record.
 

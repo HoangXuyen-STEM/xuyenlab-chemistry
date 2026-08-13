@@ -33,7 +33,11 @@ a missing, malformed or mismatched waiver exactly as it would reject a missing
 QA record. A `publishWaiver` must have:
 
 - `type: "P6.2-owner-exception"` and `scope: "in_review"` (both exact-match);
-- `authorizedBy` (non-empty string) and `authorizedAt` (ISO 8601);
+- `authorizedBy` (non-empty string) and `authorizedDate` (ISO 8601 date,
+  `YYYY-MM-DD` — date-only, not a timestamp: the exact time of the project
+  owner's authorization is not reliably established from the source record, so
+  the schema intentionally records only the date rather than a fabricated
+  time-of-day);
 - `doesNotAuthorize`, listing exactly `["published", "productionDeployment",
   "publicBucketAccess", "automaticPublication"]`;
 - `remediationDebtRetained: true`;
