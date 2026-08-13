@@ -37,18 +37,30 @@ the generator reports `generator-changed`.
 Use `.github/workflows/development-pdf-upload.yml` only after all of these are true:
 
 1. the requested commit is reachable from protected `main`;
-2. GitHub environment `development` exists;
-3. Thầy Xuyên is configured as a required environment reviewer;
-4. `R2_PRIVATE_BUCKET` is exactly `chem-private-dev`;
-5. the project owner explicitly authorizes this individual non-dry run.
+2. `R2_PRIVATE_BUCKET` is exactly `chem-private-dev`;
+3. the project owner explicitly authorizes this individual non-dry run by setting
+   `owner_approved: true` on that specific manual `workflow_dispatch` run.
 
 The workflow defaults to dry-run. A non-dry run checks both remote object keys and
 stops without writing if either exists. It has no production-upload path.
 
+**Approval control (P6.1 decision, superseding item 3 of the original P5.3 plan):**
+a GitHub environment with a required-reviewer protection rule was the originally
+planned gate, but this repository is private and owned by a personal (non-org)
+GitHub account, where the required-reviewers protection rule is unavailable
+regardless of billing tier short of making the repository public or moving it to a
+GitHub Team/Enterprise organization — both out of scope for P6.1. The project owner
+reviewed this constraint on 2026-08-13 and accepted the existing `owner_approved`
+boolean workflow input, combined with manual `workflow_dispatch` (already restricted
+to accounts with repository write access), as the approval control instead. This is
+a plan deviation from the original P5.3 runbook text, not a removal of the
+human-approval requirement: only the enforcement mechanism changed.
+
 Required environment names only:
 
 - secrets: `R2_ACCOUNT_ID`, `R2_ACCESS_KEY_ID`, `R2_SECRET_ACCESS_KEY`;
-- variable: `R2_PRIVATE_BUCKET`.
+- variable: `R2_PRIVATE_BUCKET` (repository variable, not a secret — the bucket name
+  is not sensitive and the workflow reads it via `vars.R2_PRIVATE_BUCKET`).
 
 Never copy secret values into an issue, log, artifact or handoff.
 
