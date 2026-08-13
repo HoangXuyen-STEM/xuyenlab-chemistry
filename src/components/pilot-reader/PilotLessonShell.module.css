@@ -1,0 +1,222 @@
+.page {
+  min-height: 100vh;
+  font-family: var(--font-family-sans);
+  color: var(--color-text);
+  background: var(--color-bg);
+}
+
+.banner {
+  background: var(--color-brand);
+  color: #fff;
+  padding: var(--space-3) var(--space-4);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+}
+
+.bannerLabel {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.breadcrumbs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  max-width: var(--content-width-wide);
+  margin: 0 auto;
+  padding: var(--space-3) var(--space-4) 0;
+  color: var(--color-text-muted);
+  font-size: var(--font-size-sm);
+}
+
+.breadcrumbs a {
+  color: var(--color-brand);
+}
+
+.breadcrumbs a:focus-visible {
+  outline: var(--border-width-focus) solid var(--color-focus-ring);
+  outline-offset: var(--space-1);
+}
+
+.header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: start;
+  justify-content: space-between;
+  gap: var(--space-4);
+  max-width: var(--content-width-wide);
+  margin: 0 auto;
+  padding: var(--space-4) var(--space-4) var(--space-6);
+  border-bottom: var(--border-width-default) solid var(--color-border);
+}
+
+.eyebrow {
+  margin: 0;
+  color: var(--color-brand);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+}
+
+.header h1 {
+  max-width: 32ch;
+  margin: var(--space-2) 0;
+  font-size: var(--font-size-3xl);
+  line-height: 1.24;
+  overflow-wrap: break-word;
+}
+
+.summary {
+  max-width: var(--content-width-prose);
+  margin: 0 0 var(--space-3);
+  color: var(--color-text-muted);
+}
+
+.provenance {
+  margin: 0 0 var(--space-2);
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+  overflow-wrap: break-word;
+}
+
+.provenance code {
+  font-family: var(--font-family-mono, monospace);
+}
+
+.qaCounts {
+  margin: 0;
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+}
+
+.blockingCount {
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-danger);
+}
+
+.warningCount {
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-warning);
+}
+
+.printButton {
+  flex-shrink: 0;
+  min-height: 44px;
+  padding: var(--space-2) var(--space-4);
+  border: var(--border-width-default) solid var(--color-brand);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+  color: var(--color-brand);
+  font: inherit;
+  font-weight: var(--font-weight-semibold);
+  cursor: pointer;
+}
+
+.printButton:focus-visible {
+  outline: var(--border-width-focus) solid var(--color-focus-ring);
+  outline-offset: var(--space-1);
+}
+
+.layout {
+  display: grid;
+  gap: var(--space-6);
+  max-width: var(--content-width-wide);
+  margin: 0 auto;
+  padding: var(--space-6) var(--space-4) var(--space-10);
+}
+
+/* ── Prose: same rules as /fixtures/mdx/page.module.css, kept in sync by hand
+   until a shared prose stylesheet exists. ── */
+.prose {
+  min-width: 0;
+  max-width: var(--content-width-prose);
+  font-size: var(--font-size-base);
+  line-height: 1.625;
+  overflow-wrap: break-word;
+}
+
+.prose h2 {
+  margin: var(--space-10) 0 var(--space-4);
+  padding-bottom: var(--space-2);
+  border-bottom: var(--border-width-default) solid var(--color-border);
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-semibold);
+  line-height: 1.28;
+  scroll-margin-top: var(--space-4);
+}
+
+.prose p {
+  margin: 0 0 var(--space-4);
+}
+
+.prose ul,
+.prose ol {
+  margin: 0 0 var(--space-4);
+  padding-left: var(--space-6);
+}
+
+.prose li {
+  margin-bottom: var(--space-2);
+}
+
+@media (min-width: 1024px) {
+  .layout {
+    grid-template-columns: 15rem minmax(0, var(--content-width-prose));
+    align-items: start;
+  }
+}
+
+@media (max-width: 639px) {
+  .header h1 {
+    font-size: var(--font-size-2xl);
+  }
+}
+
+/* ── Print: A4, 18mm/16mm margins, 11pt base (docs/design-tokens.md §Print) ── */
+@media print {
+  .banner,
+  .breadcrumbs,
+  .printButton {
+    display: none;
+  }
+
+  .header {
+    max-width: none;
+    padding: 0 0 var(--space-4);
+    border-bottom: 1pt solid var(--color-border);
+  }
+
+  .layout {
+    display: block;
+    max-width: none;
+    padding: 0;
+  }
+
+  .prose {
+    max-width: none;
+  }
+
+  .page {
+    font-size: 11pt;
+    line-height: 1.5;
+  }
+
+  @page {
+    size: A4;
+    margin: 18mm 16mm;
+  }
+
+  .header h1 {
+    font-size: 20pt;
+  }
+
+  .prose h2 {
+    font-size: 14pt;
+    break-after: avoid;
+  }
+
+  .prose p {
+    orphans: 3;
+    widows: 3;
+  }
+}
