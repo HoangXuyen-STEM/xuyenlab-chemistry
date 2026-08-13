@@ -17,10 +17,13 @@
     "test:watch": "vitest",
     "test:e2e": "playwright test",
     "test:e2e:list": "playwright test --list",
+    "content:validate": "python3 scripts/validate-content/validate.py --json",
+    "pdf:dry-run": "tsx scripts/generate-pdf/generate.ts",
+    "pdf:upload-plan": "tsx scripts/generate-pdf/upload.ts",
     "db:generate": "drizzle-kit generate",
     "db:migrate": "drizzle-kit migrate",
-    "format": "prettier --write src content tests package.json next.config.ts mdx-components.tsx playwright.config.ts tsconfig.json vitest.config.mts vitest.setup.ts eslint.config.mjs",
-    "format:check": "prettier --check src content tests package.json next.config.ts mdx-components.tsx playwright.config.ts tsconfig.json vitest.config.mts vitest.setup.ts eslint.config.mjs",
+    "format": "prettier --write src content scripts/generate-pdf tests package.json next.config.ts mdx-components.tsx playwright.config.ts tsconfig.json vitest.config.mts vitest.setup.ts eslint.config.mjs",
+    "format:check": "prettier --check src content scripts/generate-pdf tests package.json next.config.ts mdx-components.tsx playwright.config.ts tsconfig.json vitest.config.mts vitest.setup.ts eslint.config.mjs",
     "verify": "npm run format:check && npm run lint && npm run typecheck && npm run test && npm run build"
   },
   "dependencies": {

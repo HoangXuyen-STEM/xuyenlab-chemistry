@@ -46,5 +46,14 @@ jobs:
       - name: Run unit tests
         run: npm test
 
+      - name: Validate content, links, and assets
+        run: npm run content:validate
+
       - name: Build application
         run: npm run build
+
+      - name: Install locked Chromium for PDF dry-run
+        run: npx playwright install --with-deps chromium
+
+      - name: Generate content-hash PDF dry-run
+        run: npm run pdf:dry-run
