@@ -1,5 +1,24 @@
 {
   "approvedForPublish": true,
+  "publishWaiver": {
+    "type": "P6.2-owner-exception",
+    "scope": "in_review",
+    "authorizedBy": "Thầy Xuyên (Project Owner)",
+    "authorizedAt": "2026-08-13T00:00:00+07:00",
+    "doesNotAuthorize": [
+      "published",
+      "productionDeployment",
+      "publicBucketAccess",
+      "automaticPublication"
+    ],
+    "remediationDebtRetained": true,
+    "unresolvedBlockingCount": 96,
+    "acknowledgedBlockedItems": [],
+    "reference": {
+      "contractAmendment": "docs/contracts/content.md#amendments",
+      "handoff": "docs/handoffs/P6/P6.2-claude.md"
+    }
+  },
   "checks": {
     "chemistryVerified": true,
     "figuresVerified": true,

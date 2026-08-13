@@ -41,6 +41,22 @@ QA_CHECKS = {
 # exactly these two in_review pilot lessons, despite remaining pending-owner-review
 # blocking items. Every other lesson keeps the P4 "must stay false" rule.
 P6_OWNER_APPROVED_PUBLISH_SLUGS = {"dong-hoa-hoc", "dung-dich-va-can-bang-hoa-hoc"}
+# P6.2 follow-up: approvedForPublish: true additionally requires a structured
+# qa.publishWaiver recording the exception at its source, so the reason it is
+# permitted is visible directly on the QA record, not only in the contract/handoff.
+PUBLISH_WAIVER_TYPE = "P6.2-owner-exception"
+PUBLISH_WAIVER_SCOPE = "in_review"
+PUBLISH_WAIVER_DOES_NOT_AUTHORIZE = {
+    "published",
+    "productionDeployment",
+    "publicBucketAccess",
+    "automaticPublication",
+}
+# Lesson slugs that must acknowledge specific already-reviewed-and-still-blocked
+# ids in their waiver (a subset check; other unresolved ids need no such mention).
+PUBLISH_WAIVER_REQUIRED_ACKNOWLEDGED_BLOCKED_ITEMS: dict[str, set[str]] = {
+    "dung-dich-va-can-bang-hoa-hoc": {"T08-S01:e6352"},
+}
 
 
 def sha256(path: Path) -> str:
@@ -59,6 +75,65 @@ def is_iso_8601(value: Any) -> bool:
     except ValueError:
         return False
     return True
+
+
+def validate_publish_waiver(qa: dict[str, Any], relative: str, root: Path) -> list[str]:
+    errors: list[str] = []
+    waiver = qa.get("publishWaiver")
+    if not isinstance(waiver, dict):
+        return [f"{relative}: approvedForPublish requires a structured publishWaiver"]
+
+    if waiver.get("type") != PUBLISH_WAIVER_TYPE:
+        errors.append(f"{relative}: publishWaiver.type must be {PUBLISH_WAIVER_TYPE!r}")
+    if waiver.get("scope") != PUBLISH_WAIVER_SCOPE:
+        errors.append(f"{relative}: publishWaiver.scope must be {PUBLISH_WAIVER_SCOPE!r}")
+    if not isinstance(waiver.get("authorizedBy"), str) or not waiver["authorizedBy"].strip():
+        errors.append(f"{relative}: publishWaiver.authorizedBy is required")
+    if not is_iso_8601(waiver.get("authorizedAt")):
+        errors.append(f"{relative}: publishWaiver.authorizedAt must be ISO 8601")
+
+    does_not_authorize = waiver.get("doesNotAuthorize")
+    if not isinstance(does_not_authorize, list) or set(does_not_authorize) != PUBLISH_WAIVER_DOES_NOT_AUTHORIZE:
+        errors.append(
+            f"{relative}: publishWaiver.doesNotAuthorize must list exactly "
+            f"{sorted(PUBLISH_WAIVER_DOES_NOT_AUTHORIZE)}"
+        )
+    if waiver.get("remediationDebtRetained") is not True:
+        errors.append(f"{relative}: publishWaiver.remediationDebtRetained must be true")
+
+    unresolved = qa.get("unresolved", [])
+    unresolved_ids = {issue.get("id") for issue in unresolved}
+    actual_blocking = sum(1 for issue in unresolved if issue.get("severity") == "blocking")
+    if waiver.get("unresolvedBlockingCount") != actual_blocking:
+        errors.append(
+            f"{relative}: publishWaiver.unresolvedBlockingCount must equal the QA "
+            f"record's actual blocking count ({actual_blocking})"
+        )
+
+    acknowledged = waiver.get("acknowledgedBlockedItems")
+    if not isinstance(acknowledged, list) or not all(isinstance(item, str) for item in acknowledged):
+        errors.append(f"{relative}: publishWaiver.acknowledgedBlockedItems must be a string array")
+    else:
+        unknown = sorted(item for item in acknowledged if item not in unresolved_ids)
+        if unknown:
+            errors.append(f"{relative}: publishWaiver.acknowledgedBlockedItems references unknown id(s) {unknown}")
+        required = PUBLISH_WAIVER_REQUIRED_ACKNOWLEDGED_BLOCKED_ITEMS.get(qa.get("lessonSlug"), set())
+        if not required.issubset(acknowledged):
+            errors.append(f"{relative}: publishWaiver.acknowledgedBlockedItems must include {sorted(required)}")
+
+    reference = waiver.get("reference")
+    if not isinstance(reference, dict):
+        errors.append(f"{relative}: publishWaiver.reference is required")
+    else:
+        for key in ("contractAmendment", "handoff"):
+            value = reference.get(key)
+            if not isinstance(value, str) or not value.strip():
+                errors.append(f"{relative}: publishWaiver.reference.{key} is required")
+                continue
+            file_part = value.split("#", 1)[0]
+            if not (root / file_part).is_file() and not (REPO_ROOT / file_part).is_file():
+                errors.append(f"{relative}: publishWaiver.reference.{key} does not point to an existing file")
+    return errors
 
 
 def parse_frontmatter(path: Path) -> tuple[dict[str, str], list[dict[str, str]], str]:
@@ -200,10 +275,13 @@ def validate(root: Path) -> list[str]:
             approved = qa.get("approvedForPublish")
             if approved not in (True, False):
                 errors.append(f"{relative}: approvedForPublish must be true or false")
-            elif approved is True and qa.get("lessonSlug") not in P6_OWNER_APPROVED_PUBLISH_SLUGS:
-                errors.append(
-                    f"{relative}: approvedForPublish is only permitted for the P6 owner-approved pilot lessons"
-                )
+            elif approved is True:
+                if qa.get("lessonSlug") not in P6_OWNER_APPROVED_PUBLISH_SLUGS:
+                    errors.append(
+                        f"{relative}: approvedForPublish is only permitted for the P6 owner-approved pilot lessons"
+                    )
+                else:
+                    errors.extend(validate_publish_waiver(qa, relative, root))
             if manifest_status == "in_review":
                 if not isinstance(qa.get("reviewer"), str) or not qa["reviewer"].strip():
                     errors.append(f"{relative}: in_review QA requires a reviewer")
