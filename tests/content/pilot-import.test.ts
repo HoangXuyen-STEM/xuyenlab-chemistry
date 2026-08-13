@@ -232,6 +232,287 @@ test("validator rejects unsigned or incomplete in_review QA", () => {
   }
 }, 30_000);
 
+test("validator permits approvedForPublish:true only for the P6 owner-approved pilot slugs", () => {
+  const target = mkdtempSync(path.join(tmpdir(), "xuyenlab-p6-approval-"));
+  try {
+    expect(run(importer, ["--target-root", target]).status).toBe(0);
+    const manifestPath = path.join(
+      target,
+      "content/pilot-staging-manifest.json",
+    );
+    const manifest = readJson(manifestPath) as PilotManifest;
+    manifest.publicationStatus = "in_review";
+
+    for (const lesson of manifest.lessons) {
+      const mdxPath = path.join(target, lesson.mdxPath);
+      writeFileSync(
+        mdxPath,
+        readFileSync(mdxPath, "utf8").replace(
+          "status: draft",
+          "status: in_review",
+        ),
+      );
+      lesson.mdxSha256 = sha256(mdxPath);
+
+      const qaPath = path.join(target, lesson.qaPath);
+      const qa = readJson(qaPath) as QaRecord;
+      qa.reviewer = "Project owner";
+      qa.reviewedAt = "2026-08-13T12:00:00+07:00";
+      for (const check of Object.keys(qa.checks)) qa.checks[check] = true;
+      writeFileSync(qaPath, `${JSON.stringify(qa, null, 2)}\n`);
+      lesson.qaSha256 = sha256(qaPath);
+    }
+    writeFileSync(manifestPath, `${JSON.stringify(manifest, null, 2)}\n`);
+
+    // Every non-approved lesson (both, at this point) must still keep
+    // approvedForPublish: false — this baseline must already validate clean.
+    expect(validate(target)).toEqual([]);
+
+    const approvedLesson = manifest.lessons[0];
+    const approvedQaPath = path.join(target, approvedLesson.qaPath);
+    const approvedQa = readJson(approvedQaPath) as QaRecord;
+    const originalLessonSlug = approvedQa.lessonSlug;
+
+    const writeApprovedQa = () => {
+      writeFileSync(approvedQaPath, `${JSON.stringify(approvedQa, null, 2)}\n`);
+      approvedLesson.qaSha256 = sha256(approvedQaPath);
+      writeFileSync(manifestPath, `${JSON.stringify(manifest, null, 2)}\n`);
+    };
+
+    // Positive: the real pilot lesson slugs (dong-hoa-hoc,
+    // dung-dich-va-can-bang-hoa-hoc) are the P6.2 owner-approved allowlist, and
+    // this lesson still has unresolved blocking items, matching production. A
+    // well-formed publishWaiver is required alongside approvedForPublish: true.
+    const blockingCount = approvedQa.unresolved.filter(
+      (item) => item.severity === "blocking",
+    ).length;
+    approvedQa.approvedForPublish = true;
+    approvedQa.publishWaiver = {
+      type: "P6.2-owner-exception",
+      scope: "in_review",
+      authorizedBy: "Thầy Xuyên (Project Owner)",
+      authorizedDate: "2026-08-13",
+      doesNotAuthorize: [
+        "published",
+        "productionDeployment",
+        "publicBucketAccess",
+        "automaticPublication",
+      ],
+      remediationDebtRetained: true,
+      unresolvedBlockingCount: blockingCount,
+      acknowledgedBlockedItems: [],
+      reference: {
+        contractAmendment: "docs/contracts/content.md#amendments",
+        handoff: "docs/handoffs/P6/P6.2-claude.md",
+      },
+    };
+    writeApprovedQa();
+    expect(validate(target)).toEqual([]);
+
+    // Negative: an otherwise identical, fully-signed QA record (waiver included)
+    // is still rejected for any lesson slug outside the owner-approved allowlist.
+    approvedQa.lessonSlug = "not-an-approved-pilot";
+    writeApprovedQa();
+    expect(validate(target).join("\n")).toContain(
+      "approvedForPublish is only permitted for the P6 owner-approved pilot lessons",
+    );
+
+    // Negative: a non-boolean approvedForPublish is always rejected, even for an
+    // approved slug.
+    approvedQa.lessonSlug = originalLessonSlug;
+    (
+      approvedQa as unknown as { approvedForPublish: unknown }
+    ).approvedForPublish = "yes";
+    writeApprovedQa();
+    expect(validate(target).join("\n")).toContain(
+      "approvedForPublish must be true or false",
+    );
+  } finally {
+    rmSync(target, { recursive: true, force: true });
+  }
+}, 30_000);
+
+test("validator enforces a well-formed publishWaiver whenever approvedForPublish is true", () => {
+  const target = mkdtempSync(path.join(tmpdir(), "xuyenlab-p6-waiver-"));
+  try {
+    expect(run(importer, ["--target-root", target]).status).toBe(0);
+    const manifestPath = path.join(
+      target,
+      "content/pilot-staging-manifest.json",
+    );
+    const manifest = readJson(manifestPath) as PilotManifest;
+    manifest.publicationStatus = "in_review";
+
+    for (const lesson of manifest.lessons) {
+      const mdxPath = path.join(target, lesson.mdxPath);
+      writeFileSync(
+        mdxPath,
+        readFileSync(mdxPath, "utf8").replace(
+          "status: draft",
+          "status: in_review",
+        ),
+      );
+      lesson.mdxSha256 = sha256(mdxPath);
+
+      const qaPath = path.join(target, lesson.qaPath);
+      const qa = readJson(qaPath) as QaRecord;
+      qa.reviewer = "Project owner";
+      qa.reviewedAt = "2026-08-13T12:00:00+07:00";
+      for (const check of Object.keys(qa.checks)) qa.checks[check] = true;
+      writeFileSync(qaPath, `${JSON.stringify(qa, null, 2)}\n`);
+      lesson.qaSha256 = sha256(qaPath);
+    }
+    writeFileSync(manifestPath, `${JSON.stringify(manifest, null, 2)}\n`);
+
+    const dongHoaHoc = manifest.lessons[0];
+    const dongHoaHocQaPath = path.join(target, dongHoaHoc.qaPath);
+    const dongHoaHocQa = readJson(dongHoaHocQaPath) as QaRecord;
+    expect(dongHoaHocQa.lessonSlug).toBe("dong-hoa-hoc");
+    const blockingCount = dongHoaHocQa.unresolved.filter(
+      (item) => item.severity === "blocking",
+    ).length;
+    expect(blockingCount).toBeGreaterThan(0);
+
+    const writeDongHoaHocQa = () => {
+      writeFileSync(
+        dongHoaHocQaPath,
+        `${JSON.stringify(dongHoaHocQa, null, 2)}\n`,
+      );
+      dongHoaHoc.qaSha256 = sha256(dongHoaHocQaPath);
+      writeFileSync(manifestPath, `${JSON.stringify(manifest, null, 2)}\n`);
+    };
+
+    // Missing waiver entirely.
+    dongHoaHocQa.approvedForPublish = true;
+    writeDongHoaHocQa();
+    expect(validate(target).join("\n")).toContain(
+      "approvedForPublish requires a structured publishWaiver",
+    );
+
+    const validWaiver: PublishWaiver = {
+      type: "P6.2-owner-exception",
+      scope: "in_review",
+      authorizedBy: "Thầy Xuyên (Project Owner)",
+      authorizedDate: "2026-08-13",
+      doesNotAuthorize: [
+        "published",
+        "productionDeployment",
+        "publicBucketAccess",
+        "automaticPublication",
+      ],
+      remediationDebtRetained: true,
+      unresolvedBlockingCount: blockingCount,
+      acknowledgedBlockedItems: [],
+      reference: {
+        contractAmendment: "docs/contracts/content.md#amendments",
+        handoff: "docs/handoffs/P6/P6.2-claude.md",
+      },
+    };
+
+    // Well-formed waiver validates clean.
+    dongHoaHocQa.publishWaiver = validWaiver;
+    writeDongHoaHocQa();
+    expect(validate(target)).toEqual([]);
+
+    // Wrong doesNotAuthorize set.
+    dongHoaHocQa.publishWaiver = {
+      ...validWaiver,
+      doesNotAuthorize: ["published"],
+    };
+    writeDongHoaHocQa();
+    expect(validate(target).join("\n")).toContain(
+      "publishWaiver.doesNotAuthorize must list exactly",
+    );
+
+    // Stale/mismatched unresolvedBlockingCount.
+    dongHoaHocQa.publishWaiver = {
+      ...validWaiver,
+      unresolvedBlockingCount: blockingCount + 1,
+    };
+    writeDongHoaHocQa();
+    expect(validate(target).join("\n")).toContain(
+      "publishWaiver.unresolvedBlockingCount must equal the QA record's actual blocking count",
+    );
+
+    // remediationDebtRetained must be literally true.
+    dongHoaHocQa.publishWaiver = {
+      ...validWaiver,
+      remediationDebtRetained: false,
+    };
+    writeDongHoaHocQa();
+    expect(validate(target).join("\n")).toContain(
+      "publishWaiver.remediationDebtRetained must be true",
+    );
+
+    // acknowledgedBlockedItems referencing an id absent from unresolved.
+    dongHoaHocQa.publishWaiver = {
+      ...validWaiver,
+      acknowledgedBlockedItems: ["not-a-real-id"],
+    };
+    writeDongHoaHocQa();
+    expect(validate(target).join("\n")).toContain(
+      "publishWaiver.acknowledgedBlockedItems references unknown id(s)",
+    );
+
+    // Reference pointing nowhere.
+    dongHoaHocQa.publishWaiver = {
+      ...validWaiver,
+      reference: {
+        contractAmendment: "docs/does/not/exist.md",
+        handoff: validWaiver.reference.handoff,
+      },
+    };
+    writeDongHoaHocQa();
+    expect(validate(target).join("\n")).toContain(
+      "publishWaiver.reference.contractAmendment does not point to an existing file",
+    );
+
+    // Restore dong-hoa-hoc to a valid waiver before moving to the second lesson.
+    dongHoaHocQa.publishWaiver = validWaiver;
+    writeDongHoaHocQa();
+    expect(validate(target)).toEqual([]);
+
+    // dung-dich-va-can-bang-hoa-hoc must specifically acknowledge T08-S01:e6352.
+    const dungDich = manifest.lessons[1];
+    const dungDichQaPath = path.join(target, dungDich.qaPath);
+    const dungDichQa = readJson(dungDichQaPath) as QaRecord;
+    expect(dungDichQa.lessonSlug).toBe("dung-dich-va-can-bang-hoa-hoc");
+    expect(dungDichQa.unresolved.map((item) => item.id)).toContain(
+      "T08-S01:e6352",
+    );
+    const dungDichBlockingCount = dungDichQa.unresolved.filter(
+      (item) => item.severity === "blocking",
+    ).length;
+
+    const writeDungDichQa = () => {
+      writeFileSync(dungDichQaPath, `${JSON.stringify(dungDichQa, null, 2)}\n`);
+      dungDich.qaSha256 = sha256(dungDichQaPath);
+      writeFileSync(manifestPath, `${JSON.stringify(manifest, null, 2)}\n`);
+    };
+
+    dungDichQa.approvedForPublish = true;
+    dungDichQa.publishWaiver = {
+      ...validWaiver,
+      unresolvedBlockingCount: dungDichBlockingCount,
+      acknowledgedBlockedItems: [],
+    };
+    writeDungDichQa();
+    expect(validate(target).join("\n")).toContain(
+      "publishWaiver.acknowledgedBlockedItems must include",
+    );
+
+    dungDichQa.publishWaiver = {
+      ...validWaiver,
+      unresolvedBlockingCount: dungDichBlockingCount,
+      acknowledgedBlockedItems: ["T08-S01:e6352"],
+    };
+    writeDungDichQa();
+    expect(validate(target)).toEqual([]);
+  } finally {
+    rmSync(target, { recursive: true, force: true });
+  }
+}, 30_000);
+
 function run(script: string, args: string[]) {
   return spawnSync("python3", [script, ...args], {
     cwd: repoRoot,
@@ -271,6 +552,22 @@ interface QaRecord {
   reviewer: string | null;
   reviewedAt: string | null;
   checks: Record<string, boolean>;
+  approvedForPublish: boolean;
+  lessonSlug: string;
+  unresolved: Array<{ id: string; severity: string }>;
+  publishWaiver?: PublishWaiver;
+}
+
+interface PublishWaiver {
+  type: string;
+  scope: string;
+  authorizedBy: string;
+  authorizedDate: string;
+  doesNotAuthorize: string[];
+  remediationDebtRetained: boolean;
+  unresolvedBlockingCount: number;
+  acknowledgedBlockedItems: string[];
+  reference: { contractAmendment: string; handoff: string };
 }
 
 interface FailureReport {
