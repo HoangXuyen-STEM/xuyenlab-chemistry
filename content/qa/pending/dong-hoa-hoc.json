@@ -1,19 +1,19 @@
 {
   "approvedForPublish": false,
   "checks": {
-    "chemistryVerified": true,
-    "figuresVerified": true,
-    "formulasVerified": true,
-    "mobileVerified": true,
-    "printVerified": true,
-    "scopePartIOnly": true,
-    "tablesVerified": true
+    "chemistryVerified": false,
+    "figuresVerified": false,
+    "formulasVerified": false,
+    "mobileVerified": false,
+    "printVerified": false,
+    "scopePartIOnly": false,
+    "tablesVerified": false
   },
   "lessonSlug": "dong-hoa-hoc",
   "lessonVersion": 1,
-  "reviewStatus": "in_review",
-  "reviewedAt": "2026-08-13T12:35:00Z",
-  "reviewer": "Thầy Xuyên (Project Owner)",
+  "reviewStatus": "pending",
+  "reviewedAt": null,
+  "reviewer": null,
   "sourceIds": ["T06-S01"],
   "unresolved": [
     {
