@@ -31,7 +31,7 @@ export function PilotLessonShell({
   children,
 }: PilotLessonShellProps) {
   return (
-    <div className={styles.page}>
+    <main className={styles.page}>
       <div className={styles.banner} aria-hidden="true">
         <span className={styles.bannerLabel}>
           [BẢN NHÁP PILOT] — Xem trước staging, không cần đăng nhập — chưa xuất
@@ -71,6 +71,6 @@ export function PilotLessonShell({
           {children}
         </article>
       </div>
-    </div>
+    </main>
   );
 }
