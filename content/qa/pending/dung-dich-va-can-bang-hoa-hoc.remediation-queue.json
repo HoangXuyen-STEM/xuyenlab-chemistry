@@ -1,0 +1,4538 @@
+[
+  {
+    "issueId": "T08-S01:d1378",
+    "sourceId": "T08-S01",
+    "topic": "chuyen-de-08",
+    "lessonSlug": "dung-dich-va-can-bang-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[388]/w:drawing[1]",
+      "sectionPath": "Phần I",
+      "blockOrder": 477
+    },
+    "issueCode": "UNSUPPORTED_NON_IMAGE_DRAWING",
+    "kind": "drawing",
+    "severity": "blocking",
+    "message": "Drawing or shape has no extractable browser-safe image relationship.",
+    "observedType": "unknown",
+    "observedTypeEvidence": "Native vector w:drawing (grouped shapes/connectors), no ProgID, no browser-safe raster relationship, no LibreOffice available in this environment to render it safely. shape presets: straightConnector1; surrounding text: Ta có : KaC >> Kw  =>bỏ qua cân bằng của H2O | 0,01                 0           0",
+    "previewPath": null,
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T08-S01:d4234",
+    "sourceId": "T08-S01",
+    "topic": "chuyen-de-08",
+    "lessonSlug": "dung-dich-va-can-bang-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[520]/w:drawing[1]",
+      "sectionPath": "Phần I",
+      "blockOrder": 630
+    },
+    "issueCode": "UNSUPPORTED_NON_IMAGE_DRAWING",
+    "kind": "drawing",
+    "severity": "blocking",
+    "message": "Drawing or shape has no extractable browser-safe image relationship.",
+    "observedType": "unknown",
+    "observedTypeEvidence": "Native vector w:drawing (grouped shapes/connectors), no ProgID, no browser-safe raster relationship, no LibreOffice available in this environment to render it safely. shape presets: bracketPair; surrounding text: [ i ] là nồng độ chất i ở thời điểm cân bằng. | Đặt : Δn = (c + d + …)  -  (a + b + …)",
+    "previewPath": null,
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T08-S01:d4779",
+    "sourceId": "T08-S01",
+    "topic": "chuyen-de-08",
+    "lessonSlug": "dung-dich-va-can-bang-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[553]/w:drawing[1]",
+      "sectionPath": "Phần I",
+      "blockOrder": 679
+    },
+    "issueCode": "UNSUPPORTED_NON_IMAGE_DRAWING",
+    "kind": "drawing",
+    "severity": "blocking",
+    "message": "Drawing or shape has no extractable browser-safe image relationship.",
+    "observedType": "unknown",
+    "observedTypeEvidence": "Native vector w:drawing (grouped shapes/connectors), no ProgID, no browser-safe raster relationship, no LibreOffice available in this environment to render it safely. shape presets: straightConnector1; surrounding text: 6.4. Cân bằng trong dung dịch các hệ phức tạp |   12H2  +  O2 ⇌       2H2O (k) (2)ΔG0II",
+    "previewPath": null,
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T08-S01:e0091",
+    "sourceId": "T08-S01",
+    "topic": "chuyen-de-08",
+    "lessonSlug": "dung-dich-va-can-bang-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[549]/w:object[1]",
+      "sectionPath": "Phần I",
+      "blockOrder": 672
+    },
+    "issueCode": "UNSUPPORTED_OLE_OBJECT",
+    "kind": "embeddedObject",
+    "severity": "blocking",
+    "message": "OLE object cannot be converted semantically by the prototype.",
+    "observedType": "formula",
+    "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.DSMT4\"> (MathType (Equation.DSMT4)) read directly from the source DOCX XML.",
+    "previewPath": "/qa-preview/lessons/chuyen-de-08/e0091.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T08-S01:e0161",
+    "sourceId": "T08-S01",
+    "topic": "chuyen-de-08",
+    "lessonSlug": "dung-dich-va-can-bang-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[123]/w:object[1]",
+      "sectionPath": "Phần I",
+      "blockOrder": 161
+    },
+    "issueCode": "UNSUPPORTED_OLE_OBJECT",
+    "kind": "embeddedObject",
+    "severity": "blocking",
+    "message": "OLE object cannot be converted semantically by the prototype.",
+    "observedType": "formula",
+    "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.DSMT4\"> (MathType (Equation.DSMT4)) read directly from the source DOCX XML.",
+    "previewPath": "/qa-preview/lessons/chuyen-de-08/e0161.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T08-S01:e0170",
+    "sourceId": "T08-S01",
+    "topic": "chuyen-de-08",
+    "lessonSlug": "dung-dich-va-can-bang-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[224]/w:object[2]",
+      "sectionPath": "Phần I",
+      "blockOrder": 294
+    },
+    "issueCode": "UNSUPPORTED_OLE_OBJECT",
+    "kind": "embeddedObject",
+    "severity": "blocking",
+    "message": "OLE object cannot be converted semantically by the prototype.",
+    "observedType": "formula",
+    "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.DSMT4\"> (MathType (Equation.DSMT4)) read directly from the source DOCX XML.",
+    "previewPath": "/qa-preview/lessons/chuyen-de-08/e0170.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T08-S01:e0245",
+    "sourceId": "T08-S01",
+    "topic": "chuyen-de-08",
+    "lessonSlug": "dung-dich-va-can-bang-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[15]/w:object[1]",
+      "sectionPath": "Phần I",
+      "blockOrder": 16
+    },
+    "issueCode": "UNSUPPORTED_OLE_OBJECT",
+    "kind": "embeddedObject",
+    "severity": "blocking",
+    "message": "OLE object cannot be converted semantically by the prototype.",
+    "observedType": "formula",
+    "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.DSMT4\"> (MathType (Equation.DSMT4)) read directly from the source DOCX XML.",
+    "previewPath": "/qa-preview/lessons/chuyen-de-08/e0245.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T08-S01:e0365",
+    "sourceId": "T08-S01",
+    "topic": "chuyen-de-08",
+    "lessonSlug": "dung-dich-va-can-bang-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[228]/w:object[2]",
+      "sectionPath": "Phần I",
+      "blockOrder": 308
+    },
+    "issueCode": "UNSUPPORTED_OLE_OBJECT",
+    "kind": "embeddedObject",
+    "severity": "blocking",
+    "message": "OLE object cannot be converted semantically by the prototype.",
+    "observedType": "formula",
+    "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.DSMT4\"> (MathType (Equation.DSMT4)) read directly from the source DOCX XML.",
+    "previewPath": "/qa-preview/lessons/chuyen-de-08/e0365.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T08-S01:e0375",
+    "sourceId": "T08-S01",
+    "topic": "chuyen-de-08",
+    "lessonSlug": "dung-dich-va-can-bang-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[107]/w:object[1]",
+      "sectionPath": "Phần I",
+      "blockOrder": 139
+    },
+    "issueCode": "UNSUPPORTED_OLE_OBJECT",
+    "kind": "embeddedObject",
+    "severity": "blocking",
+    "message": "OLE object cannot be converted semantically by the prototype.",
+    "observedType": "formula",
+    "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.DSMT4\"> (MathType (Equation.DSMT4)) read directly from the source DOCX XML.",
+    "previewPath": "/qa-preview/lessons/chuyen-de-08/e0375.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T08-S01:e0530",
+    "sourceId": "T08-S01",
+    "topic": "chuyen-de-08",
+    "lessonSlug": "dung-dich-va-can-bang-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[191]/w:object[1]",
+      "sectionPath": "Phần I",
+      "blockOrder": 259
+    },
+    "issueCode": "UNSUPPORTED_OLE_OBJECT",
+    "kind": "embeddedObject",
+    "severity": "blocking",
+    "message": "OLE object cannot be converted semantically by the prototype.",
+    "observedType": "formula",
+    "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.DSMT4\"> (MathType (Equation.DSMT4)) read directly from the source DOCX XML.",
+    "previewPath": "/qa-preview/lessons/chuyen-de-08/e0530.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T08-S01:e0585",
+    "sourceId": "T08-S01",
+    "topic": "chuyen-de-08",
+    "lessonSlug": "dung-dich-va-can-bang-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[533]/w:object[1]",
+      "sectionPath": "Phần I",
+      "blockOrder": 650
+    },
+    "issueCode": "UNSUPPORTED_OLE_OBJECT",
+    "kind": "embeddedObject",
+    "severity": "blocking",
+    "message": "OLE object cannot be converted semantically by the prototype.",
+    "observedType": "formula",
+    "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.3\"> (Microsoft Equation 3.0) read directly from the source DOCX XML.",
+    "previewPath": "/qa-preview/lessons/chuyen-de-08/e0585.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T08-S01:e0626",
+    "sourceId": "T08-S01",
+    "topic": "chuyen-de-08",
+    "lessonSlug": "dung-dich-va-can-bang-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[420]/w:object[1]",
+      "sectionPath": "Phần I",
+      "blockOrder": 512
+    },
+    "issueCode": "UNSUPPORTED_OLE_OBJECT",
+    "kind": "embeddedObject",
+    "severity": "blocking",
+    "message": "OLE object cannot be converted semantically by the prototype.",
+    "observedType": "formula",
+    "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.DSMT4\"> (MathType (Equation.DSMT4)) read directly from the source DOCX XML.",
+    "previewPath": "/qa-preview/lessons/chuyen-de-08/e0626.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T08-S01:e0730",
+    "sourceId": "T08-S01",
+    "topic": "chuyen-de-08",
+    "lessonSlug": "dung-dich-va-can-bang-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[69]/w:object[1]",
+      "sectionPath": "Phần I",
+      "blockOrder": 74
+    },
+    "issueCode": "UNSUPPORTED_OLE_OBJECT",
+    "kind": "embeddedObject",
+    "severity": "blocking",
+    "message": "OLE object cannot be converted semantically by the prototype.",
+    "observedType": "formula",
+    "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.DSMT4\"> (MathType (Equation.DSMT4)) read directly from the source DOCX XML.",
+    "previewPath": "/qa-preview/lessons/chuyen-de-08/e0730.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T08-S01:e0904",
+    "sourceId": "T08-S01",
+    "topic": "chuyen-de-08",
+    "lessonSlug": "dung-dich-va-can-bang-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[227]/w:object[2]",
+      "sectionPath": "Phần I",
+      "blockOrder": 305
+    },
+    "issueCode": "UNSUPPORTED_OLE_OBJECT",
+    "kind": "embeddedObject",
+    "severity": "blocking",
+    "message": "OLE object cannot be converted semantically by the prototype.",
+    "observedType": "formula",
+    "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.DSMT4\"> (MathType (Equation.DSMT4)) read directly from the source DOCX XML.",
+    "previewPath": "/qa-preview/lessons/chuyen-de-08/e0904.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T08-S01:e0946",
+    "sourceId": "T08-S01",
+    "topic": "chuyen-de-08",
+    "lessonSlug": "dung-dich-va-can-bang-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[139]/w:object[1]",
+      "sectionPath": "Phần I",
+      "blockOrder": 187
+    },
+    "issueCode": "UNSUPPORTED_OLE_OBJECT",
+    "kind": "embeddedObject",
+    "severity": "blocking",
+    "message": "OLE object cannot be converted semantically by the prototype.",
+    "observedType": "formula",
+    "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.DSMT4\"> (MathType (Equation.DSMT4)) read directly from the source DOCX XML.",
+    "previewPath": "/qa-preview/lessons/chuyen-de-08/e0946.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T08-S01:e1070",
+    "sourceId": "T08-S01",
+    "topic": "chuyen-de-08",
+    "lessonSlug": "dung-dich-va-can-bang-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[569]/w:object[1]",
+      "sectionPath": "Phần I",
+      "blockOrder": 694
+    },
+    "issueCode": "UNSUPPORTED_OLE_OBJECT",
+    "kind": "embeddedObject",
+    "severity": "blocking",
+    "message": "OLE object cannot be converted semantically by the prototype.",
+    "observedType": "formula",
+    "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.DSMT4\"> (MathType (Equation.DSMT4)) read directly from the source DOCX XML.",
+    "previewPath": "/qa-preview/lessons/chuyen-de-08/e1070.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T08-S01:e1086",
+    "sourceId": "T08-S01",
+    "topic": "chuyen-de-08",
+    "lessonSlug": "dung-dich-va-can-bang-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[504]/w:object[1]",
+      "sectionPath": "Phần I",
+      "blockOrder": 605
+    },
+    "issueCode": "UNSUPPORTED_OLE_OBJECT",
+    "kind": "embeddedObject",
+    "severity": "blocking",
+    "message": "OLE object cannot be converted semantically by the prototype.",
+    "observedType": "formula",
+    "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.3\"> (Microsoft Equation 3.0) read directly from the source DOCX XML.",
+    "previewPath": "/qa-preview/lessons/chuyen-de-08/e1086.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T08-S01:e1415",
+    "sourceId": "T08-S01",
+    "topic": "chuyen-de-08",
+    "lessonSlug": "dung-dich-va-can-bang-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[569]/w:object[3]",
+      "sectionPath": "Phần I",
+      "blockOrder": 696
+    },
+    "issueCode": "UNSUPPORTED_OLE_OBJECT",
+    "kind": "embeddedObject",
+    "severity": "blocking",
+    "message": "OLE object cannot be converted semantically by the prototype.",
+    "observedType": "formula",
+    "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.DSMT4\"> (MathType (Equation.DSMT4)) read directly from the source DOCX XML.",
+    "previewPath": "/qa-preview/lessons/chuyen-de-08/e1415.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T08-S01:e1428",
+    "sourceId": "T08-S01",
+    "topic": "chuyen-de-08",
+    "lessonSlug": "dung-dich-va-can-bang-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[153]/w:object[1]",
+      "sectionPath": "Phần I",
+      "blockOrder": 214
+    },
+    "issueCode": "UNSUPPORTED_OLE_OBJECT",
+    "kind": "embeddedObject",
+    "severity": "blocking",
+    "message": "OLE object cannot be converted semantically by the prototype.",
+    "observedType": "formula",
+    "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.DSMT4\"> (MathType (Equation.DSMT4)) read directly from the source DOCX XML.",
+    "previewPath": "/qa-preview/lessons/chuyen-de-08/e1428.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T08-S01:e1552",
+    "sourceId": "T08-S01",
+    "topic": "chuyen-de-08",
+    "lessonSlug": "dung-dich-va-can-bang-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[119]/w:object[1]",
+      "sectionPath": "Phần I",
+      "blockOrder": 155
+    },
+    "issueCode": "UNSUPPORTED_OLE_OBJECT",
+    "kind": "embeddedObject",
+    "severity": "blocking",
+    "message": "OLE object cannot be converted semantically by the prototype.",
+    "observedType": "formula",
+    "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.DSMT4\"> (MathType (Equation.DSMT4)) read directly from the source DOCX XML.",
+    "previewPath": "/qa-preview/lessons/chuyen-de-08/e1552.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T08-S01:e1606",
+    "sourceId": "T08-S01",
+    "topic": "chuyen-de-08",
+    "lessonSlug": "dung-dich-va-can-bang-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[148]/w:object[2]",
+      "sectionPath": "Phần I",
+      "blockOrder": 207
+    },
+    "issueCode": "UNSUPPORTED_OLE_OBJECT",
+    "kind": "embeddedObject",
+    "severity": "blocking",
+    "message": "OLE object cannot be converted semantically by the prototype.",
+    "observedType": "formula",
+    "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.DSMT4\"> (MathType (Equation.DSMT4)) read directly from the source DOCX XML.",
+    "previewPath": "/qa-preview/lessons/chuyen-de-08/e1606.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T08-S01:e1700",
+    "sourceId": "T08-S01",
+    "topic": "chuyen-de-08",
+    "lessonSlug": "dung-dich-va-can-bang-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[522]/w:object[1]",
+      "sectionPath": "Phần I",
+      "blockOrder": 633
+    },
+    "issueCode": "UNSUPPORTED_OLE_OBJECT",
+    "kind": "embeddedObject",
+    "severity": "blocking",
+    "message": "OLE object cannot be converted semantically by the prototype.",
+    "observedType": "formula",
+    "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.3\"> (Microsoft Equation 3.0) read directly from the source DOCX XML.",
+    "previewPath": "/qa-preview/lessons/chuyen-de-08/e1700.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T08-S01:e1723",
+    "sourceId": "T08-S01",
+    "topic": "chuyen-de-08",
+    "lessonSlug": "dung-dich-va-can-bang-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[132]/w:object[1]",
+      "sectionPath": "Phần I",
+      "blockOrder": 175
+    },
+    "issueCode": "UNSUPPORTED_OLE_OBJECT",
+    "kind": "embeddedObject",
+    "severity": "blocking",
+    "message": "OLE object cannot be converted semantically by the prototype.",
+    "observedType": "formula",
+    "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.DSMT4\"> (MathType (Equation.DSMT4)) read directly from the source DOCX XML.",
+    "previewPath": "/qa-preview/lessons/chuyen-de-08/e1723.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T08-S01:e1753",
+    "sourceId": "T08-S01",
+    "topic": "chuyen-de-08",
+    "lessonSlug": "dung-dich-va-can-bang-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[146]/w:object[1]",
+      "sectionPath": "Phần I",
+      "blockOrder": 202
+    },
+    "issueCode": "UNSUPPORTED_OLE_OBJECT",
+    "kind": "embeddedObject",
+    "severity": "blocking",
+    "message": "OLE object cannot be converted semantically by the prototype.",
+    "observedType": "formula",
+    "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.DSMT4\"> (MathType (Equation.DSMT4)) read directly from the source DOCX XML.",
+    "previewPath": "/qa-preview/lessons/chuyen-de-08/e1753.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T08-S01:e1846",
+    "sourceId": "T08-S01",
+    "topic": "chuyen-de-08",
+    "lessonSlug": "dung-dich-va-can-bang-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[246]/w:object[1]",
+      "sectionPath": "Phần I",
+      "blockOrder": 333
+    },
+    "issueCode": "UNSUPPORTED_OLE_OBJECT",
+    "kind": "embeddedObject",
+    "severity": "blocking",
+    "message": "OLE object cannot be converted semantically by the prototype.",
+    "observedType": "formula",
+    "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.DSMT4\"> (MathType (Equation.DSMT4)) read directly from the source DOCX XML.",
+    "previewPath": "/qa-preview/lessons/chuyen-de-08/e1846.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T08-S01:e2007",
+    "sourceId": "T08-S01",
+    "topic": "chuyen-de-08",
+    "lessonSlug": "dung-dich-va-can-bang-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[190]/w:object[1]",
+      "sectionPath": "Phần I",
+      "blockOrder": 257
+    },
+    "issueCode": "UNSUPPORTED_OLE_OBJECT",
+    "kind": "embeddedObject",
+    "severity": "blocking",
+    "message": "OLE object cannot be converted semantically by the prototype.",
+    "observedType": "formula",
+    "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.DSMT4\"> (MathType (Equation.DSMT4)) read directly from the source DOCX XML.",
+    "previewPath": "/qa-preview/lessons/chuyen-de-08/e2007.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T08-S01:e2046",
+    "sourceId": "T08-S01",
+    "topic": "chuyen-de-08",
+    "lessonSlug": "dung-dich-va-can-bang-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[513]/w:object[1]",
+      "sectionPath": "Phần I",
+      "blockOrder": 618
+    },
+    "issueCode": "UNSUPPORTED_OLE_OBJECT",
+    "kind": "embeddedObject",
+    "severity": "blocking",
+    "message": "OLE object cannot be converted semantically by the prototype.",
+    "observedType": "formula",
+    "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.3\"> (Microsoft Equation 3.0) read directly from the source DOCX XML.",
+    "previewPath": "/qa-preview/lessons/chuyen-de-08/e2046.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T08-S01:e2086",
+    "sourceId": "T08-S01",
+    "topic": "chuyen-de-08",
+    "lessonSlug": "dung-dich-va-can-bang-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[105]/w:object[5]",
+      "sectionPath": "Phần I",
+      "blockOrder": 132
+    },
+    "issueCode": "UNSUPPORTED_OLE_OBJECT",
+    "kind": "embeddedObject",
+    "severity": "blocking",
+    "message": "OLE object cannot be converted semantically by the prototype.",
+    "observedType": "formula",
+    "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.DSMT4\"> (MathType (Equation.DSMT4)) read directly from the source DOCX XML.",
+    "previewPath": "/qa-preview/lessons/chuyen-de-08/e2086.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T08-S01:e2121",
+    "sourceId": "T08-S01",
+    "topic": "chuyen-de-08",
+    "lessonSlug": "dung-dich-va-can-bang-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[141]/w:object[2]",
+      "sectionPath": "Phần I",
+      "blockOrder": 191
+    },
+    "issueCode": "UNSUPPORTED_OLE_OBJECT",
+    "kind": "embeddedObject",
+    "severity": "blocking",
+    "message": "OLE object cannot be converted semantically by the prototype.",
+    "observedType": "formula",
+    "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.DSMT4\"> (MathType (Equation.DSMT4)) read directly from the source DOCX XML.",
+    "previewPath": "/qa-preview/lessons/chuyen-de-08/e2121.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T08-S01:e2178",
+    "sourceId": "T08-S01",
+    "topic": "chuyen-de-08",
+    "lessonSlug": "dung-dich-va-can-bang-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[421]/w:object[1]",
+      "sectionPath": "Phần I",
+      "blockOrder": 514
+    },
+    "issueCode": "UNSUPPORTED_OLE_OBJECT",
+    "kind": "embeddedObject",
+    "severity": "blocking",
+    "message": "OLE object cannot be converted semantically by the prototype.",
+    "observedType": "formula",
+    "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.DSMT4\"> (MathType (Equation.DSMT4)) read directly from the source DOCX XML.",
+    "previewPath": "/qa-preview/lessons/chuyen-de-08/e2178.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T08-S01:e2199",
+    "sourceId": "T08-S01",
+    "topic": "chuyen-de-08",
+    "lessonSlug": "dung-dich-va-can-bang-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[134]/w:object[2]",
+      "sectionPath": "Phần I",
+      "blockOrder": 179
+    },
+    "issueCode": "UNSUPPORTED_OLE_OBJECT",
+    "kind": "embeddedObject",
+    "severity": "blocking",
+    "message": "OLE object cannot be converted semantically by the prototype.",
+    "observedType": "formula",
+    "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.DSMT4\"> (MathType (Equation.DSMT4)) read directly from the source DOCX XML.",
+    "previewPath": "/qa-preview/lessons/chuyen-de-08/e2199.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T08-S01:e2230",
+    "sourceId": "T08-S01",
+    "topic": "chuyen-de-08",
+    "lessonSlug": "dung-dich-va-can-bang-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[403]/w:object[1]",
+      "sectionPath": "Phần I",
+      "blockOrder": 494
+    },
+    "issueCode": "UNSUPPORTED_OLE_OBJECT",
+    "kind": "embeddedObject",
+    "severity": "blocking",
+    "message": "OLE object cannot be converted semantically by the prototype.",
+    "observedType": "formula",
+    "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.DSMT4\"> (MathType (Equation.DSMT4)) read directly from the source DOCX XML.",
+    "previewPath": "/qa-preview/lessons/chuyen-de-08/e2230.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T08-S01:e2249",
+    "sourceId": "T08-S01",
+    "topic": "chuyen-de-08",
+    "lessonSlug": "dung-dich-va-can-bang-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[31]/w:object[1]",
+      "sectionPath": "Phần I",
+      "blockOrder": 33
+    },
+    "issueCode": "UNSUPPORTED_OLE_OBJECT",
+    "kind": "embeddedObject",
+    "severity": "blocking",
+    "message": "OLE object cannot be converted semantically by the prototype.",
+    "observedType": "formula",
+    "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.DSMT4\"> (MathType (Equation.DSMT4)) read directly from the source DOCX XML.",
+    "previewPath": "/qa-preview/lessons/chuyen-de-08/e2249.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T08-S01:e2337",
+    "sourceId": "T08-S01",
+    "topic": "chuyen-de-08",
+    "lessonSlug": "dung-dich-va-can-bang-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[105]/w:object[2]",
+      "sectionPath": "Phần I",
+      "blockOrder": 129
+    },
+    "issueCode": "UNSUPPORTED_OLE_OBJECT",
+    "kind": "embeddedObject",
+    "severity": "blocking",
+    "message": "OLE object cannot be converted semantically by the prototype.",
+    "observedType": "formula",
+    "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.DSMT4\"> (MathType (Equation.DSMT4)) read directly from the source DOCX XML.",
+    "previewPath": "/qa-preview/lessons/chuyen-de-08/e2337.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T08-S01:e2462",
+    "sourceId": "T08-S01",
+    "topic": "chuyen-de-08",
+    "lessonSlug": "dung-dich-va-can-bang-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[120]/w:object[1]",
+      "sectionPath": "Phần I",
+      "blockOrder": 157
+    },
+    "issueCode": "UNSUPPORTED_OLE_OBJECT",
+    "kind": "embeddedObject",
+    "severity": "blocking",
+    "message": "OLE object cannot be converted semantically by the prototype.",
+    "observedType": "formula",
+    "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.DSMT4\"> (MathType (Equation.DSMT4)) read directly from the source DOCX XML.",
+    "previewPath": "/qa-preview/lessons/chuyen-de-08/e2462.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T08-S01:e2690",
+    "sourceId": "T08-S01",
+    "topic": "chuyen-de-08",
+    "lessonSlug": "dung-dich-va-can-bang-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[545]/w:object[1]",
+      "sectionPath": "Phần I",
+      "blockOrder": 665
+    },
+    "issueCode": "UNSUPPORTED_OLE_OBJECT",
+    "kind": "embeddedObject",
+    "severity": "blocking",
+    "message": "OLE object cannot be converted semantically by the prototype.",
+    "observedType": "formula",
+    "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.DSMT4\"> (MathType (Equation.DSMT4)) read directly from the source DOCX XML.",
+    "previewPath": "/qa-preview/lessons/chuyen-de-08/e2690.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T08-S01:e2693",
+    "sourceId": "T08-S01",
+    "topic": "chuyen-de-08",
+    "lessonSlug": "dung-dich-va-can-bang-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[230]/w:object[2]",
+      "sectionPath": "Phần I",
+      "blockOrder": 313
+    },
+    "issueCode": "UNSUPPORTED_OLE_OBJECT",
+    "kind": "embeddedObject",
+    "severity": "blocking",
+    "message": "OLE object cannot be converted semantically by the prototype.",
+    "observedType": "formula",
+    "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.DSMT4\"> (MathType (Equation.DSMT4)) read directly from the source DOCX XML.",
+    "previewPath": "/qa-preview/lessons/chuyen-de-08/e2693.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T08-S01:e2783",
+    "sourceId": "T08-S01",
+    "topic": "chuyen-de-08",
+    "lessonSlug": "dung-dich-va-can-bang-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[516]/w:object[2]",
+      "sectionPath": "Phần I",
+      "blockOrder": 624
+    },
+    "issueCode": "UNSUPPORTED_OLE_OBJECT",
+    "kind": "embeddedObject",
+    "severity": "blocking",
+    "message": "OLE object cannot be converted semantically by the prototype.",
+    "observedType": "formula",
+    "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.3\"> (Microsoft Equation 3.0) read directly from the source DOCX XML. The source's own embedded preview (word/media/image80.wmf) rendered and trimmed to nothing (verified with both ImageMagick and Inkscape) -- this is a property of the source file itself, not a conversion failure. No preview image is possible; open the object directly in Word to inspect it.",
+    "previewPath": null,
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T08-S01:e3007",
+    "sourceId": "T08-S01",
+    "topic": "chuyen-de-08",
+    "lessonSlug": "dung-dich-va-can-bang-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[105]/w:object[6]",
+      "sectionPath": "Phần I",
+      "blockOrder": 133
+    },
+    "issueCode": "UNSUPPORTED_OLE_OBJECT",
+    "kind": "embeddedObject",
+    "severity": "blocking",
+    "message": "OLE object cannot be converted semantically by the prototype.",
+    "observedType": "formula",
+    "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.DSMT4\"> (MathType (Equation.DSMT4)) read directly from the source DOCX XML.",
+    "previewPath": "/qa-preview/lessons/chuyen-de-08/e3007.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T08-S01:e3055",
+    "sourceId": "T08-S01",
+    "topic": "chuyen-de-08",
+    "lessonSlug": "dung-dich-va-can-bang-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[7]/w:object[2]",
+      "sectionPath": "Phần I",
+      "blockOrder": 6
+    },
+    "issueCode": "UNSUPPORTED_OLE_OBJECT",
+    "kind": "embeddedObject",
+    "severity": "blocking",
+    "message": "OLE object cannot be converted semantically by the prototype.",
+    "observedType": "formula",
+    "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.DSMT4\"> (MathType (Equation.DSMT4)) read directly from the source DOCX XML.",
+    "previewPath": "/qa-preview/lessons/chuyen-de-08/e3055.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T08-S01:e3171",
+    "sourceId": "T08-S01",
+    "topic": "chuyen-de-08",
+    "lessonSlug": "dung-dich-va-can-bang-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[577]/w:object[2]",
+      "sectionPath": "Phần I",
+      "blockOrder": 702
+    },
+    "issueCode": "UNSUPPORTED_OLE_OBJECT",
+    "kind": "embeddedObject",
+    "severity": "blocking",
+    "message": "OLE object cannot be converted semantically by the prototype.",
+    "observedType": "formula",
+    "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.DSMT4\"> (MathType (Equation.DSMT4)) read directly from the source DOCX XML.",
+    "previewPath": "/qa-preview/lessons/chuyen-de-08/e3171.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T08-S01:e3179",
+    "sourceId": "T08-S01",
+    "topic": "chuyen-de-08",
+    "lessonSlug": "dung-dich-va-can-bang-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[230]/w:object[5]",
+      "sectionPath": "Phần I",
+      "blockOrder": 316
+    },
+    "issueCode": "UNSUPPORTED_OLE_OBJECT",
+    "kind": "embeddedObject",
+    "severity": "blocking",
+    "message": "OLE object cannot be converted semantically by the prototype.",
+    "observedType": "formula",
+    "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.DSMT4\"> (MathType (Equation.DSMT4)) read directly from the source DOCX XML.",
+    "previewPath": "/qa-preview/lessons/chuyen-de-08/e3179.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T08-S01:e3312",
+    "sourceId": "T08-S01",
+    "topic": "chuyen-de-08",
+    "lessonSlug": "dung-dich-va-can-bang-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[226]/w:object[4]",
+      "sectionPath": "Phần I",
+      "blockOrder": 302
+    },
+    "issueCode": "UNSUPPORTED_OLE_OBJECT",
+    "kind": "embeddedObject",
+    "severity": "blocking",
+    "message": "OLE object cannot be converted semantically by the prototype.",
+    "observedType": "formula",
+    "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.DSMT4\"> (MathType (Equation.DSMT4)) read directly from the source DOCX XML.",
+    "previewPath": "/qa-preview/lessons/chuyen-de-08/e3312.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T08-S01:e3504",
+    "sourceId": "T08-S01",
+    "topic": "chuyen-de-08",
+    "lessonSlug": "dung-dich-va-can-bang-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[89]/w:object[1]",
+      "sectionPath": "Phần I",
+      "blockOrder": 103
+    },
+    "issueCode": "UNSUPPORTED_OLE_OBJECT",
+    "kind": "embeddedObject",
+    "severity": "blocking",
+    "message": "OLE object cannot be converted semantically by the prototype.",
+    "observedType": "formula",
+    "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.DSMT4\"> (MathType (Equation.DSMT4)) read directly from the source DOCX XML.",
+    "previewPath": "/qa-preview/lessons/chuyen-de-08/e3504.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T08-S01:e3781",
+    "sourceId": "T08-S01",
+    "topic": "chuyen-de-08",
+    "lessonSlug": "dung-dich-va-can-bang-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[144]/w:object[1]",
+      "sectionPath": "Phần I",
+      "blockOrder": 199
+    },
+    "issueCode": "UNSUPPORTED_OLE_OBJECT",
+    "kind": "embeddedObject",
+    "severity": "blocking",
+    "message": "OLE object cannot be converted semantically by the prototype.",
+    "observedType": "formula",
+    "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.DSMT4\"> (MathType (Equation.DSMT4)) read directly from the source DOCX XML.",
+    "previewPath": "/qa-preview/lessons/chuyen-de-08/e3781.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T08-S01:e3801",
+    "sourceId": "T08-S01",
+    "topic": "chuyen-de-08",
+    "lessonSlug": "dung-dich-va-can-bang-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[226]/w:object[2]",
+      "sectionPath": "Phần I",
+      "blockOrder": 300
+    },
+    "issueCode": "UNSUPPORTED_OLE_OBJECT",
+    "kind": "embeddedObject",
+    "severity": "blocking",
+    "message": "OLE object cannot be converted semantically by the prototype.",
+    "observedType": "formula",
+    "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.DSMT4\"> (MathType (Equation.DSMT4)) read directly from the source DOCX XML.",
+    "previewPath": "/qa-preview/lessons/chuyen-de-08/e3801.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T08-S01:e3829",
+    "sourceId": "T08-S01",
+    "topic": "chuyen-de-08",
+    "lessonSlug": "dung-dich-va-can-bang-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[136]/w:object[2]",
+      "sectionPath": "Phần I",
+      "blockOrder": 183
+    },
+    "issueCode": "UNSUPPORTED_OLE_OBJECT",
+    "kind": "embeddedObject",
+    "severity": "blocking",
+    "message": "OLE object cannot be converted semantically by the prototype.",
+    "observedType": "formula",
+    "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.DSMT4\"> (MathType (Equation.DSMT4)) read directly from the source DOCX XML.",
+    "previewPath": "/qa-preview/lessons/chuyen-de-08/e3829.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T08-S01:e3854",
+    "sourceId": "T08-S01",
+    "topic": "chuyen-de-08",
+    "lessonSlug": "dung-dich-va-can-bang-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[230]/w:object[3]",
+      "sectionPath": "Phần I",
+      "blockOrder": 314
+    },
+    "issueCode": "UNSUPPORTED_OLE_OBJECT",
+    "kind": "embeddedObject",
+    "severity": "blocking",
+    "message": "OLE object cannot be converted semantically by the prototype.",
+    "observedType": "formula",
+    "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.DSMT4\"> (MathType (Equation.DSMT4)) read directly from the source DOCX XML.",
+    "previewPath": "/qa-preview/lessons/chuyen-de-08/e3854.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T08-S01:e3903",
+    "sourceId": "T08-S01",
+    "topic": "chuyen-de-08",
+    "lessonSlug": "dung-dich-va-can-bang-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[105]/w:object[7]",
+      "sectionPath": "Phần I",
+      "blockOrder": 134
+    },
+    "issueCode": "UNSUPPORTED_OLE_OBJECT",
+    "kind": "embeddedObject",
+    "severity": "blocking",
+    "message": "OLE object cannot be converted semantically by the prototype.",
+    "observedType": "formula",
+    "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.DSMT4\"> (MathType (Equation.DSMT4)) read directly from the source DOCX XML.",
+    "previewPath": "/qa-preview/lessons/chuyen-de-08/e3903.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T08-S01:e3944",
+    "sourceId": "T08-S01",
+    "topic": "chuyen-de-08",
+    "lessonSlug": "dung-dich-va-can-bang-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[569]/w:object[2]",
+      "sectionPath": "Phần I",
+      "blockOrder": 695
+    },
+    "issueCode": "UNSUPPORTED_OLE_OBJECT",
+    "kind": "embeddedObject",
+    "severity": "blocking",
+    "message": "OLE object cannot be converted semantically by the prototype.",
+    "observedType": "formula",
+    "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.DSMT4\"> (MathType (Equation.DSMT4)) read directly from the source DOCX XML.",
+    "previewPath": "/qa-preview/lessons/chuyen-de-08/e3944.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T08-S01:e3946",
+    "sourceId": "T08-S01",
+    "topic": "chuyen-de-08",
+    "lessonSlug": "dung-dich-va-can-bang-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[532]/w:object[1]",
+      "sectionPath": "Phần I",
+      "blockOrder": 648
+    },
+    "issueCode": "UNSUPPORTED_OLE_OBJECT",
+    "kind": "embeddedObject",
+    "severity": "blocking",
+    "message": "OLE object cannot be converted semantically by the prototype.",
+    "observedType": "formula",
+    "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.3\"> (Microsoft Equation 3.0) read directly from the source DOCX XML.",
+    "previewPath": "/qa-preview/lessons/chuyen-de-08/e3946.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T08-S01:e4060",
+    "sourceId": "T08-S01",
+    "topic": "chuyen-de-08",
+    "lessonSlug": "dung-dich-va-can-bang-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[226]/w:object[3]",
+      "sectionPath": "Phần I",
+      "blockOrder": 301
+    },
+    "issueCode": "UNSUPPORTED_OLE_OBJECT",
+    "kind": "embeddedObject",
+    "severity": "blocking",
+    "message": "OLE object cannot be converted semantically by the prototype.",
+    "observedType": "formula",
+    "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.DSMT4\"> (MathType (Equation.DSMT4)) read directly from the source DOCX XML.",
+    "previewPath": "/qa-preview/lessons/chuyen-de-08/e4060.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T08-S01:e4172",
+    "sourceId": "T08-S01",
+    "topic": "chuyen-de-08",
+    "lessonSlug": "dung-dich-va-can-bang-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[227]/w:object[1]",
+      "sectionPath": "Phần I",
+      "blockOrder": 304
+    },
+    "issueCode": "UNSUPPORTED_OLE_OBJECT",
+    "kind": "embeddedObject",
+    "severity": "blocking",
+    "message": "OLE object cannot be converted semantically by the prototype.",
+    "observedType": "formula",
+    "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.DSMT4\"> (MathType (Equation.DSMT4)) read directly from the source DOCX XML.",
+    "previewPath": "/qa-preview/lessons/chuyen-de-08/e4172.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T08-S01:e4186",
+    "sourceId": "T08-S01",
+    "topic": "chuyen-de-08",
+    "lessonSlug": "dung-dich-va-can-bang-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[230]/w:object[1]",
+      "sectionPath": "Phần I",
+      "blockOrder": 312
+    },
+    "issueCode": "UNSUPPORTED_OLE_OBJECT",
+    "kind": "embeddedObject",
+    "severity": "blocking",
+    "message": "OLE object cannot be converted semantically by the prototype.",
+    "observedType": "formula",
+    "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.DSMT4\"> (MathType (Equation.DSMT4)) read directly from the source DOCX XML.",
+    "previewPath": "/qa-preview/lessons/chuyen-de-08/e4186.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T08-S01:e4286",
+    "sourceId": "T08-S01",
+    "topic": "chuyen-de-08",
+    "lessonSlug": "dung-dich-va-can-bang-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[154]/w:object[1]",
+      "sectionPath": "Phần I",
+      "blockOrder": 220
+    },
+    "issueCode": "UNSUPPORTED_OLE_OBJECT",
+    "kind": "embeddedObject",
+    "severity": "blocking",
+    "message": "OLE object cannot be converted semantically by the prototype.",
+    "observedType": "formula",
+    "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.DSMT4\"> (MathType (Equation.DSMT4)) read directly from the source DOCX XML.",
+    "previewPath": "/qa-preview/lessons/chuyen-de-08/e4286.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T08-S01:e4430",
+    "sourceId": "T08-S01",
+    "topic": "chuyen-de-08",
+    "lessonSlug": "dung-dich-va-can-bang-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[16]/w:object[1]",
+      "sectionPath": "Phần I",
+      "blockOrder": 17
+    },
+    "issueCode": "UNSUPPORTED_OLE_OBJECT",
+    "kind": "embeddedObject",
+    "severity": "blocking",
+    "message": "OLE object cannot be converted semantically by the prototype.",
+    "observedType": "formula",
+    "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.DSMT4\"> (MathType (Equation.DSMT4)) read directly from the source DOCX XML.",
+    "previewPath": "/qa-preview/lessons/chuyen-de-08/e4430.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T08-S01:e4479",
+    "sourceId": "T08-S01",
+    "topic": "chuyen-de-08",
+    "lessonSlug": "dung-dich-va-can-bang-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[551]/w:object[1]",
+      "sectionPath": "Phần I",
+      "blockOrder": 676
+    },
+    "issueCode": "UNSUPPORTED_OLE_OBJECT",
+    "kind": "embeddedObject",
+    "severity": "blocking",
+    "message": "OLE object cannot be converted semantically by the prototype.",
+    "observedType": "formula",
+    "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.DSMT4\"> (MathType (Equation.DSMT4)) read directly from the source DOCX XML.",
+    "previewPath": "/qa-preview/lessons/chuyen-de-08/e4479.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T08-S01:e4552",
+    "sourceId": "T08-S01",
+    "topic": "chuyen-de-08",
+    "lessonSlug": "dung-dich-va-can-bang-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[490]/w:object[1]",
+      "sectionPath": "Phần I",
+      "blockOrder": 585
+    },
+    "issueCode": "UNSUPPORTED_OLE_OBJECT",
+    "kind": "embeddedObject",
+    "severity": "blocking",
+    "message": "OLE object cannot be converted semantically by the prototype.",
+    "observedType": "formula",
+    "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.3\"> (Microsoft Equation 3.0) read directly from the source DOCX XML.",
+    "previewPath": "/qa-preview/lessons/chuyen-de-08/e4552.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T08-S01:e4628",
+    "sourceId": "T08-S01",
+    "topic": "chuyen-de-08",
+    "lessonSlug": "dung-dich-va-can-bang-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[233]/w:object[1]",
+      "sectionPath": "Phần I",
+      "blockOrder": 320
+    },
+    "issueCode": "UNSUPPORTED_OLE_OBJECT",
+    "kind": "embeddedObject",
+    "severity": "blocking",
+    "message": "OLE object cannot be converted semantically by the prototype.",
+    "observedType": "formula",
+    "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.DSMT4\"> (MathType (Equation.DSMT4)) read directly from the source DOCX XML.",
+    "previewPath": "/qa-preview/lessons/chuyen-de-08/e4628.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T08-S01:e4796",
+    "sourceId": "T08-S01",
+    "topic": "chuyen-de-08",
+    "lessonSlug": "dung-dich-va-can-bang-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[228]/w:object[1]",
+      "sectionPath": "Phần I",
+      "blockOrder": 307
+    },
+    "issueCode": "UNSUPPORTED_OLE_OBJECT",
+    "kind": "embeddedObject",
+    "severity": "blocking",
+    "message": "OLE object cannot be converted semantically by the prototype.",
+    "observedType": "formula",
+    "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.DSMT4\"> (MathType (Equation.DSMT4)) read directly from the source DOCX XML.",
+    "previewPath": "/qa-preview/lessons/chuyen-de-08/e4796.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T08-S01:e4801",
+    "sourceId": "T08-S01",
+    "topic": "chuyen-de-08",
+    "lessonSlug": "dung-dich-va-can-bang-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[134]/w:object[1]",
+      "sectionPath": "Phần I",
+      "blockOrder": 178
+    },
+    "issueCode": "UNSUPPORTED_OLE_OBJECT",
+    "kind": "embeddedObject",
+    "severity": "blocking",
+    "message": "OLE object cannot be converted semantically by the prototype.",
+    "observedType": "formula",
+    "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.DSMT4\"> (MathType (Equation.DSMT4)) read directly from the source DOCX XML.",
+    "previewPath": "/qa-preview/lessons/chuyen-de-08/e4801.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T08-S01:e4941",
+    "sourceId": "T08-S01",
+    "topic": "chuyen-de-08",
+    "lessonSlug": "dung-dich-va-can-bang-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[538]/w:object[1]",
+      "sectionPath": "Phần I",
+      "blockOrder": 656
+    },
+    "issueCode": "UNSUPPORTED_OLE_OBJECT",
+    "kind": "embeddedObject",
+    "severity": "blocking",
+    "message": "OLE object cannot be converted semantically by the prototype.",
+    "observedType": "formula",
+    "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.DSMT4\"> (MathType (Equation.DSMT4)) read directly from the source DOCX XML.",
+    "previewPath": "/qa-preview/lessons/chuyen-de-08/e4941.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T08-S01:e5005",
+    "sourceId": "T08-S01",
+    "topic": "chuyen-de-08",
+    "lessonSlug": "dung-dich-va-can-bang-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[498]/w:object[1]",
+      "sectionPath": "Phần I",
+      "blockOrder": 598
+    },
+    "issueCode": "UNSUPPORTED_OLE_OBJECT",
+    "kind": "embeddedObject",
+    "severity": "blocking",
+    "message": "OLE object cannot be converted semantically by the prototype.",
+    "observedType": "formula",
+    "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.3\"> (Microsoft Equation 3.0) read directly from the source DOCX XML.",
+    "previewPath": "/qa-preview/lessons/chuyen-de-08/e5005.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T08-S01:e5058",
+    "sourceId": "T08-S01",
+    "topic": "chuyen-de-08",
+    "lessonSlug": "dung-dich-va-can-bang-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[226]/w:object[1]",
+      "sectionPath": "Phần I",
+      "blockOrder": 299
+    },
+    "issueCode": "UNSUPPORTED_OLE_OBJECT",
+    "kind": "embeddedObject",
+    "severity": "blocking",
+    "message": "OLE object cannot be converted semantically by the prototype.",
+    "observedType": "formula",
+    "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.DSMT4\"> (MathType (Equation.DSMT4)) read directly from the source DOCX XML.",
+    "previewPath": "/qa-preview/lessons/chuyen-de-08/e5058.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T08-S01:e5096",
+    "sourceId": "T08-S01",
+    "topic": "chuyen-de-08",
+    "lessonSlug": "dung-dich-va-can-bang-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[495]/w:object[1]",
+      "sectionPath": "Phần I",
+      "blockOrder": 592
+    },
+    "issueCode": "UNSUPPORTED_OLE_OBJECT",
+    "kind": "embeddedObject",
+    "severity": "blocking",
+    "message": "OLE object cannot be converted semantically by the prototype.",
+    "observedType": "formula",
+    "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.DSMT4\"> (MathType (Equation.DSMT4)) read directly from the source DOCX XML.",
+    "previewPath": "/qa-preview/lessons/chuyen-de-08/e5096.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T08-S01:e5177",
+    "sourceId": "T08-S01",
+    "topic": "chuyen-de-08",
+    "lessonSlug": "dung-dich-va-can-bang-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[117]/w:object[1]",
+      "sectionPath": "Phần I",
+      "blockOrder": 151
+    },
+    "issueCode": "UNSUPPORTED_OLE_OBJECT",
+    "kind": "embeddedObject",
+    "severity": "blocking",
+    "message": "OLE object cannot be converted semantically by the prototype.",
+    "observedType": "formula",
+    "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.DSMT4\"> (MathType (Equation.DSMT4)) read directly from the source DOCX XML.",
+    "previewPath": "/qa-preview/lessons/chuyen-de-08/e5177.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T08-S01:e5216",
+    "sourceId": "T08-S01",
+    "topic": "chuyen-de-08",
+    "lessonSlug": "dung-dich-va-can-bang-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[151]/w:object[1]",
+      "sectionPath": "Phần I",
+      "blockOrder": 211
+    },
+    "issueCode": "UNSUPPORTED_OLE_OBJECT",
+    "kind": "embeddedObject",
+    "severity": "blocking",
+    "message": "OLE object cannot be converted semantically by the prototype.",
+    "observedType": "formula",
+    "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.DSMT4\"> (MathType (Equation.DSMT4)) read directly from the source DOCX XML.",
+    "previewPath": "/qa-preview/lessons/chuyen-de-08/e5216.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T08-S01:e5363",
+    "sourceId": "T08-S01",
+    "topic": "chuyen-de-08",
+    "lessonSlug": "dung-dich-va-can-bang-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[153]/w:object[2]",
+      "sectionPath": "Phần I",
+      "blockOrder": 215
+    },
+    "issueCode": "UNSUPPORTED_OLE_OBJECT",
+    "kind": "embeddedObject",
+    "severity": "blocking",
+    "message": "OLE object cannot be converted semantically by the prototype.",
+    "observedType": "formula",
+    "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.DSMT4\"> (MathType (Equation.DSMT4)) read directly from the source DOCX XML.",
+    "previewPath": "/qa-preview/lessons/chuyen-de-08/e5363.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T08-S01:e5508",
+    "sourceId": "T08-S01",
+    "topic": "chuyen-de-08",
+    "lessonSlug": "dung-dich-va-can-bang-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[550]/w:object[1]",
+      "sectionPath": "Phần I",
+      "blockOrder": 674
+    },
+    "issueCode": "UNSUPPORTED_OLE_OBJECT",
+    "kind": "embeddedObject",
+    "severity": "blocking",
+    "message": "OLE object cannot be converted semantically by the prototype.",
+    "observedType": "formula",
+    "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.DSMT4\"> (MathType (Equation.DSMT4)) read directly from the source DOCX XML.",
+    "previewPath": "/qa-preview/lessons/chuyen-de-08/e5508.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T08-S01:e5555",
+    "sourceId": "T08-S01",
+    "topic": "chuyen-de-08",
+    "lessonSlug": "dung-dich-va-can-bang-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[86]/w:object[1]",
+      "sectionPath": "Phần I",
+      "blockOrder": 98
+    },
+    "issueCode": "UNSUPPORTED_OLE_OBJECT",
+    "kind": "embeddedObject",
+    "severity": "blocking",
+    "message": "OLE object cannot be converted semantically by the prototype.",
+    "observedType": "formula",
+    "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.DSMT4\"> (MathType (Equation.DSMT4)) read directly from the source DOCX XML.",
+    "previewPath": "/qa-preview/lessons/chuyen-de-08/e5555.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T08-S01:e5598",
+    "sourceId": "T08-S01",
+    "topic": "chuyen-de-08",
+    "lessonSlug": "dung-dich-va-can-bang-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[153]/w:object[3]",
+      "sectionPath": "Phần I",
+      "blockOrder": 216
+    },
+    "issueCode": "UNSUPPORTED_OLE_OBJECT",
+    "kind": "embeddedObject",
+    "severity": "blocking",
+    "message": "OLE object cannot be converted semantically by the prototype.",
+    "observedType": "formula",
+    "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.DSMT4\"> (MathType (Equation.DSMT4)) read directly from the source DOCX XML.",
+    "previewPath": "/qa-preview/lessons/chuyen-de-08/e5598.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T08-S01:e5882",
+    "sourceId": "T08-S01",
+    "topic": "chuyen-de-08",
+    "lessonSlug": "dung-dich-va-can-bang-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[141]/w:object[5]",
+      "sectionPath": "Phần I",
+      "blockOrder": 194
+    },
+    "issueCode": "UNSUPPORTED_OLE_OBJECT",
+    "kind": "embeddedObject",
+    "severity": "blocking",
+    "message": "OLE object cannot be converted semantically by the prototype.",
+    "observedType": "formula",
+    "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.DSMT4\"> (MathType (Equation.DSMT4)) read directly from the source DOCX XML.",
+    "previewPath": "/qa-preview/lessons/chuyen-de-08/e5882.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T08-S01:e5939",
+    "sourceId": "T08-S01",
+    "topic": "chuyen-de-08",
+    "lessonSlug": "dung-dich-va-can-bang-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[153]/w:object[5]",
+      "sectionPath": "Phần I",
+      "blockOrder": 218
+    },
+    "issueCode": "UNSUPPORTED_OLE_OBJECT",
+    "kind": "embeddedObject",
+    "severity": "blocking",
+    "message": "OLE object cannot be converted semantically by the prototype.",
+    "observedType": "formula",
+    "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.DSMT4\"> (MathType (Equation.DSMT4)) read directly from the source DOCX XML.",
+    "previewPath": "/qa-preview/lessons/chuyen-de-08/e5939.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T08-S01:e5977",
+    "sourceId": "T08-S01",
+    "topic": "chuyen-de-08",
+    "lessonSlug": "dung-dich-va-can-bang-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[228]/w:object[3]",
+      "sectionPath": "Phần I",
+      "blockOrder": 309
+    },
+    "issueCode": "UNSUPPORTED_OLE_OBJECT",
+    "kind": "embeddedObject",
+    "severity": "blocking",
+    "message": "OLE object cannot be converted semantically by the prototype.",
+    "observedType": "formula",
+    "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.DSMT4\"> (MathType (Equation.DSMT4)) read directly from the source DOCX XML.",
+    "previewPath": "/qa-preview/lessons/chuyen-de-08/e5977.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T08-S01:e6005",
+    "sourceId": "T08-S01",
+    "topic": "chuyen-de-08",
+    "lessonSlug": "dung-dich-va-can-bang-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[96]/w:object[1]",
+      "sectionPath": "Phần I",
+      "blockOrder": 118
+    },
+    "issueCode": "UNSUPPORTED_OLE_OBJECT",
+    "kind": "embeddedObject",
+    "severity": "blocking",
+    "message": "OLE object cannot be converted semantically by the prototype.",
+    "observedType": "formula",
+    "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.DSMT4\"> (MathType (Equation.DSMT4)) read directly from the source DOCX XML.",
+    "previewPath": "/qa-preview/lessons/chuyen-de-08/e6005.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T08-S01:e6015",
+    "sourceId": "T08-S01",
+    "topic": "chuyen-de-08",
+    "lessonSlug": "dung-dich-va-can-bang-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[516]/w:object[1]",
+      "sectionPath": "Phần I",
+      "blockOrder": 623
+    },
+    "issueCode": "UNSUPPORTED_OLE_OBJECT",
+    "kind": "embeddedObject",
+    "severity": "blocking",
+    "message": "OLE object cannot be converted semantically by the prototype.",
+    "observedType": "formula",
+    "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.3\"> (Microsoft Equation 3.0) read directly from the source DOCX XML.",
+    "previewPath": "/qa-preview/lessons/chuyen-de-08/e6015.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T08-S01:e6075",
+    "sourceId": "T08-S01",
+    "topic": "chuyen-de-08",
+    "lessonSlug": "dung-dich-va-can-bang-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[141]/w:object[4]",
+      "sectionPath": "Phần I",
+      "blockOrder": 193
+    },
+    "issueCode": "UNSUPPORTED_OLE_OBJECT",
+    "kind": "embeddedObject",
+    "severity": "blocking",
+    "message": "OLE object cannot be converted semantically by the prototype.",
+    "observedType": "formula",
+    "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.DSMT4\"> (MathType (Equation.DSMT4)) read directly from the source DOCX XML.",
+    "previewPath": "/qa-preview/lessons/chuyen-de-08/e6075.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T08-S01:e6304",
+    "sourceId": "T08-S01",
+    "topic": "chuyen-de-08",
+    "lessonSlug": "dung-dich-va-can-bang-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[146]/w:object[2]",
+      "sectionPath": "Phần I",
+      "blockOrder": 203
+    },
+    "issueCode": "UNSUPPORTED_OLE_OBJECT",
+    "kind": "embeddedObject",
+    "severity": "blocking",
+    "message": "OLE object cannot be converted semantically by the prototype.",
+    "observedType": "formula",
+    "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.DSMT4\"> (MathType (Equation.DSMT4)) read directly from the source DOCX XML.",
+    "previewPath": "/qa-preview/lessons/chuyen-de-08/e6304.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T08-S01:e6352",
+    "sourceId": "T08-S01",
+    "topic": "chuyen-de-08",
+    "lessonSlug": "dung-dich-va-can-bang-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[7]/w:object[3]",
+      "sectionPath": "Phần I",
+      "blockOrder": 7
+    },
+    "issueCode": "UNSUPPORTED_OLE_OBJECT",
+    "kind": "embeddedObject",
+    "severity": "blocking",
+    "message": "OLE object cannot be converted semantically by the prototype.",
+    "observedType": "formula",
+    "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.DSMT4\"> (MathType (Equation.DSMT4)) read directly from the source DOCX XML.",
+    "previewPath": "/qa-preview/lessons/chuyen-de-08/e6352.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T08-S01:e6368",
+    "sourceId": "T08-S01",
+    "topic": "chuyen-de-08",
+    "lessonSlug": "dung-dich-va-can-bang-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[224]/w:object[3]",
+      "sectionPath": "Phần I",
+      "blockOrder": 295
+    },
+    "issueCode": "UNSUPPORTED_OLE_OBJECT",
+    "kind": "embeddedObject",
+    "severity": "blocking",
+    "message": "OLE object cannot be converted semantically by the prototype.",
+    "observedType": "formula",
+    "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.DSMT4\"> (MathType (Equation.DSMT4)) read directly from the source DOCX XML.",
+    "previewPath": "/qa-preview/lessons/chuyen-de-08/e6368.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T08-S01:e6378",
+    "sourceId": "T08-S01",
+    "topic": "chuyen-de-08",
+    "lessonSlug": "dung-dich-va-can-bang-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[507]/w:object[1]",
+      "sectionPath": "Phần I",
+      "blockOrder": 609
+    },
+    "issueCode": "UNSUPPORTED_OLE_OBJECT",
+    "kind": "embeddedObject",
+    "severity": "blocking",
+    "message": "OLE object cannot be converted semantically by the prototype.",
+    "observedType": "formula",
+    "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.3\"> (Microsoft Equation 3.0) read directly from the source DOCX XML.",
+    "previewPath": "/qa-preview/lessons/chuyen-de-08/e6378.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T08-S01:e6483",
+    "sourceId": "T08-S01",
+    "topic": "chuyen-de-08",
+    "lessonSlug": "dung-dich-va-can-bang-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[329]/w:object[1]",
+      "sectionPath": "Phần I",
+      "blockOrder": 416
+    },
+    "issueCode": "UNSUPPORTED_OLE_OBJECT",
+    "kind": "embeddedObject",
+    "severity": "blocking",
+    "message": "OLE object cannot be converted semantically by the prototype.",
+    "observedType": "formula",
+    "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.DSMT4\"> (MathType (Equation.DSMT4)) read directly from the source DOCX XML.",
+    "previewPath": "/qa-preview/lessons/chuyen-de-08/e6483.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T08-S01:e6513",
+    "sourceId": "T08-S01",
+    "topic": "chuyen-de-08",
+    "lessonSlug": "dung-dich-va-can-bang-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[450]/w:object[1]",
+      "sectionPath": "Phần I",
+      "blockOrder": 543
+    },
+    "issueCode": "UNSUPPORTED_OLE_OBJECT",
+    "kind": "embeddedObject",
+    "severity": "blocking",
+    "message": "OLE object cannot be converted semantically by the prototype.",
+    "observedType": "formula",
+    "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.DSMT4\"> (MathType (Equation.DSMT4)) read directly from the source DOCX XML.",
+    "previewPath": "/qa-preview/lessons/chuyen-de-08/e6513.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T08-S01:e6659",
+    "sourceId": "T08-S01",
+    "topic": "chuyen-de-08",
+    "lessonSlug": "dung-dich-va-can-bang-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[75]/w:object[1]",
+      "sectionPath": "Phần I",
+      "blockOrder": 84
+    },
+    "issueCode": "UNSUPPORTED_OLE_OBJECT",
+    "kind": "embeddedObject",
+    "severity": "blocking",
+    "message": "OLE object cannot be converted semantically by the prototype.",
+    "observedType": "formula",
+    "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.DSMT4\"> (MathType (Equation.DSMT4)) read directly from the source DOCX XML.",
+    "previewPath": "/qa-preview/lessons/chuyen-de-08/e6659.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T08-S01:e6756",
+    "sourceId": "T08-S01",
+    "topic": "chuyen-de-08",
+    "lessonSlug": "dung-dich-va-can-bang-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[508]/w:object[1]",
+      "sectionPath": "Phần I",
+      "blockOrder": 611
+    },
+    "issueCode": "UNSUPPORTED_OLE_OBJECT",
+    "kind": "embeddedObject",
+    "severity": "blocking",
+    "message": "OLE object cannot be converted semantically by the prototype.",
+    "observedType": "formula",
+    "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.3\"> (Microsoft Equation 3.0) read directly from the source DOCX XML.",
+    "previewPath": "/qa-preview/lessons/chuyen-de-08/e6756.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T08-S01:e6811",
+    "sourceId": "T08-S01",
+    "topic": "chuyen-de-08",
+    "lessonSlug": "dung-dich-va-can-bang-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[527]/w:object[1]",
+      "sectionPath": "Phần I",
+      "blockOrder": 640
+    },
+    "issueCode": "UNSUPPORTED_OLE_OBJECT",
+    "kind": "embeddedObject",
+    "severity": "blocking",
+    "message": "OLE object cannot be converted semantically by the prototype.",
+    "observedType": "formula",
+    "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.3\"> (Microsoft Equation 3.0) read directly from the source DOCX XML.",
+    "previewPath": "/qa-preview/lessons/chuyen-de-08/e6811.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T08-S01:e6939",
+    "sourceId": "T08-S01",
+    "topic": "chuyen-de-08",
+    "lessonSlug": "dung-dich-va-can-bang-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[538]/w:object[2]",
+      "sectionPath": "Phần I",
+      "blockOrder": 657
+    },
+    "issueCode": "UNSUPPORTED_OLE_OBJECT",
+    "kind": "embeddedObject",
+    "severity": "blocking",
+    "message": "OLE object cannot be converted semantically by the prototype.",
+    "observedType": "formula",
+    "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.DSMT4\"> (MathType (Equation.DSMT4)) read directly from the source DOCX XML.",
+    "previewPath": "/qa-preview/lessons/chuyen-de-08/e6939.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T08-S01:e6950",
+    "sourceId": "T08-S01",
+    "topic": "chuyen-de-08",
+    "lessonSlug": "dung-dich-va-can-bang-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[577]/w:object[1]",
+      "sectionPath": "Phần I",
+      "blockOrder": 701
+    },
+    "issueCode": "UNSUPPORTED_OLE_OBJECT",
+    "kind": "embeddedObject",
+    "severity": "blocking",
+    "message": "OLE object cannot be converted semantically by the prototype.",
+    "observedType": "formula",
+    "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.DSMT4\"> (MathType (Equation.DSMT4)) read directly from the source DOCX XML.",
+    "previewPath": "/qa-preview/lessons/chuyen-de-08/e6950.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T08-S01:e6957",
+    "sourceId": "T08-S01",
+    "topic": "chuyen-de-08",
+    "lessonSlug": "dung-dich-va-can-bang-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[105]/w:object[9]",
+      "sectionPath": "Phần I",
+      "blockOrder": 136
+    },
+    "issueCode": "UNSUPPORTED_OLE_OBJECT",
+    "kind": "embeddedObject",
+    "severity": "blocking",
+    "message": "OLE object cannot be converted semantically by the prototype.",
+    "observedType": "formula",
+    "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.DSMT4\"> (MathType (Equation.DSMT4)) read directly from the source DOCX XML.",
+    "previewPath": "/qa-preview/lessons/chuyen-de-08/e6957.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T08-S01:e7165",
+    "sourceId": "T08-S01",
+    "topic": "chuyen-de-08",
+    "lessonSlug": "dung-dich-va-can-bang-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[171]/w:object[1]",
+      "sectionPath": "Phần I",
+      "blockOrder": 236
+    },
+    "issueCode": "UNSUPPORTED_OLE_OBJECT",
+    "kind": "embeddedObject",
+    "severity": "blocking",
+    "message": "OLE object cannot be converted semantically by the prototype.",
+    "observedType": "formula",
+    "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.DSMT4\"> (MathType (Equation.DSMT4)) read directly from the source DOCX XML.",
+    "previewPath": "/qa-preview/lessons/chuyen-de-08/e7165.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T08-S01:e7260",
+    "sourceId": "T08-S01",
+    "topic": "chuyen-de-08",
+    "lessonSlug": "dung-dich-va-can-bang-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[148]/w:object[1]",
+      "sectionPath": "Phần I",
+      "blockOrder": 206
+    },
+    "issueCode": "UNSUPPORTED_OLE_OBJECT",
+    "kind": "embeddedObject",
+    "severity": "blocking",
+    "message": "OLE object cannot be converted semantically by the prototype.",
+    "observedType": "formula",
+    "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.DSMT4\"> (MathType (Equation.DSMT4)) read directly from the source DOCX XML.",
+    "previewPath": "/qa-preview/lessons/chuyen-de-08/e7260.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T08-S01:e7271",
+    "sourceId": "T08-S01",
+    "topic": "chuyen-de-08",
+    "lessonSlug": "dung-dich-va-can-bang-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[95]/w:object[1]",
+      "sectionPath": "Phần I",
+      "blockOrder": 116
+    },
+    "issueCode": "UNSUPPORTED_OLE_OBJECT",
+    "kind": "embeddedObject",
+    "severity": "blocking",
+    "message": "OLE object cannot be converted semantically by the prototype.",
+    "observedType": "formula",
+    "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.DSMT4\"> (MathType (Equation.DSMT4)) read directly from the source DOCX XML.",
+    "previewPath": "/qa-preview/lessons/chuyen-de-08/e7271.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T08-S01:e7307",
+    "sourceId": "T08-S01",
+    "topic": "chuyen-de-08",
+    "lessonSlug": "dung-dich-va-can-bang-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[118]/w:object[1]",
+      "sectionPath": "Phần I",
+      "blockOrder": 153
+    },
+    "issueCode": "UNSUPPORTED_OLE_OBJECT",
+    "kind": "embeddedObject",
+    "severity": "blocking",
+    "message": "OLE object cannot be converted semantically by the prototype.",
+    "observedType": "formula",
+    "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.DSMT4\"> (MathType (Equation.DSMT4)) read directly from the source DOCX XML.",
+    "previewPath": "/qa-preview/lessons/chuyen-de-08/e7307.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T08-S01:e7312",
+    "sourceId": "T08-S01",
+    "topic": "chuyen-de-08",
+    "lessonSlug": "dung-dich-va-can-bang-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[511]/w:object[1]",
+      "sectionPath": "Phần I",
+      "blockOrder": 615
+    },
+    "issueCode": "UNSUPPORTED_OLE_OBJECT",
+    "kind": "embeddedObject",
+    "severity": "blocking",
+    "message": "OLE object cannot be converted semantically by the prototype.",
+    "observedType": "formula",
+    "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.3\"> (Microsoft Equation 3.0) read directly from the source DOCX XML.",
+    "previewPath": "/qa-preview/lessons/chuyen-de-08/e7312.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T08-S01:e7414",
+    "sourceId": "T08-S01",
+    "topic": "chuyen-de-08",
+    "lessonSlug": "dung-dich-va-can-bang-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[7]/w:object[1]",
+      "sectionPath": "Phần I",
+      "blockOrder": 5
+    },
+    "issueCode": "UNSUPPORTED_OLE_OBJECT",
+    "kind": "embeddedObject",
+    "severity": "blocking",
+    "message": "OLE object cannot be converted semantically by the prototype.",
+    "observedType": "formula",
+    "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.DSMT4\"> (MathType (Equation.DSMT4)) read directly from the source DOCX XML.",
+    "previewPath": "/qa-preview/lessons/chuyen-de-08/e7414.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T08-S01:e7554",
+    "sourceId": "T08-S01",
+    "topic": "chuyen-de-08",
+    "lessonSlug": "dung-dich-va-can-bang-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[153]/w:object[4]",
+      "sectionPath": "Phần I",
+      "blockOrder": 217
+    },
+    "issueCode": "UNSUPPORTED_OLE_OBJECT",
+    "kind": "embeddedObject",
+    "severity": "blocking",
+    "message": "OLE object cannot be converted semantically by the prototype.",
+    "observedType": "formula",
+    "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.DSMT4\"> (MathType (Equation.DSMT4)) read directly from the source DOCX XML.",
+    "previewPath": "/qa-preview/lessons/chuyen-de-08/e7554.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T08-S01:e7572",
+    "sourceId": "T08-S01",
+    "topic": "chuyen-de-08",
+    "lessonSlug": "dung-dich-va-can-bang-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[515]/w:object[1]",
+      "sectionPath": "Phần I",
+      "blockOrder": 621
+    },
+    "issueCode": "UNSUPPORTED_OLE_OBJECT",
+    "kind": "embeddedObject",
+    "severity": "blocking",
+    "message": "OLE object cannot be converted semantically by the prototype.",
+    "observedType": "formula",
+    "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.3\"> (Microsoft Equation 3.0) read directly from the source DOCX XML.",
+    "previewPath": "/qa-preview/lessons/chuyen-de-08/e7572.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T08-S01:e7620",
+    "sourceId": "T08-S01",
+    "topic": "chuyen-de-08",
+    "lessonSlug": "dung-dich-va-can-bang-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[496]/w:object[1]",
+      "sectionPath": "Phần I",
+      "blockOrder": 595
+    },
+    "issueCode": "UNSUPPORTED_OLE_OBJECT",
+    "kind": "embeddedObject",
+    "severity": "blocking",
+    "message": "OLE object cannot be converted semantically by the prototype.",
+    "observedType": "formula",
+    "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.3\"> (Microsoft Equation 3.0) read directly from the source DOCX XML.",
+    "previewPath": "/qa-preview/lessons/chuyen-de-08/e7620.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T08-S01:e7625",
+    "sourceId": "T08-S01",
+    "topic": "chuyen-de-08",
+    "lessonSlug": "dung-dich-va-can-bang-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[495]/w:object[2]",
+      "sectionPath": "Phần I",
+      "blockOrder": 593
+    },
+    "issueCode": "UNSUPPORTED_OLE_OBJECT",
+    "kind": "embeddedObject",
+    "severity": "blocking",
+    "message": "OLE object cannot be converted semantically by the prototype.",
+    "observedType": "formula",
+    "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.3\"> (Microsoft Equation 3.0) read directly from the source DOCX XML.",
+    "previewPath": "/qa-preview/lessons/chuyen-de-08/e7625.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T08-S01:e7633",
+    "sourceId": "T08-S01",
+    "topic": "chuyen-de-08",
+    "lessonSlug": "dung-dich-va-can-bang-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[130]/w:object[1]",
+      "sectionPath": "Phần I",
+      "blockOrder": 172
+    },
+    "issueCode": "UNSUPPORTED_OLE_OBJECT",
+    "kind": "embeddedObject",
+    "severity": "blocking",
+    "message": "OLE object cannot be converted semantically by the prototype.",
+    "observedType": "formula",
+    "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.DSMT4\"> (MathType (Equation.DSMT4)) read directly from the source DOCX XML.",
+    "previewPath": "/qa-preview/lessons/chuyen-de-08/e7633.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T08-S01:e7647",
+    "sourceId": "T08-S01",
+    "topic": "chuyen-de-08",
+    "lessonSlug": "dung-dich-va-can-bang-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[523]/w:object[1]",
+      "sectionPath": "Phần I",
+      "blockOrder": 635
+    },
+    "issueCode": "UNSUPPORTED_OLE_OBJECT",
+    "kind": "embeddedObject",
+    "severity": "blocking",
+    "message": "OLE object cannot be converted semantically by the prototype.",
+    "observedType": "formula",
+    "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.3\"> (Microsoft Equation 3.0) read directly from the source DOCX XML.",
+    "previewPath": "/qa-preview/lessons/chuyen-de-08/e7647.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T08-S01:e7676",
+    "sourceId": "T08-S01",
+    "topic": "chuyen-de-08",
+    "lessonSlug": "dung-dich-va-can-bang-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[182]/w:object[1]",
+      "sectionPath": "Phần I",
+      "blockOrder": 248
+    },
+    "issueCode": "UNSUPPORTED_OLE_OBJECT",
+    "kind": "embeddedObject",
+    "severity": "blocking",
+    "message": "OLE object cannot be converted semantically by the prototype.",
+    "observedType": "formula",
+    "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.DSMT4\"> (MathType (Equation.DSMT4)) read directly from the source DOCX XML.",
+    "previewPath": "/qa-preview/lessons/chuyen-de-08/e7676.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T08-S01:e7680",
+    "sourceId": "T08-S01",
+    "topic": "chuyen-de-08",
+    "lessonSlug": "dung-dich-va-can-bang-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[105]/w:object[1]",
+      "sectionPath": "Phần I",
+      "blockOrder": 128
+    },
+    "issueCode": "UNSUPPORTED_OLE_OBJECT",
+    "kind": "embeddedObject",
+    "severity": "blocking",
+    "message": "OLE object cannot be converted semantically by the prototype.",
+    "observedType": "formula",
+    "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.DSMT4\"> (MathType (Equation.DSMT4)) read directly from the source DOCX XML.",
+    "previewPath": "/qa-preview/lessons/chuyen-de-08/e7680.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T08-S01:e7730",
+    "sourceId": "T08-S01",
+    "topic": "chuyen-de-08",
+    "lessonSlug": "dung-dich-va-can-bang-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[529]/w:object[1]",
+      "sectionPath": "Phần I",
+      "blockOrder": 644
+    },
+    "issueCode": "UNSUPPORTED_OLE_OBJECT",
+    "kind": "embeddedObject",
+    "severity": "blocking",
+    "message": "OLE object cannot be converted semantically by the prototype.",
+    "observedType": "formula",
+    "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.3\"> (Microsoft Equation 3.0) read directly from the source DOCX XML.",
+    "previewPath": "/qa-preview/lessons/chuyen-de-08/e7730.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T08-S01:e7788",
+    "sourceId": "T08-S01",
+    "topic": "chuyen-de-08",
+    "lessonSlug": "dung-dich-va-can-bang-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[336]/w:object[1]",
+      "sectionPath": "Phần I",
+      "blockOrder": 424
+    },
+    "issueCode": "UNSUPPORTED_OLE_OBJECT",
+    "kind": "embeddedObject",
+    "severity": "blocking",
+    "message": "OLE object cannot be converted semantically by the prototype.",
+    "observedType": "formula",
+    "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.DSMT4\"> (MathType (Equation.DSMT4)) read directly from the source DOCX XML.",
+    "previewPath": "/qa-preview/lessons/chuyen-de-08/e7788.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T08-S01:e7792",
+    "sourceId": "T08-S01",
+    "topic": "chuyen-de-08",
+    "lessonSlug": "dung-dich-va-can-bang-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[528]/w:object[1]",
+      "sectionPath": "Phần I",
+      "blockOrder": 642
+    },
+    "issueCode": "UNSUPPORTED_OLE_OBJECT",
+    "kind": "embeddedObject",
+    "severity": "blocking",
+    "message": "OLE object cannot be converted semantically by the prototype.",
+    "observedType": "formula",
+    "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.3\"> (Microsoft Equation 3.0) read directly from the source DOCX XML.",
+    "previewPath": "/qa-preview/lessons/chuyen-de-08/e7792.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T08-S01:e7846",
+    "sourceId": "T08-S01",
+    "topic": "chuyen-de-08",
+    "lessonSlug": "dung-dich-va-can-bang-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[224]/w:object[1]",
+      "sectionPath": "Phần I",
+      "blockOrder": 293
+    },
+    "issueCode": "UNSUPPORTED_OLE_OBJECT",
+    "kind": "embeddedObject",
+    "severity": "blocking",
+    "message": "OLE object cannot be converted semantically by the prototype.",
+    "observedType": "formula",
+    "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.DSMT4\"> (MathType (Equation.DSMT4)) read directly from the source DOCX XML.",
+    "previewPath": "/qa-preview/lessons/chuyen-de-08/e7846.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T08-S01:e7879",
+    "sourceId": "T08-S01",
+    "topic": "chuyen-de-08",
+    "lessonSlug": "dung-dich-va-can-bang-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[520]/w:object[1]",
+      "sectionPath": "Phần I",
+      "blockOrder": 629
+    },
+    "issueCode": "UNSUPPORTED_OLE_OBJECT",
+    "kind": "embeddedObject",
+    "severity": "blocking",
+    "message": "OLE object cannot be converted semantically by the prototype.",
+    "observedType": "formula",
+    "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.3\"> (Microsoft Equation 3.0) read directly from the source DOCX XML.",
+    "previewPath": "/qa-preview/lessons/chuyen-de-08/e7879.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T08-S01:e8433",
+    "sourceId": "T08-S01",
+    "topic": "chuyen-de-08",
+    "lessonSlug": "dung-dich-va-can-bang-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[105]/w:object[4]",
+      "sectionPath": "Phần I",
+      "blockOrder": 131
+    },
+    "issueCode": "UNSUPPORTED_OLE_OBJECT",
+    "kind": "embeddedObject",
+    "severity": "blocking",
+    "message": "OLE object cannot be converted semantically by the prototype.",
+    "observedType": "formula",
+    "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.DSMT4\"> (MathType (Equation.DSMT4)) read directly from the source DOCX XML.",
+    "previewPath": "/qa-preview/lessons/chuyen-de-08/e8433.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T08-S01:e8505",
+    "sourceId": "T08-S01",
+    "topic": "chuyen-de-08",
+    "lessonSlug": "dung-dich-va-can-bang-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[547]/w:object[1]",
+      "sectionPath": "Phần I",
+      "blockOrder": 669
+    },
+    "issueCode": "UNSUPPORTED_OLE_OBJECT",
+    "kind": "embeddedObject",
+    "severity": "blocking",
+    "message": "OLE object cannot be converted semantically by the prototype.",
+    "observedType": "formula",
+    "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.DSMT4\"> (MathType (Equation.DSMT4)) read directly from the source DOCX XML.",
+    "previewPath": "/qa-preview/lessons/chuyen-de-08/e8505.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T08-S01:e8580",
+    "sourceId": "T08-S01",
+    "topic": "chuyen-de-08",
+    "lessonSlug": "dung-dich-va-can-bang-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[105]/w:object[3]",
+      "sectionPath": "Phần I",
+      "blockOrder": 130
+    },
+    "issueCode": "UNSUPPORTED_OLE_OBJECT",
+    "kind": "embeddedObject",
+    "severity": "blocking",
+    "message": "OLE object cannot be converted semantically by the prototype.",
+    "observedType": "formula",
+    "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.DSMT4\"> (MathType (Equation.DSMT4)) read directly from the source DOCX XML.",
+    "previewPath": "/qa-preview/lessons/chuyen-de-08/e8580.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T08-S01:e8707",
+    "sourceId": "T08-S01",
+    "topic": "chuyen-de-08",
+    "lessonSlug": "dung-dich-va-can-bang-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[136]/w:object[1]",
+      "sectionPath": "Phần I",
+      "blockOrder": 182
+    },
+    "issueCode": "UNSUPPORTED_OLE_OBJECT",
+    "kind": "embeddedObject",
+    "severity": "blocking",
+    "message": "OLE object cannot be converted semantically by the prototype.",
+    "observedType": "formula",
+    "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.DSMT4\"> (MathType (Equation.DSMT4)) read directly from the source DOCX XML.",
+    "previewPath": "/qa-preview/lessons/chuyen-de-08/e8707.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T08-S01:e9063",
+    "sourceId": "T08-S01",
+    "topic": "chuyen-de-08",
+    "lessonSlug": "dung-dich-va-can-bang-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[230]/w:object[4]",
+      "sectionPath": "Phần I",
+      "blockOrder": 315
+    },
+    "issueCode": "UNSUPPORTED_OLE_OBJECT",
+    "kind": "embeddedObject",
+    "severity": "blocking",
+    "message": "OLE object cannot be converted semantically by the prototype.",
+    "observedType": "formula",
+    "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.DSMT4\"> (MathType (Equation.DSMT4)) read directly from the source DOCX XML.",
+    "previewPath": "/qa-preview/lessons/chuyen-de-08/e9063.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T08-S01:e9222",
+    "sourceId": "T08-S01",
+    "topic": "chuyen-de-08",
+    "lessonSlug": "dung-dich-va-can-bang-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[559]/w:object[1]",
+      "sectionPath": "Phần I",
+      "blockOrder": 687
+    },
+    "issueCode": "UNSUPPORTED_OLE_OBJECT",
+    "kind": "embeddedObject",
+    "severity": "blocking",
+    "message": "OLE object cannot be converted semantically by the prototype.",
+    "observedType": "formula",
+    "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.3\"> (Microsoft Equation 3.0) read directly from the source DOCX XML.",
+    "previewPath": "/qa-preview/lessons/chuyen-de-08/e9222.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T08-S01:e9403",
+    "sourceId": "T08-S01",
+    "topic": "chuyen-de-08",
+    "lessonSlug": "dung-dich-va-can-bang-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[78]/w:object[1]",
+      "sectionPath": "Phần I",
+      "blockOrder": 89
+    },
+    "issueCode": "UNSUPPORTED_OLE_OBJECT",
+    "kind": "embeddedObject",
+    "severity": "blocking",
+    "message": "OLE object cannot be converted semantically by the prototype.",
+    "observedType": "formula",
+    "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.DSMT4\"> (MathType (Equation.DSMT4)) read directly from the source DOCX XML.",
+    "previewPath": "/qa-preview/lessons/chuyen-de-08/e9403.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T08-S01:e9425",
+    "sourceId": "T08-S01",
+    "topic": "chuyen-de-08",
+    "lessonSlug": "dung-dich-va-can-bang-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[546]/w:object[1]",
+      "sectionPath": "Phần I",
+      "blockOrder": 667
+    },
+    "issueCode": "UNSUPPORTED_OLE_OBJECT",
+    "kind": "embeddedObject",
+    "severity": "blocking",
+    "message": "OLE object cannot be converted semantically by the prototype.",
+    "observedType": "formula",
+    "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.DSMT4\"> (MathType (Equation.DSMT4)) read directly from the source DOCX XML.",
+    "previewPath": "/qa-preview/lessons/chuyen-de-08/e9425.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T08-S01:e9542",
+    "sourceId": "T08-S01",
+    "topic": "chuyen-de-08",
+    "lessonSlug": "dung-dich-va-can-bang-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[77]/w:object[1]",
+      "sectionPath": "Phần I",
+      "blockOrder": 87
+    },
+    "issueCode": "UNSUPPORTED_OLE_OBJECT",
+    "kind": "embeddedObject",
+    "severity": "blocking",
+    "message": "OLE object cannot be converted semantically by the prototype.",
+    "observedType": "formula",
+    "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.DSMT4\"> (MathType (Equation.DSMT4)) read directly from the source DOCX XML.",
+    "previewPath": "/qa-preview/lessons/chuyen-de-08/e9542.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T08-S01:e9612",
+    "sourceId": "T08-S01",
+    "topic": "chuyen-de-08",
+    "lessonSlug": "dung-dich-va-can-bang-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[141]/w:object[3]",
+      "sectionPath": "Phần I",
+      "blockOrder": 192
+    },
+    "issueCode": "UNSUPPORTED_OLE_OBJECT",
+    "kind": "embeddedObject",
+    "severity": "blocking",
+    "message": "OLE object cannot be converted semantically by the prototype.",
+    "observedType": "formula",
+    "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.DSMT4\"> (MathType (Equation.DSMT4)) read directly from the source DOCX XML.",
+    "previewPath": "/qa-preview/lessons/chuyen-de-08/e9612.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T08-S01:e9711",
+    "sourceId": "T08-S01",
+    "topic": "chuyen-de-08",
+    "lessonSlug": "dung-dich-va-can-bang-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[224]/w:object[4]",
+      "sectionPath": "Phần I",
+      "blockOrder": 296
+    },
+    "issueCode": "UNSUPPORTED_OLE_OBJECT",
+    "kind": "embeddedObject",
+    "severity": "blocking",
+    "message": "OLE object cannot be converted semantically by the prototype.",
+    "observedType": "formula",
+    "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.DSMT4\"> (MathType (Equation.DSMT4)) read directly from the source DOCX XML.",
+    "previewPath": "/qa-preview/lessons/chuyen-de-08/e9711.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T08-S01:e9836",
+    "sourceId": "T08-S01",
+    "topic": "chuyen-de-08",
+    "lessonSlug": "dung-dich-va-can-bang-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[105]/w:object[8]",
+      "sectionPath": "Phần I",
+      "blockOrder": 135
+    },
+    "issueCode": "UNSUPPORTED_OLE_OBJECT",
+    "kind": "embeddedObject",
+    "severity": "blocking",
+    "message": "OLE object cannot be converted semantically by the prototype.",
+    "observedType": "formula",
+    "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.DSMT4\"> (MathType (Equation.DSMT4)) read directly from the source DOCX XML.",
+    "previewPath": "/qa-preview/lessons/chuyen-de-08/e9836.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T08-S01:e9866",
+    "sourceId": "T08-S01",
+    "topic": "chuyen-de-08",
+    "lessonSlug": "dung-dich-va-can-bang-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[494]/w:object[1]",
+      "sectionPath": "Phần I",
+      "blockOrder": 590
+    },
+    "issueCode": "UNSUPPORTED_OLE_OBJECT",
+    "kind": "embeddedObject",
+    "severity": "blocking",
+    "message": "OLE object cannot be converted semantically by the prototype.",
+    "observedType": "formula",
+    "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.DSMT4\"> (MathType (Equation.DSMT4)) read directly from the source DOCX XML.",
+    "previewPath": "/qa-preview/lessons/chuyen-de-08/e9866.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T08-S01:e9957",
+    "sourceId": "T08-S01",
+    "topic": "chuyen-de-08",
+    "lessonSlug": "dung-dich-va-can-bang-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[142]/w:object[1]",
+      "sectionPath": "Phần I",
+      "blockOrder": 196
+    },
+    "issueCode": "UNSUPPORTED_OLE_OBJECT",
+    "kind": "embeddedObject",
+    "severity": "blocking",
+    "message": "OLE object cannot be converted semantically by the prototype.",
+    "observedType": "formula",
+    "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.DSMT4\"> (MathType (Equation.DSMT4)) read directly from the source DOCX XML.",
+    "previewPath": "/qa-preview/lessons/chuyen-de-08/e9957.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T08-S01:e9968",
+    "sourceId": "T08-S01",
+    "topic": "chuyen-de-08",
+    "lessonSlug": "dung-dich-va-can-bang-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[141]/w:object[1]",
+      "sectionPath": "Phần I",
+      "blockOrder": 190
+    },
+    "issueCode": "UNSUPPORTED_OLE_OBJECT",
+    "kind": "embeddedObject",
+    "severity": "blocking",
+    "message": "OLE object cannot be converted semantically by the prototype.",
+    "observedType": "formula",
+    "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.DSMT4\"> (MathType (Equation.DSMT4)) read directly from the source DOCX XML.",
+    "previewPath": "/qa-preview/lessons/chuyen-de-08/e9968.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T08-S01:e9993",
+    "sourceId": "T08-S01",
+    "topic": "chuyen-de-08",
+    "lessonSlug": "dung-dich-va-can-bang-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[168]/w:object[1]",
+      "sectionPath": "Phần I",
+      "blockOrder": 232
+    },
+    "issueCode": "UNSUPPORTED_OLE_OBJECT",
+    "kind": "embeddedObject",
+    "severity": "blocking",
+    "message": "OLE object cannot be converted semantically by the prototype.",
+    "observedType": "formula",
+    "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.DSMT4\"> (MathType (Equation.DSMT4)) read directly from the source DOCX XML.",
+    "previewPath": "/qa-preview/lessons/chuyen-de-08/e9993.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T08-S01:f3655",
+    "sourceId": "T08-S01",
+    "topic": "chuyen-de-08",
+    "lessonSlug": "dung-dich-va-can-bang-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[95]/m:oMath[1]",
+      "sectionPath": "Phần I",
+      "blockOrder": 115
+    },
+    "issueCode": "OMML_REQUIRES_SEMANTIC_REVIEW",
+    "kind": "formula",
+    "severity": "blocking",
+    "message": "OMML equation requires semantic conversion or a reviewed image fallback.",
+    "observedType": "formula",
+    "observedTypeEvidence": "Native OOXML <m:oMath> markup (Word's own equation format); approximate flattened text: \"αA3-\"",
+    "previewPath": null,
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T08-S01:f7778",
+    "sourceId": "T08-S01",
+    "topic": "chuyen-de-08",
+    "lessonSlug": "dung-dich-va-can-bang-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[92]/m:oMath[1]",
+      "sectionPath": "Phần I",
+      "blockOrder": 110
+    },
+    "issueCode": "OMML_REQUIRES_SEMANTIC_REVIEW",
+    "kind": "formula",
+    "severity": "blocking",
+    "message": "OMML equation requires semantic conversion or a reviewed image fallback.",
+    "observedType": "formula",
+    "observedTypeEvidence": "Native OOXML <m:oMath> markup (Word's own equation format); approximate flattened text: \"KH2O\"",
+    "previewPath": null,
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T08-S01:i0303",
+    "sourceId": "T08-S01",
+    "topic": "chuyen-de-08",
+    "lessonSlug": "dung-dich-va-can-bang-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[90]/a:blip[@r:embed='rId22'] -> word/media/image8.png",
+      "sectionPath": "Phần I",
+      "blockOrder": 106
+    },
+    "issueCode": "EXTRACTED_IMAGE_REQUIRES_REVIEW",
+    "kind": "image",
+    "severity": "warning",
+    "message": "Extracted image needs meaningful alt text and visual verification.",
+    "observedType": "figure",
+    "observedTypeEvidence": "Raster image already extracted by P4.1 to a browser-safe asset.",
+    "previewPath": "/staging-assets/lessons/12/12a5af017fc2009b7792d86c009749300bd9ca6e8468767d599d7d1b2b281136.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T08-S01:i0658",
+    "sourceId": "T08-S01",
+    "topic": "chuyen-de-08",
+    "lessonSlug": "dung-dich-va-can-bang-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[58]/a:blip[@r:embed='rId22'] -> word/media/image8.png",
+      "sectionPath": "Phần I",
+      "blockOrder": 61
+    },
+    "issueCode": "EXTRACTED_IMAGE_REQUIRES_REVIEW",
+    "kind": "image",
+    "severity": "warning",
+    "message": "Extracted image needs meaningful alt text and visual verification.",
+    "observedType": "figure",
+    "observedTypeEvidence": "Raster image already extracted by P4.1 to a browser-safe asset.",
+    "previewPath": "/staging-assets/lessons/12/12a5af017fc2009b7792d86c009749300bd9ca6e8468767d599d7d1b2b281136.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T08-S01:i1129",
+    "sourceId": "T08-S01",
+    "topic": "chuyen-de-08",
+    "lessonSlug": "dung-dich-va-can-bang-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[67]/a:blip[@r:embed='rId22'] -> word/media/image8.png",
+      "sectionPath": "Phần I",
+      "blockOrder": 71
+    },
+    "issueCode": "EXTRACTED_IMAGE_REQUIRES_REVIEW",
+    "kind": "image",
+    "severity": "warning",
+    "message": "Extracted image needs meaningful alt text and visual verification.",
+    "observedType": "figure",
+    "observedTypeEvidence": "Raster image already extracted by P4.1 to a browser-safe asset.",
+    "previewPath": "/staging-assets/lessons/12/12a5af017fc2009b7792d86c009749300bd9ca6e8468767d599d7d1b2b281136.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T08-S01:i1131",
+    "sourceId": "T08-S01",
+    "topic": "chuyen-de-08",
+    "lessonSlug": "dung-dich-va-can-bang-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[69]/a:blip[@r:embed='rId22'] -> word/media/image8.png",
+      "sectionPath": "Phần I",
+      "blockOrder": 75
+    },
+    "issueCode": "EXTRACTED_IMAGE_REQUIRES_REVIEW",
+    "kind": "image",
+    "severity": "warning",
+    "message": "Extracted image needs meaningful alt text and visual verification.",
+    "observedType": "figure",
+    "observedTypeEvidence": "Raster image already extracted by P4.1 to a browser-safe asset.",
+    "previewPath": "/staging-assets/lessons/12/12a5af017fc2009b7792d86c009749300bd9ca6e8468767d599d7d1b2b281136.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T08-S01:i1133",
+    "sourceId": "T08-S01",
+    "topic": "chuyen-de-08",
+    "lessonSlug": "dung-dich-va-can-bang-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[11]/a:blip[@r:embed='rId15'] -> word/media/image4.png",
+      "sectionPath": "Phần I",
+      "blockOrder": 11
+    },
+    "issueCode": "EXTRACTED_IMAGE_REQUIRES_REVIEW",
+    "kind": "image",
+    "severity": "warning",
+    "message": "Extracted image needs meaningful alt text and visual verification.",
+    "observedType": "figure",
+    "observedTypeEvidence": "Raster image already extracted by P4.1 to a browser-safe asset.",
+    "previewPath": "/staging-assets/lessons/d0/d03b05cfd0bede85d8d061ac94bf9851cafb0a841b81b31d66e8100c9d8bccc5.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T08-S01:i1384",
+    "sourceId": "T08-S01",
+    "topic": "chuyen-de-08",
+    "lessonSlug": "dung-dich-va-can-bang-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[475]/a:blip[@r:embed='rId583'] -> word/media/image66.gif",
+      "sectionPath": "Phần I",
+      "blockOrder": 569
+    },
+    "issueCode": "EXTRACTED_IMAGE_REQUIRES_REVIEW",
+    "kind": "image",
+    "severity": "warning",
+    "message": "Extracted image needs meaningful alt text and visual verification.",
+    "observedType": "figure",
+    "observedTypeEvidence": "Raster image already extracted by P4.1 to a browser-safe asset.",
+    "previewPath": "/staging-assets/lessons/60/60d022e485eb90cc33f0770375e5f2baaf8b89ecf7e54e7dfd4230e53b5f0809.gif",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T08-S01:i1798",
+    "sourceId": "T08-S01",
+    "topic": "chuyen-de-08",
+    "lessonSlug": "dung-dich-va-can-bang-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[253]/a:blip[@r:embed='rId142'] -> word/media/image55.jpg",
+      "sectionPath": "Phần I",
+      "blockOrder": 341
+    },
+    "issueCode": "EXTRACTED_IMAGE_REQUIRES_REVIEW",
+    "kind": "image",
+    "severity": "warning",
+    "message": "Extracted image needs meaningful alt text and visual verification.",
+    "observedType": "figure",
+    "observedTypeEvidence": "Raster image already extracted by P4.1 to a browser-safe asset.",
+    "previewPath": "/staging-assets/lessons/7c/7c7739c9ba78b5b7534eac7515e97ea6d4ed660f2181cf16a88ec683841ca30e.jpg",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T08-S01:i1944",
+    "sourceId": "T08-S01",
+    "topic": "chuyen-de-08",
+    "lessonSlug": "dung-dich-va-can-bang-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[462]/a:blip[@r:embed='rId581'] -> word/media/image64.gif",
+      "sectionPath": "Phần I",
+      "blockOrder": 557
+    },
+    "issueCode": "EXTRACTED_IMAGE_REQUIRES_REVIEW",
+    "kind": "image",
+    "severity": "warning",
+    "message": "Extracted image needs meaningful alt text and visual verification.",
+    "observedType": "figure",
+    "observedTypeEvidence": "Raster image already extracted by P4.1 to a browser-safe asset.",
+    "previewPath": "/staging-assets/lessons/58/58c85d978c856907707d80fe7f7dffe1d5f2ae61776098c6dcf7ee1453a2ef1a.gif",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T08-S01:i2043",
+    "sourceId": "T08-S01",
+    "topic": "chuyen-de-08",
+    "lessonSlug": "dung-dich-va-can-bang-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[461]/a:blip[@r:embed='rId580'] -> word/media/image63.gif",
+      "sectionPath": "Phần I",
+      "blockOrder": 555
+    },
+    "issueCode": "EXTRACTED_IMAGE_REQUIRES_REVIEW",
+    "kind": "image",
+    "severity": "warning",
+    "message": "Extracted image needs meaningful alt text and visual verification.",
+    "observedType": "figure",
+    "observedTypeEvidence": "Raster image already extracted by P4.1 to a browser-safe asset.",
+    "previewPath": "/staging-assets/lessons/b2/b2b787ce24c00f77a289d1ad65403b7f3e934d8d92c39b38a7e395e61ae2ad00.gif",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T08-S01:i3060",
+    "sourceId": "T08-S01",
+    "topic": "chuyen-de-08",
+    "lessonSlug": "dung-dich-va-can-bang-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[114]/a:blip[@r:embed='rId50'] -> word/media/image18.png",
+      "sectionPath": "Phần I",
+      "blockOrder": 147
+    },
+    "issueCode": "EXTRACTED_IMAGE_REQUIRES_REVIEW",
+    "kind": "image",
+    "severity": "warning",
+    "message": "Extracted image needs meaningful alt text and visual verification.",
+    "observedType": "figure",
+    "observedTypeEvidence": "Raster image already extracted by P4.1 to a browser-safe asset.",
+    "previewPath": "/staging-assets/lessons/83/83997a2588cee3d8dda53aa4a920d9fda38fc6f70095fdc33426f4d70ea21b23.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T08-S01:i3457",
+    "sourceId": "T08-S01",
+    "topic": "chuyen-de-08",
+    "lessonSlug": "dung-dich-va-can-bang-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[388]/a:blip[@r:embed='rId570'] -> word/media/image337.png",
+      "sectionPath": "Phần I",
+      "blockOrder": 478
+    },
+    "issueCode": "EXTRACTED_IMAGE_REQUIRES_REVIEW",
+    "kind": "image",
+    "severity": "warning",
+    "message": "Extracted image needs meaningful alt text and visual verification.",
+    "observedType": "figure",
+    "observedTypeEvidence": "Raster image already extracted by P4.1 to a browser-safe asset.",
+    "previewPath": "/staging-assets/lessons/38/3824687c6662e574b48c829605ba3f4857a9597932cdcd38ee624f3e5f10b833.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T08-S01:i3500",
+    "sourceId": "T08-S01",
+    "topic": "chuyen-de-08",
+    "lessonSlug": "dung-dich-va-can-bang-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[71]/a:blip[@r:embed='rId22'] -> word/media/image8.png",
+      "sectionPath": "Phần I",
+      "blockOrder": 79
+    },
+    "issueCode": "EXTRACTED_IMAGE_REQUIRES_REVIEW",
+    "kind": "image",
+    "severity": "warning",
+    "message": "Extracted image needs meaningful alt text and visual verification.",
+    "observedType": "figure",
+    "observedTypeEvidence": "Raster image already extracted by P4.1 to a browser-safe asset.",
+    "previewPath": "/staging-assets/lessons/12/12a5af017fc2009b7792d86c009749300bd9ca6e8468767d599d7d1b2b281136.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T08-S01:i3942",
+    "sourceId": "T08-S01",
+    "topic": "chuyen-de-08",
+    "lessonSlug": "dung-dich-va-can-bang-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[250]/a:blip[@r:embed='rId141'] -> word/media/image54.png",
+      "sectionPath": "Phần I",
+      "blockOrder": 337
+    },
+    "issueCode": "EXTRACTED_IMAGE_REQUIRES_REVIEW",
+    "kind": "image",
+    "severity": "warning",
+    "message": "Extracted image needs meaningful alt text and visual verification.",
+    "observedType": "figure",
+    "observedTypeEvidence": "Raster image already extracted by P4.1 to a browser-safe asset.",
+    "previewPath": "/staging-assets/lessons/60/607453ded6101fa0cd3fcf4c0f9c2938a2a5d04b358d87404d6f6e5249a24102.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T08-S01:i4651",
+    "sourceId": "T08-S01",
+    "topic": "chuyen-de-08",
+    "lessonSlug": "dung-dich-va-can-bang-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[459]/a:blip[@r:embed='rId579'] -> word/media/image62.gif",
+      "sectionPath": "Phần I",
+      "blockOrder": 553
+    },
+    "issueCode": "EXTRACTED_IMAGE_REQUIRES_REVIEW",
+    "kind": "image",
+    "severity": "warning",
+    "message": "Extracted image needs meaningful alt text and visual verification.",
+    "observedType": "figure",
+    "observedTypeEvidence": "Raster image already extracted by P4.1 to a browser-safe asset.",
+    "previewPath": "/staging-assets/lessons/9f/9f757ef0471acb356d10b49d0392bfd294d72a9be65b50473d79833597a541ef.gif",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T08-S01:i5029",
+    "sourceId": "T08-S01",
+    "topic": "chuyen-de-08",
+    "lessonSlug": "dung-dich-va-can-bang-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[481]/a:blip[@r:embed='rId583'] -> word/media/image66.gif",
+      "sectionPath": "Phần I",
+      "blockOrder": 576
+    },
+    "issueCode": "EXTRACTED_IMAGE_REQUIRES_REVIEW",
+    "kind": "image",
+    "severity": "warning",
+    "message": "Extracted image needs meaningful alt text and visual verification.",
+    "observedType": "figure",
+    "observedTypeEvidence": "Raster image already extracted by P4.1 to a browser-safe asset.",
+    "previewPath": "/staging-assets/lessons/60/60d022e485eb90cc33f0770375e5f2baaf8b89ecf7e54e7dfd4230e53b5f0809.gif",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T08-S01:i5098",
+    "sourceId": "T08-S01",
+    "topic": "chuyen-de-08",
+    "lessonSlug": "dung-dich-va-can-bang-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[87]/a:blip[@r:embed='rId22'] -> word/media/image8.png",
+      "sectionPath": "Phần I",
+      "blockOrder": 100
+    },
+    "issueCode": "EXTRACTED_IMAGE_REQUIRES_REVIEW",
+    "kind": "image",
+    "severity": "warning",
+    "message": "Extracted image needs meaningful alt text and visual verification.",
+    "observedType": "figure",
+    "observedTypeEvidence": "Raster image already extracted by P4.1 to a browser-safe asset.",
+    "previewPath": "/staging-assets/lessons/12/12a5af017fc2009b7792d86c009749300bd9ca6e8468767d599d7d1b2b281136.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T08-S01:i6185",
+    "sourceId": "T08-S01",
+    "topic": "chuyen-de-08",
+    "lessonSlug": "dung-dich-va-can-bang-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[449]/a:blip[@r:embed='rId576'] -> word/media/image60.png",
+      "sectionPath": "Phần I",
+      "blockOrder": 541
+    },
+    "issueCode": "EXTRACTED_IMAGE_REQUIRES_REVIEW",
+    "kind": "image",
+    "severity": "warning",
+    "message": "Extracted image needs meaningful alt text and visual verification.",
+    "observedType": "figure",
+    "observedTypeEvidence": "Raster image already extracted by P4.1 to a browser-safe asset.",
+    "previewPath": "/staging-assets/lessons/8e/8e746efaeaf95077cde66ed7cdaad5561adc201fee574d6cc4c5eb6848abce84.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T08-S01:i6446",
+    "sourceId": "T08-S01",
+    "topic": "chuyen-de-08",
+    "lessonSlug": "dung-dich-va-can-bang-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[128]/a:blip[@r:embed='rId59'] -> word/media/image22.png",
+      "sectionPath": "Phần I",
+      "blockOrder": 169
+    },
+    "issueCode": "EXTRACTED_IMAGE_REQUIRES_REVIEW",
+    "kind": "image",
+    "severity": "warning",
+    "message": "Extracted image needs meaningful alt text and visual verification.",
+    "observedType": "figure",
+    "observedTypeEvidence": "Raster image already extracted by P4.1 to a browser-safe asset.",
+    "previewPath": "/staging-assets/lessons/11/116b736acaf864a3bfb094c329cc7077476c546aabfa356151216da60e8b213f.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T08-S01:i6682",
+    "sourceId": "T08-S01",
+    "topic": "chuyen-de-08",
+    "lessonSlug": "dung-dich-va-can-bang-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[91]/a:blip[@r:embed='rId22'] -> word/media/image8.png",
+      "sectionPath": "Phần I",
+      "blockOrder": 108
+    },
+    "issueCode": "EXTRACTED_IMAGE_REQUIRES_REVIEW",
+    "kind": "image",
+    "severity": "warning",
+    "message": "Extracted image needs meaningful alt text and visual verification.",
+    "observedType": "figure",
+    "observedTypeEvidence": "Raster image already extracted by P4.1 to a browser-safe asset.",
+    "previewPath": "/staging-assets/lessons/12/12a5af017fc2009b7792d86c009749300bd9ca6e8468767d599d7d1b2b281136.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T08-S01:i7023",
+    "sourceId": "T08-S01",
+    "topic": "chuyen-de-08",
+    "lessonSlug": "dung-dich-va-can-bang-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[51]/a:blip[@r:embed='rId22'] -> word/media/image8.png",
+      "sectionPath": "Phần I",
+      "blockOrder": 53
+    },
+    "issueCode": "EXTRACTED_IMAGE_REQUIRES_REVIEW",
+    "kind": "image",
+    "severity": "warning",
+    "message": "Extracted image needs meaningful alt text and visual verification.",
+    "observedType": "figure",
+    "observedTypeEvidence": "Raster image already extracted by P4.1 to a browser-safe asset.",
+    "previewPath": "/staging-assets/lessons/12/12a5af017fc2009b7792d86c009749300bd9ca6e8468767d599d7d1b2b281136.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T08-S01:i7535",
+    "sourceId": "T08-S01",
+    "topic": "chuyen-de-08",
+    "lessonSlug": "dung-dich-va-can-bang-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[126]/a:blip[@r:embed='rId58'] -> word/media/image21.png",
+      "sectionPath": "Phần I",
+      "blockOrder": 166
+    },
+    "issueCode": "EXTRACTED_IMAGE_REQUIRES_REVIEW",
+    "kind": "image",
+    "severity": "warning",
+    "message": "Extracted image needs meaningful alt text and visual verification.",
+    "observedType": "figure",
+    "observedTypeEvidence": "Raster image already extracted by P4.1 to a browser-safe asset.",
+    "previewPath": "/staging-assets/lessons/73/7381eb90b3a5cd9ddaf73ec7b9cc3272cd65f44bbae842fd4332072299108f95.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T08-S01:i7747",
+    "sourceId": "T08-S01",
+    "topic": "chuyen-de-08",
+    "lessonSlug": "dung-dich-va-can-bang-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[478]/a:blip[@r:embed='rId581'] -> word/media/image64.gif",
+      "sectionPath": "Phần I",
+      "blockOrder": 573
+    },
+    "issueCode": "EXTRACTED_IMAGE_REQUIRES_REVIEW",
+    "kind": "image",
+    "severity": "warning",
+    "message": "Extracted image needs meaningful alt text and visual verification.",
+    "observedType": "figure",
+    "observedTypeEvidence": "Raster image already extracted by P4.1 to a browser-safe asset.",
+    "previewPath": "/staging-assets/lessons/58/58c85d978c856907707d80fe7f7dffe1d5f2ae61776098c6dcf7ee1453a2ef1a.gif",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T08-S01:i8171",
+    "sourceId": "T08-S01",
+    "topic": "chuyen-de-08",
+    "lessonSlug": "dung-dich-va-can-bang-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[237]/a:blip[@r:embed='rId138'] -> word/media/image52.png",
+      "sectionPath": "Phần I",
+      "blockOrder": 324
+    },
+    "issueCode": "EXTRACTED_IMAGE_REQUIRES_REVIEW",
+    "kind": "image",
+    "severity": "warning",
+    "message": "Extracted image needs meaningful alt text and visual verification.",
+    "observedType": "figure",
+    "observedTypeEvidence": "Raster image already extracted by P4.1 to a browser-safe asset.",
+    "previewPath": "/staging-assets/lessons/af/affd611993fc511c90ed03561c84022301e6e897e4ee5f1042cbb22a3eff7579.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T08-S01:i8352",
+    "sourceId": "T08-S01",
+    "topic": "chuyen-de-08",
+    "lessonSlug": "dung-dich-va-can-bang-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[70]/a:blip[@r:embed='rId22'] -> word/media/image8.png",
+      "sectionPath": "Phần I",
+      "blockOrder": 77
+    },
+    "issueCode": "EXTRACTED_IMAGE_REQUIRES_REVIEW",
+    "kind": "image",
+    "severity": "warning",
+    "message": "Extracted image needs meaningful alt text and visual verification.",
+    "observedType": "figure",
+    "observedTypeEvidence": "Raster image already extracted by P4.1 to a browser-safe asset.",
+    "previewPath": "/staging-assets/lessons/12/12a5af017fc2009b7792d86c009749300bd9ca6e8468767d599d7d1b2b281136.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T08-S01:i8415",
+    "sourceId": "T08-S01",
+    "topic": "chuyen-de-08",
+    "lessonSlug": "dung-dich-va-can-bang-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[89]/a:blip[@r:embed='rId22'] -> word/media/image8.png",
+      "sectionPath": "Phần I",
+      "blockOrder": 104
+    },
+    "issueCode": "EXTRACTED_IMAGE_REQUIRES_REVIEW",
+    "kind": "image",
+    "severity": "warning",
+    "message": "Extracted image needs meaningful alt text and visual verification.",
+    "observedType": "figure",
+    "observedTypeEvidence": "Raster image already extracted by P4.1 to a browser-safe asset.",
+    "previewPath": "/staging-assets/lessons/12/12a5af017fc2009b7792d86c009749300bd9ca6e8468767d599d7d1b2b281136.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T08-S01:i8482",
+    "sourceId": "T08-S01",
+    "topic": "chuyen-de-08",
+    "lessonSlug": "dung-dich-va-can-bang-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[471]/a:blip[@r:embed='rId582'] -> word/media/image65.gif",
+      "sectionPath": "Phần I",
+      "blockOrder": 565
+    },
+    "issueCode": "EXTRACTED_IMAGE_REQUIRES_REVIEW",
+    "kind": "image",
+    "severity": "warning",
+    "message": "Extracted image needs meaningful alt text and visual verification.",
+    "observedType": "figure",
+    "observedTypeEvidence": "Raster image already extracted by P4.1 to a browser-safe asset.",
+    "previewPath": "/staging-assets/lessons/c8/c8ad4041ab960ffe5032dc6c812c129f7fd6ae46726211c6e91aeb091a3dbc3e.gif",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T08-S01:i8488",
+    "sourceId": "T08-S01",
+    "topic": "chuyen-de-08",
+    "lessonSlug": "dung-dich-va-can-bang-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[475]/a:blip[@r:embed='rId584'] -> word/media/image67.gif",
+      "sectionPath": "Phần I",
+      "blockOrder": 570
+    },
+    "issueCode": "EXTRACTED_IMAGE_REQUIRES_REVIEW",
+    "kind": "image",
+    "severity": "warning",
+    "message": "Extracted image needs meaningful alt text and visual verification.",
+    "observedType": "figure",
+    "observedTypeEvidence": "Raster image already extracted by P4.1 to a browser-safe asset.",
+    "previewPath": "/staging-assets/lessons/df/df451dfafa995d25c190e55231707e71f7f6356309e23db5e4ec7c994adbb5fa.gif",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T08-S01:i8731",
+    "sourceId": "T08-S01",
+    "topic": "chuyen-de-08",
+    "lessonSlug": "dung-dich-va-can-bang-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[553]/a:blip[@r:embed='rId643'] -> word/media/image335.png",
+      "sectionPath": "Phần I",
+      "blockOrder": 680
+    },
+    "issueCode": "EXTRACTED_IMAGE_REQUIRES_REVIEW",
+    "kind": "image",
+    "severity": "warning",
+    "message": "Extracted image needs meaningful alt text and visual verification.",
+    "observedType": "figure",
+    "observedTypeEvidence": "Raster image already extracted by P4.1 to a browser-safe asset.",
+    "previewPath": "/staging-assets/lessons/44/44efd24c03d30a5ae7a491fbfb43975ecb2739fa90ad534094b42870a2719878.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T08-S01:i9232",
+    "sourceId": "T08-S01",
+    "topic": "chuyen-de-08",
+    "lessonSlug": "dung-dich-va-can-bang-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[480]/a:blip[@r:embed='rId585'] -> word/media/image68.gif",
+      "sectionPath": "Phần I",
+      "blockOrder": 574
+    },
+    "issueCode": "EXTRACTED_IMAGE_REQUIRES_REVIEW",
+    "kind": "image",
+    "severity": "warning",
+    "message": "Extracted image needs meaningful alt text and visual verification.",
+    "observedType": "figure",
+    "observedTypeEvidence": "Raster image already extracted by P4.1 to a browser-safe asset.",
+    "previewPath": "/staging-assets/lessons/44/441d597a56034b65aa9e32f8b038f11c00a1c86a7d454b3e438cb21707936072.gif",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T08-S01:i9400",
+    "sourceId": "T08-S01",
+    "topic": "chuyen-de-08",
+    "lessonSlug": "dung-dich-va-can-bang-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[92]/a:blip[@r:embed='rId22'] -> word/media/image8.png",
+      "sectionPath": "Phần I",
+      "blockOrder": 111
+    },
+    "issueCode": "EXTRACTED_IMAGE_REQUIRES_REVIEW",
+    "kind": "image",
+    "severity": "warning",
+    "message": "Extracted image needs meaningful alt text and visual verification.",
+    "observedType": "figure",
+    "observedTypeEvidence": "Raster image already extracted by P4.1 to a browser-safe asset.",
+    "previewPath": "/staging-assets/lessons/12/12a5af017fc2009b7792d86c009749300bd9ca6e8468767d599d7d1b2b281136.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T08-S01:i9592",
+    "sourceId": "T08-S01",
+    "topic": "chuyen-de-08",
+    "lessonSlug": "dung-dich-va-can-bang-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/block[126]/a:blip[@r:embed='rId57'] -> word/media/image20.png",
+      "sectionPath": "Phần I",
+      "blockOrder": 165
+    },
+    "issueCode": "EXTRACTED_IMAGE_REQUIRES_REVIEW",
+    "kind": "image",
+    "severity": "warning",
+    "message": "Extracted image needs meaningful alt text and visual verification.",
+    "observedType": "figure",
+    "observedTypeEvidence": "Raster image already extracted by P4.1 to a browser-safe asset.",
+    "previewPath": "/staging-assets/lessons/36/36af79345133e7881c39674580ca5f8dcaba5026baebd3b7f750aac22508c61b.png",
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T08-S01:t0013",
+    "sourceId": "T08-S01",
+    "topic": "chuyen-de-08",
+    "lessonSlug": "dung-dich-va-can-bang-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/tbl[2]",
+      "sectionPath": "Phần I",
+      "blockOrder": 125
+    },
+    "issueCode": "DOCX_TABLE_REQUIRES_VISUAL_REVIEW",
+    "kind": "table",
+    "severity": "warning",
+    "message": "DOCX table was flattened to an HTML table and needs visual review.",
+    "observedType": "table",
+    "observedTypeEvidence": "DOCX <w:tbl> element; already rendered as DataTable on the P4.2 staging page (/fixtures/pilot/...).",
+    "previewPath": null,
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T08-S01:t0572",
+    "sourceId": "T08-S01",
+    "topic": "chuyen-de-08",
+    "lessonSlug": "dung-dich-va-can-bang-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/tbl[11]",
+      "sectionPath": "Phần I",
+      "blockOrder": 708
+    },
+    "issueCode": "DOCX_TABLE_REQUIRES_VISUAL_REVIEW",
+    "kind": "table",
+    "severity": "warning",
+    "message": "DOCX table was flattened to an HTML table and needs visual review.",
+    "observedType": "table",
+    "observedTypeEvidence": "DOCX <w:tbl> element; already rendered as DataTable on the P4.2 staging page (/fixtures/pilot/...).",
+    "previewPath": null,
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T08-S01:t1405",
+    "sourceId": "T08-S01",
+    "topic": "chuyen-de-08",
+    "lessonSlug": "dung-dich-va-can-bang-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/tbl[3]",
+      "sectionPath": "Phần I",
+      "blockOrder": 127
+    },
+    "issueCode": "DOCX_TABLE_REQUIRES_VISUAL_REVIEW",
+    "kind": "table",
+    "severity": "warning",
+    "message": "DOCX table was flattened to an HTML table and needs visual review.",
+    "observedType": "table",
+    "observedTypeEvidence": "DOCX <w:tbl> element; already rendered as DataTable on the P4.2 staging page (/fixtures/pilot/...).",
+    "previewPath": null,
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T08-S01:t1490",
+    "sourceId": "T08-S01",
+    "topic": "chuyen-de-08",
+    "lessonSlug": "dung-dich-va-can-bang-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/tbl[5]",
+      "sectionPath": "Phần I",
+      "blockOrder": 691
+    },
+    "issueCode": "DOCX_TABLE_REQUIRES_VISUAL_REVIEW",
+    "kind": "table",
+    "severity": "warning",
+    "message": "DOCX table was flattened to an HTML table and needs visual review.",
+    "observedType": "table",
+    "observedTypeEvidence": "DOCX <w:tbl> element; already rendered as DataTable on the P4.2 staging page (/fixtures/pilot/...).",
+    "previewPath": null,
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T08-S01:t2280",
+    "sourceId": "T08-S01",
+    "topic": "chuyen-de-08",
+    "lessonSlug": "dung-dich-va-can-bang-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/tbl[4]",
+      "sectionPath": "Phần I",
+      "blockOrder": 340
+    },
+    "issueCode": "DOCX_TABLE_REQUIRES_VISUAL_REVIEW",
+    "kind": "table",
+    "severity": "warning",
+    "message": "DOCX table was flattened to an HTML table and needs visual review.",
+    "observedType": "table",
+    "observedTypeEvidence": "DOCX <w:tbl> element; already rendered as DataTable on the P4.2 staging page (/fixtures/pilot/...).",
+    "previewPath": null,
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T08-S01:t4104",
+    "sourceId": "T08-S01",
+    "topic": "chuyen-de-08",
+    "lessonSlug": "dung-dich-va-can-bang-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/tbl[1]",
+      "sectionPath": "Phần I",
+      "blockOrder": 4
+    },
+    "issueCode": "DOCX_TABLE_REQUIRES_VISUAL_REVIEW",
+    "kind": "table",
+    "severity": "warning",
+    "message": "DOCX table was flattened to an HTML table and needs visual review.",
+    "observedType": "table",
+    "observedTypeEvidence": "DOCX <w:tbl> element; already rendered as DataTable on the P4.2 staging page (/fixtures/pilot/...).",
+    "previewPath": null,
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T08-S01:t4907",
+    "sourceId": "T08-S01",
+    "topic": "chuyen-de-08",
+    "lessonSlug": "dung-dich-va-can-bang-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/tbl[8]",
+      "sectionPath": "Phần I",
+      "blockOrder": 700
+    },
+    "issueCode": "DOCX_TABLE_REQUIRES_VISUAL_REVIEW",
+    "kind": "table",
+    "severity": "warning",
+    "message": "DOCX table was flattened to an HTML table and needs visual review.",
+    "observedType": "table",
+    "observedTypeEvidence": "DOCX <w:tbl> element; already rendered as DataTable on the P4.2 staging page (/fixtures/pilot/...).",
+    "previewPath": null,
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T08-S01:t6152",
+    "sourceId": "T08-S01",
+    "topic": "chuyen-de-08",
+    "lessonSlug": "dung-dich-va-can-bang-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/tbl[9]",
+      "sectionPath": "Phần I",
+      "blockOrder": 704
+    },
+    "issueCode": "DOCX_TABLE_REQUIRES_VISUAL_REVIEW",
+    "kind": "table",
+    "severity": "warning",
+    "message": "DOCX table was flattened to an HTML table and needs visual review.",
+    "observedType": "table",
+    "observedTypeEvidence": "DOCX <w:tbl> element; already rendered as DataTable on the P4.2 staging page (/fixtures/pilot/...).",
+    "previewPath": null,
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T08-S01:t6862",
+    "sourceId": "T08-S01",
+    "topic": "chuyen-de-08",
+    "lessonSlug": "dung-dich-va-can-bang-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/tbl[7]",
+      "sectionPath": "Phần I",
+      "blockOrder": 698
+    },
+    "issueCode": "DOCX_TABLE_REQUIRES_VISUAL_REVIEW",
+    "kind": "table",
+    "severity": "warning",
+    "message": "DOCX table was flattened to an HTML table and needs visual review.",
+    "observedType": "table",
+    "observedTypeEvidence": "DOCX <w:tbl> element; already rendered as DataTable on the P4.2 staging page (/fixtures/pilot/...).",
+    "previewPath": null,
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T08-S01:t7141",
+    "sourceId": "T08-S01",
+    "topic": "chuyen-de-08",
+    "lessonSlug": "dung-dich-va-can-bang-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/tbl[10]",
+      "sectionPath": "Phần I",
+      "blockOrder": 706
+    },
+    "issueCode": "DOCX_TABLE_REQUIRES_VISUAL_REVIEW",
+    "kind": "table",
+    "severity": "warning",
+    "message": "DOCX table was flattened to an HTML table and needs visual review.",
+    "observedType": "table",
+    "observedTypeEvidence": "DOCX <w:tbl> element; already rendered as DataTable on the P4.2 staging page (/fixtures/pilot/...).",
+    "previewPath": null,
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  },
+  {
+    "issueId": "T08-S01:t9444",
+    "sourceId": "T08-S01",
+    "topic": "chuyen-de-08",
+    "lessonSlug": "dung-dich-va-can-bang-hoa-hoc",
+    "sourceLocator": {
+      "pathHint": "word/document.xml#body/tbl[6]",
+      "sectionPath": "Phần I",
+      "blockOrder": 693
+    },
+    "issueCode": "DOCX_TABLE_REQUIRES_VISUAL_REVIEW",
+    "kind": "table",
+    "severity": "warning",
+    "message": "DOCX table was flattened to an HTML table and needs visual review.",
+    "observedType": "table",
+    "observedTypeEvidence": "DOCX <w:tbl> element; already rendered as DataTable on the P4.2 staging page (/fixtures/pilot/...).",
+    "previewPath": null,
+    "status": "pending-owner-review",
+    "remediationChoice": null,
+    "ownerDecision": {
+      "decidedBy": null,
+      "decidedAt": null,
+      "altText": null,
+      "caption": null,
+      "qaNote": null
+    }
+  }
+]
