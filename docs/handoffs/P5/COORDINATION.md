@@ -25,11 +25,12 @@ The P4 closing baseline makes the validator lifecycle-aware before the integrati
 owner signs the summary. It requires a consistent signed `in_review` state and keeps
 P4 `published` content forbidden; this work is not deferred to P5.
 
-Current status (2026-08-13): **READY AFTER THE P4 CLOSING PR IS GREEN AND MERGED**.
-P4.1–P4.5 and P4.3 regression work are integrated; the project owner explicitly
-approved both pilots for `in_review` staging while retaining visible fallbacks and
-`T08-S01:e6352` as blocked. P5.1 and P5.2 must still wait for the exact merged closing
-commit recorded in `docs/handoffs/P4/SUMMARY.md`, then branch from that same commit.
+Current status (2026-08-13): **READY FOR P5**. P4.1–P4.5 and P4.3 regression work are
+integrated; PR #24 passed GitHub Validate and Vercel and merged as
+`6e2a89e5188cd1a71130b135d7cca17cd86312a2`. The project owner explicitly approved
+both pilots for `in_review` staging while retaining visible fallbacks and
+`T08-S01:e6352` as blocked. P5.1 and P5.2 branch from the same final P4 verdict
+baseline on `main`.
 
 ## Assignment and sequencing
 

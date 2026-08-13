@@ -3,7 +3,9 @@
 - Phase: P4 — Pilot drafts for Topics 6 and 8
 - Integration owner: Codex
 - Owner approval: Thầy Xuyên (Project Owner), 2026-08-13
-- Exit verdict: **READY FOR P5 after this closing PR is green and merged to `main`**
+- Exit verdict: **READY FOR P5**
+- Integrated closing PR: #24, merge commit
+  `6e2a89e5188cd1a71130b135d7cca17cd86312a2`
 
 ## Phase objective
 
@@ -115,7 +117,8 @@ verdict automatically becomes **NOT READY FOR P5** until repaired and re-run.
 - [x] Both lessons and manifest consistently record `in_review`.
 - [x] Both lessons retain `approvedForPublish: false`; nothing is `published`.
 - [x] P4 task handoffs are present.
-- [ ] Closing PR GitHub Validate and Vercel checks pass and the PR is merged to `main`.
+- [x] Closing PR #24 GitHub Validate and Vercel checks passed and it was merged to
+      `main` at `6e2a89e5188cd1a71130b135d7cca17cd86312a2`.
 
 ## Required P5 inputs
 
@@ -127,5 +130,5 @@ verdict automatically becomes **NOT READY FOR P5** until repaired and re-run.
 
 ## Verdict
 
-**READY FOR P5 after the closing PR passes GitHub Validate and Vercel and is merged
-to `main`.** P5.1 and P5.2 must then branch from that same merged commit.
+**READY FOR P5.** P5.1 and P5.2 must branch from the same final P4 baseline after
+this verdict record is merged to `main`.
