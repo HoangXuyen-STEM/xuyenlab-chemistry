@@ -291,7 +291,7 @@ test("validator permits approvedForPublish:true only for the P6 owner-approved p
       type: "P6.2-owner-exception",
       scope: "in_review",
       authorizedBy: "Thầy Xuyên (Project Owner)",
-      authorizedAt: "2026-08-13T00:00:00+07:00",
+      authorizedDate: "2026-08-13",
       doesNotAuthorize: [
         "published",
         "productionDeployment",
@@ -393,7 +393,7 @@ test("validator enforces a well-formed publishWaiver whenever approvedForPublish
       type: "P6.2-owner-exception",
       scope: "in_review",
       authorizedBy: "Thầy Xuyên (Project Owner)",
-      authorizedAt: "2026-08-13T00:00:00+07:00",
+      authorizedDate: "2026-08-13",
       doesNotAuthorize: [
         "published",
         "productionDeployment",
@@ -562,7 +562,7 @@ interface PublishWaiver {
   type: string;
   scope: string;
   authorizedBy: string;
-  authorizedAt: string;
+  authorizedDate: string;
   doesNotAuthorize: string[];
   remediationDebtRetained: boolean;
   unresolvedBlockingCount: number;

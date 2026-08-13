@@ -4,7 +4,7 @@
     "type": "P6.2-owner-exception",
     "scope": "in_review",
     "authorizedBy": "Thầy Xuyên (Project Owner)",
-    "authorizedAt": "2026-08-13T00:00:00+07:00",
+    "authorizedDate": "2026-08-13",
     "doesNotAuthorize": [
       "published",
       "productionDeployment",
