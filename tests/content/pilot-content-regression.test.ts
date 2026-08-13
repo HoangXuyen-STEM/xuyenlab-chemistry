@@ -114,6 +114,70 @@ describe("P4 pilot content regression", () => {
       );
     }
   });
+
+  test("remediation dispositions preserve every blocking fallback's MDX traceability", () => {
+    for (const lesson of manifest.lessons) {
+      const report = readJson<FailureReport>(lesson.failureReportPath);
+      const remediationQueue = readJson<RemediationQueueEntry[]>(
+        `content/qa/pending/${lesson.slug}.remediation-queue.json`,
+      );
+      const mdx = readText(lesson.mdxPath);
+      const calloutBlocks = Array.from(
+        mdx.matchAll(/<Callout\b[\s\S]*?<\/Callout>/gu),
+        (match) => match[0],
+      );
+      const fallbackBlocks = report.blocks.filter(
+        (block) => block.outcome === "fallback",
+      );
+
+      expect(
+        remediationQueue.map((entry) => entry.issueId).sort(),
+        `${lesson.slug} remediation queue must cover every importer fallback`,
+      ).toEqual(fallbackBlocks.map((block) => block.id).sort());
+
+      for (const entry of remediationQueue) {
+        // Warning-only table review items remain traceable through the queue and
+        // failure report. The content validator's MDX traceability contract is
+        // intentionally limited to blocking fallbacks.
+        if (entry.severity !== "blocking") continue;
+
+        const matchingCallouts = calloutBlocks.filter((block) =>
+          block.includes(entry.issueId),
+        );
+        expect(
+          mdx,
+          `${entry.issueId} must remain traceable in canonical MDX`,
+        ).toContain(entry.issueId);
+
+        if (entry.status === "applied") {
+          expect(entry.remediationChoice, entry.issueId).toBe(
+            "reviewed-latex-mdx",
+          );
+          expect(entry.ownerDecision.decidedBy, entry.issueId).toBeTruthy();
+          expect(entry.ownerDecision.decidedAt, entry.issueId).toBeTruthy();
+          expect(entry.ownerDecision.reviewedLatex, entry.issueId).toBeTruthy();
+          expect(
+            matchingCallouts,
+            `${entry.issueId} was applied and must not remain a fallback Callout`,
+          ).toHaveLength(0);
+        } else {
+          expect(
+            matchingCallouts,
+            `${entry.issueId} is ${entry.status} and must remain visibly represented`,
+          ).toHaveLength(1);
+
+          if (entry.status === "blocked") {
+            expect(entry.remediationChoice, entry.issueId).toBe(
+              "reviewed-image-fallback",
+            );
+            expect(entry.ownerDecision.decidedBy, entry.issueId).toBeTruthy();
+            expect(entry.ownerDecision.decidedAt, entry.issueId).toBeTruthy();
+            expect(entry.ownerDecision.qaNote, entry.issueId).toBeTruthy();
+          }
+        }
+      }
+    }
+  });
 });
 
 function extractFrontmatter(mdx: string): string {
@@ -150,6 +214,7 @@ interface PilotManifest {
     mdxPath: string;
     mdxSha256: string;
     qaPath: string;
+    slug: string;
   }>;
 }
 
@@ -164,4 +229,17 @@ interface FailureReport {
 
 interface PendingQaRecord {
   unresolved: Array<{ id: string }>;
+}
+
+interface RemediationQueueEntry {
+  issueId: string;
+  ownerDecision: {
+    decidedAt: string | null;
+    decidedBy: string | null;
+    qaNote: string | null;
+    reviewedLatex: string | null;
+  };
+  remediationChoice: "reviewed-image-fallback" | "reviewed-latex-mdx" | null;
+  severity: "blocking" | "warning";
+  status: "applied" | "blocked" | "pending-owner-review";
 }
