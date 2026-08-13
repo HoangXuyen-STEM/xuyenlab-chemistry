@@ -1,17 +1,29 @@
 import { expect, test, type Page } from "@playwright/test";
+import { readFileSync } from "node:fs";
+import path from "node:path";
 
 const lessons = [
   {
-    blockingCount: 96,
     path: "/fixtures/pilot/chuyen-de-06/dong-hoa-hoc",
+    remediationQueuePath:
+      "content/qa/pending/dong-hoa-hoc.remediation-queue.json",
     title: "Động hóa học",
   },
   {
-    blockingCount: 126,
     path: "/fixtures/pilot/chuyen-de-08/dung-dich-va-can-bang-hoa-hoc",
+    remediationQueuePath:
+      "content/qa/pending/dung-dich-va-can-bang-hoa-hoc.remediation-queue.json",
     title: "Dung dịch và cân bằng hóa học",
   },
-] as const;
+].map((lesson) => ({
+  ...lesson,
+  visibleBlockingIssueIds: readRemediationQueue(lesson.remediationQueuePath)
+    .filter(
+      (entry) => entry.severity === "blocking" && entry.status !== "applied",
+    )
+    .map((entry) => entry.issueId)
+    .sort(),
+}));
 
 test.describe("pilot staging routes", () => {
   test("loads both lessons and the pilot index without client errors", async ({
@@ -92,16 +104,16 @@ test.describe("pilot staging routes", () => {
           .map((title) => `aside[aria-label="${title}"]`)
           .join(", "),
       );
-      await expect(blockingCallouts).toHaveCount(lesson.blockingCount);
-      expect(
-        await blockingCallouts.evaluateAll((callouts) =>
-          callouts.every(
-            (callout) =>
-              (callout as HTMLElement).offsetParent !== null &&
-              /T0[68]-S01:[a-z0-9]+/u.test(callout.textContent ?? ""),
-          ),
-        ),
-      ).toBe(true);
+      await expect(blockingCallouts).toHaveCount(
+        lesson.visibleBlockingIssueIds.length,
+      );
+      const visibleIssueIds = await blockingCallouts.evaluateAll((callouts) =>
+        callouts.flatMap((callout) => {
+          if ((callout as HTMLElement).offsetParent === null) return [];
+          return callout.textContent?.match(/T0[68]-S01:[a-z0-9]+/gu) ?? [];
+        }),
+      );
+      expect(visibleIssueIds.sort()).toEqual(lesson.visibleBlockingIssueIds);
     }
   });
 
@@ -240,4 +252,16 @@ async function expectRouteToLoad(page: Page, path: string): Promise<void> {
   expect(pageErrors, `${path} emitted an uncaught page error`).toEqual([]);
   page.off("console", onConsole);
   page.off("pageerror", onPageError);
+}
+
+function readRemediationQueue(relativePath: string): RemediationQueueEntry[] {
+  return JSON.parse(
+    readFileSync(path.join(process.cwd(), relativePath), "utf8"),
+  ) as RemediationQueueEntry[];
+}
+
+interface RemediationQueueEntry {
+  issueId: string;
+  severity: "blocking" | "warning";
+  status: "applied" | "blocked" | "pending-owner-review";
 }
