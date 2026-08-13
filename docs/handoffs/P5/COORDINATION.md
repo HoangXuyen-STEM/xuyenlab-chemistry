@@ -21,14 +21,15 @@ following:
   production build pass;
 - `docs/handoffs/P4/SUMMARY.md` exists and its verdict permits P5.
 
-The P4 integration owner must make the P4 validator lifecycle-aware before signing
-that summary. Its current P4-only `publicationStatus: draft` rule cannot validate the
-required `in_review` baseline and is not deferred to P5.
+The P4 closing baseline makes the validator lifecycle-aware before the integration
+owner signs the summary. It requires a consistent signed `in_review` state and keeps
+P4 `published` content forbidden; this work is not deferred to P5.
 
-Current status (2026-08-13): **NOT READY TO IMPLEMENT P5**. P4.2 is not on `main`,
-P4.3 is not complete, owner-signed QA records and the P4 summary are missing, and
-`T08-S01:e6352` remains blocked. Read-only preparation is allowed; application or
-workflow changes are not.
+Current status (2026-08-13): **READY AFTER THE P4 CLOSING PR IS GREEN AND MERGED**.
+P4.1–P4.5 and P4.3 regression work are integrated; the project owner explicitly
+approved both pilots for `in_review` staging while retaining visible fallbacks and
+`T08-S01:e6352` as blocked. P5.1 and P5.2 must still wait for the exact merged closing
+commit recorded in `docs/handoffs/P4/SUMMARY.md`, then branch from that same commit.
 
 ## Assignment and sequencing
 
