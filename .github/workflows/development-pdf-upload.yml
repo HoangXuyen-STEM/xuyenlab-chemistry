@@ -1,0 +1,90 @@
+name: Development PDF upload
+
+on:
+  workflow_dispatch:
+    inputs:
+      commit:
+        description: Commit SHA reachable from protected main
+        required: true
+        type: string
+      dry_run:
+        description: Plan only; performs no R2 calls
+        required: true
+        default: true
+        type: boolean
+      owner_approved:
+        description: Project owner approved this development upload
+        required: true
+        default: false
+        type: boolean
+
+permissions:
+  contents: read
+
+concurrency:
+  group: development-pdf-${{ inputs.commit }}
+  cancel-in-progress: false
+
+jobs:
+  generate-and-upload:
+    name: Generate and upload to development R2
+    runs-on: ubuntu-latest
+    environment: development
+    steps:
+      - name: Check out requested commit
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ inputs.commit }}
+          fetch-depth: 0
+
+      - name: Assert commit is reachable from protected main
+        run: |
+          git fetch --no-tags origin main
+          git merge-base --is-ancestor HEAD origin/main
+
+      - name: Require explicit owner approval for a cloud write
+        if: ${{ !inputs.dry_run && !inputs.owner_approved }}
+        run: |
+          echo "A non-dry development upload requires project-owner approval."
+          exit 1
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install locked Chromium
+        run: npx playwright install --with-deps chromium
+
+      - name: Validate and build
+        run: |
+          npm run content:validate
+          npm run build
+
+      - name: Generate content-hash PDFs
+        run: npm run pdf:dry-run
+
+      - name: Plan upload without cloud credentials
+        if: ${{ inputs.dry_run }}
+        run: npm run pdf:upload-plan -- generated-pdf/*/*.manifest.json
+
+      - name: Upload to guarded development bucket
+        if: ${{ !inputs.dry_run && inputs.owner_approved }}
+        env:
+          R2_ACCOUNT_ID: ${{ secrets.R2_ACCOUNT_ID }}
+          R2_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
+          R2_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
+          R2_PRIVATE_BUCKET: ${{ vars.R2_PRIVATE_BUCKET }}
+        run: npm run pdf:upload-plan -- --execute generated-pdf/*/*.manifest.json
+
+      - name: Store derived artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: development-pdf-${{ inputs.commit }}
+          path: generated-pdf/
+          if-no-files-found: error
+          retention-days: 7
