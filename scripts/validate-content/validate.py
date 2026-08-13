@@ -5,6 +5,7 @@ from __future__ import annotations
 
 import argparse
 import csv
+from datetime import datetime
 import hashlib
 import json
 from pathlib import Path
@@ -27,6 +28,15 @@ REQUIRED_SCALARS = {
 SLUG = re.compile(r"^[a-z0-9]+(?:-[a-z0-9]+)*$")
 TOPIC = re.compile(r"^chuyen-de-(?:0[1-9]|1\d|2[0-6])$")
 HASHED_ASSET = re.compile(r"^/staging-assets/lessons/([0-9a-f]{2})/([0-9a-f]{64})(\.[a-z0-9]+)$")
+QA_CHECKS = {
+    "scopePartIOnly",
+    "chemistryVerified",
+    "formulasVerified",
+    "tablesVerified",
+    "figuresVerified",
+    "mobileVerified",
+    "printVerified",
+}
 
 
 def sha256(path: Path) -> str:
@@ -35,6 +45,16 @@ def sha256(path: Path) -> str:
 
 def read_json(path: Path) -> dict[str, Any]:
     return json.loads(path.read_text(encoding="utf-8"))
+
+
+def is_iso_8601(value: Any) -> bool:
+    if not isinstance(value, str) or not value.strip():
+        return False
+    try:
+        datetime.fromisoformat(value.replace("Z", "+00:00"))
+    except ValueError:
+        return False
+    return True
 
 
 def parse_frontmatter(path: Path) -> tuple[dict[str, str], list[dict[str, str]], str]:
@@ -77,8 +97,11 @@ def validate(root: Path) -> list[str]:
     if not staging_manifest_path.is_file():
         return [f"missing {staging_manifest_path.relative_to(root)}"]
     manifest = read_json(staging_manifest_path)
-    if manifest.get("publicationStatus") != "draft" or manifest.get("strategy") != "hybrid":
-        errors.append("pilot manifest must declare hybrid strategy and draft status")
+    manifest_status = manifest.get("publicationStatus")
+    if manifest.get("strategy") != "hybrid":
+        errors.append("pilot manifest must declare hybrid strategy")
+    if manifest_status not in {"draft", "in_review"}:
+        errors.append("pilot manifest status must be draft or in_review")
 
     seen_slugs: set[str] = set()
     seen_orders: set[tuple[str, int]] = set()
@@ -128,6 +151,10 @@ def validate(root: Path) -> list[str]:
             errors.append(f"{relative}: invalid status {status!r}")
         if status == "published":
             errors.append(f"{relative}: P4 validator rejects published content")
+        if status != manifest_status:
+            errors.append(
+                f"{relative}: status {status!r} differs from pilot manifest {manifest_status!r}"
+            )
         if not source_refs:
             errors.append(f"{relative}: sourceFiles must not be empty")
         for reference in source_refs:
@@ -167,7 +194,17 @@ def validate(root: Path) -> list[str]:
         if qa_path.is_file():
             qa = read_json(qa_path)
             if qa.get("approvedForPublish") is not False:
-                errors.append(f"{relative}: generated QA must not approve publication")
+                errors.append(f"{relative}: P4 QA must not approve publication")
+            if manifest_status == "in_review":
+                if not isinstance(qa.get("reviewer"), str) or not qa["reviewer"].strip():
+                    errors.append(f"{relative}: in_review QA requires a reviewer")
+                if not is_iso_8601(qa.get("reviewedAt")):
+                    errors.append(f"{relative}: in_review QA requires an ISO 8601 reviewedAt")
+                checks = qa.get("checks")
+                if not isinstance(checks, dict) or any(
+                    checks.get(check) is not True for check in QA_CHECKS
+                ):
+                    errors.append(f"{relative}: in_review QA requires every check to be true")
             qa_ids = {issue.get("id") for issue in qa.get("unresolved", [])}
             report_ids = {block.get("id") for block in blocks if block.get("outcome") != "semantic"}
             if qa_ids != report_ids:

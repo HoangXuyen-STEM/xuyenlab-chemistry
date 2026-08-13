@@ -34,6 +34,6 @@ describe("pilot manifest", () => {
   });
 
   it("reports draft publication status", () => {
-    expect(pilotPublicationStatus).toBe("draft");
+    expect(pilotPublicationStatus).toBe("in_review");
   });
 });

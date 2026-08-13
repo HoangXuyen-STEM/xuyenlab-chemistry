@@ -1,6 +1,7 @@
 // @vitest-environment node
 
 import { spawnSync } from "node:child_process";
+import { createHash } from "node:crypto";
 import {
   copyFileSync,
   mkdirSync,
@@ -120,6 +121,11 @@ test("validator exposes every required pilot failure class", () => {
       "P4 validator rejects published content",
     );
 
+    writeFileSync(mdxPath, mdx.replace("status: draft", "status: in_review"));
+    expect(validate(target).join("\n")).toContain(
+      "differs from pilot manifest 'draft'",
+    );
+
     writeFileSync(mdxPath, mdx.replace(blockingId!, "REMOVED-BLOCKING-ID"));
     expect(validate(target).join("\n")).toContain(
       "hidden unresolved blocking issue",
@@ -153,6 +159,79 @@ test("validator exposes every required pilot failure class", () => {
   }
 }, 30_000);
 
+test("validator accepts a consistently signed in_review pilot with visible blockers", () => {
+  const target = mkdtempSync(path.join(tmpdir(), "xuyenlab-p4-in-review-"));
+  try {
+    expect(run(importer, ["--target-root", target]).status).toBe(0);
+    const manifestPath = path.join(
+      target,
+      "content/pilot-staging-manifest.json",
+    );
+    const manifest = readJson(manifestPath) as PilotManifest;
+    manifest.publicationStatus = "in_review";
+
+    for (const lesson of manifest.lessons) {
+      const mdxPath = path.join(target, lesson.mdxPath);
+      writeFileSync(
+        mdxPath,
+        readFileSync(mdxPath, "utf8").replace(
+          "status: draft",
+          "status: in_review",
+        ),
+      );
+      lesson.mdxSha256 = sha256(mdxPath);
+
+      const qaPath = path.join(target, lesson.qaPath);
+      const qa = readJson(qaPath) as QaRecord;
+      qa.reviewer = "Project owner";
+      qa.reviewedAt = "2026-08-13T12:00:00+07:00";
+      for (const check of Object.keys(qa.checks)) qa.checks[check] = true;
+      writeFileSync(qaPath, `${JSON.stringify(qa, null, 2)}\n`);
+      lesson.qaSha256 = sha256(qaPath);
+    }
+    writeFileSync(manifestPath, `${JSON.stringify(manifest, null, 2)}\n`);
+
+    expect(validate(target)).toEqual([]);
+  } finally {
+    rmSync(target, { recursive: true, force: true });
+  }
+}, 30_000);
+
+test("validator rejects unsigned or incomplete in_review QA", () => {
+  const target = mkdtempSync(
+    path.join(tmpdir(), "xuyenlab-p4-unsigned-review-"),
+  );
+  try {
+    expect(run(importer, ["--target-root", target]).status).toBe(0);
+    const manifestPath = path.join(
+      target,
+      "content/pilot-staging-manifest.json",
+    );
+    const manifest = readJson(manifestPath) as PilotManifest;
+    manifest.publicationStatus = "in_review";
+
+    for (const lesson of manifest.lessons) {
+      const mdxPath = path.join(target, lesson.mdxPath);
+      writeFileSync(
+        mdxPath,
+        readFileSync(mdxPath, "utf8").replace(
+          "status: draft",
+          "status: in_review",
+        ),
+      );
+      lesson.mdxSha256 = sha256(mdxPath);
+    }
+    writeFileSync(manifestPath, `${JSON.stringify(manifest, null, 2)}\n`);
+
+    const errors = validate(target).join("\n");
+    expect(errors).toContain("in_review QA requires a reviewer");
+    expect(errors).toContain("in_review QA requires an ISO 8601 reviewedAt");
+    expect(errors).toContain("in_review QA requires every check to be true");
+  } finally {
+    rmSync(target, { recursive: true, force: true });
+  }
+}, 30_000);
+
 function run(script: string, args: string[]) {
   return spawnSync("python3", [script, ...args], {
     cwd: repoRoot,
@@ -175,15 +254,29 @@ function readJson(filePath: string): unknown {
 }
 
 interface PilotManifest {
+  publicationStatus: "draft" | "in_review";
   lessons: Array<{
     sourceId: string;
     mdxPath: string;
     failureReportPath: string;
     blockingCount: number;
+    mdxSha256: string;
+    qaPath: string;
+    qaSha256: string;
   }>;
   assets: Array<{ path: string; sha256: string }>;
 }
 
+interface QaRecord {
+  reviewer: string | null;
+  reviewedAt: string | null;
+  checks: Record<string, boolean>;
+}
+
 interface FailureReport {
   blocks: Array<{ id: string; severity?: string }>;
+}
+
+function sha256(filePath: string): string {
+  return createHash("sha256").update(readFileSync(filePath)).digest("hex");
 }
