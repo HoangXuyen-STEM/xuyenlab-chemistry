@@ -33,6 +33,7 @@ interface QueueItem {
     decidedAt: string | null;
     altText: string | null;
     caption: string | null;
+    reviewedLatex: string | null;
     qaNote: string | null;
   };
 }
@@ -81,6 +82,29 @@ const VALID_REMEDIATION_CHOICES = new Set([
   "reviewed-image-fallback",
   "remain-blocking",
 ]);
+const VALID_STATUSES = new Set(["pending-owner-review", "applied", "blocked"]);
+
+/**
+ * P4.5 processed these 7 sample issues (the same 7 named in the P4.4
+ * triage request): 6 got Owner-approved LaTeX applied to the canonical MDX
+ * (`status: "applied"`), and 1 (`T08-S01:e6352`) got an Owner-approved
+ * image-fallback decision that is still `status: "blocked"` -- the Owner
+ * confirmed the source object's real content (a two-arrow diagram), but no
+ * renderer available in this environment can produce a faithful asset from
+ * it (missing proprietary fonts; see its `ownerDecision.qaNote`). Every
+ * other entry must remain untouched (`status: "pending-owner-review"`, no
+ * decision).
+ */
+const PROCESSED_ISSUE_IDS = new Set([
+  "T06-S01:e6259",
+  "T06-S01:e5248",
+  "T06-S01:e4743",
+  "T06-S01:e9544",
+  "T08-S01:e7414",
+  "T08-S01:e3055",
+  "T08-S01:e6352",
+]);
+const BLOCKED_ISSUE_IDS = new Set(["T08-S01:e6352"]);
 
 describe.each(LESSONS)(
   "remediation queue for $lessonSlug",
@@ -104,17 +128,39 @@ describe.each(LESSONS)(
       }
     });
 
-    it("every entry stays pending-owner-review with no decision applied yet", () => {
+    it("every entry not processed by P4.5 stays pending-owner-review with no decision", () => {
       for (const item of queue) {
+        if (PROCESSED_ISSUE_IDS.has(item.issueId)) continue;
         expect(item.status).toBe("pending-owner-review");
         expect(item.remediationChoice).toBeNull();
         expect(item.ownerDecision.decidedBy).toBeNull();
         expect(item.ownerDecision.decidedAt).toBeNull();
+        expect(item.ownerDecision.reviewedLatex).toBeNull();
       }
     });
 
-    it("every entry has a valid observedType and remediationChoice enum value", () => {
+    it("every P4.5-processed entry records a real Owner decision", () => {
       for (const item of queue) {
+        if (!PROCESSED_ISSUE_IDS.has(item.issueId)) continue;
+        expect(item.remediationChoice).not.toBeNull();
+        expect(item.ownerDecision.decidedBy).not.toBeNull();
+        expect(item.ownerDecision.decidedAt).not.toBeNull();
+        if (BLOCKED_ISSUE_IDS.has(item.issueId)) {
+          // Owner approved a decision, but no available renderer can
+          // produce a faithful asset (missing fonts) -- recorded, not
+          // silently actioned.
+          expect(item.status).toBe("blocked");
+        } else {
+          expect(item.status).toBe("applied");
+          expect(item.remediationChoice).toBe("reviewed-latex-mdx");
+          expect(item.ownerDecision.reviewedLatex).not.toBeNull();
+        }
+      }
+    });
+
+    it("every entry has a valid status/observedType/remediationChoice enum value", () => {
+      for (const item of queue) {
+        expect(VALID_STATUSES.has(item.status)).toBe(true);
         expect(VALID_OBSERVED_TYPES.has(item.observedType)).toBe(true);
         expect(VALID_REMEDIATION_CHOICES.has(item.remediationChoice)).toBe(
           true,
@@ -181,7 +227,10 @@ describe("remediation queue counts match the P4.1 pilot manifest", () => {
     },
   );
 
-  it("canonical lesson MDX files are unchanged by this triage task", () => {
+  it("canonical lesson MDX files match the hash recorded in the manifest", () => {
+    // Any authorized content edit (e.g. P4.5 applying Owner-approved LaTeX)
+    // must update this manifest hash in the same change, so this keeps
+    // catching *unrecorded* drift without hard-coding one task's hash.
     for (const lesson of manifest.lessons) {
       const bytes = readFileSync(path.join(repoRoot, lesson.mdxPath));
       const sha256 = createHash("sha256").update(bytes).digest("hex");
@@ -221,7 +270,106 @@ describe("P4 total (both lessons)", () => {
       expect(item, `${id} missing from queue`).toBeDefined();
       expect(item!.issueCode).toBe("UNSUPPORTED_OLE_OBJECT");
       expect(item!.severity).toBe("blocking");
-      expect(item!.observedType).toBe("formula");
+      // All 7 were inferred "formula" from their Equation.DSMT4 ProgID at
+      // triage time. T08-S01:e6352 was later reclassified "diagram" on the
+      // Owner's own direct inspection of the source Word object -- stronger
+      // evidence than the ProgID inference, and the whole point of keeping
+      // this field owner-correctable rather than locking it at triage time.
+      const expectedType = id === "T08-S01:e6352" ? "diagram" : "formula";
+      expect(item!.observedType).toBe(expectedType);
     }
+  });
+});
+
+describe("P4.5: applied LaTeX is actually present in the canonical MDX", () => {
+  const t06Mdx = readFileSync(
+    path.join(repoRoot, "content/topics/chuyen-de-06/dong-hoa-hoc.mdx"),
+    "utf8",
+  );
+  const t08Mdx = readFileSync(
+    path.join(
+      repoRoot,
+      "content/topics/chuyen-de-08/dung-dich-va-can-bang-hoa-hoc.mdx",
+    ),
+    "utf8",
+  );
+
+  it("every blocking id -- processed or not -- stays traceable in its MDX body", () => {
+    // Mirrors scripts/validate-content/validate.py's "hidden unresolved
+    // blocking issue" check: an id must never silently vanish from the body,
+    // whether it's still a Callout or now a one-line {/* ... */} marker next
+    // to the content that replaced it.
+    for (const [mdx, ids] of [
+      [
+        t06Mdx,
+        ["T06-S01:e6259", "T06-S01:e5248", "T06-S01:e4743", "T06-S01:e9544"],
+      ],
+      [t08Mdx, ["T08-S01:e7414", "T08-S01:e3055", "T08-S01:e6352"]],
+    ] as const) {
+      for (const id of ids) {
+        expect(mdx).toContain(id);
+      }
+    }
+  });
+
+  it("T06 inline/display LaTeX for the 4 applied issues is present", () => {
+    expect(t06Mdx).toContain(String.raw`$\Delta C$`);
+    expect(t06Mdx).toContain(String.raw`$\Delta t$`);
+    expect(t06Mdx).toContain(
+      String.raw`$$\bar{v} = \pm\dfrac{\Delta C}{\Delta t}$$`,
+    );
+    expect(t06Mdx).toContain(String.raw`$\bar{v}$`);
+    // The 3 replaced Callouts are gone; e0469 (out of this task's scope)
+    // must still be an untouched Callout.
+    expect(t06Mdx).not.toMatch(/Chưa chuyển đối tượng `T06-S01:e6259`/);
+    expect(t06Mdx).toContain("Chưa chuyển đối tượng `T06-S01:e0469`");
+  });
+
+  it("T08 combined reversible-reaction LaTeX is present exactly once", () => {
+    const formula = String.raw`$$\text{aA} + \text{bB} \rightleftharpoons \text{cC} + \text{dD}$$`;
+    expect(t08Mdx.split(formula)).toHaveLength(2); // exactly one occurrence
+  });
+
+  it("T08-S01:e6352's Callout fallback is deliberately untouched (blocked decision)", () => {
+    expect(t08Mdx).toContain("Chưa chuyển đối tượng `T08-S01:e6352`");
+    expect(t08Mdx).toContain(
+      '<Callout type="warning" title="Đối tượng Word cần biên tập">',
+    );
+  });
+
+  it("T08-S01:e6352 is traceable as an Owner-approved (but not-yet-applied) image fallback", () => {
+    const queue = readJson<QueueItem[]>(
+      "content/qa/pending/dung-dich-va-can-bang-hoa-hoc.remediation-queue.json",
+    );
+    const item = queue.find((i) => i.issueId === "T08-S01:e6352");
+    expect(item, "T08-S01:e6352 missing from the T08 queue").toBeDefined();
+    // The Owner-approved decision is fully recorded even though it isn't
+    // live yet -- this is what makes it "traceable" rather than lost.
+    expect(item!.remediationChoice).toBe("reviewed-image-fallback");
+    expect(item!.ownerDecision.altText).toBeTruthy();
+    expect(item!.ownerDecision.caption).toBeTruthy();
+    expect(item!.ownerDecision.decidedBy).toBeTruthy();
+    expect(item!.ownerDecision.decidedAt).toBeTruthy();
+    expect(item!.ownerDecision.qaNote).toBeTruthy();
+    // Not applied: no ChemFigure exists yet, so there is no publish asset
+    // path to assert on. previewPath still points at the QA-preview-only
+    // image (public/qa-preview/README.md: never a ChemFigure fallback
+    // source on its own), and status reflects "approved but blocked", not
+    // "applied".
+    expect(item!.status).toBe("blocked");
+    expect(item!.previewPath).toBe(
+      "/qa-preview/lessons/chuyen-de-08/e6352.png",
+    );
+    expect(existsSync(path.join(repoRoot, "public", item!.previewPath!))).toBe(
+      true,
+    );
+    // T08 already has 31 legitimate ChemFigure usages from P4.1; this task
+    // must not add a 32nd one for e6352 (that would mean it got applied
+    // despite being blocked). No `qa-preview` path appears in a ChemFigure
+    // `src`, since public/qa-preview/README.md forbids using those images
+    // as a publish fallback source.
+    const chemFigureCount = (t08Mdx.match(/<ChemFigure/g) ?? []).length;
+    expect(chemFigureCount).toBe(31);
+    expect(t08Mdx).not.toMatch(/<ChemFigure[^>]*qa-preview/);
   });
 });

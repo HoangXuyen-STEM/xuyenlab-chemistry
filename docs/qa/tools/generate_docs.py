@@ -54,6 +54,20 @@ def md_escape(text: str) -> str:
     return text.replace("|", "\\|")
 
 
+def decision_cell(item: dict) -> str:
+    choice = item.get("remediationChoice")
+    if not choice:
+        return ""
+    owner_decision = item.get("ownerDecision") or {}
+    if choice == "reviewed-latex-mdx":
+        latex = owner_decision.get("reviewedLatex")
+        return md_escape(f"`{choice}`: {latex}" if latex else choice)
+    if choice == "reviewed-image-fallback":
+        alt = owner_decision.get("altText")
+        return md_escape(f"`{choice}`: alt=\"{alt}\"" if alt else choice)
+    return md_escape(choice)
+
+
 def item_row(item: dict) -> str:
     preview = (
         f"[Xem preview]({item['previewPath']})"
@@ -67,7 +81,7 @@ def item_row(item: dict) -> str:
         f"| `{item['issueId']}` | {SEVERITY_LABEL[item['severity']]} "
         f"| {TYPE_LABEL[item['observedType']]} | {preview} "
         f"| {item['sourceLocator']['pathHint']} "
-        f"| {evidence} | {item['status']} | |"
+        f"| {evidence} | {item['status']} | {decision_cell(item)}|"
     )
 
 
@@ -88,6 +102,10 @@ def build_sample_section(all_items_by_id: dict) -> str:
         lines.append(f"- **Vị trí:** `{item['sourceLocator']['pathHint']}`")
         lines.append(f"- **Loại quan sát được:** {TYPE_LABEL[item['observedType']]}")
         lines.append(f"- **Căn cứ:** {md_escape(item['observedTypeEvidence'])}")
+        lines.append(f"- **Trạng thái:** `{item['status']}`")
+        decision = decision_cell(item)
+        if decision:
+            lines.append(f"- **Quyết định:** {decision}")
         if item["previewPath"]:
             lines.append("")
             lines.append(f"  ![preview]({item['previewPath']})")
@@ -151,7 +169,7 @@ def build_index(lessons_data: list[dict], all_items_by_id: dict) -> str:
     lines.append("| Loại | Chuyên đề 6 | Chuyên đề 8 | Tổng |")
     lines.append("| --- | ---: | ---: | ---: |")
     from collections import Counter
-    for t in ["formula", "table", "figure", "unknown"]:
+    for t in ["formula", "diagram", "table", "figure", "unknown"]:
         c6 = sum(1 for i in lessons_data[0]["items"] if i["observedType"] == t)
         c8 = sum(1 for i in lessons_data[1]["items"] if i["observedType"] == t)
         lines.append(f"| {TYPE_LABEL[t]} (`{t}`) | {c6} | {c8} | {c6 + c8} |")
@@ -199,7 +217,7 @@ def build_topic_doc(data: dict) -> str:
     for item in items:
         by_type[item["observedType"]].append(item)
 
-    for t in ["formula", "table", "figure", "unknown"]:
+    for t in ["formula", "diagram", "table", "figure", "unknown"]:
         group = sorted(by_type.get(t, []), key=lambda i: i["sourceLocator"]["blockOrder"])
         if not group:
             continue

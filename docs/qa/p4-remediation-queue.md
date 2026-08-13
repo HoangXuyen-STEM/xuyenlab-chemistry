@@ -39,7 +39,8 @@
 
 | Loại | Chuyên đề 6 | Chuyên đề 8 | Tổng |
 | --- | ---: | ---: | ---: |
-| Công thức (`formula`) | 95 | 123 | 218 |
+| Công thức (`formula`) | 95 | 122 | 217 |
+| Sơ đồ (`diagram`) | 0 | 1 | 1 |
 | Bảng (`table`) | 3 | 11 | 14 |
 | Hình (`figure`) | 0 | 31 | 31 |
 | Chưa xác định (`unknown`) | 1 | 3 | 4 |
@@ -61,6 +62,8 @@ hiểu quy trình trước khi đọc bảng đầy đủ bên dưới.
 - **Vị trí:** `word/document.xml#body/block[9]/w:object[1]`
 - **Loại quan sát được:** Công thức
 - **Căn cứ:** &lt;o:OLEObject ProgID="Equation.DSMT4"&gt; (MathType (Equation.DSMT4)) read directly from the source DOCX XML.
+- **Trạng thái:** `applied`
+- **Quyết định:** `reviewed-latex-mdx`: $\Delta C$
 
   ![preview](/qa-preview/lessons/chuyen-de-06/e6259.png)
 
@@ -71,6 +74,8 @@ hiểu quy trình trước khi đọc bảng đầy đủ bên dưới.
 - **Vị trí:** `word/document.xml#body/block[9]/w:object[2]`
 - **Loại quan sát được:** Công thức
 - **Căn cứ:** &lt;o:OLEObject ProgID="Equation.DSMT4"&gt; (MathType (Equation.DSMT4)) read directly from the source DOCX XML.
+- **Trạng thái:** `applied`
+- **Quyết định:** `reviewed-latex-mdx`: $\Delta t$
 
   ![preview](/qa-preview/lessons/chuyen-de-06/e5248.png)
 
@@ -81,6 +86,8 @@ hiểu quy trình trước khi đọc bảng đầy đủ bên dưới.
 - **Vị trí:** `word/document.xml#body/block[10]/w:object[1]`
 - **Loại quan sát được:** Công thức
 - **Căn cứ:** &lt;o:OLEObject ProgID="Equation.DSMT4"&gt; (MathType (Equation.DSMT4)) read directly from the source DOCX XML.
+- **Trạng thái:** `applied`
+- **Quyết định:** `reviewed-latex-mdx`: $$\bar{v} = \pm\dfrac{\Delta C}{\Delta t}$$
 
   ![preview](/qa-preview/lessons/chuyen-de-06/e4743.png)
 
@@ -91,6 +98,8 @@ hiểu quy trình trước khi đọc bảng đầy đủ bên dưới.
 - **Vị trí:** `word/document.xml#body/block[12]/w:object[1]`
 - **Loại quan sát được:** Công thức
 - **Căn cứ:** &lt;o:OLEObject ProgID="Equation.DSMT4"&gt; (MathType (Equation.DSMT4)) read directly from the source DOCX XML.
+- **Trạng thái:** `applied`
+- **Quyết định:** `reviewed-latex-mdx`: $\bar{v}$
 
   ![preview](/qa-preview/lessons/chuyen-de-06/e9544.png)
 
@@ -101,6 +110,8 @@ hiểu quy trình trước khi đọc bảng đầy đủ bên dưới.
 - **Vị trí:** `word/document.xml#body/block[7]/w:object[1]`
 - **Loại quan sát được:** Công thức
 - **Căn cứ:** &lt;o:OLEObject ProgID="Equation.DSMT4"&gt; (MathType (Equation.DSMT4)) read directly from the source DOCX XML.
+- **Trạng thái:** `applied`
+- **Quyết định:** `reviewed-latex-mdx`: $$\text{aA} + \text{bB} \rightleftharpoons \text{cC} + \text{dD}$$ (kết hợp với T08-S01:e3055 thành 1 khối display)
 
   ![preview](/qa-preview/lessons/chuyen-de-08/e7414.png)
 
@@ -111,6 +122,8 @@ hiểu quy trình trước khi đọc bảng đầy đủ bên dưới.
 - **Vị trí:** `word/document.xml#body/block[7]/w:object[2]`
 - **Loại quan sát được:** Công thức
 - **Căn cứ:** &lt;o:OLEObject ProgID="Equation.DSMT4"&gt; (MathType (Equation.DSMT4)) read directly from the source DOCX XML.
+- **Trạng thái:** `applied`
+- **Quyết định:** `reviewed-latex-mdx`: $$\text{aA} + \text{bB} \rightleftharpoons \text{cC} + \text{dD}$$ (kết hợp với T08-S01:e7414 thành 1 khối display)
 
   ![preview](/qa-preview/lessons/chuyen-de-08/e3055.png)
 
@@ -119,8 +132,10 @@ hiểu quy trình trước khi đọc bảng đầy đủ bên dưới.
 - **Nguồn:** `T08-S01` · **Mức độ:** 🔴 Chặn xuất bản
 - **issueCode:** `UNSUPPORTED_OLE_OBJECT` · **kind:** `embeddedObject`
 - **Vị trí:** `word/document.xml#body/block[7]/w:object[3]`
-- **Loại quan sát được:** Công thức
-- **Căn cứ:** &lt;o:OLEObject ProgID="Equation.DSMT4"&gt; (MathType (Equation.DSMT4)) read directly from the source DOCX XML.
+- **Loại quan sát được:** Sơ đồ
+- **Căn cứ:** &lt;o:OLEObject ProgID="Equation.DSMT4"&gt; (MathType). Owner đã mở trực tiếp file Word gốc và xác nhận đây là sơ đồ hai nửa mũi tên ngược chiều: mũi tên trên gắn nhãn 'chiều thuận', mũi tên dưới gắn nhãn 'chiều nghịch' -- sơ đồ minh họa phản ứng thuận nghịch. Phân loại observedType cập nhật formula -&gt; diagram theo xác nhận trực tiếp này (bằng chứng cấp cao hơn ProgID suy luận).
+- **Trạng thái:** `blocked`
+- **Quyết định:** `reviewed-image-fallback`: alt="Sơ đồ hai nửa mũi tên ngược chiều biểu thị phản ứng thuận nghịch; mũi tên phía trên là chiều thuận, mũi tên phía dưới là chiều nghịch."
 
   ![preview](/qa-preview/lessons/chuyen-de-08/e6352.png)
 
