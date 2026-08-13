@@ -2,29 +2,37 @@
 
 ## Verdict
 
-**NOT READY TO IMPLEMENT P5.** Task preparation may proceed, but implementation
-branches must wait for the P4 exit gate.
+**READY TO IMPLEMENT P5 after the P4 closing PR passes GitHub Validate and Vercel and
+is merged to `main`.** Until that merge, P5 implementation branches remain closed.
 
 ## Evidence
 
-| P4 prerequisite                          | Current evidence                                                                              | Status     |
-| ---------------------------------------- | --------------------------------------------------------------------------------------------- | ---------- |
-| P4.1 importer/validator integrated       | PR #16 is on `main`; P4.1 handoff reports green verification                                  | PASS       |
-| P4.2 UI/print integrated                 | implementation and handoff exist on `phase/p4-2-ui-print`, not current `main`                 | NOT MET    |
-| P4.3 regression/E2E complete             | local handoff says Blocked; its files are uncommitted in the root worktree                    | NOT MET    |
-| Remaining failures visible/dispositioned | reports exist; many decisions remain pending and `T08-S01:e6352` is blocked                   | NOT MET    |
-| Owner-signed QA and `in_review`          | final `content/qa/pending/*.json` records remain unsigned and manifest/content remain `draft` | NOT MET    |
-| P4 integration verification              | no integrated P4 baseline or final full-suite evidence                                        | UNVERIFIED |
-| P4 phase summary                         | `docs/handoffs/P4/SUMMARY.md` does not exist                                                  | NOT MET    |
+| P4 prerequisite           | Evidence                                                                                                            | Status        |
+| ------------------------- | ------------------------------------------------------------------------------------------------------------------- | ------------- |
+| P4.1 importer/validator   | PR #16 merged                                                                                                       | PASS          |
+| P4.2 UI/print             | PR #17 merged                                                                                                       | PASS          |
+| P4.3 regression/E2E       | PR #21 merged; 135/135 Vitest and 7/7 Chromium E2E passed                                                           | PASS          |
+| Remediation visibility    | PRs #18/#19 plus queue-derived regressions preserve every issue ID                                                  | PASS          |
+| Owner staging decision    | Thầy Xuyên explicitly approved both pilots for `in_review`, retaining visible fallbacks and blocked `T08-S01:e6352` | PASS          |
+| Lifecycle consistency     | Closing PR makes both QA records, canonical lessons and manifest consistently `in_review`                           | PENDING MERGE |
+| Lifecycle-aware validator | Closing PR validates signed `in_review`, rejects mixed/published P4 states                                          | PENDING MERGE |
+| P4 phase summary          | `docs/handoffs/P4/SUMMARY.md` is in the closing PR                                                                  | PENDING MERGE |
 
-## Unblock sequence
+## Interpretation of remaining issues
 
-1. Finish and merge P4.2.
-2. Repair/re-run P4.3 against the final P4 content/UI baseline and merge it.
-3. Resolve or explicitly disposition all P4 blocking QA items, including
-   `T08-S01:e6352`; project owner signs QA and promotes exactly to `in_review`.
-4. Update the P4-only validator and affected regression expectations so the signed
-   `in_review` baseline is valid without requiring historical resolved fallbacks to
-   remain visible as Callouts.
-5. Codex performs P4 integration validation and writes P4 `SUMMARY.md`.
-6. Create P5.1 and P5.2 from the exact commit recorded in that summary.
+- Remaining fallbacks are visible staging QA debt, not hidden failures.
+- `T08-S01:e6352` remains explicitly blocked and must not be replaced with a guessed
+  image.
+- `approvedForPublish` remains `false`; no content is production-approved.
+- The content contract forbids unresolved blockers for `published`, not for the
+  Owner-approved `in_review` staging state.
+
+## P5 start sequence
+
+1. Require GitHub Validate and Vercel success on the P4 closing PR.
+2. Merge it to protected `main`.
+3. Record the exact merged commit in the P4 summary/status report.
+4. Create `phase/p5-1-pdf-pipeline` and `phase/p5-2-library-search` from that exact
+   commit.
+5. Run P5.1 and P5.2 in parallel under their task packets; neither task may introduce
+   login/account/dashboard scope.
