@@ -36,6 +36,13 @@ interface DiscussionPrompt {
   promptOrObjective: string;
   scientificStatus: string;
   identityAssurance: string;
+  // Not part of the real schema (see docs/contracts/content.md "Discussion
+  // prompt": provenance is always inherited from the parent item) -- only
+  // present here so negative tests can construct a malformed
+  // discussionPrompt that wrongly defines its own provenance.
+  issueId?: string;
+  sourceId?: string;
+  sourceLocator?: unknown;
 }
 
 interface QueueItem {
@@ -87,7 +94,10 @@ interface FailureReportBlock {
   id: string;
   severity?: string;
   message?: string;
+  issueCode?: string;
+  kind?: string;
   sourceLocator?: unknown;
+  fallback?: { assetPath?: string; altText?: string };
 }
 
 interface FailureReport {
@@ -221,6 +231,25 @@ function findItem(
         qaPath: path.join(target, lesson.qaPath),
         item,
       };
+    }
+  }
+  throw new Error(`no ${kind}-kind item found in any pilot remediation queue`);
+}
+
+/** Like findItem, but returns every matching item in the first lesson that
+ * has any -- used when a test needs two distinct real items of the same
+ * kind (e.g. two different image assets) rather than just one. */
+function findItems(
+  target: string,
+  kind: "table" | "image",
+): { lessonSlug: string; queuePath: string; items: QueueItem[] } {
+  const manifest = readManifest(target);
+  for (const lesson of manifest.lessons) {
+    const queuePath = queuePathFor(target, lesson.slug);
+    const queue = readJson<QueueItem[]>(queuePath);
+    const items = queue.filter((entry) => entry.kind === kind);
+    if (items.length > 0) {
+      return { lessonSlug: lesson.slug, queuePath, items };
     }
   }
   throw new Error(`no ${kind}-kind item found in any pilot remediation queue`);
@@ -524,6 +553,49 @@ describe("accepted-with-limitation: negative cases", () => {
     }
   });
 
+  it("rejects an accepted item whose lessonSlug or topic disagrees with the canonical lesson being validated (test B)", () => {
+    const target = cloneTarget();
+    try {
+      const { queuePath, item } = findItem(target, "table");
+      const accepted = baseAcceptedTableItem(item);
+
+      writeQueueItem(queuePath, {
+        ...accepted,
+        lessonSlug: "not-the-real-lesson",
+      });
+      expect(validate(target).join("\n")).toContain(
+        "differs from the canonical lesson being validated",
+      );
+
+      writeQueueItem(queuePath, { ...accepted, topic: "chuyen-de-99" });
+      expect(validate(target).join("\n")).toContain(
+        "differs from the canonical lesson topic",
+      );
+    } finally {
+      rmSync(target, { recursive: true, force: true });
+    }
+  });
+
+  it("rejects an accepted item whose issueCode or kind disagrees with the failure-report block (test B)", () => {
+    const target = cloneTarget();
+    try {
+      const { queuePath, item } = findItem(target, "table");
+      const accepted = baseAcceptedTableItem(item);
+
+      writeQueueItem(queuePath, { ...accepted, issueCode: "WRONG_ISSUE_CODE" });
+      expect(validate(target).join("\n")).toContain(
+        "issueCode 'WRONG_ISSUE_CODE' differs from the failure report's",
+      );
+
+      writeQueueItem(queuePath, { ...accepted, kind: "not-a-real-kind" });
+      expect(validate(target).join("\n")).toContain(
+        "kind 'not-a-real-kind' differs from the failure report's",
+      );
+    } finally {
+      rmSync(target, { recursive: true, force: true });
+    }
+  });
+
   it("rejects missing table source-fidelity evidence in the canonical MDX (test 11)", () => {
     const target = cloneTarget();
     try {
@@ -554,6 +626,142 @@ describe("accepted-with-limitation: negative cases", () => {
       );
       expect(validate(target).join("\n")).toContain(
         "visible-fallback asset is not traceable",
+      );
+    } finally {
+      rmSync(target, { recursive: true, force: true });
+    }
+  });
+
+  it("rejects a previewPath that points at a different asset also legitimately present in the same MDX (test C)", () => {
+    const target = cloneTarget();
+    try {
+      const { queuePath, items } = findItems(target, "image");
+      const primary = items[0];
+      // Must be a genuinely different asset, not another issueId that
+      // happens to share the same extracted image.
+      const other = items.find(
+        (candidate) => candidate.previewPath !== primary.previewPath,
+      );
+      expect(
+        other,
+        "expected at least two distinct image assets",
+      ).toBeDefined();
+
+      writeQueueItem(queuePath, {
+        ...baseAcceptedImageItem(primary),
+        previewPath: other!.previewPath,
+      });
+      expect(validate(target).join("\n")).toContain(
+        "previewPath must exactly equal the failure report's fallback.assetPath",
+      );
+    } finally {
+      rmSync(target, { recursive: true, force: true });
+    }
+  });
+
+  it("rejects an MDX ChemFigure that keeps the correct src but changes the original alt (test C)", () => {
+    const target = cloneTarget();
+    try {
+      const { queuePath, item, lessonSlug } = findItem(target, "image");
+      writeQueueItem(queuePath, baseAcceptedImageItem(item));
+      updateMdx(target, lessonSlug, (mdx) => {
+        const escape = (value: string) =>
+          value.replace(/[.*+?^${}()|[\]\\]/gu, "\\$&");
+        const tagPattern = new RegExp(
+          `<ChemFigure\\b[^>]*src="${escape(item.previewPath!)}"[^>]*/?>`,
+          "u",
+        );
+        const tag = tagPattern.exec(mdx);
+        expect(tag).not.toBeNull();
+        const originalAlt = /alt="([^"]*)"/u.exec(tag![0])?.[1];
+        expect(originalAlt).toBeTruthy();
+        const mutatedTag = tag![0].replace(
+          `alt="${originalAlt}"`,
+          `alt="Placeholder alt changed by the test"`,
+        );
+        return mdx.replace(tag![0], mutatedTag);
+      });
+      expect(validate(target).join("\n")).toContain(
+        "visible-fallback asset is not traceable to a single canonical ChemFigure",
+      );
+    } finally {
+      rmSync(target, { recursive: true, force: true });
+    }
+  });
+
+  it("rejects an MDX where the correct src and alt each exist, but never paired on the same ChemFigure (test C)", () => {
+    const target = cloneTarget();
+    try {
+      const { queuePath, item, lessonSlug } = findItem(target, "image");
+      writeQueueItem(queuePath, baseAcceptedImageItem(item));
+      updateMdx(target, lessonSlug, (mdx) => {
+        const escape = (value: string) =>
+          value.replace(/[.*+?^${}()|[\]\\]/gu, "\\$&");
+        const tagPattern = new RegExp(
+          `<ChemFigure\\b[^>]*src="${escape(item.previewPath!)}"[^>]*/?>`,
+          "u",
+        );
+        const tag = tagPattern.exec(mdx);
+        expect(tag).not.toBeNull();
+        const correctAlt = /alt="([^"]*)"/u.exec(tag![0])?.[1];
+        expect(correctAlt).toBeTruthy();
+        // Split the one correct pairing into two separate elements: one
+        // keeps the correct src paired with a WRONG alt, the other carries
+        // the correct alt paired with a WRONG src -- so both original
+        // values still exist somewhere in the document, just never
+        // together on a single ChemFigure.
+        const splitSrcTag = tag![0].replace(
+          `alt="${correctAlt}"`,
+          `alt="Wrong alt, split from its real src"`,
+        );
+        const splitAltTag = tag![0].replace(
+          item.previewPath!,
+          "/staging-assets/lessons/00/unrelated-other-asset.png",
+        );
+        return mdx.replace(tag![0], `${splitSrcTag}\n${splitAltTag}`);
+      });
+      expect(validate(target).join("\n")).toContain(
+        "visible-fallback asset is not traceable to a single canonical ChemFigure",
+      );
+    } finally {
+      rmSync(target, { recursive: true, force: true });
+    }
+  });
+
+  it("rejects an accepted image item whose failure-report block is missing fallback.assetPath or fallback.altText (test C)", () => {
+    const target = cloneTarget();
+    try {
+      const { queuePath, item, lessonSlug } = findItem(target, "image");
+      writeQueueItem(queuePath, baseAcceptedImageItem(item));
+
+      updateFailureReport(target, lessonSlug, (report) => {
+        const block = report.blocks.find(
+          (candidate) => candidate.id === item.issueId,
+        )!;
+        delete block.fallback?.assetPath;
+      });
+      expect(validate(target).join("\n")).toContain(
+        "fallback.assetPath is required",
+      );
+    } finally {
+      rmSync(target, { recursive: true, force: true });
+    }
+  });
+
+  it("rejects an accepted image item whose failure-report block is missing fallback.altText (test C)", () => {
+    const target = cloneTarget();
+    try {
+      const { queuePath, item, lessonSlug } = findItem(target, "image");
+      writeQueueItem(queuePath, baseAcceptedImageItem(item));
+
+      updateFailureReport(target, lessonSlug, (report) => {
+        const block = report.blocks.find(
+          (candidate) => candidate.id === item.issueId,
+        )!;
+        delete block.fallback?.altText;
+      });
+      expect(validate(target).join("\n")).toContain(
+        "fallback.altText is required",
       );
     } finally {
       rmSync(target, { recursive: true, force: true });
@@ -627,7 +835,13 @@ describe("accepted-with-limitation: negative cases", () => {
 describe("discussionPrompt", () => {
   const validPrompt: DiscussionPrompt = {
     classification: "discussion-prompt",
-    recordedBy: "Thầy Xuyên (Project Owner)",
+    // A declared TEACHER identity, deliberately not the Project Owner:
+    // discussionPrompt classification (unlike an accepted-with-limitation
+    // disposition, which is always an Owner decision) may be explicitly
+    // recorded by a teacher/author or the Owner. This proves the validator
+    // does not incorrectly require Project Owner identity for
+    // discussionPrompt.
+    recordedBy: "Giáo viên phụ trách (declared)",
     recordedDate: "2026-08-14",
     promptOrObjective:
       "Học sinh so sánh cách trình bày bảng gốc và bảng đã chuyển đổi.",
@@ -635,7 +849,7 @@ describe("discussionPrompt", () => {
     identityAssurance: "declared-not-authenticated",
   };
 
-  it("accepts a well-formed synthetic discussionPrompt on an otherwise-untouched legacy item (test 13)", () => {
+  it("accepts a well-formed synthetic discussionPrompt recorded by a declared teacher identity, on an otherwise-untouched legacy item (test 13)", () => {
     const target = cloneTarget();
     try {
       const { queuePath, item } = findItem(target, "table");
@@ -643,6 +857,46 @@ describe("discussionPrompt", () => {
       // they were; only discussionPrompt is added.
       writeQueueItem(queuePath, { ...item, discussionPrompt: validPrompt });
       expect(validate(target)).toEqual([]);
+    } finally {
+      rmSync(target, { recursive: true, force: true });
+    }
+  });
+
+  it("rejects a discussionPrompt that defines its own issueId, sourceId or sourceLocator (test D)", () => {
+    const target = cloneTarget();
+    try {
+      const { queuePath, item } = findItem(target, "table");
+
+      writeQueueItem(queuePath, {
+        ...item,
+        discussionPrompt: { ...validPrompt, issueId: "SOME-OTHER-ISSUE-ID" },
+      });
+      expect(validate(target).join("\n")).toContain(
+        "discussionPrompt must not define its own issueId",
+      );
+
+      writeQueueItem(queuePath, {
+        ...item,
+        discussionPrompt: { ...validPrompt, sourceId: "T99-S99" },
+      });
+      expect(validate(target).join("\n")).toContain(
+        "discussionPrompt must not define its own sourceId",
+      );
+
+      writeQueueItem(queuePath, {
+        ...item,
+        discussionPrompt: {
+          ...validPrompt,
+          sourceLocator: {
+            pathHint: "word/document.xml#body/p[1]",
+            sectionPath: "Phần I",
+            blockOrder: 1,
+          },
+        },
+      });
+      expect(validate(target).join("\n")).toContain(
+        "discussionPrompt must not define its own sourceLocator",
+      );
     } finally {
       rmSync(target, { recursive: true, force: true });
     }

@@ -201,7 +201,13 @@ converter-flagged issue for a lesson (P4.4). It is optional per lesson; a
 lesson without one is unaffected by this section.
 
 ```ts
-// Existing committed values as of P6-B1.3P (do not remove or rename):
+// Legacy values (do not remove or rename). All three statuses and
+// "reviewed-latex-mdx"/"reviewed-image-fallback"/null are in current
+// committed use; "remain-blocking" is an already-declared legacy-valid
+// choice (present in tests/content/remediation-queue.test.ts's own
+// VALID_REMEDIATION_CHOICES enum since before P6-B1.3P) with a current
+// committed queue usage count of zero — it remains preserved here for
+// backward compatibility, not because any committed item uses it today.
 type LegacyRemediationStatus = "pending-owner-review" | "applied" | "blocked";
 type LegacyRemediationChoice =
   | null
@@ -274,11 +280,21 @@ interface RemediationQueueItem {
   this status has no automatic effect on lesson `status`,
   `checks`, `approvedForPublish`, `publishWaiver`, or `published`. It is not
   a publication bypass.
-- The Owner's declared identity in a P6 remediation record (`decidedBy`,
-  `discussionPrompt.recordedBy`) is a **declared**, not
-  account-authenticated, identity — the same limitation the rest of P6
-  operates under until an authenticated teacher/owner session exists (see
-  ADR-0004 and the P3/Auth phase).
+- `ownerDecision.decidedBy` on an `accepted-with-limitation` item is always
+  the **project owner's** decision — this disposition is an Owner decision,
+  not a teacher/author one. Like every P6 identity field, it is a
+  **declared**, not account-authenticated, identity — the same limitation
+  the rest of P6 operates under until an authenticated teacher/owner session
+  exists (see ADR-0004 and the P3/Auth phase). See "Discussion prompt" below
+  for `discussionPrompt.recordedBy`, which is a separate field with a wider
+  set of eligible recorders.
+- The item's own `lessonSlug` and `topic` must equal the canonical lesson
+  currently being validated (the MDX/manifest lesson whose queue file this
+  is), and its `issueCode`/`kind` must equal the corresponding failure-report
+  block's — on top of the `issueId`/`sourceId`/`severity`/`message`/
+  `sourceLocator` consistency already required. An item that quietly
+  disagrees with its own lesson or with the failure report it claims to
+  describe is rejected exactly like a missing one.
 
 ### Choice semantics
 
@@ -303,9 +319,24 @@ items only):
   unchanged; no semantic alt text/accessibility/content remediation is
   implied.
 - `ownerDecision.altText`, `caption` and `reviewedLatex` must remain `null`.
-- `previewPath` must be a non-null existing fallback/preview asset path,
-  referenced from the canonical MDX (e.g. a `ChemFigure`'s `src`) and valid
-  under the existing hashed-asset checks above.
+- Locked to the *original* failure-evidence fallback, not merely to some
+  asset that happens to be referenced somewhere in the MDX: the
+  corresponding failure-report block must itself carry a `fallback` object;
+  `previewPath` must equal `fallback.assetPath` exactly; `fallback.altText`
+  must be a non-empty string; and the canonical MDX must contain one
+  `ChemFigure` whose `src` and `alt` **both** match that exact
+  `assetPath`/`altText` pair on the *same* element — a `src` that matches on
+  one `ChemFigure` and an `alt` that happens to match on a different one
+  does not count, and neither does a `previewPath` that points at some
+  *other* image that is also legitimately referenced elsewhere in the same
+  MDX. Attribute ordering and newlines inside the `ChemFigure` tag do not
+  affect this check.
+
+This locks `owner-accepted-visible-fallback` to the specific asset and alt
+text the converter's own failure report already recorded, not to any
+image/text pair an editor could substitute later — the whole point of this
+choice is "the Owner reviewed *this exact* fallback," not "some acceptable
+fallback exists somewhere in the lesson."
 
 Using either new choice for the other kind (e.g. `owner-accepted-visible-fallback`
 on a `table` item) is rejected. Extending either choice to a kind beyond its
@@ -314,15 +345,28 @@ amendment — this section intentionally does not generalize silently.
 
 ### Discussion prompt
 
-`discussionPrompt` is optional on any remediation item. Its provenance
-(`issueId`, `sourceId`, `sourceLocator`) is inherited from that same item —
-it does not introduce independent provenance. Presence of a well-formed
-`discussionPrompt` has no automatic effect on the item's `severity`/`status`,
-the lesson's QA checks, or publication state; it must never be generated
-automatically from a converter failure (it is always an explicit Owner
-action). `identityAssurance: "declared-not-authenticated"` records the same
-P6 declared-identity limitation as `OwnerDecision.decidedBy` above — this is
-not an authenticated teacher action.
+`discussionPrompt` is optional on any remediation item. It **may be
+explicitly recorded by a teacher/author, or by the Project Owner** — unlike
+an `accepted-with-limitation` disposition (always an Owner decision, see
+above), classifying an item as a discussion prompt is not Owner-exclusive.
+`recordedBy` is **declared provenance in P6**, not account-authenticated
+identity, whoever records it — the same P6 declared-identity limitation
+every identity field in this contract carries until an authenticated
+teacher/owner session exists (see ADR-0004 and the P3/Auth phase);
+`identityAssurance: "declared-not-authenticated"` records exactly this,
+truthfully, for whichever role actually recorded it.
+
+Its provenance (`issueId`, `sourceId`, `sourceLocator`) is inherited from
+that same item — it does not introduce independent provenance of its own.
+The validator rejects a `discussionPrompt` that carries its own `issueId`,
+`sourceId`, or `sourceLocator` field, since a second, possibly conflicting
+provenance on the same item would undermine the "inherits from its parent"
+guarantee this contract makes. A `discussionPrompt` must **never** be
+generated automatically by the converter or by a model from a converter
+failure; it is always an explicit human action (teacher/author or Owner),
+never inferred. Presence of a well-formed `discussionPrompt` has no
+automatic effect on the item's `severity`/`status`, the lesson's QA checks,
+or publication state.
 
 ## Amendments
 
