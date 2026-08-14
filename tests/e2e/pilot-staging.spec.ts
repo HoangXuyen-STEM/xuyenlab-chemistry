@@ -126,6 +126,64 @@ test.describe("pilot staging routes", () => {
     }
   });
 
+  test("keeps Topic 24's three warning-severity fallbacks visible with their exact issue IDs traceable", async ({
+    page,
+  }) => {
+    // Blocking-only coverage above cannot prove this: Topic 24 has 0
+    // blocking items, so its 3 warnings (1 table, 2 images) never produce a
+    // fallback Callout to match against. Trace each exact ID's own recorded
+    // evidence (asset path / source text) from the failure report straight
+    // through to the rendered DOM instead.
+    const report = readFailureReport(
+      "content/qa/import-reports/phan-bon-hoa-hoc.failure.json",
+    );
+    const targetIds = ["T24-S01:t6971", "T24-S01:i8191", "T24-S01:i0305"];
+    const blocksById = new Map(report.blocks.map((block) => [block.id, block]));
+    for (const id of targetIds) {
+      expect(blocksById.has(id), `${id} missing from the failure report`).toBe(
+        true,
+      );
+    }
+
+    await page.goto("/fixtures/pilot/chuyen-de-24/phan-bon-hoa-hoc");
+
+    // T24-S01:i8191 / T24-S01:i0305 — image fallbacks stay visible at their
+    // exact recorded content-addressed asset path.
+    for (const id of ["T24-S01:i8191", "T24-S01:i0305"]) {
+      const assetPath = blocksById.get(id)?.fallback?.assetPath;
+      expect(
+        assetPath,
+        `${id} has no recorded fallback.assetPath`,
+      ).toBeTruthy();
+      await expect(
+        page.locator(`figure img[src="${assetPath}"]`),
+        `${id}'s recorded asset must remain visible`,
+      ).toBeVisible();
+    }
+
+    // T24-S01:t6971 — the flattened table fallback has no asset path; prove
+    // it stays visible by checking the rendered table's text contains the
+    // failure report's own recorded source text for that exact ID
+    // (whitespace-normalized, since a table renders as a two-dimensional
+    // grid rather than the DOCX's single flat run of text).
+    const table = page.locator("table");
+    await expect(
+      table,
+      "T24-S01:t6971's table must remain visible",
+    ).toBeVisible();
+    const recordedText =
+      blocksById.get("T24-S01:t6971")?.sourceLocator?.textAnchor;
+    expect(
+      recordedText,
+      "T24-S01:t6971 has no recorded sourceLocator.textAnchor",
+    ).toBeTruthy();
+    const tableText = normalizeWhitespace(await table.innerText());
+    expect(
+      tableText,
+      "rendered table text must contain T24-S01:t6971's recorded source text",
+    ).toContain(normalizeWhitespace(recordedText!));
+  });
+
   test("hides staging controls but retains lesson content in print media", async ({
     page,
   }) => {
@@ -269,8 +327,30 @@ function readRemediationQueue(relativePath: string): RemediationQueueEntry[] {
   ) as RemediationQueueEntry[];
 }
 
+function readFailureReport(relativePath: string): FailureReport {
+  return JSON.parse(
+    readFileSync(path.join(process.cwd(), relativePath), "utf8"),
+  ) as FailureReport;
+}
+
+function normalizeWhitespace(value: string): string {
+  // The recorded sourceLocator.textAnchor concatenates DOCX cell text with no
+  // separator at all, while the rendered table naturally inserts whitespace
+  // at cell/row boundaries; strip all whitespace on both sides rather than
+  // collapsing it, so the comparison is insensitive to that reflow.
+  return value.replace(/\s+/gu, "");
+}
+
 interface RemediationQueueEntry {
   issueId: string;
   severity: "blocking" | "warning";
   status: "applied" | "blocked" | "pending-owner-review";
+}
+
+interface FailureReport {
+  blocks: Array<{
+    fallback?: { assetPath?: string };
+    id: string;
+    sourceLocator?: { textAnchor?: string };
+  }>;
 }
