@@ -28,6 +28,9 @@ REQUIRED_SCALARS = {
 SLUG = re.compile(r"^[a-z0-9]+(?:-[a-z0-9]+)*$")
 TOPIC = re.compile(r"^chuyen-de-(?:0[1-9]|1\d|2[0-6])$")
 HASHED_ASSET = re.compile(r"^/staging-assets/lessons/([0-9a-f]{2})/([0-9a-f]{64})(\.[a-z0-9]+)$")
+# P6-B1.0: bumped from "1.0.0" when publicationStatus moved from manifest-wide
+# to per-lesson. A stale/missing value means the manifest predates that schema.
+MANIFEST_VERSION = "1.1.0"
 QA_CHECKS = {
     "scopePartIOnly",
     "chemistryVerified",
@@ -200,6 +203,11 @@ def validate(root: Path) -> list[str]:
         errors.append(
             "pilot manifest publicationStatus is deprecated by P6-B1.0; remove it "
             "and set status per lesson entry instead"
+        )
+    if manifest.get("manifestVersion") != MANIFEST_VERSION:
+        errors.append(
+            f"pilot manifest manifestVersion must be {MANIFEST_VERSION!r}, got "
+            f"{manifest.get('manifestVersion')!r}"
         )
 
     seen_slugs: set[str] = set()

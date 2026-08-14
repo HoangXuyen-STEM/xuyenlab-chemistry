@@ -570,6 +570,80 @@ test("P6-B1.0: manifest lessons can hold different lifecycle statuses at once", 
     expect(validate(target).join("\n")).toContain(
       "pilot manifest publicationStatus is deprecated by P6-B1.0",
     );
+
+    // Negative: a stale/missing manifestVersion is rejected outright.
+    delete (manifest as { publicationStatus?: string }).publicationStatus;
+    (manifest as unknown as { manifestVersion: string }).manifestVersion =
+      "1.0.0";
+    writeFileSync(manifestPath, `${JSON.stringify(manifest, null, 2)}\n`);
+    expect(validate(target).join("\n")).toContain(
+      "pilot manifest manifestVersion must be '1.1.0'",
+    );
+  } finally {
+    rmSync(target, { recursive: true, force: true });
+  }
+}, 30_000);
+
+test("P6-B1.0 safeguard: importer refuses to run against an in_review baseline, writing nothing", () => {
+  const target = mkdtempSync(path.join(tmpdir(), "xuyenlab-p6-b1-0-guard-"));
+  try {
+    expect(run(importer, ["--target-root", target]).status).toBe(0);
+    const manifestPath = path.join(
+      target,
+      "content/pilot-staging-manifest.json",
+    );
+    const manifest = readJson(manifestPath) as PilotManifest;
+
+    // Promote both lessons to a QA-signed in_review baseline, matching the
+    // real committed manifest today.
+    for (const lesson of manifest.lessons) {
+      lesson.status = "in_review";
+      const mdxPath = path.join(target, lesson.mdxPath);
+      writeFileSync(
+        mdxPath,
+        readFileSync(mdxPath, "utf8").replace(
+          "status: draft",
+          "status: in_review",
+        ),
+      );
+      lesson.mdxSha256 = sha256(mdxPath);
+
+      const qaPath = path.join(target, lesson.qaPath);
+      const qa = readJson(qaPath) as QaRecord;
+      qa.reviewer = "Project owner";
+      qa.reviewedAt = "2026-08-13T12:00:00+07:00";
+      for (const check of Object.keys(qa.checks)) qa.checks[check] = true;
+      writeFileSync(qaPath, `${JSON.stringify(qa, null, 2)}\n`);
+      lesson.qaSha256 = sha256(qaPath);
+    }
+    writeFileSync(manifestPath, `${JSON.stringify(manifest, null, 2)}\n`);
+    expect(validate(target)).toEqual([]);
+
+    const managedPaths = [
+      manifestPath,
+      ...manifest.lessons.flatMap((lesson) => [
+        path.join(target, lesson.mdxPath),
+        path.join(target, lesson.qaPath),
+      ]),
+    ];
+    const before = managedPaths.map((filePath) => sha256(filePath));
+
+    const refused = run(importer, ["--target-root", target]);
+    expect(refused.status).not.toBe(0);
+    expect(refused.stderr).toContain("in_review");
+    expect(managedPaths.map((filePath) => sha256(filePath))).toEqual(before);
+
+    // --force must not bypass this guard either.
+    const refusedWithForce = run(importer, [
+      "--target-root",
+      target,
+      "--force",
+      "--backup-dir",
+      path.join(target, "backup-attempt"),
+    ]);
+    expect(refusedWithForce.status).not.toBe(0);
+    expect(refusedWithForce.stderr).toContain("in_review");
+    expect(managedPaths.map((filePath) => sha256(filePath))).toEqual(before);
   } finally {
     rmSync(target, { recursive: true, force: true });
   }
