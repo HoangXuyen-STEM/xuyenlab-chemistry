@@ -14,6 +14,7 @@ const manifest: PilotLessonManifestEntry = {
   sourcePath: "6. Chuyen de 6. Dong hoa hoc.ok.docx",
   blockingCount: 96,
   warningCount: 3,
+  status: "in_review",
 };
 
 describe("PilotLessonShell", () => {

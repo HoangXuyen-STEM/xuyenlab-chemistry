@@ -190,14 +190,19 @@ def build_outputs() -> tuple[dict[str, bytes], dict[str, Any]]:
                     "qaPath": qa_path,
                     "blockingCount": report["summary"]["blockingCount"],
                     "warningCount": report["summary"]["warningCount"],
+                    # P6-B1.0: lifecycle status is per lesson, not manifest-wide, so
+                    # this importer's own fresh regeneration never clobbers a lesson
+                    # another process has already promoted to in_review. A rerun that
+                    # would otherwise touch an already-promoted lesson still requires
+                    # --force/--backup-dir via the existing drift check below.
+                    "status": "draft",
                 }
             )
 
     manifest = {
-        "manifestVersion": "1.0.0",
+        "manifestVersion": "1.1.0",
         "strategy": "hybrid",
         "scope": "Part I only",
-        "publicationStatus": "draft",
         "lessons": lessons,
         "assets": [dict(path=path, **metadata) for path, metadata in sorted(assets.items())],
     }

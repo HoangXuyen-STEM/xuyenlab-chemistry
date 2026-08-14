@@ -189,11 +189,18 @@ def validate(root: Path) -> list[str]:
     if not staging_manifest_path.is_file():
         return [f"missing {staging_manifest_path.relative_to(root)}"]
     manifest = read_json(staging_manifest_path)
-    manifest_status = manifest.get("publicationStatus")
     if manifest.get("strategy") != "hybrid":
         errors.append("pilot manifest must declare hybrid strategy")
-    if manifest_status not in {"draft", "in_review"}:
-        errors.append("pilot manifest status must be draft or in_review")
+    # P6-B1.0: lifecycle status moved from one manifest-wide field to a per-lesson
+    # `status` field (see docs/contracts/content.md "Staging manifest"), so lessons
+    # can coexist at different stages (e.g. existing in_review pilots alongside a
+    # newly imported draft). A manifest still carrying the old field is rejected
+    # loudly rather than silently ignored, so an unmigrated file fails clearly.
+    if "publicationStatus" in manifest:
+        errors.append(
+            "pilot manifest publicationStatus is deprecated by P6-B1.0; remove it "
+            "and set status per lesson entry instead"
+        )
 
     seen_slugs: set[str] = set()
     seen_orders: set[tuple[str, int]] = set()
@@ -243,10 +250,6 @@ def validate(root: Path) -> list[str]:
             errors.append(f"{relative}: invalid status {status!r}")
         if status == "published":
             errors.append(f"{relative}: P4 validator rejects published content")
-        if status != manifest_status:
-            errors.append(
-                f"{relative}: status {status!r} differs from pilot manifest {manifest_status!r}"
-            )
         if not source_refs:
             errors.append(f"{relative}: sourceFiles must not be empty")
         for reference in source_refs:
@@ -262,6 +265,17 @@ def validate(root: Path) -> list[str]:
         if lesson is None:
             errors.append(f"{relative}: absent from pilot staging manifest")
             continue
+        lesson_status = lesson.get("status")
+        if lesson_status not in {"draft", "in_review"}:
+            errors.append(
+                f"{relative}: manifest lesson entry has missing or invalid status "
+                f"{lesson_status!r} (must be draft or in_review)"
+            )
+        elif status != lesson_status:
+            errors.append(
+                f"{relative}: status {status!r} differs from its manifest lesson "
+                f"status {lesson_status!r}"
+            )
         if sha256(path) != lesson.get("mdxSha256"):
             errors.append(f"{relative}: MDX hash drift")
         report_path = root / lesson["failureReportPath"]
@@ -295,7 +309,7 @@ def validate(root: Path) -> list[str]:
                     )
                 else:
                     errors.extend(validate_publish_waiver(qa, relative, root))
-            if manifest_status == "in_review":
+            if lesson_status == "in_review":
                 if not isinstance(qa.get("reviewer"), str) or not qa["reviewer"].strip():
                     errors.append(f"{relative}: in_review QA requires a reviewer")
                 if not is_iso_8601(qa.get("reviewedAt")):

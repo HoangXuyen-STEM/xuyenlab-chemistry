@@ -123,7 +123,7 @@ test("validator exposes every required pilot failure class", () => {
 
     writeFileSync(mdxPath, mdx.replace("status: draft", "status: in_review"));
     expect(validate(target).join("\n")).toContain(
-      "differs from pilot manifest 'draft'",
+      "differs from its manifest lesson status 'draft'",
     );
 
     writeFileSync(mdxPath, mdx.replace(blockingId!, "REMOVED-BLOCKING-ID"));
@@ -168,9 +168,8 @@ test("validator accepts a consistently signed in_review pilot with visible block
       "content/pilot-staging-manifest.json",
     );
     const manifest = readJson(manifestPath) as PilotManifest;
-    manifest.publicationStatus = "in_review";
-
     for (const lesson of manifest.lessons) {
+      lesson.status = "in_review";
       const mdxPath = path.join(target, lesson.mdxPath);
       writeFileSync(
         mdxPath,
@@ -208,9 +207,8 @@ test("validator rejects unsigned or incomplete in_review QA", () => {
       "content/pilot-staging-manifest.json",
     );
     const manifest = readJson(manifestPath) as PilotManifest;
-    manifest.publicationStatus = "in_review";
-
     for (const lesson of manifest.lessons) {
+      lesson.status = "in_review";
       const mdxPath = path.join(target, lesson.mdxPath);
       writeFileSync(
         mdxPath,
@@ -241,9 +239,8 @@ test("validator permits approvedForPublish:true only for the P6 owner-approved p
       "content/pilot-staging-manifest.json",
     );
     const manifest = readJson(manifestPath) as PilotManifest;
-    manifest.publicationStatus = "in_review";
-
     for (const lesson of manifest.lessons) {
+      lesson.status = "in_review";
       const mdxPath = path.join(target, lesson.mdxPath);
       writeFileSync(
         mdxPath,
@@ -341,9 +338,8 @@ test("validator enforces a well-formed publishWaiver whenever approvedForPublish
       "content/pilot-staging-manifest.json",
     );
     const manifest = readJson(manifestPath) as PilotManifest;
-    manifest.publicationStatus = "in_review";
-
     for (const lesson of manifest.lessons) {
+      lesson.status = "in_review";
       const mdxPath = path.join(target, lesson.mdxPath);
       writeFileSync(
         mdxPath,
@@ -513,6 +509,72 @@ test("validator enforces a well-formed publishWaiver whenever approvedForPublish
   }
 }, 30_000);
 
+test("P6-B1.0: manifest lessons can hold different lifecycle statuses at once", () => {
+  const target = mkdtempSync(path.join(tmpdir(), "xuyenlab-p6-b1-0-status-"));
+  try {
+    expect(run(importer, ["--target-root", target]).status).toBe(0);
+    const manifestPath = path.join(
+      target,
+      "content/pilot-staging-manifest.json",
+    );
+    const manifest = readJson(manifestPath) as PilotManifest;
+
+    // A fresh import writes every lesson at draft, per-lesson, and validates
+    // clean with no manifest-wide status field at all.
+    expect(manifest.lessons.every((lesson) => lesson.status === "draft")).toBe(
+      true,
+    );
+    expect(validate(target)).toEqual([]);
+
+    // Promote only the second lesson to in_review; the first stays draft. This
+    // is the core P6-B1.0 proof: one manifest, two lessons, two different
+    // lifecycle stages, both valid at once.
+    const [draftLesson, promotedLesson] = manifest.lessons;
+    promotedLesson.status = "in_review";
+    const mdxPath = path.join(target, promotedLesson.mdxPath);
+    writeFileSync(
+      mdxPath,
+      readFileSync(mdxPath, "utf8").replace(
+        "status: draft",
+        "status: in_review",
+      ),
+    );
+    promotedLesson.mdxSha256 = sha256(mdxPath);
+
+    const qaPath = path.join(target, promotedLesson.qaPath);
+    const qa = readJson(qaPath) as QaRecord;
+    qa.reviewer = "Project owner";
+    qa.reviewedAt = "2026-08-13T12:00:00+07:00";
+    for (const check of Object.keys(qa.checks)) qa.checks[check] = true;
+    writeFileSync(qaPath, `${JSON.stringify(qa, null, 2)}\n`);
+    promotedLesson.qaSha256 = sha256(qaPath);
+    writeFileSync(manifestPath, `${JSON.stringify(manifest, null, 2)}\n`);
+
+    expect(validate(target)).toEqual([]);
+    expect(draftLesson.status).toBe("draft");
+
+    // Negative: a manifest lesson entry with a missing/invalid status fails
+    // clearly instead of being silently treated as a default.
+    delete (draftLesson as { status?: string }).status;
+    writeFileSync(manifestPath, `${JSON.stringify(manifest, null, 2)}\n`);
+    expect(validate(target).join("\n")).toContain(
+      "manifest lesson entry has missing or invalid status",
+    );
+
+    // Negative: a stale manifest-wide publicationStatus field (the pre-P6-B1.0
+    // shape) is rejected outright rather than silently misread.
+    draftLesson.status = "draft";
+    (manifest as unknown as { publicationStatus: string }).publicationStatus =
+      "in_review";
+    writeFileSync(manifestPath, `${JSON.stringify(manifest, null, 2)}\n`);
+    expect(validate(target).join("\n")).toContain(
+      "pilot manifest publicationStatus is deprecated by P6-B1.0",
+    );
+  } finally {
+    rmSync(target, { recursive: true, force: true });
+  }
+}, 30_000);
+
 function run(script: string, args: string[]) {
   return spawnSync("python3", [script, ...args], {
     cwd: repoRoot,
@@ -535,7 +597,6 @@ function readJson(filePath: string): unknown {
 }
 
 interface PilotManifest {
-  publicationStatus: "draft" | "in_review";
   lessons: Array<{
     sourceId: string;
     mdxPath: string;
@@ -544,6 +605,7 @@ interface PilotManifest {
     mdxSha256: string;
     qaPath: string;
     qaSha256: string;
+    status: "draft" | "in_review";
   }>;
   assets: Array<{ path: string; sha256: string }>;
 }

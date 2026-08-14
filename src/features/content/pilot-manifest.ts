@@ -12,10 +12,10 @@ export interface PilotLessonManifestEntry {
   sourcePath: string;
   blockingCount: number;
   warningCount: number;
+  status: "draft" | "in_review";
 }
 
 interface PilotStagingManifest {
-  publicationStatus: string;
   scope: string;
   lessons: PilotLessonManifestEntry[];
 }
@@ -41,5 +41,4 @@ export function listPilotLessonManifests(): PilotLessonManifestEntry[] {
   return manifest.lessons;
 }
 
-export const pilotPublicationStatus = manifest.publicationStatus;
 export const pilotScope = manifest.scope;

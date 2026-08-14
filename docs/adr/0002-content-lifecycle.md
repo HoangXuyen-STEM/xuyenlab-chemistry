@@ -32,3 +32,16 @@ The repository contains 49 Word files and two derivative HTML files with substan
 - Full auto-publish after conversion: unacceptable chemical and formatting risk.
 - PDF as canonical content: poor accessibility, searchability and maintainability.
 
+## Amendments
+
+- **P6-B1.0 (2026-08-14):** "Every lesson moves through `draft → in_review →
+  published`" was always meant per lesson, but the P4 staging-manifest
+  implementation enforced one shared `publicationStatus` for every lesson in
+  `content/pilot-staging-manifest.json` at once. That was fine with exactly two
+  pilots moved in lockstep, but cannot represent a new batch's lessons entering
+  at `draft` while earlier lessons remain `in_review` — required before Phase 6
+  content batches can be imported. Fixed by moving lifecycle status to a
+  per-lesson field; no change to the lifecycle stages themselves or to who may
+  advance a lesson through them. See `docs/contracts/content.md` "Staging
+  manifest" and `docs/handoffs/P6/P6-B1.0-claude.md`.
+
