@@ -1,6 +1,8 @@
 import { cleanup, render, screen } from "@testing-library/react";
 import { afterEach, describe, expect, it } from "vitest";
 
+import manifestJson from "../../../../content/pilot-staging-manifest.json";
+
 import { LibraryFixture, type FixtureState } from "./LibraryFixture";
 import { loadPilotLibrary } from "./library";
 
@@ -10,8 +12,11 @@ describe("P5 LibraryFixture", () => {
   it("renders populated pilot cards without account controls", () => {
     renderFixture("populated");
 
-    expect(screen.getAllByText("in_review")).toHaveLength(2);
-    expect(screen.getAllByText(/QA chưa xử lý/u)).toHaveLength(2);
+    const inReviewCount = manifestJson.lessons.filter(
+      (lesson) => lesson.status === "in_review",
+    ).length;
+    expect(screen.getAllByText("in_review")).toHaveLength(inReviewCount);
+    expect(screen.getAllByText(/QA chưa xử lý/u)).toHaveLength(inReviewCount);
     expect(
       screen.queryByRole("link", { name: /đăng nhập/iu }),
     ).not.toBeInTheDocument();

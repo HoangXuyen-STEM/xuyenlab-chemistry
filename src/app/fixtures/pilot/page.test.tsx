@@ -1,6 +1,8 @@
 import { cleanup, render, screen, within } from "@testing-library/react";
 import { afterEach, describe, expect, it } from "vitest";
 
+import manifestJson from "../../../../content/pilot-staging-manifest.json";
+
 import PilotIndexPage from "./page";
 
 afterEach(cleanup);
@@ -28,35 +30,48 @@ describe("PilotIndexPage", () => {
     ).toHaveAttribute("href", "/fixtures/pilot/chuyen-de-24/phan-bon-hoa-hoc");
   });
 
-  it("shows the staging banner, QA counts and each lesson's own status", () => {
+  it("shows the staging banner, QA counts and each manifest lesson's status", () => {
     render(<PilotIndexPage />);
 
     expect(screen.getByText(/BẢN NHÁP PILOT/)).toBeInTheDocument();
     expect(screen.getAllByText(/mục chặn/).length).toBeGreaterThan(0);
-    // Regression: the manifest now holds lessons at different lifecycle
-    // stages (in_review pilots + a draft T24); the index must show each
-    // lesson's real status rather than assuming they all match.
-    const statuses = screen
-      .getAllByTestId("lesson-status")
-      .map((node) => node.textContent);
-    expect(statuses.filter((status) => status === "in_review")).toHaveLength(2);
-    expect(statuses.filter((status) => status === "draft")).toHaveLength(1);
+    for (const lesson of manifestJson.lessons) {
+      const card = screen
+        .getByRole("link", { name: lesson.slug })
+        .closest("li");
+      expect(card).not.toBeNull();
+      expect(within(card!).getByTestId("lesson-status").textContent).toBe(
+        lesson.status,
+      );
+    }
   });
 
-  it("labels Topic 24 specifically as draft, not just any card", () => {
+  it("labels Topic 24 specifically with its own manifest status, not just any card", () => {
     render(<PilotIndexPage />);
 
-    // Regression: the aggregate count above proves exactly one "draft" badge
-    // exists, but not which card it belongs to. Bind it explicitly to
-    // Topic 24's own card so a future lesson swap can't accidentally satisfy
-    // the count while mislabeling which lesson is actually draft.
+    // Regression: the aggregate loop above proves every card shows SOME
+    // status, but not that a specific card shows its OWN status. Bind this
+    // explicitly to Topic 24's own card so a future lesson swap can't
+    // accidentally satisfy the loop while mislabeling this one lesson —
+    // without assuming what that status currently is (draft today,
+    // in_review once P6-B1.4 promotes it for real).
+    const topic24Entry = manifestJson.lessons.find(
+      (lesson) => lesson.slug === "phan-bon-hoa-hoc",
+    );
+    expect(topic24Entry).toBeDefined();
+
     const phanBonCard = screen
       .getByRole("link", { name: "phan-bon-hoa-hoc" })
       .closest("li");
     expect(phanBonCard).not.toBeNull();
     expect(within(phanBonCard!).getByTestId("lesson-status").textContent).toBe(
-      "draft",
+      topic24Entry!.status,
     );
+
+    const dongHoaHocEntry = manifestJson.lessons.find(
+      (lesson) => lesson.slug === "dong-hoa-hoc",
+    );
+    expect(dongHoaHocEntry).toBeDefined();
 
     const dongHoaHocCard = screen
       .getByRole("link", { name: "dong-hoa-hoc" })
@@ -64,6 +79,6 @@ describe("PilotIndexPage", () => {
     expect(dongHoaHocCard).not.toBeNull();
     expect(
       within(dongHoaHocCard!).getByTestId("lesson-status").textContent,
-    ).toBe("in_review");
+    ).toBe(dongHoaHocEntry!.status);
   });
 });

@@ -1,4 +1,4 @@
-import { readFileSync } from "node:fs";
+import { readFileSync, realpathSync } from "node:fs";
 import path from "node:path";
 
 import { topics } from "../../../../content/topics";
@@ -21,12 +21,16 @@ export interface PilotLibraryLesson {
   href: string;
 }
 
-interface ManifestLesson {
+export interface ManifestLesson {
   mdxPath: string;
   qaPath: string;
   slug: string;
   topic: string;
   status: "draft" | "in_review";
+}
+
+export interface PilotLibraryManifest {
+  lessons: ManifestLesson[];
 }
 
 interface QaRecord {
@@ -144,20 +148,23 @@ export function parsePilotFrontmatter(
  * (see docs/contracts/content.md "Staging manifest").
  */
 export function loadPilotLibrary(
-  manifest: { lessons: ManifestLesson[] } = manifestJson as {
-    lessons: ManifestLesson[];
-  },
+  manifest: PilotLibraryManifest = manifestJson as PilotLibraryManifest,
+  readFile: (
+    repositoryPath: string,
+    allowedPaths: ReadonlySet<string>,
+  ) => string = readRepositoryFile,
 ): PilotLibraryLesson[] {
+  const allowedPaths = validateManifestLessons(manifest);
   const inReviewLessons = manifest.lessons.filter(
     (entry) => entry.status === "in_review",
   );
 
   return inReviewLessons.map((entry) => {
     const frontmatter = parsePilotFrontmatter(
-      readRepositoryFile(entry.mdxPath),
+      readFile(entry.mdxPath, allowedPaths),
       entry.mdxPath,
     );
-    const qa = JSON.parse(readRepositoryFile(entry.qaPath)) as QaRecord;
+    const qa = JSON.parse(readFile(entry.qaPath, allowedPaths)) as QaRecord;
     const topic = topics.find(
       (candidate) => candidate.slug === frontmatter.topic,
     );
@@ -196,42 +203,106 @@ export function loadPilotLibrary(
   });
 }
 
-function readRepositoryFile(repositoryPath: string): string {
-  const readers: Record<string, () => string> = {
-    "content/topics/chuyen-de-06/dong-hoa-hoc.mdx": () =>
-      readFileSync(
-        path.join(
-          process.cwd(),
-          "content/topics/chuyen-de-06/dong-hoa-hoc.mdx",
-        ),
-        "utf8",
-      ),
-    "content/topics/chuyen-de-08/dung-dich-va-can-bang-hoa-hoc.mdx": () =>
-      readFileSync(
-        path.join(
-          process.cwd(),
-          "content/topics/chuyen-de-08/dung-dich-va-can-bang-hoa-hoc.mdx",
-        ),
-        "utf8",
-      ),
-    "content/qa/pending/dong-hoa-hoc.json": () =>
-      readFileSync(
-        path.join(process.cwd(), "content/qa/pending/dong-hoa-hoc.json"),
-        "utf8",
-      ),
-    "content/qa/pending/dung-dich-va-can-bang-hoa-hoc.json": () =>
-      readFileSync(
-        path.join(
-          process.cwd(),
-          "content/qa/pending/dung-dich-va-can-bang-hoa-hoc.json",
-        ),
-        "utf8",
-      ),
-  };
-  const read = readers[repositoryPath];
-  if (!read)
+function validateManifestLessons(manifest: PilotLibraryManifest): Set<string> {
+  if (!Array.isArray(manifest.lessons)) {
+    throw new Error("Manifest staging có lessons không hợp lệ.");
+  }
+
+  const allowedPaths = new Set<string>();
+  for (const entry of manifest.lessons) {
+    if (
+      !isManifestLesson(entry) ||
+      !/^chuyen-de-\d{2}$/u.test(entry.topic) ||
+      !/^[a-z0-9]+(?:-[a-z0-9]+)*$/u.test(entry.slug)
+    ) {
+      throw new Error("Manifest staging có lesson không hợp lệ.");
+    }
+
+    const expectedMdxPath = `content/topics/${entry.topic}/${entry.slug}.mdx`;
+    const expectedQaPath = `content/qa/pending/${entry.slug}.json`;
+    if (entry.mdxPath !== expectedMdxPath || entry.qaPath !== expectedQaPath) {
+      throw new Error(`${entry.slug}: đường dẫn manifest không an toàn.`);
+    }
+    if (allowedPaths.has(entry.mdxPath) || allowedPaths.has(entry.qaPath)) {
+      throw new Error(`${entry.slug}: đường dẫn manifest bị trùng.`);
+    }
+
+    allowedPaths.add(entry.mdxPath);
+    allowedPaths.add(entry.qaPath);
+  }
+
+  return allowedPaths;
+}
+
+function isManifestLesson(value: unknown): value is ManifestLesson {
+  if (!value || typeof value !== "object") return false;
+  const entry = value as Record<string, unknown>;
+  return (
+    typeof entry.mdxPath === "string" &&
+    typeof entry.qaPath === "string" &&
+    typeof entry.slug === "string" &&
+    typeof entry.topic === "string" &&
+    (entry.status === "draft" || entry.status === "in_review")
+  );
+}
+
+/**
+ * Resolves `repositoryPath` against `repositoryRoot` and confirms containment
+ * twice: once lexically (`path.relative` on the unresolved path, catching
+ * plain `../` traversal), and once again on the filesystem's *real* path
+ * (`fs.realpathSync`, following any symlink). The lexical check alone would
+ * accept a path like `content/topics/chuyen-de-99/x.mdx` that lexically sits
+ * inside the repo but is actually a symlink pointing outside it — the
+ * realpath check is what actually catches that. Exported so this exact
+ * containment logic (not a test double standing in for it) can be exercised
+ * directly with a disposable temp root, including a real symlink escape.
+ */
+export function resolveRepositoryFilePath(
+  repositoryPath: string,
+  repositoryRoot: string = path.resolve(process.cwd()),
+): string {
+  const resolvedLexicalRoot = path.resolve(repositoryRoot);
+  const lexicalPath = path.resolve(resolvedLexicalRoot, repositoryPath);
+  const relativeLexicalPath = path.relative(resolvedLexicalRoot, lexicalPath);
+  if (
+    relativeLexicalPath === "" ||
+    relativeLexicalPath.startsWith(`..${path.sep}`) ||
+    path.isAbsolute(relativeLexicalPath)
+  ) {
     throw new Error(`Đường dẫn fixture không an toàn: ${repositoryPath}`);
-  return read();
+  }
+
+  let realRoot: string;
+  let realPath: string;
+  try {
+    realRoot = realpathSync(resolvedLexicalRoot);
+    realPath = realpathSync(lexicalPath);
+  } catch {
+    throw new Error(`Đường dẫn fixture không tồn tại: ${repositoryPath}`);
+  }
+  const relativeRealPath = path.relative(realRoot, realPath);
+  if (
+    relativeRealPath === "" ||
+    relativeRealPath.startsWith(`..${path.sep}`) ||
+    path.isAbsolute(relativeRealPath)
+  ) {
+    throw new Error(
+      `Đường dẫn fixture thoát khỏi repository qua symlink: ${repositoryPath}`,
+    );
+  }
+
+  return realPath;
+}
+
+function readRepositoryFile(
+  repositoryPath: string,
+  allowedPaths: ReadonlySet<string>,
+): string {
+  if (!allowedPaths.has(repositoryPath)) {
+    throw new Error(`Đường dẫn fixture không an toàn: ${repositoryPath}`);
+  }
+
+  return readFileSync(resolveRepositoryFilePath(repositoryPath), "utf8");
 }
 
 function unquote(value: string): string {

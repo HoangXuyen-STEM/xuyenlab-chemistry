@@ -1,12 +1,16 @@
+import { readFileSync } from "node:fs";
+import path from "node:path";
+
 import { describe, expect, it } from "vitest";
 
 import {
   getPilotLessonManifest,
   listPilotLessonManifests,
+  type PilotLessonManifestEntry,
 } from "./pilot-manifest";
 
 describe("pilot manifest", () => {
-  it("lists the two pilots and the Topic 24 draft", () => {
+  it("lists all three manifest lessons", () => {
     const lessons = listPilotLessonManifests();
     expect(lessons).toHaveLength(3);
   });
@@ -32,16 +36,23 @@ describe("pilot manifest", () => {
     expect(() => getPilotLessonManifest("chuyen-de-99", "unknown")).toThrow();
   });
 
-  it("reports each pilot lesson's own lifecycle status", () => {
-    expect(getPilotLessonManifest("chuyen-de-06", "dong-hoa-hoc").status).toBe(
-      "in_review",
-    );
-    expect(
-      getPilotLessonManifest("chuyen-de-08", "dung-dich-va-can-bang-hoa-hoc")
-        .status,
-    ).toBe("in_review");
-    expect(
-      getPilotLessonManifest("chuyen-de-24", "phan-bon-hoa-hoc").status,
-    ).toBe("draft");
+  it("reports each pilot lesson's own lifecycle status, matching the real manifest", () => {
+    // Derives expectations from the real manifest file rather than
+    // hardcoding a status per slug, so this stays valid whichever lifecycle
+    // stage each lesson is currently at (e.g. once P6-B1.4 promotes Topic 24
+    // from draft to in_review for real).
+    const manifest = JSON.parse(
+      readFileSync(
+        path.join(process.cwd(), "content/pilot-staging-manifest.json"),
+        "utf8",
+      ),
+    ) as { lessons: PilotLessonManifestEntry[] };
+    expect(manifest.lessons.length).toBeGreaterThan(0);
+
+    for (const entry of manifest.lessons) {
+      expect(getPilotLessonManifest(entry.topic, entry.slug).status).toBe(
+        entry.status,
+      );
+    }
   });
 });
