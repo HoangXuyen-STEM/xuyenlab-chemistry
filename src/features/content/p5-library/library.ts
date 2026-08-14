@@ -1,4 +1,4 @@
-import { readFileSync } from "node:fs";
+import { readFileSync, realpathSync } from "node:fs";
 import path from "node:path";
 
 import { topics } from "../../../../content/topics";
@@ -246,6 +246,54 @@ function isManifestLesson(value: unknown): value is ManifestLesson {
   );
 }
 
+/**
+ * Resolves `repositoryPath` against `repositoryRoot` and confirms containment
+ * twice: once lexically (`path.relative` on the unresolved path, catching
+ * plain `../` traversal), and once again on the filesystem's *real* path
+ * (`fs.realpathSync`, following any symlink). The lexical check alone would
+ * accept a path like `content/topics/chuyen-de-99/x.mdx` that lexically sits
+ * inside the repo but is actually a symlink pointing outside it — the
+ * realpath check is what actually catches that. Exported so this exact
+ * containment logic (not a test double standing in for it) can be exercised
+ * directly with a disposable temp root, including a real symlink escape.
+ */
+export function resolveRepositoryFilePath(
+  repositoryPath: string,
+  repositoryRoot: string = path.resolve(process.cwd()),
+): string {
+  const resolvedLexicalRoot = path.resolve(repositoryRoot);
+  const lexicalPath = path.resolve(resolvedLexicalRoot, repositoryPath);
+  const relativeLexicalPath = path.relative(resolvedLexicalRoot, lexicalPath);
+  if (
+    relativeLexicalPath === "" ||
+    relativeLexicalPath.startsWith(`..${path.sep}`) ||
+    path.isAbsolute(relativeLexicalPath)
+  ) {
+    throw new Error(`Đường dẫn fixture không an toàn: ${repositoryPath}`);
+  }
+
+  let realRoot: string;
+  let realPath: string;
+  try {
+    realRoot = realpathSync(resolvedLexicalRoot);
+    realPath = realpathSync(lexicalPath);
+  } catch {
+    throw new Error(`Đường dẫn fixture không tồn tại: ${repositoryPath}`);
+  }
+  const relativeRealPath = path.relative(realRoot, realPath);
+  if (
+    relativeRealPath === "" ||
+    relativeRealPath.startsWith(`..${path.sep}`) ||
+    path.isAbsolute(relativeRealPath)
+  ) {
+    throw new Error(
+      `Đường dẫn fixture thoát khỏi repository qua symlink: ${repositoryPath}`,
+    );
+  }
+
+  return realPath;
+}
+
 function readRepositoryFile(
   repositoryPath: string,
   allowedPaths: ReadonlySet<string>,
@@ -254,18 +302,7 @@ function readRepositoryFile(
     throw new Error(`Đường dẫn fixture không an toàn: ${repositoryPath}`);
   }
 
-  const repositoryRoot = path.resolve(process.cwd());
-  const resolvedPath = path.resolve(repositoryRoot, repositoryPath);
-  const relativePath = path.relative(repositoryRoot, resolvedPath);
-  if (
-    relativePath === "" ||
-    relativePath.startsWith(`..${path.sep}`) ||
-    path.isAbsolute(relativePath)
-  ) {
-    throw new Error(`Đường dẫn fixture không an toàn: ${repositoryPath}`);
-  }
-
-  return readFileSync(resolvedPath, "utf8");
+  return readFileSync(resolveRepositoryFilePath(repositoryPath), "utf8");
 }
 
 function unquote(value: string): string {
