@@ -1,4 +1,4 @@
-import { cleanup, render, screen } from "@testing-library/react";
+import { cleanup, render, screen, within } from "@testing-library/react";
 import { afterEach, describe, expect, it } from "vitest";
 
 import PilotIndexPage from "./page";
@@ -41,5 +41,29 @@ describe("PilotIndexPage", () => {
       .map((node) => node.textContent);
     expect(statuses.filter((status) => status === "in_review")).toHaveLength(2);
     expect(statuses.filter((status) => status === "draft")).toHaveLength(1);
+  });
+
+  it("labels Topic 24 specifically as draft, not just any card", () => {
+    render(<PilotIndexPage />);
+
+    // Regression: the aggregate count above proves exactly one "draft" badge
+    // exists, but not which card it belongs to. Bind it explicitly to
+    // Topic 24's own card so a future lesson swap can't accidentally satisfy
+    // the count while mislabeling which lesson is actually draft.
+    const phanBonCard = screen
+      .getByRole("link", { name: "phan-bon-hoa-hoc" })
+      .closest("li");
+    expect(phanBonCard).not.toBeNull();
+    expect(within(phanBonCard!).getByTestId("lesson-status").textContent).toBe(
+      "draft",
+    );
+
+    const dongHoaHocCard = screen
+      .getByRole("link", { name: "dong-hoa-hoc" })
+      .closest("li");
+    expect(dongHoaHocCard).not.toBeNull();
+    expect(
+      within(dongHoaHocCard!).getByTestId("lesson-status").textContent,
+    ).toBe("in_review");
   });
 });
