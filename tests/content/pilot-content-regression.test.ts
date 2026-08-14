@@ -49,6 +49,41 @@ describe("P4 pilot content regression", () => {
     }
   });
 
+  test("no-login fixture body.mdx stays byte-identical to canonical MDX minus frontmatter", () => {
+    // Each /fixtures/pilot/<topic>/<slug>/body.mdx is documented (in the
+    // page.tsx that imports it) as a byte-identical copy of the canonical
+    // lesson MDX with its YAML frontmatter removed, because this project's
+    // MDX pipeline has no remark-frontmatter plugin. Prove that mechanically
+    // instead of trusting the comment: if a canonical file changes (P6-B1.x
+    // re-import, remediation edit, etc.) without regenerating the fixture
+    // copy, this must fail loudly rather than silently drift.
+    const checked: string[] = [];
+    for (const lesson of manifest.lessons) {
+      const fixtureBodyPath = `src/app/fixtures/pilot/${lesson.topic}/${lesson.slug}/body.mdx`;
+      if (!existsSync(path.join(repoRoot, fixtureBodyPath))) continue;
+      checked.push(fixtureBodyPath);
+
+      const canonical = readText(lesson.mdxPath);
+      const canonicalBody = canonical.replace(
+        /^---\r?\n[\s\S]*?\r?\n---\r?\n(?:\r?\n)?/u,
+        "",
+      );
+      expect(
+        canonicalBody,
+        `${lesson.mdxPath}: could not locate a closing frontmatter fence`,
+      ).not.toBe(canonical);
+
+      expect(
+        readText(fixtureBodyPath),
+        `${fixtureBodyPath} has drifted from the canonical body of ${lesson.mdxPath}`,
+      ).toBe(canonicalBody);
+    }
+    // This regression is only meaningful if it actually checked something;
+    // an empty loop (e.g. every fixture path renamed away) must not pass
+    // silently.
+    expect(checked.length).toBeGreaterThan(0);
+  });
+
   test("every QA-report asset path resolves under public", () => {
     for (const lesson of manifest.lessons) {
       const report = readJson<FailureReport>(lesson.failureReportPath);
@@ -215,6 +250,7 @@ interface PilotManifest {
     mdxSha256: string;
     qaPath: string;
     slug: string;
+    topic: string;
   }>;
 }
 
