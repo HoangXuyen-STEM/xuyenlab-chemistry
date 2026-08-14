@@ -26,6 +26,7 @@ interface ManifestLesson {
   qaPath: string;
   slug: string;
   topic: string;
+  status: "draft" | "in_review";
 }
 
 interface QaRecord {
@@ -134,16 +135,24 @@ export function parsePilotFrontmatter(
   };
 }
 
-export function loadPilotLibrary(): PilotLibraryLesson[] {
-  const manifest = manifestJson as {
-    publicationStatus: string;
+/**
+ * `manifest` is an injectable override for tests; production callers use the
+ * default (the real committed manifest). Only `in_review` lesson entries are
+ * read — a `draft` entry (e.g. a newly imported P6-B1 lesson) is silently
+ * excluded from this P5 library fixture rather than failing the whole page,
+ * since the manifest can now hold lessons at different lifecycle stages
+ * (see docs/contracts/content.md "Staging manifest").
+ */
+export function loadPilotLibrary(
+  manifest: { lessons: ManifestLesson[] } = manifestJson as {
     lessons: ManifestLesson[];
-  };
-  if (manifest.publicationStatus !== "in_review") {
-    throw new Error("Manifest pilot chưa ở trạng thái in_review.");
-  }
+  },
+): PilotLibraryLesson[] {
+  const inReviewLessons = manifest.lessons.filter(
+    (entry) => entry.status === "in_review",
+  );
 
-  return manifest.lessons.map((entry) => {
+  return inReviewLessons.map((entry) => {
     const frontmatter = parsePilotFrontmatter(
       readRepositoryFile(entry.mdxPath),
       entry.mdxPath,

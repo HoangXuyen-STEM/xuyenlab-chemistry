@@ -128,6 +128,7 @@
       "sourceId": "T06-S01",
       "sourcePath": "6. Chuyen de 6. Dong hoa hoc.ok.docx",
       "sourceSha256": "a5ec536987194ea8907435b8852e50ddca0aa98b28ab4754e83820e015e331f5",
+      "status": "in_review",
       "topic": "chuyen-de-06",
       "warningCount": 3
     },
@@ -143,12 +144,12 @@
       "sourceId": "T08-S01",
       "sourcePath": "8.1. Chuyen de 8-  Dung dich can bang hoa hoc- phan I & II OK (1).docx",
       "sourceSha256": "9824a9580771da2d46c8d8f99382b166cb2a9178d317a37ff3bcb36835da237f",
+      "status": "in_review",
       "topic": "chuyen-de-08",
       "warningCount": 42
     }
   ],
-  "manifestVersion": "1.0.0",
-  "publicationStatus": "in_review",
+  "manifestVersion": "1.1.0",
   "scope": "Part I only",
   "strategy": "hybrid"
 }

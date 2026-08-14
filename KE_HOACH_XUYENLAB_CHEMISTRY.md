@@ -118,7 +118,7 @@ Thời lượng dưới đây là ước lượng effort, không phải cam kế
 | P3 — Technical baseline                 | **Copilot GPT-5.3-Codex:** DB/auth adapters/progress; **Claude Sonnet:** fixture UI; **Codex:** R2/PDF adapter, integration                                        | P2 có quyết định A/B/C                                                                                | handoff từng task + `docs/handoffs/P3/SUMMARY.md`; live login được hoãn rõ ràng      |
 | P4 — Pilot drafts 6 và 8                | **Copilot:** importer/validator/assets và content tests; **Claude Sonnet:** MDX/UI/print polish; **Chủ dự án:** QA hóa học                                         | P3 code/build/tests xanh; staging preview mở bằng Vercel Protection/Share Link, không cần app account | handoff từng task + `docs/handoffs/P4/SUMMARY.md`, QA draft, `docs/pilot-metrics.md` |
 | P5 — Content/release pipeline           | **Copilot:** PDF/CI/R2 dry-run; **Claude Sonnet:** library/search metadata UI; **Codex:** integration review khi có quota                                          | P4 đạt `in_review`, chưa cần login thật                                                               | handoff từng task + `docs/handoffs/P5/SUMMARY.md`, `docs/runbook.md`                 |
-| P6 — Content batches                    | **Copilot:** importer/regression; **Claude:** sửa MDX/component; **Chủ dự án:** QA từng batch; **Codex:** integration khi có quota                                 | P5 staging ổn định                                                                                    | `docs/handoffs/P6-B<N>/*.md`, summaries, QA records, metrics                         |
+| P6 — Content batches                    | **Codex:** contract/integration; **Copilot:** importer/regression; **Claude:** sửa MDX/component; **Chủ dự án:** QA từng bài                                       | P5 staging ổn định; manifest hỗ trợ đồng thời `draft` và `in_review`                                  | `docs/handoffs/P6/P6-B<N>.*.md`, `docs/handoffs/P6/SUMMARY.md`, QA records, metrics  |
 | P7 — Account access, security và launch | **Copilot:** allowlist/auth/progress backend; **Claude:** login/onboarding/account UX; **Codex:** security/release review; **Chủ dự án:** cấp tài khoản/DNS/launch | nội dung định phát hành đã QA và pipeline ổn định                                                     | `docs/handoffs/P7/SUMMARY.md`, cập nhật `docs/runbook.md`, account test evidence     |
 
 ### Quy tắc handoff bắt buộc
@@ -270,24 +270,48 @@ Không yêu cầu teacher/student account.
 
 ### Phase 6 — Mở rộng nội dung theo batch (ước lượng sau pilot)
 
-Không chia đều theo số chuyên đề. Xếp batch sơ bộ theo số media + embedded object đo được; sau manifest chỉ giữ file/Phần I đúng phạm vi và xếp lại.
+P6.1/P6.2 đã hoàn thành trước đây là công việc release-engineering cho hai pilot,
+không được tính là đã nhập nội dung batch. Việc mở rộng nội dung bắt đầu bằng
+`P6-B1.0` dưới đây.
 
-| Batch         | Chuyên đề sơ bộ               | Lý do                                            |
-| ------------- | ----------------------------- | ------------------------------------------------ |
-| B1 — thấp     | 24, 2, 12, 20, 16, 15, 23, 25 | ít object hơn; dùng để tăng throughput sau pilot |
-| B2 — vừa      | 19, 22, 17, 10, 13, 3         | kiểm chứng pipeline trên nội dung đa dạng        |
-| B3 — cao      | 14, 11, 5, 7, 1, 4, 18, 21, 9 | nhiều media/object; cần ngân sách QA lớn hơn     |
-| B4 — ngoại lệ | 26 và mọi file `.doc`/OLE lỗi | legacy format hoặc độ phức tạp chưa đo được      |
+Không chia đều theo số chuyên đề. Kết quả tái kiểm kê ngày 2026-08-14 cho thấy B1 cũ
+trộn lẫn nguồn đơn giản với nguồn legacy, mơ hồ hoặc ngoài cấu trúc chuẩn. Vì vậy
+batch được xếp lại như sau; đây vẫn là thứ tự sơ bộ và chỉ mở rộng sau khi có số liệu
+thực tế từ Chuyên đề 24.
+
+| Batch                    | Chuyên đề sơ bộ               | Lý do                                                                 |
+| ------------------------ | ----------------------------- | --------------------------------------------------------------------- |
+| B1a — kiểm soát          | 24; sau đó mới cân nhắc 2, 16 | nguồn `.docx` rõ ràng; T24 có độ phức tạp đo được thấp nhất           |
+| B1b — cần chọn nguồn     | 20, 15                        | có nhiều nguồn ứng viên; Chủ dự án phải chọn canonical trước khi nhập |
+| B2 — vừa                 | 25, 19, 22, 17, 10, 13, 3     | media/object hoặc độ đa dạng cao hơn; T25 không còn được xếp mức thấp |
+| B3 — cao                 | 14, 11, 5, 7, 1, 4, 18, 21, 9 | nhiều media/object; cần ngân sách QA lớn hơn                          |
+| B4 — ngoại lệ/phạm vi mở | 12, 23, 26                    | legacy `.doc`, OLE lỗi, hoặc cấu trúc/phạm vi v1 chưa được quyết định |
+
+Trước lần nhập đầu tiên, `P6-B1.0` do Codex sở hữu phải chốt contract manifest hỗ
+trợ trạng thái theo từng lesson và đường nâng cấp tương thích. Copilot chỉ sửa
+importer/validator sau khi contract này được duyệt. Không được ép lesson mới từ
+`draft` lên `in_review` để khớp trạng thái chung của hai pilot.
+
+Lần chạy đầu của B1a chỉ nhập **Chuyên đề 24**. Chuyên đề 2 và 16 chỉ được đưa vào
+lần chạy kế tiếp sau khi có số liệu converter, số lỗi và thời gian QA thực tế của
+T24. Các quyết định về T12/T15/T20/T23 được hoãn đến trước batch chứa chính chúng,
+không chặn T24.
 
 Mỗi batch dùng cùng luồng:
 
-1. Copilot chạy inventory/import/validator và tạo draft + failure queue.
-2. Claude Code Haiku/Sonnet thực hiện sửa MDX cơ học hoặc component gap có test; không tự sửa kết luận hóa học.
-3. Copilot GPT-5.3-Codex bổ sung regression test khi gặp pattern lỗi mới.
-4. Chủ dự án QA nội dung từng bài và ký `approvedForPublish`; chỉ chuyển `published`
+1. Codex chốt contract/schema cần dùng chung và ranh giới file cho batch.
+2. Copilot chạy inventory/import/validator và tạo draft + failure queue.
+3. Claude Code Haiku/Sonnet thực hiện sửa MDX cơ học hoặc component gap có test; không tự sửa kết luận hóa học.
+4. Copilot GPT-5.3-Codex bổ sung regression test khi gặp pattern lỗi mới.
+5. Chủ dự án QA nội dung từng bài và ký `approvedForPublish`; chỉ chuyển `published`
    ở P7 sau khi account/access gate sẵn sàng.
-5. Copilot tạo PDF/metrics; Claude và Chủ dự án kiểm tra presentation/QA; Codex chỉ
+6. Copilot tạo PDF/metrics; Claude và Chủ dự án kiểm tra presentation/QA; Codex chỉ
    integration review khi còn quota.
+
+Ngoại lệ `publishWaiver` P6.2 bị đóng băng cho đúng hai pilot đã nêu trong
+`docs/contracts/content.md`. Nội dung mới phải đi theo publication gate bình thường;
+không agent nào được mở rộng allowlist nếu chưa có một phê duyệt riêng của Chủ dự án
+và cập nhật contract do integration owner thực hiện.
 
 **Exit gate từng bài:** validator xanh, QA hóa học được ký, trace về source, asset đầy đủ, web/mobile/print đạt. Nếu pilot cho thấy tốc độ dưới 1 chuyên đề/tuần, phải giảm phạm vi hoặc bổ sung người biên tập; không giải quyết bằng cách bỏ QA.
 

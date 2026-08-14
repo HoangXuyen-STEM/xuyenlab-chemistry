@@ -21,6 +21,22 @@ describe("P5 pilot library metadata", () => {
     ]);
   });
 
+  it("filters out draft manifest entries instead of throwing or reading their files", () => {
+    const lessons = loadPilotLibrary({
+      lessons: [
+        {
+          mdxPath: "content/topics/chuyen-de-99/does-not-exist.mdx",
+          qaPath: "content/qa/pending/does-not-exist.json",
+          slug: "does-not-exist",
+          topic: "chuyen-de-99",
+          status: "draft",
+        },
+      ],
+    });
+
+    expect(lessons).toEqual([]);
+  });
+
   it("normalizes Vietnamese diacritics and đ", () => {
     expect(normalizeSearchText("Động hóa học")).toBe("dong hoa hoc");
     expect(normalizeSearchText("CÂN BẰNG")).toBe("can bang");

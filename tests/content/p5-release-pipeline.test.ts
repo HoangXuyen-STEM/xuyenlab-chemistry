@@ -7,10 +7,11 @@ describe("P5 release pipeline integration", () => {
     const manifest = JSON.parse(
       readFileSync("content/pilot-staging-manifest.json", "utf8"),
     ) as {
-      publicationStatus: string;
-      lessons: Array<{ mdxPath: string }>;
+      lessons: Array<{ mdxPath: string; status: string }>;
     };
-    expect(manifest.publicationStatus).toBe("in_review");
+    expect(manifest.lessons.every(({ status }) => status === "in_review")).toBe(
+      true,
+    );
     expect(manifest.lessons.map(({ mdxPath }) => mdxPath)).toEqual([
       "content/topics/chuyen-de-06/dong-hoa-hoc.mdx",
       "content/topics/chuyen-de-08/dung-dich-va-can-bang-hoa-hoc.mdx",
