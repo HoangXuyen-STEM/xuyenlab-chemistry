@@ -219,7 +219,27 @@ def validate_discussion_prompt(item: dict[str, Any], relative: str) -> list[str]
         errors.append(f"{relative}: {issue_id} discussionPrompt requires the item's own sourceId")
     if not isinstance(item.get("sourceLocator"), dict):
         errors.append(f"{relative}: {issue_id} discussionPrompt requires the item's own sourceLocator")
+    # discussionPrompt must inherit provenance from its parent item, not
+    # carry its own — a second, possibly conflicting issueId/sourceId/
+    # sourceLocator on the same item would undermine that guarantee.
+    for field in ("issueId", "sourceId", "sourceLocator"):
+        if field in prompt:
+            errors.append(
+                f"{relative}: {issue_id} discussionPrompt must not define its own {field} "
+                "(it inherits this from the parent remediation item)"
+            )
     return errors
+
+
+def find_chemfigure_attribute_pairs(body: str) -> list[dict[str, str]]:
+    """Every `<ChemFigure ... />` tag's own attributes, as an independent
+    dict per tag — order- and newline-insensitive (JSX attributes routinely
+    span multiple lines in this codebase), and never conflates one tag's
+    `src` with a different tag's `alt`."""
+    pairs: list[dict[str, str]] = []
+    for match in re.finditer(r"<ChemFigure\b[^>]*/?>", body):
+        pairs.append(dict(re.findall(r'(\w+)="([^"]*)"', match.group(0))))
+    return pairs
 
 
 def validate_accepted_with_limitation(
@@ -227,6 +247,8 @@ def validate_accepted_with_limitation(
     qa_unresolved_by_id: dict[str, dict[str, Any]],
     block_by_id: dict[str, dict[str, Any]],
     report_source_id: str | None,
+    lesson_slug: str,
+    lesson_topic: str,
     body: str,
     relative: str,
 ) -> list[str]:
@@ -236,6 +258,17 @@ def validate_accepted_with_limitation(
     decision = item.get("ownerDecision")
     if not isinstance(decision, dict):
         return [f"{relative}: {issue_id} accepted-with-limitation requires an ownerDecision object"]
+
+    if item.get("lessonSlug") != lesson_slug:
+        errors.append(
+            f"{relative}: {issue_id} lessonSlug {item.get('lessonSlug')!r} differs from the "
+            f"canonical lesson being validated ({lesson_slug!r})"
+        )
+    if item.get("topic") != lesson_topic:
+        errors.append(
+            f"{relative}: {issue_id} topic {item.get('topic')!r} differs from the canonical "
+            f"lesson topic ({lesson_topic!r})"
+        )
 
     if choice not in REMEDIATION_NEW_CHOICES:
         errors.append(
@@ -287,6 +320,16 @@ def validate_accepted_with_limitation(
             errors.append(
                 f"{relative}: {issue_id} sourceLocator differs from the original failure-report evidence"
             )
+        if item.get("issueCode") != block.get("issueCode"):
+            errors.append(
+                f"{relative}: {issue_id} issueCode {item.get('issueCode')!r} differs from the "
+                f"failure report's {block.get('issueCode')!r}"
+            )
+        if item.get("kind") != block.get("kind"):
+            errors.append(
+                f"{relative}: {issue_id} kind {item.get('kind')!r} differs from the failure "
+                f"report's {block.get('kind')!r}"
+            )
     if report_source_id is not None and item.get("sourceId") != report_source_id:
         errors.append(
             f"{relative}: {issue_id} sourceId {item.get('sourceId')!r} differs from the failure "
@@ -311,15 +354,45 @@ def validate_accepted_with_limitation(
                     f"{relative}: {issue_id} source-fidelity evidence is not traceable in the canonical MDX"
                 )
     elif choice == "owner-accepted-visible-fallback":
+        # Locked to the ORIGINAL failure-evidence fallback, not merely to
+        # some asset that happens to be referenced somewhere in the MDX:
+        # the failure-report block's own fallback.assetPath/altText is the
+        # source of truth, and the canonical MDX must pair both exactly on
+        # one ChemFigure.
+        fallback = block.get("fallback") if isinstance(block, dict) else None
+        if not isinstance(fallback, dict):
+            errors.append(
+                f"{relative}: {issue_id} owner-accepted-visible-fallback requires the failure-report "
+                "block to carry a fallback object"
+            )
+        asset_path = fallback.get("assetPath") if isinstance(fallback, dict) else None
+        alt_text = fallback.get("altText") if isinstance(fallback, dict) else None
+        if not isinstance(asset_path, str) or not asset_path.strip():
+            errors.append(
+                f"{relative}: {issue_id} failure-report fallback.assetPath is required for "
+                "owner-accepted-visible-fallback"
+            )
+        if not isinstance(alt_text, str) or not alt_text.strip():
+            errors.append(
+                f"{relative}: {issue_id} failure-report fallback.altText is required for "
+                "owner-accepted-visible-fallback"
+            )
         preview = item.get("previewPath")
-        if not isinstance(preview, str) or not preview.strip():
+        if preview != asset_path:
             errors.append(
-                f"{relative}: {issue_id} owner-accepted-visible-fallback requires an existing previewPath"
+                f"{relative}: {issue_id} previewPath must exactly equal the failure report's "
+                f"fallback.assetPath ({asset_path!r}), got {preview!r}"
             )
-        elif f'src="{preview}"' not in body:
-            errors.append(
-                f"{relative}: {issue_id} visible-fallback asset is not traceable in the canonical MDX"
+        if isinstance(asset_path, str) and isinstance(alt_text, str):
+            paired = any(
+                attrs.get("src") == asset_path and attrs.get("alt") == alt_text
+                for attrs in find_chemfigure_attribute_pairs(body)
             )
+            if not paired:
+                errors.append(
+                    f"{relative}: {issue_id} visible-fallback asset is not traceable to a single "
+                    "canonical ChemFigure pairing the original fallback src and alt"
+                )
 
     return errors
 
@@ -328,6 +401,8 @@ def validate_remediation_queue(
     queue: list[dict[str, Any]],
     qa: dict[str, Any],
     report: dict[str, Any],
+    lesson_slug: str,
+    lesson_topic: str,
     body: str,
     relative: str,
 ) -> list[str]:
@@ -351,7 +426,14 @@ def validate_remediation_queue(
         if status == REMEDIATION_NEW_STATUS:
             errors.extend(
                 validate_accepted_with_limitation(
-                    item, qa_unresolved_by_id, block_by_id, report_source_id, body, relative
+                    item,
+                    qa_unresolved_by_id,
+                    block_by_id,
+                    report_source_id,
+                    lesson_slug,
+                    lesson_topic,
+                    body,
+                    relative,
                 )
             )
         errors.extend(validate_discussion_prompt(item, relative))
@@ -545,7 +627,9 @@ def validate(root: Path) -> list[str]:
             queue_path = root / f"content/qa/pending/{slug}.remediation-queue.json"
             if queue_path.is_file():
                 queue = read_json(queue_path)
-                errors.extend(validate_remediation_queue(queue, qa, report, body, relative))
+                errors.extend(
+                    validate_remediation_queue(queue, qa, report, slug, topic, body, relative)
+                )
 
         references = re.findall(r'(?:src|href)="([^"]+)"', body)
         markdown_references = re.findall(r"\[[^\]\n]+\]\(([^)\n]+)\)", body)

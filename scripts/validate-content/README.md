@@ -79,10 +79,16 @@ Approved vocabulary:
 - `discussionPrompt` — optional on any item, any status. Declares a P6
   teaching-discussion objective; it inherits the item's own `issueId`/
   `sourceId`/`sourceLocator` and never changes severity, QA checks, or
-  publication state. `identityAssurance: "declared-not-authenticated"` is
-  required — the same **P6 declared-identity limitation** as
-  `ownerDecision.decidedBy`: neither field is backed by an authenticated
-  teacher/owner session (see ADR-0004; that requires the P3/Auth work).
+  publication state. Unlike `accepted-with-limitation` (always an Owner
+  decision), a `discussionPrompt` **may be explicitly recorded by a
+  teacher/author, or by the Project Owner** — `recordedBy` is declared
+  provenance in P6, not account-authenticated identity, whoever records it.
+  `identityAssurance: "declared-not-authenticated"` is required and records
+  exactly that — the same **P6 declared-identity limitation** every P6
+  identity field carries (see ADR-0004; that requires the P3/Auth work), not
+  a claim that only the Owner can record one. It must never be generated
+  automatically by the converter/model from a failure; it is always an
+  explicit human action.
 
 For `status: "accepted-with-limitation"`, the validator requires:
 
@@ -99,16 +105,24 @@ For `status: "accepted-with-limitation"`, the validator requires:
   QA `unresolved` entry and the failure-report block (nothing was silently
   changed);
 - `sourceId` matches the failure report's own source;
+- `lessonSlug` and `topic` match the canonical lesson currently being
+  validated, and `issueCode`/`kind` match the corresponding failure-report
+  block's — an item that disagrees with its own lesson or with the failure
+  report it claims to describe is rejected;
 - for `owner-accepted-source-fidelity`: `sourceLocator.textAnchor` is
   non-empty, and its whitespace-normalized text is still traceable as a
   substring of the canonical MDX body once its own markup tags and
   whitespace are both stripped (a `<DataTable>`'s `<th>`/`<td>` tags sit
   between cell text nodes that `textAnchor` concatenates with no separator,
   so whitespace-only normalization would never match);
-- for `owner-accepted-visible-fallback`: `previewPath` is a non-null
-  existing asset path, referenced from the canonical MDX (e.g. a
-  `ChemFigure`'s `src`) — which then falls under the same hashed-asset
-  checks as any other referenced asset.
+- for `owner-accepted-visible-fallback`, locked to the *original* failure
+  evidence, not merely to some asset that happens to appear in the MDX: the
+  corresponding failure-report block must carry a `fallback` object;
+  `previewPath` must equal `fallback.assetPath` exactly; `fallback.altText`
+  must be non-empty; and the canonical MDX must contain one `ChemFigure`
+  whose `src` and `alt` both match that exact pair on the *same* element
+  (attribute order/newlines do not matter; a `src` match on one `ChemFigure`
+  paired with an `alt` match on a different one does not count).
 
 Rejected:
 
@@ -121,10 +135,19 @@ Rejected:
 - a non-null `altText`/`caption`/`reviewedLatex` (an invented remediation
   payload);
 - an `issueId` absent from QA `unresolved` or the failure report;
-- a changed `severity`, `message`, `sourceLocator` or `sourceId`;
-- missing MDX/asset traceability;
-- a `discussionPrompt` missing any required field, or with the wrong literal
-  `classification` / `scientificStatus` / `identityAssurance`.
+- a changed `severity`, `message`, `sourceLocator`, `sourceId`, `lessonSlug`,
+  `topic`, `issueCode` or `kind`;
+- missing MDX/asset traceability, including a `previewPath` that points at a
+  *different* real asset than the failure report's own `fallback.assetPath`,
+  an MDX `alt` that doesn't match `fallback.altText` exactly, or a
+  `src`/`alt` pair that matches only when read off two different
+  `ChemFigure` elements instead of the same one;
+- a missing `fallback` object, `fallback.assetPath`, or `fallback.altText`
+  on the failure-report block itself;
+- a `discussionPrompt` missing any required field, with the wrong literal
+  `classification` / `scientificStatus` / `identityAssurance`, or carrying
+  its own `issueId`/`sourceId`/`sourceLocator` instead of inheriting its
+  parent item's.
 
 ### Example: valid `accepted-with-limitation` table item
 
