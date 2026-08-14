@@ -15,6 +15,15 @@ const lessons = [
       "content/qa/pending/dung-dich-va-can-bang-hoa-hoc.remediation-queue.json",
     title: "Dung dịch và cân bằng hóa học",
   },
+  {
+    // P6-B1.2: Topic 24 has 0 blocking items (all 3 unresolved items are
+    // warning-severity), so this lesson exercises the zero-blocking-callout
+    // path through the same shared assertions as the two pilots.
+    path: "/fixtures/pilot/chuyen-de-24/phan-bon-hoa-hoc",
+    remediationQueuePath:
+      "content/qa/pending/phan-bon-hoa-hoc.remediation-queue.json",
+    title: "Phân bón hóa học",
+  },
 ].map((lesson) => ({
   ...lesson,
   visibleBlockingIssueIds: readRemediationQueue(lesson.remediationQueuePath)
@@ -26,7 +35,7 @@ const lessons = [
 }));
 
 test.describe("pilot staging routes", () => {
-  test("loads both lessons and the pilot index without client errors", async ({
+  test("loads every lesson and the pilot index without client errors", async ({
     page,
   }) => {
     for (const lesson of lessons) {

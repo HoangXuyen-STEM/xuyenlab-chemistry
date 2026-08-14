@@ -15,19 +15,24 @@ export default function PilotIndexPage() {
   return (
     <main className={styles.page}>
       <div className={styles.banner} aria-hidden="true">
-        [BẢN NHÁP PILOT] — Xem trước staging P4 — không cần đăng nhập
+        [BẢN NHÁP PILOT] — Xem trước staging — không cần đăng nhập
       </div>
       <div className={styles.content}>
-        <h1>Pilot Chuyên đề 6 &amp; 8</h1>
+        <h1>Pilot nội dung Phần I</h1>
         <p className={styles.intro}>
-          Hai bài học nháp từ importer P4.1, dùng để Chủ dự án đối chiếu Phần I
-          trước khi vào P5. Mọi mục cảnh báo/chặn xuất bản vẫn hiển thị nguyên
-          trạng.
+          Các bài học nháp Phần I từ pipeline import, dùng để Chủ dự án đối
+          chiếu trước khi chuyển sang <code>in_review</code>. Mọi mục cảnh
+          báo/chặn xuất bản vẫn hiển thị nguyên trạng.
         </p>
         <ul className={styles.list}>
           {lessons.map((lesson) => (
             <li className={styles.card} key={lesson.slug}>
-              <p className={styles.eyebrow}>{topicTitle(lesson.topic)}</p>
+              <p className={styles.eyebrow}>
+                {topicTitle(lesson.topic)} ·{" "}
+                <span className={styles.status} data-testid="lesson-status">
+                  {lesson.status}
+                </span>
+              </p>
               <h2>
                 <Link href={`/fixtures/pilot/${lesson.topic}/${lesson.slug}`}>
                   {lesson.slug}
