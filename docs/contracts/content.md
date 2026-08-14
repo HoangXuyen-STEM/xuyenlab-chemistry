@@ -109,6 +109,84 @@ interface LessonQaRecord {
 
 `approvedForPublish` may be set only by the project owner. A validator must reject `approvedForPublish: true` when any check is false or a blocking issue remains, **except** for a lesson the project owner has individually named as an approved exception (see Amendments). An approved exception still requires every check `true`, a signed `reviewer`/`reviewedAt`, and every blocking issue to stay visibly present in the MDX body — only the blanket "no blocking issue remains" clause is waived, and only for that named lesson.
 
+## Staging manifest
+
+`content/pilot-staging-manifest.json` records provenance and lifecycle status for
+every lesson going through the staging pipeline (not just the original two
+pilots — the name is historical and unchanged to avoid an unrelated rename
+churning this contract).
+
+```ts
+interface StagingManifest {
+  manifestVersion: string; // "1.1.0" as of P6-B1.0
+  strategy: "hybrid";
+  scope: string;
+  lessons: StagingManifestLesson[];
+  assets: Array<{
+    path: string;
+    sha256: string;
+    bytes: number;
+    sourceIds: string[];
+  }>;
+  // publicationStatus (manifest-wide) is REMOVED as of P6-B1.0. A manifest that
+  // still carries it is invalid — see below.
+}
+
+interface StagingManifestLesson {
+  slug: string;
+  topic: string; // e.g. "chuyen-de-24"
+  sourceId: string;
+  sourcePath: string;
+  sourceSha256: string;
+  mdxPath: string;
+  mdxSha256: string;
+  failureReportPath: string;
+  failureReportSha256: string;
+  qaPath: string;
+  qaSha256: string;
+  blockingCount: number; // historical import-time metric, not live remediation state
+  warningCount: number; // historical import-time metric, not live remediation state
+  status: "draft" | "in_review"; // per lesson; never "published" in this manifest
+}
+```
+
+Rules:
+
+- Lifecycle status (`draft` | `in_review`) is recorded **per lesson**, not once
+  for the whole manifest. Lessons at different stages may coexist in the same
+  manifest — e.g. an already-`in_review` pilot alongside a freshly imported
+  `draft` lesson. Neither state may be forced to match the other; nothing may
+  promote a lesson's status to match its neighbors instead of its own real
+  review state.
+- A lesson entry's `status` must equal its MDX frontmatter `status` exactly. A
+  mismatch is a validator error naming both values.
+- A lesson entry's `status` must be `draft` or `in_review`; a missing, `null` or
+  otherwise invalid value is a validator error — it is never silently treated as
+  a default.
+- A manifest-wide `publicationStatus` field is deprecated and rejected outright
+  if present, so a file that was never migrated to this schema fails loudly
+  instead of being silently misread.
+- `manifestVersion` must equal the current schema version exactly (validator-
+  enforced); a stale or missing value fails validation rather than being
+  silently accepted.
+- `in_review`-only requirements (signed `reviewer`/ISO-8601 `reviewedAt`/every
+  `checks.*` true) apply per lesson, gated on that lesson's own `status`, not a
+  manifest-wide value.
+- Every consumer that reads this manifest (validator, importer, PDF generation,
+  any UI/library feature under `src/`) must read status per lesson. A consumer
+  that needs only `in_review` lessons (e.g. PDF plan generation) filters them
+  out and skips `draft` entries without failing the rest of its job; it must
+  not error on encountering a `draft` entry belonging to a different lesson.
+- Importers regenerating a subset of lessons must not overwrite another
+  lesson's already-recorded `status` (or its QA-signed content) as a side
+  effect of an unrelated run — this is on top of the existing manual-edit drift
+  protection in the Import safety section below. **Temporary safeguard (P6-B1.0):**
+  until an importer exists that can update lessons incrementally rather than
+  regenerating its whole hardcoded set from scratch, any importer that
+  regenerates unconditionally must refuse to run at all — before writing
+  anything, not bypassable with `--force` — whenever the manifest contains any
+  `in_review` lesson. `scripts/import-docx/pilot_import.py` implements this.
+
 ## Import safety
 
 - Generated drafts and extracted assets go to a staging path until approved.
@@ -150,4 +228,28 @@ interface LessonQaRecord {
   ISO 8601 date only (`2026-08-13`), matching the actual precision the source
   record supports. No time-of-day is asserted. See
   `docs/handoffs/P6/P6.2-claude.md` for the correction record.
+- **P6-B1.0 (2026-08-14):** replaced the manifest-wide `publicationStatus` field
+  with a per-lesson `status` field on `content/pilot-staging-manifest.json` (see
+  "Staging manifest" above), so lessons at different lifecycle stages can
+  coexist — required before any P6 content batch can be imported alongside the
+  two already-`in_review` pilots without forcing a status mismatch on one side
+  or the other. Migrated the two existing pilot lesson entries to
+  `status: "in_review"` with no change to their actual lifecycle state, lesson
+  content, QA records or `approvedForPublish`/`publishWaiver` values. Updated
+  `scripts/validate-content/validate.py`, `scripts/import-docx/pilot_import.py`
+  and the `src/features/content` manifest consumers to match. See
+  `docs/handoffs/P6/P6-B1.0-claude.md` for full evidence.
+- **P6-B1.0 integration-review follow-up (2026-08-14):** review before merge
+  found that `pilot_import.py`'s existing manual-edit drift check could not
+  actually detect the case that matters most: a fresh regeneration silently
+  differing from an already-signed `in_review` lesson, since a signed lesson's
+  recorded hash always matches its own on-disk content (there is no "drift" to
+  detect in that narrow sense). A plain rerun would have overwritten both
+  signed pilots back to unsigned drafts. Added the temporary safeguard
+  described above. Also found `scripts/generate-pdf/generate.ts` built a PDF
+  plan for every manifest lesson unconditionally, which would have attempted
+  to plan a future `draft` Topic 24 lesson; it now reads per-lesson `status`
+  and only plans `in_review` lessons, skipping others without failing the job.
+  Also added the `manifestVersion` validator check described above. See
+  `docs/handoffs/P6/P6-B1.0-claude.md` for evidence.
 
