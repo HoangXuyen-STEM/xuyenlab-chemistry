@@ -1,6 +1,10 @@
 import { cleanup, render, screen } from "@testing-library/react";
 import { afterEach, describe, expect, it } from "vitest";
 
+import type {
+  AcceptedLimitation,
+  DiscussionPromptEntry,
+} from "@/features/content/remediation-queue";
 import type { PilotLessonManifestEntry } from "@/features/content/pilot-manifest";
 
 import { PilotLessonShell } from "./PilotLessonShell";
@@ -63,5 +67,87 @@ describe("PilotLessonShell", () => {
     expect(
       screen.getByRole("link", { name: "Danh sách pilot" }),
     ).toHaveAttribute("href", "/fixtures/pilot");
+  });
+
+  it("shows the staging limitation notice as a labelled note, visible without any accepted items", () => {
+    render(
+      <PilotLessonShell
+        articleId="dong-hoa-hoc-body"
+        lessonTitle="Động hóa học"
+        manifest={manifest}
+        summary="Bản nháp pilot Phần I."
+        topicTitle="Chuyên đề 6"
+      >
+        <p>Nội dung bài học.</p>
+      </PilotLessonShell>,
+    );
+
+    expect(
+      screen.getByRole("note", { name: "Lưu ý bản đang duyệt" }),
+    ).toHaveTextContent(/sử dụng dưới hướng dẫn giáo viên/u);
+    // No accepted-limitations/discussionPrompt props were passed, so those
+    // sections must not render at all -- only the page-level notice does.
+    expect(
+      screen.queryByRole("heading", {
+        name: "Giới hạn được Chủ dự án chấp nhận",
+      }),
+    ).not.toBeInTheDocument();
+    expect(
+      screen.queryByRole("heading", { name: "Câu hỏi thảo luận trên lớp" }),
+    ).not.toBeInTheDocument();
+  });
+
+  it("renders synthetic accepted limitations and discussion prompts passed in as props", () => {
+    const acceptedLimitations: AcceptedLimitation[] = [
+      {
+        issueId: "T06-S01:t2740",
+        sourceId: "T06-S01",
+        kind: "table",
+        remediationChoice: "owner-accepted-source-fidelity",
+        qaNote: "Synthetic qaNote for a component test.",
+        decidedBy: "Thầy Xuyên (Project Owner)",
+        decidedAt: "2026-08-14",
+      },
+    ];
+    const discussionPrompts: DiscussionPromptEntry[] = [
+      {
+        issueId: "T06-S01:t2740",
+        sourceId: "T06-S01",
+        promptOrObjective:
+          "Synthetic discussion objective for a component test.",
+        recordedBy: "Giáo viên phụ trách (declared)",
+        recordedDate: "2026-08-14",
+        scientificStatus: "not-a-verified-scientific-conclusion",
+        identityAssurance: "declared-not-authenticated",
+      },
+    ];
+
+    render(
+      <PilotLessonShell
+        acceptedLimitations={acceptedLimitations}
+        articleId="dong-hoa-hoc-body"
+        discussionPrompts={discussionPrompts}
+        lessonTitle="Động hóa học"
+        manifest={manifest}
+        summary="Bản nháp pilot Phần I."
+        topicTitle="Chuyên đề 6"
+      >
+        <p>Nội dung bài học.</p>
+      </PilotLessonShell>,
+    );
+
+    expect(
+      screen.getByRole("heading", {
+        name: "Giới hạn được Chủ dự án chấp nhận",
+      }),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole("heading", { name: "Câu hỏi thảo luận trên lớp" }),
+    ).toBeInTheDocument();
+    // Both new sections trace back to the same synthetic issueId; sourceId
+    // "T06-S01" also appears once more in the shell's own provenance line,
+    // so that one has 3 occurrences instead of 2.
+    expect(screen.getAllByText("T06-S01:t2740")).toHaveLength(2);
+    expect(screen.getAllByText("T06-S01")).toHaveLength(3);
   });
 });

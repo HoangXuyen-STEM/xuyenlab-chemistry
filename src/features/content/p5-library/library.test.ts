@@ -120,6 +120,93 @@ describe("P5 pilot library metadata", () => {
     ]);
   });
 
+  it("derives acceptedLimitationsCount from a synthetic in_review lesson's remediation queue", () => {
+    const syntheticFiles: Record<string, string> = {
+      "content/topics/chuyen-de-06/synthetic-in-review.mdx": [
+        "---",
+        "topic: chuyen-de-06",
+        "title: Synthetic in_review lesson",
+        "slug: synthetic-in-review",
+        "order: 999",
+        "summary: Synthetic summary for a library unit test.",
+        'keywords: ["synthetic"]',
+        "estimatedMinutes: 1",
+        "version: 1",
+        "status: in_review",
+        "---",
+        "",
+        "Synthetic body.",
+        "",
+      ].join("\n"),
+      "content/qa/pending/synthetic-in-review.json": JSON.stringify({
+        lessonSlug: "synthetic-in-review",
+        unresolved: [],
+      }),
+      "content/qa/pending/synthetic-in-review.remediation-queue.json":
+        JSON.stringify([
+          {
+            issueId: "SYN-S01:t0001",
+            sourceId: "SYN-S01",
+            kind: "table",
+            status: "accepted-with-limitation",
+            remediationChoice: "owner-accepted-source-fidelity",
+            ownerDecision: {
+              decidedBy: "Thầy Xuyên (Project Owner)",
+              decidedAt: "2026-08-14",
+              qaNote: "Synthetic qaNote for a library unit test.",
+              altText: null,
+              caption: null,
+              reviewedLatex: null,
+            },
+          },
+          {
+            // Legacy pending item: must not be counted.
+            issueId: "SYN-S01:t0002",
+            sourceId: "SYN-S01",
+            kind: "table",
+            status: "pending-owner-review",
+            remediationChoice: null,
+            ownerDecision: {
+              decidedBy: null,
+              decidedAt: null,
+              qaNote: null,
+              altText: null,
+              caption: null,
+              reviewedLatex: null,
+            },
+          },
+        ]),
+    };
+    const syntheticManifest: PilotLibraryManifest = {
+      lessons: [
+        {
+          mdxPath: "content/topics/chuyen-de-06/synthetic-in-review.mdx",
+          qaPath: "content/qa/pending/synthetic-in-review.json",
+          slug: "synthetic-in-review",
+          topic: "chuyen-de-06",
+          status: "in_review",
+        },
+      ],
+    };
+
+    const lessons = loadPilotLibrary(
+      syntheticManifest,
+      (repositoryPath, allowedPaths) => {
+        if (!allowedPaths.has(repositoryPath)) {
+          throw new Error(`Đường dẫn fixture không an toàn: ${repositoryPath}`);
+        }
+        const content = syntheticFiles[repositoryPath];
+        if (content === undefined) {
+          throw new Error(`unexpected read in test: ${repositoryPath}`);
+        }
+        return content;
+      },
+    );
+
+    expect(lessons).toHaveLength(1);
+    expect(lessons[0].acceptedLimitationsCount).toBe(1);
+  });
+
   it("filters out draft manifest entries instead of throwing or reading their files", () => {
     const lessons = loadPilotLibrary({
       lessons: [
@@ -410,6 +497,7 @@ function lesson(overrides: Partial<PilotLibraryLesson>): PilotLibraryLesson {
     status: "in_review",
     unresolvedBlocking: 0,
     unresolvedWarnings: 0,
+    acceptedLimitationsCount: 0,
     href: "/fixtures/pilot/example",
     ...overrides,
   };

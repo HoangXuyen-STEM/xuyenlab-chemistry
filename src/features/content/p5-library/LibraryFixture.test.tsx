@@ -4,7 +4,7 @@ import { afterEach, describe, expect, it } from "vitest";
 import manifestJson from "../../../../content/pilot-staging-manifest.json";
 
 import { LibraryFixture, type FixtureState } from "./LibraryFixture";
-import { loadPilotLibrary } from "./library";
+import { loadPilotLibrary, type PilotLibraryLesson } from "./library";
 
 afterEach(cleanup);
 
@@ -59,7 +59,63 @@ describe("P5 LibraryFixture", () => {
       screen.queryByText("Chưa có nội dung đang duyệt"),
     ).not.toBeInTheDocument();
   });
+
+  it("shows the page-level staging limitation notice", () => {
+    renderFixture("populated");
+    expect(
+      screen.getByRole("note", { name: "Lưu ý bản đang duyệt" }),
+    ).toHaveTextContent(/sử dụng dưới hướng dẫn giáo viên/u);
+  });
+
+  it("summarizes a synthetic lesson's accepted limitations with truthful neutral wording, not as resolved/fixed/approved", () => {
+    render(
+      <LibraryFixture
+        lessons={[syntheticLesson({ acceptedLimitationsCount: 2 })]}
+        query=""
+        state="populated"
+      />,
+    );
+
+    expect(
+      screen.getByText("Giới hạn được lưu theo nguồn"),
+    ).toBeInTheDocument();
+    expect(screen.getByText("2")).toBeInTheDocument();
+    const text = document.body.textContent?.toLowerCase() ?? "";
+    for (const forbidden of [
+      "đã sửa",
+      "đã khắc phục",
+      "đã duyệt",
+      "resolved",
+      "fixed",
+      "approved",
+    ]) {
+      expect(text).not.toContain(forbidden);
+    }
+  });
 });
+
+function syntheticLesson(
+  overrides: Partial<PilotLibraryLesson>,
+): PilotLibraryLesson {
+  return {
+    topic: "chuyen-de-06",
+    topicTitle: "Chuyên đề 6",
+    topicOrder: 6,
+    title: "Bài học tổng hợp",
+    slug: "synthetic-lesson",
+    order: 1,
+    summary: "Tóm tắt tổng hợp cho bài kiểm thử.",
+    keywords: ["kiem-thu"],
+    estimatedMinutes: 1,
+    version: 1,
+    status: "in_review",
+    unresolvedBlocking: 0,
+    unresolvedWarnings: 0,
+    acceptedLimitationsCount: 0,
+    href: "/fixtures/pilot/chuyen-de-06/synthetic-lesson",
+    ...overrides,
+  };
+}
 
 function renderFixture(state: FixtureState) {
   return render(

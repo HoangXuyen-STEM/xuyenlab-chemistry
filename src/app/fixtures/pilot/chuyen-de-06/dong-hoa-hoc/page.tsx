@@ -1,5 +1,6 @@
 import { PilotLessonShell } from "@/components/pilot-reader/PilotLessonShell";
 import { getPilotLessonManifest } from "@/features/content/pilot-manifest";
+import { loadRemediationQueueSummary } from "@/features/content/remediation-queue";
 
 // `body.mdx` is a byte-identical copy of `content/topics/chuyen-de-06/dong-hoa-hoc.mdx`
 // with its YAML frontmatter removed (`tail -n +17`); the frontmatter block
@@ -17,10 +18,14 @@ const ARTICLE_ID = "dong-hoa-hoc-body";
 
 export default function PilotDongHoaHocPage() {
   const manifest = getPilotLessonManifest("chuyen-de-06", "dong-hoa-hoc");
+  const { acceptedLimitations, discussionPrompts } =
+    loadRemediationQueueSummary(manifest);
 
   return (
     <PilotLessonShell
+      acceptedLimitations={acceptedLimitations}
       articleId={ARTICLE_ID}
+      discussionPrompts={discussionPrompts}
       lessonTitle={LESSON_TITLE}
       manifest={manifest}
       summary={SUMMARY}

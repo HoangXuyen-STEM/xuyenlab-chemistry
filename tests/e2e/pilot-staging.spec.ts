@@ -218,6 +218,46 @@ test.describe("pilot staging routes", () => {
     }
   });
 
+  test("keeps the staging limitation notice visible in print media, unlike the decorative banner", async ({
+    page,
+  }) => {
+    for (const lesson of lessons) {
+      await page.goto(lesson.path);
+      await page.emulateMedia({ media: "print" });
+
+      const notice = page.getByRole("note", { name: "Lưu ý bản đang duyệt" });
+      await expect(notice).toContainText(/sử dụng dưới hướng dẫn giáo viên/u);
+      expect(
+        await notice.evaluate((element) => getComputedStyle(element).display),
+      ).not.toBe("none");
+      expect(
+        await notice.evaluate(
+          (element) => (element as HTMLElement).offsetParent !== null,
+        ),
+      ).toBe(true);
+
+      await page.emulateMedia({ media: "screen" });
+    }
+  });
+
+  test("shows the staging limitation notice as a visible, labelled, non-interactive note on every lesson page (P6-B1.3U)", async ({
+    page,
+  }) => {
+    for (const lesson of lessons) {
+      await page.goto(lesson.path);
+      const notice = page.getByRole("note", { name: "Lưu ý bản đang duyệt" });
+      await expect(notice).toBeVisible();
+      await expect(notice).toContainText(
+        "Bản đang duyệt — sử dụng dưới hướng dẫn giáo viên. Một số giới hạn " +
+          "chuyển đổi được giữ theo nguồn và không phải nội dung khoa học " +
+          "mới do hệ thống xác nhận.",
+      );
+      // Not hidden behind interaction: no click/expand needed to see it, and
+      // it contains no interactive control of its own.
+      await expect(notice.locator("button, a, summary")).toHaveCount(0);
+    }
+  });
+
   test("exposes basic landmarks, logical headings, image alternatives, and keyboard entry", async ({
     page,
   }) => {
@@ -299,6 +339,17 @@ test.describe("pilot staging routes on mobile", () => {
         overflowingElements,
         `${lesson.path} has content wider than the mobile viewport`,
       ).toEqual([]);
+    }
+  });
+
+  test("keeps the staging limitation notice visible at 375px", async ({
+    page,
+  }) => {
+    for (const lesson of lessons) {
+      await page.goto(lesson.path);
+      await expect(
+        page.getByRole("note", { name: "Lưu ý bản đang duyệt" }),
+      ).toBeVisible();
     }
   });
 });

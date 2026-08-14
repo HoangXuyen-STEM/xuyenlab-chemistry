@@ -1,0 +1,59 @@
+.section {
+  max-width: var(--content-width-prose);
+  margin: var(--space-6) 0;
+}
+
+.section h2 {
+  margin: 0 0 var(--space-2);
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-semibold);
+}
+
+.list {
+  display: grid;
+  gap: var(--space-4);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.item {
+  padding: var(--space-3) var(--space-4);
+  border: var(--border-width-default) solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+}
+
+.objective {
+  margin: 0 0 var(--space-2);
+  font-weight: var(--font-weight-semibold);
+}
+
+.provenance {
+  margin: 0 0 var(--space-2);
+  color: var(--color-text-muted);
+  font-size: var(--font-size-sm);
+}
+
+.provenance code {
+  font-family: var(--font-family-mono, monospace);
+}
+
+.recorded {
+  margin: 0 0 var(--space-2);
+  color: var(--color-text-muted);
+  font-size: var(--font-size-sm);
+}
+
+.scientificStatus,
+.identityWarning {
+  margin: 0 0 var(--space-1);
+  color: var(--color-warning);
+  font-size: var(--font-size-sm);
+}
+
+@media print {
+  .item {
+    break-inside: avoid;
+  }
+}
