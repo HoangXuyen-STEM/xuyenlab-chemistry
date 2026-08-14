@@ -29,7 +29,7 @@ export function LibraryFixture({ lessons, query, state }: Props) {
           <p className={styles.eyebrow}>P5 · Không cần tài khoản ứng dụng</p>
           <h1>Thư viện pilot đang duyệt</h1>
           <p>
-            Tra cứu metadata của hai bài pilot. Nội dung và các cảnh báo QA vẫn
+            Tra cứu metadata các bài đang duyệt. Nội dung và các cảnh báo QA vẫn
             đang ở staging, chưa được xuất bản.
           </p>
         </header>

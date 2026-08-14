@@ -1,6 +1,20 @@
 import { expect, test } from "@playwright/test";
+import { readFileSync } from "node:fs";
+import path from "node:path";
 
 const route = "/fixtures/p5/library";
+
+const manifest = JSON.parse(
+  readFileSync(
+    path.join(process.cwd(), "content/pilot-staging-manifest.json"),
+    "utf8",
+  ),
+) as { lessons: Array<{ status: string }> };
+// Derived from the manifest rather than hardcoded, so this stays correct
+// once a draft lesson (Topic 24 today) is promoted or a new one is added.
+const inReviewCount = manifest.lessons.filter(
+  (lesson) => lesson.status === "in_review",
+).length;
 
 test.describe("P5 fixture library and metadata search", () => {
   test("exposes staging-only populated content, landmarks and noindex", async ({
@@ -18,7 +32,9 @@ test.describe("P5 fixture library and metadata search", () => {
       /noindex/u,
     );
     await expect(page.getByText("Staging — nội dung đang duyệt")).toBeVisible();
-    await expect(page.locator('a[href^="/fixtures/pilot/"]')).toHaveCount(2);
+    await expect(page.locator('a[href^="/fixtures/pilot/"]')).toHaveCount(
+      inReviewCount,
+    );
     await expect(page.locator('a[href^="/chuyen-de/"]')).toHaveCount(0);
     await expect(page.getByRole("link", { name: /đăng nhập/iu })).toHaveCount(
       0,
@@ -71,7 +87,9 @@ test.describe("P5 fixture library and metadata search", () => {
     await expect(retry).toBeFocused();
     await retry.press("Enter");
     await expect(page).toHaveURL(`${route}?state=populated`);
-    await expect(page.locator('a[href^="/fixtures/pilot/"]')).toHaveCount(2);
+    await expect(page.locator('a[href^="/fixtures/pilot/"]')).toHaveCount(
+      inReviewCount,
+    );
   });
 });
 
