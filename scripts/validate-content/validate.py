@@ -60,6 +60,26 @@ PUBLISH_WAIVER_DOES_NOT_AUTHORIZE = {
 PUBLISH_WAIVER_REQUIRED_ACKNOWLEDGED_BLOCKED_ITEMS: dict[str, set[str]] = {
     "dung-dich-va-can-bang-hoa-hoc": {"T08-S01:e6352"},
 }
+# P6-B1.3P: operational teaching acceptance vocabulary for
+# content/qa/pending/<slug>.remediation-queue.json entries. Additive only —
+# existing legacy status/choice values (pending-owner-review/applied/blocked;
+# reviewed-latex-mdx/reviewed-image-fallback/remain-blocking/null) are never
+# rejected or rewritten by this validator; see docs/contracts/content.md
+# "Remediation queue".
+REMEDIATION_NEW_STATUS = "accepted-with-limitation"
+REMEDIATION_NEW_CHOICES = {
+    "owner-accepted-source-fidelity",
+    "owner-accepted-visible-fallback",
+}
+# Initial supported use per choice (docs/contracts/content.md "Choice
+# semantics"); extending to another kind requires a later contract amendment.
+REMEDIATION_CHOICE_KIND = {
+    "owner-accepted-source-fidelity": "table",
+    "owner-accepted-visible-fallback": "image",
+}
+DISCUSSION_PROMPT_CLASSIFICATION = "discussion-prompt"
+DISCUSSION_PROMPT_SCIENTIFIC_STATUS = "not-a-verified-scientific-conclusion"
+DISCUSSION_PROMPT_IDENTITY_ASSURANCE = "declared-not-authenticated"
 
 
 def sha256(path: Path) -> str:
@@ -149,6 +169,274 @@ def validate_publish_waiver(qa: dict[str, Any], relative: str, root: Path) -> li
             file_part = value.split("#", 1)[0]
             if not (root / file_part).is_file() and not (REPO_ROOT / file_part).is_file():
                 errors.append(f"{relative}: publishWaiver.reference.{key} does not point to an existing file")
+    return errors
+
+
+def validate_discussion_prompt(item: dict[str, Any], relative: str) -> list[str]:
+    """Optional on any remediation item; never generated automatically from a
+    converter failure (there is no such generation code anywhere in this
+    repository) and never alters severity/status/QA checks/publication —
+    those are simply not read anywhere below."""
+    prompt = item.get("discussionPrompt")
+    if prompt is None:
+        return []
+    issue_id = item.get("issueId", "?")
+    if not isinstance(prompt, dict):
+        return [f"{relative}: {issue_id} discussionPrompt must be an object"]
+
+    errors: list[str] = []
+    if prompt.get("classification") != DISCUSSION_PROMPT_CLASSIFICATION:
+        errors.append(
+            f"{relative}: {issue_id} discussionPrompt.classification must be "
+            f"{DISCUSSION_PROMPT_CLASSIFICATION!r}"
+        )
+    if not isinstance(prompt.get("recordedBy"), str) or not prompt["recordedBy"].strip():
+        errors.append(f"{relative}: {issue_id} discussionPrompt.recordedBy is required")
+    if not is_iso_date(prompt.get("recordedDate")):
+        errors.append(
+            f"{relative}: {issue_id} discussionPrompt.recordedDate must be an ISO 8601 date (YYYY-MM-DD)"
+        )
+    if (
+        not isinstance(prompt.get("promptOrObjective"), str)
+        or not prompt["promptOrObjective"].strip()
+    ):
+        errors.append(f"{relative}: {issue_id} discussionPrompt.promptOrObjective is required")
+    if prompt.get("scientificStatus") != DISCUSSION_PROMPT_SCIENTIFIC_STATUS:
+        errors.append(
+            f"{relative}: {issue_id} discussionPrompt.scientificStatus must be "
+            f"{DISCUSSION_PROMPT_SCIENTIFIC_STATUS!r}"
+        )
+    if prompt.get("identityAssurance") != DISCUSSION_PROMPT_IDENTITY_ASSURANCE:
+        errors.append(
+            f"{relative}: {issue_id} discussionPrompt.identityAssurance must be "
+            f"{DISCUSSION_PROMPT_IDENTITY_ASSURANCE!r}"
+        )
+    # The parent item retains its own provenance; discussionPrompt does not
+    # introduce independent issueId/sourceId/sourceLocator.
+    if not isinstance(item.get("issueId"), str) or not item["issueId"].strip():
+        errors.append(f"{relative}: {issue_id} discussionPrompt requires the item's own issueId")
+    if not isinstance(item.get("sourceId"), str) or not item["sourceId"].strip():
+        errors.append(f"{relative}: {issue_id} discussionPrompt requires the item's own sourceId")
+    if not isinstance(item.get("sourceLocator"), dict):
+        errors.append(f"{relative}: {issue_id} discussionPrompt requires the item's own sourceLocator")
+    # discussionPrompt must inherit provenance from its parent item, not
+    # carry its own — a second, possibly conflicting issueId/sourceId/
+    # sourceLocator on the same item would undermine that guarantee.
+    for field in ("issueId", "sourceId", "sourceLocator"):
+        if field in prompt:
+            errors.append(
+                f"{relative}: {issue_id} discussionPrompt must not define its own {field} "
+                "(it inherits this from the parent remediation item)"
+            )
+    return errors
+
+
+def find_chemfigure_attribute_pairs(body: str) -> list[dict[str, str]]:
+    """Every `<ChemFigure ... />` tag's own attributes, as an independent
+    dict per tag — order- and newline-insensitive (JSX attributes routinely
+    span multiple lines in this codebase), and never conflates one tag's
+    `src` with a different tag's `alt`."""
+    pairs: list[dict[str, str]] = []
+    for match in re.finditer(r"<ChemFigure\b[^>]*/?>", body):
+        pairs.append(dict(re.findall(r'(\w+)="([^"]*)"', match.group(0))))
+    return pairs
+
+
+def validate_accepted_with_limitation(
+    item: dict[str, Any],
+    qa_unresolved_by_id: dict[str, dict[str, Any]],
+    block_by_id: dict[str, dict[str, Any]],
+    report_source_id: str | None,
+    lesson_slug: str,
+    lesson_topic: str,
+    body: str,
+    relative: str,
+) -> list[str]:
+    errors: list[str] = []
+    issue_id = item.get("issueId", "?")
+    choice = item.get("remediationChoice")
+    decision = item.get("ownerDecision")
+    if not isinstance(decision, dict):
+        return [f"{relative}: {issue_id} accepted-with-limitation requires an ownerDecision object"]
+
+    if item.get("lessonSlug") != lesson_slug:
+        errors.append(
+            f"{relative}: {issue_id} lessonSlug {item.get('lessonSlug')!r} differs from the "
+            f"canonical lesson being validated ({lesson_slug!r})"
+        )
+    if item.get("topic") != lesson_topic:
+        errors.append(
+            f"{relative}: {issue_id} topic {item.get('topic')!r} differs from the canonical "
+            f"lesson topic ({lesson_topic!r})"
+        )
+
+    if choice not in REMEDIATION_NEW_CHOICES:
+        errors.append(
+            f"{relative}: {issue_id} status accepted-with-limitation requires remediationChoice to be "
+            f"one of {sorted(REMEDIATION_NEW_CHOICES)}, got {choice!r}"
+        )
+    expected_kind = REMEDIATION_CHOICE_KIND.get(choice)
+    if expected_kind is not None and item.get("kind") != expected_kind:
+        errors.append(
+            f"{relative}: {issue_id} remediationChoice {choice!r} is only supported for kind "
+            f"{expected_kind!r}, got {item.get('kind')!r}"
+        )
+
+    if not isinstance(decision.get("decidedBy"), str) or not decision["decidedBy"].strip():
+        errors.append(f"{relative}: {issue_id} ownerDecision.decidedBy is required")
+    if not is_iso_date(decision.get("decidedAt")):
+        errors.append(
+            f"{relative}: {issue_id} ownerDecision.decidedAt must be an ISO 8601 date (YYYY-MM-DD)"
+        )
+    if not isinstance(decision.get("qaNote"), str) or not decision["qaNote"].strip():
+        errors.append(f"{relative}: {issue_id} ownerDecision.qaNote is required")
+    for field in ("altText", "caption", "reviewedLatex"):
+        if decision.get(field) is not None:
+            errors.append(
+                f"{relative}: {issue_id} ownerDecision.{field} must remain null for "
+                f"an accepted-with-limitation disposition (no remediation payload was authored)"
+            )
+
+    unresolved = qa_unresolved_by_id.get(issue_id)
+    if unresolved is None:
+        errors.append(f"{relative}: {issue_id} accepted-with-limitation issue missing from QA unresolved")
+    block = block_by_id.get(issue_id)
+    if block is None:
+        errors.append(f"{relative}: {issue_id} accepted-with-limitation issue missing from the failure report")
+
+    if unresolved is not None and block is not None:
+        severities = {item.get("severity"), unresolved.get("severity"), block.get("severity")}
+        if len(severities) != 1:
+            errors.append(
+                f"{relative}: {issue_id} severity is inconsistent across the queue item, QA record "
+                "and failure report"
+            )
+        messages = {item.get("message"), unresolved.get("description"), block.get("message")}
+        if len(messages) != 1:
+            errors.append(
+                f"{relative}: {issue_id} message differs from the original QA/failure-report evidence"
+            )
+        if item.get("sourceLocator") != block.get("sourceLocator"):
+            errors.append(
+                f"{relative}: {issue_id} sourceLocator differs from the original failure-report evidence"
+            )
+        if item.get("issueCode") != block.get("issueCode"):
+            errors.append(
+                f"{relative}: {issue_id} issueCode {item.get('issueCode')!r} differs from the "
+                f"failure report's {block.get('issueCode')!r}"
+            )
+        if item.get("kind") != block.get("kind"):
+            errors.append(
+                f"{relative}: {issue_id} kind {item.get('kind')!r} differs from the failure "
+                f"report's {block.get('kind')!r}"
+            )
+    if report_source_id is not None and item.get("sourceId") != report_source_id:
+        errors.append(
+            f"{relative}: {issue_id} sourceId {item.get('sourceId')!r} differs from the failure "
+            f"report's source {report_source_id!r}"
+        )
+
+    if choice == "owner-accepted-source-fidelity":
+        anchor = (item.get("sourceLocator") or {}).get("textAnchor")
+        if not isinstance(anchor, str) or not anchor.strip():
+            errors.append(
+                f"{relative}: {issue_id} owner-accepted-source-fidelity requires a non-empty "
+                "sourceLocator.textAnchor"
+            )
+        else:
+            normalized_anchor = re.sub(r"\s+", "", anchor)
+            # Strip tags first: the DataTable's own <th>/<td> markup sits
+            # between cell text nodes that textAnchor concatenates with no
+            # separator, so whitespace-only normalization would never match.
+            normalized_body = re.sub(r"\s+", "", re.sub(r"<[^>]+>", "", body))
+            if normalized_anchor not in normalized_body:
+                errors.append(
+                    f"{relative}: {issue_id} source-fidelity evidence is not traceable in the canonical MDX"
+                )
+    elif choice == "owner-accepted-visible-fallback":
+        # Locked to the ORIGINAL failure-evidence fallback, not merely to
+        # some asset that happens to be referenced somewhere in the MDX:
+        # the failure-report block's own fallback.assetPath/altText is the
+        # source of truth, and the canonical MDX must pair both exactly on
+        # one ChemFigure.
+        fallback = block.get("fallback") if isinstance(block, dict) else None
+        if not isinstance(fallback, dict):
+            errors.append(
+                f"{relative}: {issue_id} owner-accepted-visible-fallback requires the failure-report "
+                "block to carry a fallback object"
+            )
+        asset_path = fallback.get("assetPath") if isinstance(fallback, dict) else None
+        alt_text = fallback.get("altText") if isinstance(fallback, dict) else None
+        if not isinstance(asset_path, str) or not asset_path.strip():
+            errors.append(
+                f"{relative}: {issue_id} failure-report fallback.assetPath is required for "
+                "owner-accepted-visible-fallback"
+            )
+        if not isinstance(alt_text, str) or not alt_text.strip():
+            errors.append(
+                f"{relative}: {issue_id} failure-report fallback.altText is required for "
+                "owner-accepted-visible-fallback"
+            )
+        preview = item.get("previewPath")
+        if preview != asset_path:
+            errors.append(
+                f"{relative}: {issue_id} previewPath must exactly equal the failure report's "
+                f"fallback.assetPath ({asset_path!r}), got {preview!r}"
+            )
+        if isinstance(asset_path, str) and isinstance(alt_text, str):
+            paired = any(
+                attrs.get("src") == asset_path and attrs.get("alt") == alt_text
+                for attrs in find_chemfigure_attribute_pairs(body)
+            )
+            if not paired:
+                errors.append(
+                    f"{relative}: {issue_id} visible-fallback asset is not traceable to a single "
+                    "canonical ChemFigure pairing the original fallback src and alt"
+                )
+
+    return errors
+
+
+def validate_remediation_queue(
+    queue: list[dict[str, Any]],
+    qa: dict[str, Any],
+    report: dict[str, Any],
+    lesson_slug: str,
+    lesson_topic: str,
+    body: str,
+    relative: str,
+) -> list[str]:
+    errors: list[str] = []
+    qa_unresolved_by_id = {issue.get("id"): issue for issue in qa.get("unresolved", [])}
+    block_by_id = {block.get("id"): block for block in report.get("blocks", [])}
+    report_source_id = report.get("source", {}).get("sourceId")
+
+    for item in queue:
+        issue_id = item.get("issueId", "?")
+        status = item.get("status")
+        choice = item.get("remediationChoice")
+        # Checked for every item, not only accepted-with-limitation ones: a
+        # new choice paired with any other status is invalid regardless of
+        # which side of the pair was edited.
+        if choice in REMEDIATION_NEW_CHOICES and status != REMEDIATION_NEW_STATUS:
+            errors.append(
+                f"{relative}: {issue_id} remediationChoice {choice!r} requires status "
+                f"{REMEDIATION_NEW_STATUS!r}, got {status!r}"
+            )
+        if status == REMEDIATION_NEW_STATUS:
+            errors.extend(
+                validate_accepted_with_limitation(
+                    item,
+                    qa_unresolved_by_id,
+                    block_by_id,
+                    report_source_id,
+                    lesson_slug,
+                    lesson_topic,
+                    body,
+                    relative,
+                )
+            )
+        errors.extend(validate_discussion_prompt(item, relative))
     return errors
 
 
@@ -331,6 +619,17 @@ def validate(root: Path) -> list[str]:
             report_ids = {block.get("id") for block in blocks if block.get("outcome") != "semantic"}
             if qa_ids != report_ids:
                 errors.append(f"{relative}: QA unresolved queue differs from failure report")
+
+            # P6-B1.3P: optional per-lesson remediation queue, validated only
+            # for the new accepted-with-limitation vocabulary (and any
+            # discussionPrompt); every legacy status/choice value is left
+            # exactly as unvalidated as before.
+            queue_path = root / f"content/qa/pending/{slug}.remediation-queue.json"
+            if queue_path.is_file():
+                queue = read_json(queue_path)
+                errors.extend(
+                    validate_remediation_queue(queue, qa, report, slug, topic, body, relative)
+                )
 
         references = re.findall(r'(?:src|href)="([^"]+)"', body)
         markdown_references = re.findall(r"\[[^\]\n]+\]\(([^)\n]+)\)", body)
