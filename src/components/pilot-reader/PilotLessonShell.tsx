@@ -1,9 +1,16 @@
 import Link from "next/link";
 
+import type {
+  AcceptedLimitation,
+  DiscussionPromptEntry,
+} from "@/features/content/remediation-queue";
 import type { PilotLessonManifestEntry } from "@/features/content/pilot-manifest";
 
+import { AcceptedLimitations } from "./AcceptedLimitations";
+import { DiscussionPrompts } from "./DiscussionPrompts";
 import { PilotHeadingNav } from "./PilotHeadingNav";
 import { PilotPrintButton } from "./PilotPrintButton";
+import { StagingLimitationNotice } from "./StagingLimitationNotice";
 
 import styles from "./PilotLessonShell.module.css";
 
@@ -13,6 +20,8 @@ interface PilotLessonShellProps {
   summary: string;
   manifest: PilotLessonManifestEntry;
   articleId: string;
+  acceptedLimitations?: AcceptedLimitation[];
+  discussionPrompts?: DiscussionPromptEntry[];
   children: React.ReactNode;
 }
 
@@ -28,6 +37,8 @@ export function PilotLessonShell({
   summary,
   manifest,
   articleId,
+  acceptedLimitations = [],
+  discussionPrompts = [],
   children,
 }: PilotLessonShellProps) {
   return (
@@ -38,6 +49,7 @@ export function PilotLessonShell({
           bản
         </span>
       </div>
+      <StagingLimitationNotice />
       <nav aria-label="Điều hướng" className={styles.breadcrumbs}>
         <Link href="/fixtures/pilot">Danh sách pilot</Link>
         <span aria-hidden="true">/</span>
@@ -69,6 +81,8 @@ export function PilotLessonShell({
         <PilotHeadingNav articleId={articleId} />
         <article className={styles.prose} id={articleId}>
           {children}
+          <AcceptedLimitations items={acceptedLimitations} />
+          <DiscussionPrompts items={discussionPrompts} />
         </article>
       </div>
     </main>

@@ -44,6 +44,18 @@ test.describe("P5 fixture library and metadata search", () => {
     ).toHaveCount(0);
   });
 
+  test("shows the staging limitation notice as a visible, labelled note (P6-B1.3U)", async ({
+    page,
+  }) => {
+    await page.goto(route);
+    const notice = page.getByRole("note", { name: "Lưu ý bản đang duyệt" });
+    await expect(notice).toBeVisible();
+    await expect(notice).toContainText(/sử dụng dưới hướng dẫn giáo viên/u);
+    await expect(
+      page.getByText("Giới hạn được lưu theo nguồn").first(),
+    ).toBeVisible();
+  });
+
   test("submits a diacritic-insensitive search with the keyboard", async ({
     page,
   }) => {

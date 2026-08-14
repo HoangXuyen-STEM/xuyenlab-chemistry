@@ -3,6 +3,7 @@ import path from "node:path";
 
 import { topics } from "../../../../content/topics";
 import manifestJson from "../../../../content/pilot-staging-manifest.json";
+import { parseRemediationQueueSummary } from "../remediation-queue";
 
 export interface PilotLibraryLesson {
   topic: string;
@@ -18,6 +19,10 @@ export interface PilotLibraryLesson {
   status: "in_review";
   unresolvedBlocking: number;
   unresolvedWarnings: number;
+  // Operational teaching acceptance items (docs/contracts/content.md
+  // "Remediation queue") the Owner has reviewed and retained from source —
+  // never "resolved"/"fixed"/"published"; see docs/handoffs/P6/P6-B1.3U-claude.md.
+  acceptedLimitationsCount: number;
   href: string;
 }
 
@@ -187,6 +192,21 @@ export function loadPilotLibrary(
       throw new Error(`${entry.slug}: topic hoặc unresolved QA không hợp lệ.`);
     }
 
+    // The remediation queue is optional per lesson and not part of this
+    // manifest lesson's own drift-checked file set, so a missing file, an
+    // injected test reader that doesn't recognize this path, or malformed
+    // JSON must never fail the whole lesson entry — it only means zero
+    // accepted-limitation items are known for display.
+    let acceptedLimitationsCount = 0;
+    try {
+      const queuePath = `content/qa/pending/${entry.slug}.remediation-queue.json`;
+      const rawQueue = readFile(queuePath, allowedPaths);
+      acceptedLimitationsCount =
+        parseRemediationQueueSummary(rawQueue).acceptedLimitations.length;
+    } catch {
+      acceptedLimitationsCount = 0;
+    }
+
     return {
       ...frontmatter,
       status: "in_review",
@@ -198,6 +218,7 @@ export function loadPilotLibrary(
       unresolvedWarnings: qa.unresolved.filter(
         (item) => item.severity === "warning",
       ).length,
+      acceptedLimitationsCount,
       href: `/fixtures/pilot/${entry.topic}/${entry.slug}`,
     };
   });
@@ -229,6 +250,12 @@ function validateManifestLessons(manifest: PilotLibraryManifest): Set<string> {
 
     allowedPaths.add(entry.mdxPath);
     allowedPaths.add(entry.qaPath);
+    // Optional per lesson (P6-B1.3P); derived the same way as the two
+    // required paths above, from the already-validated slug, never from
+    // caller input. Its absence on disk is not an error here — the
+    // acceptedLimitationsCount read in loadPilotLibrary treats a missing
+    // file as zero, not a validation failure.
+    allowedPaths.add(`content/qa/pending/${entry.slug}.remediation-queue.json`);
   }
 
   return allowedPaths;

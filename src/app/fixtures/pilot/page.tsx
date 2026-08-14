@@ -1,6 +1,7 @@
 import Link from "next/link";
 
 import { topics } from "../../../../content/topics";
+import { StagingLimitationNotice } from "@/components/pilot-reader/StagingLimitationNotice";
 import { listPilotLessonManifests } from "@/features/content/pilot-manifest";
 
 import styles from "./page.module.css";
@@ -17,6 +18,7 @@ export default function PilotIndexPage() {
       <div className={styles.banner} aria-hidden="true">
         [BẢN NHÁP PILOT] — Xem trước staging — không cần đăng nhập
       </div>
+      <StagingLimitationNotice />
       <div className={styles.content}>
         <h1>Pilot nội dung Phần I</h1>
         <p className={styles.intro}>

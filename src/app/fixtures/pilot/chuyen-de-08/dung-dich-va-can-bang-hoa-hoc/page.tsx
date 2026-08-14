@@ -1,5 +1,6 @@
 import { PilotLessonShell } from "@/components/pilot-reader/PilotLessonShell";
 import { getPilotLessonManifest } from "@/features/content/pilot-manifest";
+import { loadRemediationQueueSummary } from "@/features/content/remediation-queue";
 
 // `body.mdx` is a byte-identical copy of
 // `content/topics/chuyen-de-08/dung-dich-va-can-bang-hoa-hoc.mdx` with its
@@ -21,10 +22,14 @@ export default function PilotDungDichVaCanBangHoaHocPage() {
     "chuyen-de-08",
     "dung-dich-va-can-bang-hoa-hoc",
   );
+  const { acceptedLimitations, discussionPrompts } =
+    loadRemediationQueueSummary(manifest);
 
   return (
     <PilotLessonShell
+      acceptedLimitations={acceptedLimitations}
       articleId={ARTICLE_ID}
+      discussionPrompts={discussionPrompts}
       lessonTitle={LESSON_TITLE}
       manifest={manifest}
       summary={SUMMARY}
