@@ -194,6 +194,136 @@ Rules:
 - Every omitted/failed source object appears in a machine-readable failure report.
 - HTML pilot sources are comparison inputs, not canonical replacements unless the owner changes their manifest role.
 
+## Remediation queue
+
+`content/qa/pending/<lesson-slug>.remediation-queue.json` records one entry per
+converter-flagged issue for a lesson (P4.4). It is optional per lesson; a
+lesson without one is unaffected by this section.
+
+```ts
+// Existing committed values as of P6-B1.3P (do not remove or rename):
+type LegacyRemediationStatus = "pending-owner-review" | "applied" | "blocked";
+type LegacyRemediationChoice =
+  | null
+  | "reviewed-latex-mdx"
+  | "reviewed-image-fallback"
+  | "remain-blocking";
+
+// P6-B1.3P addition:
+type RemediationStatus = LegacyRemediationStatus | "accepted-with-limitation";
+type RemediationChoice =
+  | LegacyRemediationChoice
+  | "owner-accepted-source-fidelity"
+  | "owner-accepted-visible-fallback";
+
+interface OwnerDecision {
+  decidedBy: string | null;
+  decidedAt: string | null; // ISO 8601 date (YYYY-MM-DD), not a timestamp
+  qaNote: string | null;
+  altText: string | null;
+  caption: string | null;
+  reviewedLatex: string | null;
+}
+
+// Optional on any remediation item; P6-B1.3P adds the type but does not
+// attach an instance to any existing item (see Amendments).
+interface DiscussionPrompt {
+  classification: "discussion-prompt";
+  recordedBy: string;
+  recordedDate: string; // strict YYYY-MM-DD
+  promptOrObjective: string;
+  scientificStatus: "not-a-verified-scientific-conclusion";
+  identityAssurance: "declared-not-authenticated";
+}
+
+interface RemediationQueueItem {
+  issueId: string;
+  sourceId: string;
+  topic: string;
+  lessonSlug: string;
+  sourceLocator: {
+    pathHint: string;
+    sectionPath: string;
+    blockOrder: number;
+    textAnchor?: string;
+  };
+  issueCode: string;
+  kind: string;
+  severity: "warning" | "blocking";
+  message: string;
+  observedType: "formula" | "figure" | "table" | "diagram" | "unknown";
+  observedTypeEvidence: string;
+  previewPath: string | null;
+  status: RemediationStatus;
+  remediationChoice: RemediationChoice;
+  ownerDecision: OwnerDecision;
+  discussionPrompt?: DiscussionPrompt; // inherits this item's issueId/sourceId/sourceLocator
+}
+```
+
+### `accepted-with-limitation` — what it is and is not
+
+- It is a reviewed **operational disposition**: the project owner looked at
+  the item and decided it may support teacher-led staging as-is.
+- It is **not** equivalent to `applied` (content was changed to resolve the
+  issue) or `blocked` (a fallback decision was approved but not yet
+  actioned). No remediation payload is authored under this status.
+- The issue stays in the QA record's `unresolved` array and in the failure
+  report exactly as before; its `severity` does not change. A `blocking`
+  item accepted this way is still `blocking` for every publication rule —
+  this status has no automatic effect on lesson `status`,
+  `checks`, `approvedForPublish`, `publishWaiver`, or `published`. It is not
+  a publication bypass.
+- The Owner's declared identity in a P6 remediation record (`decidedBy`,
+  `discussionPrompt.recordedBy`) is a **declared**, not
+  account-authenticated, identity — the same limitation the rest of P6
+  operates under until an authenticated teacher/owner session exists (see
+  ADR-0004 and the P3/Auth phase).
+
+### Choice semantics
+
+`owner-accepted-source-fidelity` (initial supported use: `kind: "table"`
+items only):
+
+- The owner compared the rendered/flattened representation with the source
+  and the representation is retained unchanged; no remediation payload was
+  authored.
+- `ownerDecision.altText`, `caption` and `reviewedLatex` must remain `null`.
+- `sourceLocator.textAnchor` must be non-empty, and its whitespace-normalized
+  text must remain a substring of the canonical MDX body once the body's own
+  markup tags are also stripped (a `<DataTable>`'s `<th>`/`<td>` tags sit
+  between cell text nodes that `textAnchor` concatenates with no separator)
+  — the same table-text traceability technique already used by
+  `tests/e2e/pilot-staging.spec.ts`.
+
+`owner-accepted-visible-fallback` (initial supported use: `kind: "image"`
+items only):
+
+- The owner visually reviewed and accepted the existing fallback asset
+  unchanged; no semantic alt text/accessibility/content remediation is
+  implied.
+- `ownerDecision.altText`, `caption` and `reviewedLatex` must remain `null`.
+- `previewPath` must be a non-null existing fallback/preview asset path,
+  referenced from the canonical MDX (e.g. a `ChemFigure`'s `src`) and valid
+  under the existing hashed-asset checks above.
+
+Using either new choice for the other kind (e.g. `owner-accepted-visible-fallback`
+on a `table` item) is rejected. Extending either choice to a kind beyond its
+initial supported use, or adding a new choice, requires a later contract
+amendment — this section intentionally does not generalize silently.
+
+### Discussion prompt
+
+`discussionPrompt` is optional on any remediation item. Its provenance
+(`issueId`, `sourceId`, `sourceLocator`) is inherited from that same item —
+it does not introduce independent provenance. Presence of a well-formed
+`discussionPrompt` has no automatic effect on the item's `severity`/`status`,
+the lesson's QA checks, or publication state; it must never be generated
+automatically from a converter failure (it is always an explicit Owner
+action). `identityAssurance: "declared-not-authenticated"` records the same
+P6 declared-identity limitation as `OwnerDecision.decidedBy` above — this is
+not an authenticated teacher action.
+
 ## Amendments
 
 - **P6.2 (2026-08-13):** the project owner explicitly authorized `approvedForPublish: true`
@@ -252,4 +382,21 @@ Rules:
   and only plans `in_review` lessons, skipping others without failing the job.
   Also added the `manifestVersion` validator check described above. See
   `docs/handoffs/P6/P6-B1.0-claude.md` for evidence.
+- **P6-B1.3P (2026-08-14):** added the operational teaching acceptance
+  vocabulary to the remediation queue schema (see "Remediation queue"
+  above): status `accepted-with-limitation` and choices
+  `owner-accepted-source-fidelity` (table items) /
+  `owner-accepted-visible-fallback` (image items), plus an optional
+  `discussionPrompt` shape on any queue item. This is additive: every
+  existing committed status/choice value is unchanged, and no committed
+  `content/qa/pending/*.remediation-queue.json` entry was rewritten by this
+  amendment. The new status carries no publication authority — a `blocking`
+  item accepted this way is still `blocking` for every existing publication
+  rule, and `discussionPrompt` never alters lifecycle, QA checks or
+  publication state. No `discussionPrompt` instance was attached to any real
+  item by this amendment; the Owner approved the capability, not a specific
+  Topic 24 classification. See `scripts/validate-content/validate.py`,
+  `scripts/validate-content/README.md` and
+  `docs/handoffs/P6/P6-B1.3P-claude.md` for the validator rules and
+  evidence.
 
