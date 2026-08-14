@@ -26,21 +26,17 @@ import {
 const stagingManifest = manifestJson as PilotLibraryManifest;
 
 describe("P5 pilot library metadata", () => {
-  it("loads every manifest lesson currently in_review and keeps every draft excluded", () => {
+  it("loads exactly the manifest's real current in_review subset", () => {
+    // Deliberately does not assume anything about how many lessons are
+    // draft right now (could be zero once every batch is promoted) — only
+    // that "library contents" and "manifest in_review subset" stay equal,
+    // whatever that subset currently is. Non-vacuous draft-exclusion
+    // coverage lives in the synthetic test below instead, so this test
+    // stays meaningful even if the real manifest has no draft lesson left.
     const lessons = loadPilotLibrary();
     const inReviewEntries = stagingManifest.lessons.filter(
       (entry) => entry.status === "in_review",
     );
-    const draftEntries = stagingManifest.lessons.filter(
-      (entry) => entry.status === "draft",
-    );
-    // This test's exclusion assertions below only mean something if the real
-    // manifest currently has at least one draft lesson (Topic 24, today) to
-    // exclude; a manifest with none would make them vacuously true.
-    expect(
-      draftEntries.length,
-      "expected at least one draft manifest lesson to exist",
-    ).toBeGreaterThan(0);
 
     expect(lessons.map((lesson) => lesson.slug)).toEqual(
       inReviewEntries.map((entry) => entry.slug),
@@ -54,17 +50,74 @@ describe("P5 pilot library metadata", () => {
         (entry) => `/fixtures/pilot/${entry.topic}/${entry.slug}`,
       ),
     );
+  });
 
-    // Every draft manifest entry — not just Topic 24 by name — must be
-    // excluded from the library, so this stays true for a future batch's
-    // draft lesson too, not only today's specific slug.
-    const librarySlugs = new Set(lessons.map((lesson) => lesson.slug));
-    for (const draft of draftEntries) {
-      expect(
-        librarySlugs.has(draft.slug),
-        `${draft.slug} is draft and must be excluded from the library`,
-      ).toBe(false);
-    }
+  it("excludes a draft entry from a synthetic mixed-status manifest, independent of the real manifest's current draft count", () => {
+    // Fully synthetic: does not depend on any real lesson's current status,
+    // and does not require any real draft lesson to exist, so this stays a
+    // real (non-vacuous) proof of draft exclusion before, during and after
+    // Topic 24 (or any other lesson) is promoted. The "in_review" entry
+    // reuses a real, registered topic slug (required — loadPilotLibrary
+    // looks it up in content/topics.ts) with an entirely synthetic slug and
+    // injected file content, so it never reads or depends on any real file.
+    const syntheticFiles: Record<string, string> = {
+      "content/topics/chuyen-de-06/synthetic-in-review.mdx": [
+        "---",
+        "topic: chuyen-de-06",
+        "title: Synthetic in_review lesson",
+        "slug: synthetic-in-review",
+        "order: 999",
+        "summary: Synthetic summary for a library unit test.",
+        'keywords: ["synthetic"]',
+        "estimatedMinutes: 1",
+        "version: 1",
+        "status: in_review",
+        "---",
+        "",
+        "Synthetic body.",
+        "",
+      ].join("\n"),
+      "content/qa/pending/synthetic-in-review.json": JSON.stringify({
+        lessonSlug: "synthetic-in-review",
+        unresolved: [],
+      }),
+    };
+    const syntheticManifest: PilotLibraryManifest = {
+      lessons: [
+        {
+          mdxPath: "content/topics/chuyen-de-06/synthetic-in-review.mdx",
+          qaPath: "content/qa/pending/synthetic-in-review.json",
+          slug: "synthetic-in-review",
+          topic: "chuyen-de-06",
+          status: "in_review",
+        },
+        {
+          mdxPath: "content/topics/chuyen-de-99/synthetic-draft.mdx",
+          qaPath: "content/qa/pending/synthetic-draft.json",
+          slug: "synthetic-draft",
+          topic: "chuyen-de-99",
+          status: "draft",
+        },
+      ],
+    };
+
+    const lessons = loadPilotLibrary(
+      syntheticManifest,
+      (repositoryPath, allowedPaths) => {
+        if (!allowedPaths.has(repositoryPath)) {
+          throw new Error(`Đường dẫn fixture không an toàn: ${repositoryPath}`);
+        }
+        const content = syntheticFiles[repositoryPath];
+        if (content === undefined) {
+          throw new Error(`unexpected read in test: ${repositoryPath}`);
+        }
+        return content;
+      },
+    );
+
+    expect(lessons.map((lesson) => lesson.slug)).toEqual([
+      "synthetic-in-review",
+    ]);
   });
 
   it("filters out draft manifest entries instead of throwing or reading their files", () => {
@@ -84,27 +137,56 @@ describe("P5 pilot library metadata", () => {
   });
 
   it("loads a manifest-backed Topic 24 when only its isolated lifecycle view is promoted, without breaking search, order or count for the rest of the library", () => {
+    // Rewrites the status line by pattern, not by literal value, so this
+    // helper produces the requested status regardless of the file's
+    // CURRENT status — unlike a literal `.replace("status: draft", ...)`,
+    // which would silently no-op once the real file already says
+    // in_review (i.e. after Topic 24 is really promoted in P6-B1.4).
+    const withStatus = (source: string, status: "draft" | "in_review") =>
+      source.replace(
+        /\nstatus: (?:draft|in_review)\n/u,
+        `\nstatus: ${status}\n`,
+      );
+
     const topic24 = stagingManifest.lessons.find(
       (entry) => entry.slug === "phan-bon-hoa-hoc",
     );
-    expect(topic24?.status).toBe("draft");
-    // This promotion is the source of "T24 has 0 blocking items" proof
-    // below; if a future re-import ever changes that, this assumption
-    // should fail loudly here rather than the assertion below silently
-    // proving nothing. `ManifestLesson` (library.ts) doesn't carry
-    // blockingCount, so read it off the raw manifest JSON directly.
+    if (!topic24) throw new Error("Topic 24 manifest entry không tồn tại.");
+
+    // blockingCount is a QA metric independent of lifecycle status —
+    // promoting draft -> in_review doesn't change it, so this assumption
+    // stays valid whichever side of P6-B1.4 the real manifest is on.
+    // `ManifestLesson` (library.ts) doesn't carry blockingCount, so read it
+    // off the raw manifest JSON directly.
     const topic24BlockingCount = manifestJson.lessons.find(
       (entry) => entry.slug === "phan-bon-hoa-hoc",
     )?.blockingCount;
     expect(topic24BlockingCount).toBe(0);
 
-    const previouslyInReviewSlugs = stagingManifest.lessons
+    // Baseline: every OTHER lesson keeps its real current status; Topic 24
+    // is forced to draft in this test-local view REGARDLESS of its real
+    // current status, so "the library without Topic 24" is a stable,
+    // well-defined starting point whether Topic 24 is still draft (today)
+    // or has already been promoted for real (after P6-B1.4).
+    const baselineManifest: PilotLibraryManifest = {
+      lessons: stagingManifest.lessons.map((entry) =>
+        entry.slug === topic24.slug
+          ? { ...entry, status: "draft" }
+          : { ...entry },
+      ),
+    };
+    const previouslyInReviewSlugs = baselineManifest.lessons
       .filter((entry) => entry.status === "in_review")
       .map((entry) => entry.slug);
 
+    const originalTopic24Source = readFileSync(
+      path.join(process.cwd(), topic24.mdxPath),
+      "utf8",
+    );
+
     const promotedManifest: PilotLibraryManifest = {
-      lessons: stagingManifest.lessons.map((entry) =>
-        entry.slug === "phan-bon-hoa-hoc"
+      lessons: baselineManifest.lessons.map((entry) =>
+        entry.slug === topic24.slug
           ? { ...entry, status: "in_review" }
           : { ...entry },
       ),
@@ -114,13 +196,14 @@ describe("P5 pilot library metadata", () => {
         path.join(process.cwd(), repositoryPath),
         "utf8",
       );
-      return repositoryPath === topic24?.mdxPath
-        ? source.replace("status: draft", "status: in_review")
+      return repositoryPath === topic24.mdxPath
+        ? withStatus(source, "in_review")
         : source;
     });
 
-    // Count: promoting exactly one draft lesson must add exactly one
-    // library entry, on top of whatever was already in_review.
+    // Count: promoting exactly one draft lesson (Topic 24, in this
+    // test-local baseline) must add exactly one library entry, on top of
+    // whatever else was already in_review.
     expect(lessons).toHaveLength(previouslyInReviewSlugs.length + 1);
 
     // A lesson with zero blocking issues is a legitimate in_review library
@@ -132,9 +215,13 @@ describe("P5 pilot library metadata", () => {
       status: "in_review",
       unresolvedBlocking: 0,
     });
-    // The canonical manifest and Topic 24 files themselves are never
-    // mutated by promoting only this test-local injected view.
-    expect(topic24?.status).toBe("draft");
+    // The canonical Topic 24 file on disk is never mutated by promoting
+    // only this test-local injected manifest/reader view — proven
+    // byte-for-byte, rather than by asserting a specific status literal
+    // (which would break the moment Topic 24 is really promoted).
+    expect(
+      readFileSync(path.join(process.cwd(), topic24.mdxPath), "utf8"),
+    ).toBe(originalTopic24Source);
 
     // Order: an empty query sorts by (topicOrder, order); promotion must
     // not disturb the existing lessons' relative order or displace them.
