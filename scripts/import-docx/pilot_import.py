@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
-"""Generate deterministic Topic 6/8 review drafts and staging assets.
+"""Generate deterministic, incremental Part I review drafts and staging assets.
 
 The importer never claims chemical correctness and never emits ``published``.
 Existing managed output is overwritten only when it still matches the previous
 manifest. A manually edited file requires both ``--force`` and ``--backup-dir``.
+Without explicit source arguments it retains the legacy Topic 6/8 fixture mode.
 """
 
 from __future__ import annotations
@@ -95,18 +96,71 @@ def run_prototype(pilot: dict[str, Any], output_root: Path) -> Path:
     return Path(json.loads(result.stdout)["target"])
 
 
-def build_outputs() -> tuple[dict[str, bytes], dict[str, Any]]:
+def remediation_queue(
+    report: dict[str, Any], source_id: str, topic_slug: str, lesson_slug: str
+) -> list[dict[str, Any]]:
+    """Build a review queue without inferring chemistry or object semantics."""
+    observed_types = {
+        "formula": ("formula", "Native OOXML formula markup requires Owner review."),
+        "table": ("table", "DOCX table was extracted as a DataTable and requires visual review."),
+        "image": ("figure", "Browser-safe raster image was extracted from the DOCX relationship."),
+        "drawing": ("unknown", "Drawing has no safe semantic classification from the importer."),
+        "embeddedObject": (
+            "unknown",
+            "Embedded object type and chemical meaning are not inferred by the importer.",
+        ),
+    }
+    queue: list[dict[str, Any]] = []
+    for block in report["blocks"]:
+        if block["outcome"] == "semantic":
+            continue
+        observed_type, evidence = observed_types.get(
+            block["kind"],
+            ("unknown", "No safe object classification is available from source structure."),
+        )
+        fallback = block.get("fallback", {})
+        preview_path = fallback.get("assetPath") if observed_type == "figure" else None
+        queue.append(
+            {
+                "issueId": block["id"],
+                "sourceId": source_id,
+                "topic": topic_slug,
+                "lessonSlug": lesson_slug,
+                "sourceLocator": block["sourceLocator"],
+                "issueCode": block["issueCode"],
+                "kind": block["kind"],
+                "severity": block["severity"],
+                "message": block["message"],
+                "observedType": observed_type,
+                "observedTypeEvidence": evidence,
+                "previewPath": preview_path,
+                "status": "pending-owner-review",
+                "remediationChoice": None,
+                "ownerDecision": {
+                    "decidedBy": None,
+                    "decidedAt": None,
+                    "altText": None,
+                    "caption": None,
+                    "reviewedLatex": None,
+                    "qaNote": None,
+                },
+            }
+        )
+    return queue
+
+
+def build_outputs(pilots: tuple[dict[str, Any], ...]) -> tuple[dict[str, bytes], dict[str, Any]]:
     outputs: dict[str, bytes] = {}
     lessons: list[dict[str, Any]] = []
     assets: dict[str, dict[str, Any]] = {}
     with tempfile.TemporaryDirectory(prefix="xuyenlab-p4-import-") as temp_name:
         temp_root = Path(temp_name)
-        for pilot in PILOTS:
+        for pilot in pilots:
             generated = run_prototype(pilot, temp_root)
             report = load_json(generated / "failure-report.json")
             report["generator"] = {
                 "name": "xuyenlab-hybrid-pilot-importer",
-                "version": "0.2.0",
+                "version": "0.3.0",
                 "strategy": "hybrid",
             }
             mdx_path = generated / f"{pilot['slug']}.mdx"
@@ -142,6 +196,7 @@ def build_outputs() -> tuple[dict[str, bytes], dict[str, Any]]:
             lesson_path = f"content/topics/{topic_slug}/{pilot['slug']}.mdx"
             report_path = f"content/qa/import-reports/{pilot['slug']}.failure.json"
             qa_path = f"content/qa/pending/{pilot['slug']}.json"
+            remediation_path = f"content/qa/pending/{pilot['slug']}.remediation-queue.json"
             outputs[lesson_path] = prettier(mdx, "mdx")
             outputs[report_path] = prettier(
                 json.dumps(report, ensure_ascii=False, indent=2, sort_keys=True), "json"
@@ -178,6 +233,17 @@ def build_outputs() -> tuple[dict[str, bytes], dict[str, Any]]:
             outputs[qa_path] = prettier(
                 json.dumps(qa, ensure_ascii=False, indent=2, sort_keys=True), "json"
             )
+            outputs[remediation_path] = prettier(
+                json.dumps(
+                    remediation_queue(
+                        report, pilot["source_id"], topic_slug, pilot["slug"]
+                    ),
+                    ensure_ascii=False,
+                    indent=2,
+                    sort_keys=True,
+                ),
+                "json",
+            )
             lessons.append(
                 {
                     "slug": pilot["slug"],
@@ -190,11 +256,9 @@ def build_outputs() -> tuple[dict[str, bytes], dict[str, Any]]:
                     "qaPath": qa_path,
                     "blockingCount": report["summary"]["blockingCount"],
                     "warningCount": report["summary"]["warningCount"],
-                    # P6-B1.0: lifecycle status is per lesson, not manifest-wide, so
-                    # this importer's own fresh regeneration never clobbers a lesson
-                    # another process has already promoted to in_review. A rerun that
-                    # would otherwise touch an already-promoted lesson still requires
-                    # --force/--backup-dir via the existing drift check below.
+                    # Importers create drafts only. The incremental installer preserves
+                    # unrelated entries, and refuse_if_target_in_review prevents a
+                    # requested reviewed lesson from being regenerated, even with force.
                     "status": "draft",
                 }
             )
@@ -213,80 +277,103 @@ def build_outputs() -> tuple[dict[str, bytes], dict[str, Any]]:
     return outputs, manifest
 
 
-def refuse_if_any_lesson_in_review(target_root: Path) -> None:
-    """P6-B1.0 temporary safeguard.
-
-    This importer unconditionally regenerates its whole hardcoded PILOTS set as
-    fresh, unsigned `draft` output on every run. The existing drift check below
-    only catches unrecorded manual edits (recorded hash vs actual file hash); it
-    cannot and does not detect that a fresh generation differs from an already
-    QA-signed `in_review` lesson, because a signed lesson's recorded hash always
-    matches its actual on-disk content. Left unguarded, a plain rerun would
-    silently overwrite a signed lesson's MDX/QA back to an unsigned draft and
-    erase its approvedForPublish/publishWaiver state, and --force would not even
-    be required to do it. Refuse outright, before any work, until a
-    parameterized/incremental importer (P6-B1.1) replaces this one.
-    """
+def refuse_if_target_in_review(
+    target_root: Path, requested: tuple[dict[str, Any], ...]
+) -> None:
+    """Never regenerate a requested lesson after Owner review has started."""
     manifest_file = target_root / MANIFEST_PATH
     if not manifest_file.exists():
         return
     previous = load_json(manifest_file)
+    requested_slugs = {item["slug"] for item in requested}
     in_review = sorted(
         lesson["slug"]
         for lesson in previous.get("lessons", [])
-        if lesson.get("status") == "in_review"
+        if lesson.get("status") == "in_review" and lesson.get("slug") in requested_slugs
     )
     if in_review:
         raise PermissionError(
-            "Refusing to run: manifest lesson(s) "
-            f"{in_review} are in_review. This importer would regenerate them as "
+            "Refusing to run: requested manifest lesson(s) "
+            f"{in_review} are in_review. The importer would regenerate them as "
             "unsigned drafts, erasing their QA/approvedForPublish/publishWaiver "
-            "state. Not bypassable with --force. See docs/contracts/content.md "
-            "'Staging manifest' and docs/handoffs/P6/P6-B1.0-claude.md."
+            "state. This is not bypassable with --force."
         )
 
 
-def previous_managed_hashes(target_root: Path) -> dict[str, str]:
-    manifest_file = target_root / MANIFEST_PATH
-    if not manifest_file.exists():
-        return {}
-    manifest = load_json(manifest_file)
-    paths = [
-        path
-        for lesson in manifest.get("lessons", [])
-        for path in (lesson["mdxPath"], lesson["failureReportPath"], lesson["qaPath"])
-    ] + [f"public/{asset['path']}" for asset in manifest.get("assets", [])]
-    return {
-        path: file_hash(target_root / path)
-        for path in paths
-        if (target_root / path).is_file()
-    }
-
-
-def install(
+def install_incremental(
     target_root: Path,
     outputs: dict[str, bytes],
-    manifest: dict[str, Any],
+    generated: dict[str, Any],
     force: bool,
     backup_dir: Path | None,
 ) -> str:
+    """Merge only requested lessons/assets into the staging manifest."""
     previous_manifest_file = target_root / MANIFEST_PATH
-    expected_previous: dict[str, str] = {}
+    previous: dict[str, Any] = {
+        "manifestVersion": "1.1.0",
+        "strategy": "hybrid",
+        "scope": "Part I only",
+        "lessons": [],
+        "assets": [],
+    }
     if previous_manifest_file.exists():
         previous = load_json(previous_manifest_file)
-        for lesson in previous.get("lessons", []):
-            expected_previous[lesson["mdxPath"]] = lesson["mdxSha256"]
-            expected_previous[lesson["failureReportPath"]] = lesson["failureReportSha256"]
-            expected_previous[lesson["qaPath"]] = lesson["qaSha256"]
-        for asset in previous.get("assets", []):
+    if previous.get("manifestVersion") != "1.1.0":
+        raise ValueError("Existing manifest must use manifestVersion 1.1.0")
+    if previous.get("strategy") != "hybrid":
+        raise ValueError("Existing manifest must use the hybrid strategy")
+
+    generated_lessons = generated["lessons"]
+    requested_slugs = {lesson["slug"] for lesson in generated_lessons}
+    requested_source_ids = {lesson["sourceId"] for lesson in generated_lessons}
+    requested_paths = {lesson["mdxPath"] for lesson in generated_lessons}
+    for lesson in previous.get("lessons", []):
+        collides = (
+            lesson.get("slug") in requested_slugs
+            or lesson.get("sourceId") in requested_source_ids
+            or lesson.get("mdxPath") in requested_paths
+        )
+        if collides and not (
+            lesson.get("slug") in requested_slugs
+            and lesson.get("sourceId") in requested_source_ids
+            and lesson.get("mdxPath") in requested_paths
+        ):
+            raise ValueError(
+                "Requested lesson identity collides with a different existing "
+                f"manifest entry: {lesson.get('slug')!r}"
+            )
+
+    replaced_lessons = [
+        lesson for lesson in previous.get("lessons", []) if lesson.get("slug") in requested_slugs
+    ]
+    expected_previous: dict[str, str] = {}
+    for lesson in replaced_lessons:
+        expected_previous[lesson["mdxPath"]] = lesson["mdxSha256"]
+        expected_previous[lesson["failureReportPath"]] = lesson["failureReportSha256"]
+        expected_previous[lesson["qaPath"]] = lesson["qaSha256"]
+    for asset in previous.get("assets", []):
+        if set(asset.get("sourceIds", [])) & requested_source_ids:
             expected_previous[f"public/{asset['path']}"] = asset["sha256"]
 
-    actual_previous = previous_managed_hashes(target_root)
+    actual_previous = {
+        path: file_hash(target_root / path)
+        for path in expected_previous
+        if (target_root / path).is_file()
+    }
     drift = {
         path: {"expected": expected_previous.get(path), "actual": actual_previous.get(path)}
         for path in sorted(set(expected_previous) | set(actual_previous))
         if expected_previous.get(path) != actual_previous.get(path)
     }
+    for lesson in replaced_lessons:
+        queue_path = f"content/qa/pending/{lesson['slug']}.remediation-queue.json"
+        queue_file = target_root / queue_path
+        proposed = outputs.get(queue_path)
+        if queue_file.is_file() and proposed is not None and queue_file.read_bytes() != proposed:
+            drift[queue_path] = {
+                "expected": "deterministic generated queue",
+                "actual": file_hash(queue_file),
+            }
     diff_file = target_root / "content/pilot-import.diff.json"
     if drift:
         diff_file.parent.mkdir(parents=True, exist_ok=True)
@@ -303,9 +390,47 @@ def install(
                 backup.parent.mkdir(parents=True, exist_ok=True)
                 shutil.copy2(source, backup)
 
+    preserved_lessons = [
+        lesson for lesson in previous.get("lessons", []) if lesson.get("slug") not in requested_slugs
+    ]
+    lessons = sorted(
+        [*preserved_lessons, *generated_lessons],
+        key=lambda lesson: (lesson["topic"], lesson["slug"]),
+    )
+
+    assets_by_path: dict[str, dict[str, Any]] = {}
+    stale_asset_paths: set[str] = set()
+    for asset in previous.get("assets", []):
+        remaining_sources = sorted(set(asset.get("sourceIds", [])) - requested_source_ids)
+        if remaining_sources:
+            assets_by_path[asset["path"]] = dict(asset, sourceIds=remaining_sources)
+        elif set(asset.get("sourceIds", [])) & requested_source_ids:
+            stale_asset_paths.add(f"public/{asset['path']}")
+        else:
+            assets_by_path[asset["path"]] = asset
+    for asset in generated.get("assets", []):
+        current = assets_by_path.get(asset["path"])
+        if current and (
+            current.get("sha256") != asset.get("sha256")
+            or current.get("bytes") != asset.get("bytes")
+        ):
+            raise ValueError(f"Asset metadata collision for {asset['path']}")
+        merged_sources = sorted(
+            set(current.get("sourceIds", []) if current else [])
+            | set(asset.get("sourceIds", []))
+        )
+        assets_by_path[asset["path"]] = dict(asset, sourceIds=merged_sources)
+        stale_asset_paths.discard(f"public/{asset['path']}")
+
+    manifest = {
+        "manifestVersion": "1.1.0",
+        "strategy": "hybrid",
+        "scope": previous.get("scope", "Part I only"),
+        "lessons": lessons,
+        "assets": [assets_by_path[path] for path in sorted(assets_by_path)],
+    }
     changed = False
-    desired_paths = set(outputs)
-    for stale_path in sorted(set(expected_previous) - desired_paths):
+    for stale_path in sorted(stale_asset_paths):
         stale = target_root / stale_path
         if stale.is_file():
             stale.unlink()
@@ -332,9 +457,40 @@ def install(
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--target-root", type=Path, default=REPO_ROOT)
+    parser.add_argument("--source", type=Path)
+    parser.add_argument("--source-id")
+    parser.add_argument("--topic", type=int, choices=range(1, 27))
+    parser.add_argument("--slug")
+    parser.add_argument("--title")
     parser.add_argument("--force", action="store_true")
     parser.add_argument("--backup-dir", type=Path)
     return parser.parse_args()
+
+
+def requested_lessons(args: argparse.Namespace) -> tuple[dict[str, Any], ...]:
+    explicit = (args.source, args.source_id, args.topic, args.slug, args.title)
+    if not any(value is not None for value in explicit):
+        return PILOTS
+    if not all(value is not None for value in explicit):
+        raise ValueError(
+            "--source, --source-id, --topic, --slug and --title must be supplied together"
+        )
+    source = args.source.resolve()
+    if not source.is_file():
+        raise FileNotFoundError(source)
+    try:
+        source_path = source.relative_to(REPO_ROOT).as_posix()
+    except ValueError as error:
+        raise ValueError("--source must resolve inside the repository") from error
+    return (
+        {
+            "source_id": args.source_id,
+            "topic": args.topic,
+            "source": source_path,
+            "slug": args.slug,
+            "title": args.title,
+        },
+    )
 
 
 def main() -> int:
@@ -343,9 +499,12 @@ def main() -> int:
         raise ValueError("--force requires an explicit --backup-dir")
     target_root = args.target_root.resolve()
     target_root.mkdir(parents=True, exist_ok=True)
-    refuse_if_any_lesson_in_review(target_root)
-    outputs, manifest = build_outputs()
-    result = install(target_root, outputs, manifest, args.force, args.backup_dir)
+    requested = requested_lessons(args)
+    refuse_if_target_in_review(target_root, requested)
+    outputs, manifest = build_outputs(requested)
+    result = install_incremental(
+        target_root, outputs, manifest, args.force, args.backup_dir
+    )
     print(json.dumps({"result": result, "manifest": str(target_root / MANIFEST_PATH)}))
     return 0
 

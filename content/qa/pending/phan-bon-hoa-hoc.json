@@ -1,0 +1,35 @@
+{
+  "approvedForPublish": false,
+  "checks": {
+    "chemistryVerified": false,
+    "figuresVerified": false,
+    "formulasVerified": false,
+    "mobileVerified": false,
+    "printVerified": false,
+    "scopePartIOnly": false,
+    "tablesVerified": false
+  },
+  "lessonSlug": "phan-bon-hoa-hoc",
+  "lessonVersion": 1,
+  "reviewStatus": "pending",
+  "reviewedAt": null,
+  "reviewer": null,
+  "sourceIds": ["T24-S01"],
+  "unresolved": [
+    {
+      "description": "DOCX table was flattened to an HTML table and needs visual review.",
+      "id": "T24-S01:t6971",
+      "severity": "warning"
+    },
+    {
+      "description": "Extracted image needs meaningful alt text and visual verification.",
+      "id": "T24-S01:i8191",
+      "severity": "warning"
+    },
+    {
+      "description": "Extracted image needs meaningful alt text and visual verification.",
+      "id": "T24-S01:i0305",
+      "severity": "warning"
+    }
+  ]
+}
