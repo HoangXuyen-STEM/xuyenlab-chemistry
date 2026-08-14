@@ -6,9 +6,9 @@ import {
 } from "./pilot-manifest";
 
 describe("pilot manifest", () => {
-  it("lists both P4.1 pilot lessons", () => {
+  it("lists the two pilots and the Topic 24 draft", () => {
     const lessons = listPilotLessonManifests();
-    expect(lessons).toHaveLength(2);
+    expect(lessons).toHaveLength(3);
   });
 
   it("resolves the Topic 6 lesson with its provenance and QA counts", () => {
@@ -40,5 +40,8 @@ describe("pilot manifest", () => {
       getPilotLessonManifest("chuyen-de-08", "dung-dich-va-can-bang-hoa-hoc")
         .status,
     ).toBe("in_review");
+    expect(
+      getPilotLessonManifest("chuyen-de-24", "phan-bon-hoa-hoc").status,
+    ).toBe("draft");
   });
 });

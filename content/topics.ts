@@ -11,4 +11,5 @@ export const topics: TopicDefinition[] = [
     title: "Dung dịch và cân bằng hóa học",
     order: 8,
   },
+  { slug: "chuyen-de-24", title: "Phân bón hóa học", order: 24 },
 ];

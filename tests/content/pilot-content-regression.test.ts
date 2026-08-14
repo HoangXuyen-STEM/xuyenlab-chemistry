@@ -80,7 +80,7 @@ describe("P4 pilot content regression", () => {
         `${lesson.failureReportPath} contains duplicate issue IDs`,
       ).toHaveLength(new Set(issueIds).size);
       expect(
-        issueIds.every((issueId) => /^T0[68]-S01:[a-z0-9]+$/u.test(issueId)),
+        issueIds.every((issueId) => /^T\d{2}-S\d{2}:[a-z0-9]+$/u.test(issueId)),
       ).toBe(true);
     }
   });

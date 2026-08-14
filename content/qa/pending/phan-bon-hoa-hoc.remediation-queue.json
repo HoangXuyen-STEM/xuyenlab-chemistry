@@ -1,0 +1,87 @@
+[
+  {
+    "issueCode": "DOCX_TABLE_REQUIRES_VISUAL_REVIEW",
+    "issueId": "T24-S01:t6971",
+    "kind": "table",
+    "lessonSlug": "phan-bon-hoa-hoc",
+    "message": "DOCX table was flattened to an HTML table and needs visual review.",
+    "observedType": "table",
+    "observedTypeEvidence": "DOCX table was extracted as a DataTable and requires visual review.",
+    "ownerDecision": {
+      "altText": null,
+      "caption": null,
+      "decidedAt": null,
+      "decidedBy": null,
+      "qaNote": null,
+      "reviewedLatex": null
+    },
+    "previewPath": null,
+    "remediationChoice": null,
+    "severity": "warning",
+    "sourceId": "T24-S01",
+    "sourceLocator": {
+      "blockOrder": 8,
+      "pathHint": "word/document.xml#body/tbl[1]",
+      "sectionPath": "Phần I",
+      "textAnchor": "Phân loạiCách tính độ dinh dưỡngPhân đạmTính theo phần trăm khối lượng N trong phân.Phân lânTính theo phần trăm khối lượng P2O5 trong phân.Phân kaliTính theo phần trăm khối lượng K2O trong phân."
+    },
+    "status": "pending-owner-review",
+    "topic": "chuyen-de-24"
+  },
+  {
+    "issueCode": "EXTRACTED_IMAGE_REQUIRES_REVIEW",
+    "issueId": "T24-S01:i8191",
+    "kind": "image",
+    "lessonSlug": "phan-bon-hoa-hoc",
+    "message": "Extracted image needs meaningful alt text and visual verification.",
+    "observedType": "figure",
+    "observedTypeEvidence": "Browser-safe raster image was extracted from the DOCX relationship.",
+    "ownerDecision": {
+      "altText": null,
+      "caption": null,
+      "decidedAt": null,
+      "decidedBy": null,
+      "qaNote": null,
+      "reviewedLatex": null
+    },
+    "previewPath": "/staging-assets/lessons/d4/d430885438c33c62a0f3bbe2cf7e7969af17747d2da2be3622becd4639456453.jpeg",
+    "remediationChoice": null,
+    "severity": "warning",
+    "sourceId": "T24-S01",
+    "sourceLocator": {
+      "blockOrder": 10,
+      "pathHint": "word/document.xml#body/block[13]/a:blip[@r:embed='rId7'] -> word/media/image1.jpeg",
+      "sectionPath": "Phần I"
+    },
+    "status": "pending-owner-review",
+    "topic": "chuyen-de-24"
+  },
+  {
+    "issueCode": "EXTRACTED_IMAGE_REQUIRES_REVIEW",
+    "issueId": "T24-S01:i0305",
+    "kind": "image",
+    "lessonSlug": "phan-bon-hoa-hoc",
+    "message": "Extracted image needs meaningful alt text and visual verification.",
+    "observedType": "figure",
+    "observedTypeEvidence": "Browser-safe raster image was extracted from the DOCX relationship.",
+    "ownerDecision": {
+      "altText": null,
+      "caption": null,
+      "decidedAt": null,
+      "decidedBy": null,
+      "qaNote": null,
+      "reviewedLatex": null
+    },
+    "previewPath": "/staging-assets/lessons/95/955c50af88187216dafd2353c74b540e510403a0c970d8f247cc0d2e01e25dce.jpeg",
+    "remediationChoice": null,
+    "severity": "warning",
+    "sourceId": "T24-S01",
+    "sourceLocator": {
+      "blockOrder": 11,
+      "pathHint": "word/document.xml#body/block[14]/a:blip[@r:embed='rId8'] -> word/media/image2.jpeg",
+      "sectionPath": "Phần I"
+    },
+    "status": "pending-owner-review",
+    "topic": "chuyen-de-24"
+  }
+]
