@@ -115,6 +115,24 @@ async function generate(
   );
 }
 
+export interface PilotManifestLesson {
+  mdxPath: string;
+  slug: string;
+  topic: string;
+  status: "draft" | "in_review";
+}
+
+/**
+ * PDF generation is a publication-adjacent artifact: a `draft` lesson (e.g. a
+ * freshly imported P6-B1 batch lesson) has no signed QA and must never get a
+ * plan built for it. Skipping it here must not fail the rest of the job.
+ */
+export function selectPdfEligibleLessons(
+  lessons: PilotManifestLesson[],
+): PilotManifestLesson[] {
+  return lessons.filter((lesson) => lesson.status === "in_review");
+}
+
 async function main(): Promise<void> {
   validateContent();
   const pilot = JSON.parse(
@@ -122,10 +140,11 @@ async function main(): Promise<void> {
       readFile("content/pilot-staging-manifest.json", "utf8"),
     ),
   ) as {
-    lessons: Array<{ mdxPath: string; slug: string; topic: string }>;
+    lessons: PilotManifestLesson[];
   };
+  const eligibleLessons = selectPdfEligibleLessons(pilot.lessons);
   const plans = await Promise.all(
-    pilot.lessons.map((lesson) =>
+    eligibleLessons.map((lesson) =>
       createLessonPlan({
         repositoryRoot,
         canonicalPath: lesson.mdxPath,
@@ -154,7 +173,9 @@ async function main(): Promise<void> {
   }
 }
 
-main().catch((error: unknown) => {
-  console.error(error instanceof Error ? error.message : error);
-  process.exitCode = 1;
-});
+if (import.meta.url === `file://${process.argv[1]}`) {
+  main().catch((error: unknown) => {
+    console.error(error instanceof Error ? error.message : error);
+    process.exitCode = 1;
+  });
+}

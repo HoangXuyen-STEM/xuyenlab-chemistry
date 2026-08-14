@@ -166,17 +166,26 @@ Rules:
 - A manifest-wide `publicationStatus` field is deprecated and rejected outright
   if present, so a file that was never migrated to this schema fails loudly
   instead of being silently misread.
+- `manifestVersion` must equal the current schema version exactly (validator-
+  enforced); a stale or missing value fails validation rather than being
+  silently accepted.
 - `in_review`-only requirements (signed `reviewer`/ISO-8601 `reviewedAt`/every
   `checks.*` true) apply per lesson, gated on that lesson's own `status`, not a
   manifest-wide value.
-- Every consumer that reads this manifest (validator, importer, any UI/library
-  feature under `src/`) must read status per lesson. A consumer that needs only
-  `in_review` lessons filters them out; it must not error on encountering a
-  `draft` entry belonging to a different lesson.
+- Every consumer that reads this manifest (validator, importer, PDF generation,
+  any UI/library feature under `src/`) must read status per lesson. A consumer
+  that needs only `in_review` lessons (e.g. PDF plan generation) filters them
+  out and skips `draft` entries without failing the rest of its job; it must
+  not error on encountering a `draft` entry belonging to a different lesson.
 - Importers regenerating a subset of lessons must not overwrite another
   lesson's already-recorded `status` (or its QA-signed content) as a side
   effect of an unrelated run — this is on top of the existing manual-edit drift
-  protection in the Import safety section below.
+  protection in the Import safety section below. **Temporary safeguard (P6-B1.0):**
+  until an importer exists that can update lessons incrementally rather than
+  regenerating its whole hardcoded set from scratch, any importer that
+  regenerates unconditionally must refuse to run at all — before writing
+  anything, not bypassable with `--force` — whenever the manifest contains any
+  `in_review` lesson. `scripts/import-docx/pilot_import.py` implements this.
 
 ## Import safety
 
@@ -230,4 +239,17 @@ Rules:
   `scripts/validate-content/validate.py`, `scripts/import-docx/pilot_import.py`
   and the `src/features/content` manifest consumers to match. See
   `docs/handoffs/P6/P6-B1.0-claude.md` for full evidence.
+- **P6-B1.0 integration-review follow-up (2026-08-14):** review before merge
+  found that `pilot_import.py`'s existing manual-edit drift check could not
+  actually detect the case that matters most: a fresh regeneration silently
+  differing from an already-signed `in_review` lesson, since a signed lesson's
+  recorded hash always matches its own on-disk content (there is no "drift" to
+  detect in that narrow sense). A plain rerun would have overwritten both
+  signed pilots back to unsigned drafts. Added the temporary safeguard
+  described above. Also found `scripts/generate-pdf/generate.ts` built a PDF
+  plan for every manifest lesson unconditionally, which would have attempted
+  to plan a future `draft` Topic 24 lesson; it now reads per-lesson `status`
+  and only plans `in_review` lessons, skipping others without failing the job.
+  Also added the `manifestVersion` validator check described above. See
+  `docs/handoffs/P6/P6-B1.0-claude.md` for evidence.
 

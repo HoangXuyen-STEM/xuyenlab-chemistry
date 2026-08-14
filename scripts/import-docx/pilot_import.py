@@ -213,6 +213,39 @@ def build_outputs() -> tuple[dict[str, bytes], dict[str, Any]]:
     return outputs, manifest
 
 
+def refuse_if_any_lesson_in_review(target_root: Path) -> None:
+    """P6-B1.0 temporary safeguard.
+
+    This importer unconditionally regenerates its whole hardcoded PILOTS set as
+    fresh, unsigned `draft` output on every run. The existing drift check below
+    only catches unrecorded manual edits (recorded hash vs actual file hash); it
+    cannot and does not detect that a fresh generation differs from an already
+    QA-signed `in_review` lesson, because a signed lesson's recorded hash always
+    matches its actual on-disk content. Left unguarded, a plain rerun would
+    silently overwrite a signed lesson's MDX/QA back to an unsigned draft and
+    erase its approvedForPublish/publishWaiver state, and --force would not even
+    be required to do it. Refuse outright, before any work, until a
+    parameterized/incremental importer (P6-B1.1) replaces this one.
+    """
+    manifest_file = target_root / MANIFEST_PATH
+    if not manifest_file.exists():
+        return
+    previous = load_json(manifest_file)
+    in_review = sorted(
+        lesson["slug"]
+        for lesson in previous.get("lessons", [])
+        if lesson.get("status") == "in_review"
+    )
+    if in_review:
+        raise PermissionError(
+            "Refusing to run: manifest lesson(s) "
+            f"{in_review} are in_review. This importer would regenerate them as "
+            "unsigned drafts, erasing their QA/approvedForPublish/publishWaiver "
+            "state. Not bypassable with --force. See docs/contracts/content.md "
+            "'Staging manifest' and docs/handoffs/P6/P6-B1.0-claude.md."
+        )
+
+
 def previous_managed_hashes(target_root: Path) -> dict[str, str]:
     manifest_file = target_root / MANIFEST_PATH
     if not manifest_file.exists():
@@ -310,6 +343,7 @@ def main() -> int:
         raise ValueError("--force requires an explicit --backup-dir")
     target_root = args.target_root.resolve()
     target_root.mkdir(parents=True, exist_ok=True)
+    refuse_if_any_lesson_in_review(target_root)
     outputs, manifest = build_outputs()
     result = install(target_root, outputs, manifest, args.force, args.backup_dir)
     print(json.dumps({"result": result, "manifest": str(target_root / MANIFEST_PATH)}))
