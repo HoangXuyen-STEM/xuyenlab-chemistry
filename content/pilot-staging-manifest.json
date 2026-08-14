@@ -79,6 +79,12 @@
       "sourceIds": ["T08-S01"]
     },
     {
+      "bytes": 48546,
+      "path": "staging-assets/lessons/95/955c50af88187216dafd2353c74b540e510403a0c970d8f247cc0d2e01e25dce.jpeg",
+      "sha256": "955c50af88187216dafd2353c74b540e510403a0c970d8f247cc0d2e01e25dce",
+      "sourceIds": ["T24-S01"]
+    },
+    {
       "bytes": 825,
       "path": "staging-assets/lessons/9f/9f757ef0471acb356d10b49d0392bfd294d72a9be65b50473d79833597a541ef.gif",
       "sha256": "9f757ef0471acb356d10b49d0392bfd294d72a9be65b50473d79833597a541ef",
@@ -107,6 +113,12 @@
       "path": "staging-assets/lessons/d0/d03b05cfd0bede85d8d061ac94bf9851cafb0a841b81b31d66e8100c9d8bccc5.png",
       "sha256": "d03b05cfd0bede85d8d061ac94bf9851cafb0a841b81b31d66e8100c9d8bccc5",
       "sourceIds": ["T08-S01"]
+    },
+    {
+      "bytes": 59926,
+      "path": "staging-assets/lessons/d4/d430885438c33c62a0f3bbe2cf7e7969af17747d2da2be3622becd4639456453.jpeg",
+      "sha256": "d430885438c33c62a0f3bbe2cf7e7969af17747d2da2be3622becd4639456453",
+      "sourceIds": ["T24-S01"]
     },
     {
       "bytes": 258,
@@ -147,6 +159,22 @@
       "status": "in_review",
       "topic": "chuyen-de-08",
       "warningCount": 42
+    },
+    {
+      "blockingCount": 0,
+      "failureReportPath": "content/qa/import-reports/phan-bon-hoa-hoc.failure.json",
+      "failureReportSha256": "afa71f8707dc55010536e4da44627a49014930d0627a6dcc896d8bb76e401bea",
+      "mdxPath": "content/topics/chuyen-de-24/phan-bon-hoa-hoc.mdx",
+      "mdxSha256": "d2d41e66f6d46dc61998f2962336f471d5618536d8e3a03b95663312311603c2",
+      "qaPath": "content/qa/pending/phan-bon-hoa-hoc.json",
+      "qaSha256": "41d98a738b17825838d28a6c49690f21090b53735a3393f082516d39e7882103",
+      "slug": "phan-bon-hoa-hoc",
+      "sourceId": "T24-S01",
+      "sourcePath": "24. Chuyen de 24_ Phan bon hoa hoc_OK.docx",
+      "sourceSha256": "d501f3af84e6fd635a1462a148181f7446fecf68c420008f21f803ed64fd872a",
+      "status": "draft",
+      "topic": "chuyen-de-24",
+      "warningCount": 3
     }
   ],
   "manifestVersion": "1.1.0",

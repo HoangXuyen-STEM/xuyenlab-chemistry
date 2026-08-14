@@ -1,0 +1,187 @@
+{
+  "$schema": "https://raw.githubusercontent.com/HoangXuyen-STEM/xuyenlab-chemistry/main/scripts/import-docx/failure-report.schema.json",
+  "blocks": [
+    {
+      "id": "T24-S01:p0091",
+      "kind": "paragraph",
+      "outcome": "semantic",
+      "semanticKind": "paragraph",
+      "sourceLocator": {
+        "blockOrder": 1,
+        "pathHint": "word/document.xml#body/p[3]",
+        "sectionPath": "Phần I",
+        "textAnchor": "Phần I: HỆ THỐNG LÝ THUYẾT CƠ BẢN VÀ NÂNG CAO"
+      }
+    },
+    {
+      "id": "T24-S01:h8629",
+      "kind": "heading",
+      "outcome": "semantic",
+      "semanticKind": "heading",
+      "sourceLocator": {
+        "blockOrder": 2,
+        "pathHint": "word/document.xml#body/p[4]",
+        "sectionPath": "Phần I",
+        "textAnchor": "1. Khái niệm và phân loại"
+      }
+    },
+    {
+      "id": "T24-S01:p5979",
+      "kind": "paragraph",
+      "outcome": "semantic",
+      "semanticKind": "paragraph",
+      "sourceLocator": {
+        "blockOrder": 3,
+        "pathHint": "word/document.xml#body/p[5]",
+        "sectionPath": "Phần I",
+        "textAnchor": "Phân bón là những hóa chất có chứa các nguyên tố dinh dưỡng, được bón cho cây nhằm tăng năng suất cây trồng. Phân bón đưa vào đất những ion cần thiết cho cây, chủ yếu là các ion của nitơ, photpho và kali. Phân bón có ba loại chính"
+      }
+    },
+    {
+      "id": "T24-S01:p4204",
+      "kind": "paragraph",
+      "outcome": "semantic",
+      "semanticKind": "paragraph",
+      "sourceLocator": {
+        "blockOrder": 4,
+        "pathHint": "word/document.xml#body/p[6]",
+        "sectionPath": "Phần I",
+        "textAnchor": "- Phân đạm (chứa nitơ): có tác dụng kích thích các quá trình sinh trưởng, làm tăng tỉ lệ của protein thực vật, giúp cho cây phát triển nhanh, cho nhiều hạt, củ quả."
+      }
+    },
+    {
+      "id": "T24-S01:p7864",
+      "kind": "paragraph",
+      "outcome": "semantic",
+      "semanticKind": "paragraph",
+      "sourceLocator": {
+        "blockOrder": 5,
+        "pathHint": "word/document.xml#body/p[7]",
+        "sectionPath": "Phần I",
+        "textAnchor": "- Phân lân (chứa photpho): loại phân bón này cần cho cây ở thời kì sinh trưởng, thúc đẩy các quá trình sinh hoá, trao đổi chất và trao đổi năng lượng của cây."
+      }
+    },
+    {
+      "id": "T24-S01:p1451",
+      "kind": "paragraph",
+      "outcome": "semantic",
+      "semanticKind": "paragraph",
+      "sourceLocator": {
+        "blockOrder": 6,
+        "pathHint": "word/document.xml#body/p[8]",
+        "sectionPath": "Phần I",
+        "textAnchor": "- Phân kali (chứa kali): loại phân bón này thúc đẩy nhanh quá trình tạo ra các chất đường, bột, chất xơ, chất dầu giúp cây tăng cường sức chống rét, chống sâu bệnh và chịu hạn."
+      }
+    },
+    {
+      "id": "T24-S01:p1575",
+      "kind": "paragraph",
+      "outcome": "semantic",
+      "semanticKind": "paragraph",
+      "sourceLocator": {
+        "blockOrder": 7,
+        "pathHint": "word/document.xml#body/p[9]",
+        "sectionPath": "Phần I",
+        "textAnchor": "Độ dinh dưỡng của phân là đại lượng được sử dụng để xác định hàm lượng các nguyên tố trong phân bón."
+      }
+    },
+    {
+      "fallback": {
+        "reason": "Merged cells, widths and borders may not survive the prototype.",
+        "strategy": "manual-review"
+      },
+      "id": "T24-S01:t6971",
+      "issueCode": "DOCX_TABLE_REQUIRES_VISUAL_REVIEW",
+      "kind": "table",
+      "message": "DOCX table was flattened to an HTML table and needs visual review.",
+      "outcome": "fallback",
+      "severity": "warning",
+      "sourceLocator": {
+        "blockOrder": 8,
+        "pathHint": "word/document.xml#body/tbl[1]",
+        "sectionPath": "Phần I",
+        "textAnchor": "Phân loạiCách tính độ dinh dưỡngPhân đạmTính theo phần trăm khối lượng N trong phân.Phân lânTính theo phần trăm khối lượng P2O5 trong phân.Phân kaliTính theo phần trăm khối lượng K2O trong phân."
+      }
+    },
+    {
+      "id": "T24-S01:h5866",
+      "kind": "heading",
+      "outcome": "semantic",
+      "semanticKind": "heading",
+      "sourceLocator": {
+        "blockOrder": 9,
+        "pathHint": "word/document.xml#body/p[11]",
+        "sectionPath": "Phần I",
+        "textAnchor": "2. Các loại phân bón phổ biến"
+      }
+    },
+    {
+      "fallback": {
+        "altText": "Hình trích từ DOCX; cần chủ dự án bổ sung mô tả",
+        "assetPath": "/staging-assets/lessons/d4/d430885438c33c62a0f3bbe2cf7e7969af17747d2da2be3622becd4639456453.jpeg",
+        "caption": "Nguồn T24-S01, hình 1",
+        "reason": "The prototype cannot infer a chemically accurate description.",
+        "strategy": "chemfigure"
+      },
+      "id": "T24-S01:i8191",
+      "issueCode": "EXTRACTED_IMAGE_REQUIRES_REVIEW",
+      "kind": "image",
+      "message": "Extracted image needs meaningful alt text and visual verification.",
+      "outcome": "fallback",
+      "severity": "warning",
+      "sourceLocator": {
+        "blockOrder": 10,
+        "pathHint": "word/document.xml#body/block[13]/a:blip[@r:embed='rId7'] -> word/media/image1.jpeg",
+        "sectionPath": "Phần I"
+      }
+    },
+    {
+      "fallback": {
+        "altText": "Hình trích từ DOCX; cần chủ dự án bổ sung mô tả",
+        "assetPath": "/staging-assets/lessons/95/955c50af88187216dafd2353c74b540e510403a0c970d8f247cc0d2e01e25dce.jpeg",
+        "caption": "Nguồn T24-S01, hình 2",
+        "reason": "The prototype cannot infer a chemically accurate description.",
+        "strategy": "chemfigure"
+      },
+      "id": "T24-S01:i0305",
+      "issueCode": "EXTRACTED_IMAGE_REQUIRES_REVIEW",
+      "kind": "image",
+      "message": "Extracted image needs meaningful alt text and visual verification.",
+      "outcome": "fallback",
+      "severity": "warning",
+      "sourceLocator": {
+        "blockOrder": 11,
+        "pathHint": "word/document.xml#body/block[14]/a:blip[@r:embed='rId8'] -> word/media/image2.jpeg",
+        "sectionPath": "Phần I"
+      }
+    }
+  ],
+  "fixtureId": "t24-s01-docx-part-i",
+  "generator": {
+    "name": "xuyenlab-hybrid-pilot-importer",
+    "strategy": "hybrid",
+    "version": "0.3.0"
+  },
+  "reportVersion": "1.0.0",
+  "run": {
+    "generatedAt": "2026-08-11T00:00:00Z",
+    "rerunOf": null,
+    "runId": "t24-s01-docx-part-i-d501f3af84e6",
+    "runOrdinal": 1,
+    "sourceDigest": "sha256:d501f3af84e6fd635a1462a148181f7446fecf68c420008f21f803ed64fd872a"
+  },
+  "source": {
+    "section": "Phần I",
+    "sourceId": "T24-S01",
+    "sourcePath": "24. Chuyen de 24_ Phan bon hoa hoc_OK.docx"
+  },
+  "summary": {
+    "blockingCount": 0,
+    "fallbackBlockCount": 3,
+    "issueCount": 3,
+    "omittedBlockCount": 0,
+    "semanticBlockCount": 8,
+    "totalBlocks": 11,
+    "warningCount": 3
+  }
+}

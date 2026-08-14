@@ -34,11 +34,29 @@ Building the image is optional for the standard-library extraction path. Phase 2
 record a failed or unavailable Docker/LibreOffice build truthfully rather than assume
 the toolchain was exercised.
 
-## Phase 4 pilot importer
+## Incremental Part I importer
 
-`pilot_import.py` runs the hybrid converter against the manifest-backed primary DOCX
-sources `T06-S01` and `T08-S01`. It writes only `draft` lessons, pending QA queues,
-failure reports and local staging assets:
+`pilot_import.py` runs the hybrid converter against a manifest-backed DOCX source. It
+writes only a `draft` lesson, pending QA/remediation queues, a failure report and local
+staging assets. All five source identity arguments are required together:
+
+```bash
+PYTHONDONTWRITEBYTECODE=1 python3 scripts/import-docx/pilot_import.py \
+  --source "24. Chuyen de 24_ Phan bon hoa hoc_OK.docx" \
+  --source-id T24-S01 \
+  --topic 24 \
+  --slug phan-bon-hoa-hoc \
+  --title "Phân bón hóa học"
+```
+
+The source ID, repository-relative path and topic must match
+`docs/source-manifest.csv`, and the source disposition must authorize Part I import.
+The importer merges only the requested lesson into the existing manifest: unrelated
+lesson entries, QA records and assets are preserved. It refuses to regenerate a
+requested lesson already at `in_review`, even with `--force`.
+
+Invoking the script without source identity arguments retains the Phase 4 Topic 6/8
+fixture mode for regression tests:
 
 ```bash
 PYTHONDONTWRITEBYTECODE=1 python3 scripts/import-docx/pilot_import.py
@@ -50,12 +68,16 @@ Assets use the storage-contract key shape
 fixtures, not an R2 upload or a publication signal. `content/pilot-staging-manifest.json`
 records source, MDX, report, QA and asset hashes.
 
-An unchanged rerun is a no-op. If a managed file differs from its recorded hash, the
-importer writes `content/pilot-import.diff.json` and refuses replacement. After
-reviewing that diff, an operator may explicitly retain the edited files and regenerate:
+An unchanged subset rerun is a no-op. If the requested lesson's managed file differs
+from its recorded hash, the importer writes `content/pilot-import.diff.json` and
+refuses replacement. After reviewing that diff, an operator may explicitly retain the
+edited files and regenerate:
 
 ```bash
 python3 scripts/import-docx/pilot_import.py \
+  --source "24. Chuyen de 24_ Phan bon hoa hoc_OK.docx" \
+  --source-id T24-S01 --topic 24 \
+  --slug phan-bon-hoa-hoc --title "Phân bón hóa học" \
   --force \
   --backup-dir /an/explicit/safe/backup/path
 ```
