@@ -32,9 +32,63 @@ const lessons = [
     )
     .map((entry) => entry.issueId)
     .sort(),
+  // Derived from the real manifest, not hardcoded, so this stays correct
+  // for T06/T08 (already in_review) and for Topic 24 once P6-B1.4 promotes
+  // it for real -- the banner label the test expects is whatever the real
+  // manifest currently says, not an assumption about who is draft today.
+  manifestStatus: readManifestStatus(lesson.path),
 }));
 
+const BANNER_LABEL: Record<"draft" | "in_review", string> = {
+  draft:
+    "[BẢN NHÁP PILOT] — Xem trước staging, không cần đăng nhập — chưa xuất bản",
+  in_review:
+    "[BẢN ĐANG DUYỆT] — Xem trước staging, không cần đăng nhập — chưa xuất bản",
+};
+
 test.describe("pilot staging routes", () => {
+  test("shows the decorative banner matching each lesson's own current manifest lifecycle status (P6-B1.3U)", async ({
+    page,
+  }) => {
+    // Derived from the real manifest per lesson (lessons[].manifestStatus),
+    // not hardcoded to "T06/T08 are in_review, T24 is draft" -- this stays
+    // correct after a future P6-B1.4 promotes any of these lessons for real.
+    for (const lesson of lessons) {
+      await page.goto(lesson.path);
+      const expectedText = BANNER_LABEL[lesson.manifestStatus];
+      const otherStatus: "draft" | "in_review" =
+        lesson.manifestStatus === "draft" ? "in_review" : "draft";
+      await expect(page.getByText(expectedText, { exact: true })).toHaveCount(
+        1,
+      );
+      await expect(
+        page.getByText(BANNER_LABEL[otherStatus], { exact: true }),
+      ).toHaveCount(0);
+    }
+  });
+
+  test("never labels a draft or in_review lesson as published, approved or production-ready (P6-B1.3U)", async ({
+    page,
+  }) => {
+    for (const lesson of lessons) {
+      await page.goto(lesson.path);
+      const banner = page.getByText(BANNER_LABEL[lesson.manifestStatus], {
+        exact: true,
+      });
+      const text = (await banner.textContent()) ?? "";
+      for (const forbidden of [
+        "đã xuất bản",
+        "đã phê duyệt",
+        "approved",
+        "published",
+        "công khai",
+      ]) {
+        expect(text).not.toContain(forbidden);
+      }
+      expect(text).toContain("chưa xuất bản");
+    }
+  });
+
   test("loads every lesson and the pilot index without client errors", async ({
     page,
   }) => {
@@ -192,13 +246,11 @@ test.describe("pilot staging routes", () => {
       await page.emulateMedia({ media: "print" });
 
       await expect(page.locator("h1")).toBeVisible();
+      const bannerText = BANNER_LABEL[lesson.manifestStatus];
       expect(
         await page
           .locator("div")
-          .filter({
-            hasText:
-              /^\[BẢN NHÁP PILOT\] — Xem trước staging, không cần đăng nhập — chưa xuất bản$/u,
-          })
+          .filter({ hasText: new RegExp(`^${escapeRegExp(bannerText)}$`, "u") })
           .evaluate((banner) => getComputedStyle(banner).display),
       ).toBe("none");
       expect(
@@ -382,6 +434,27 @@ function readFailureReport(relativePath: string): FailureReport {
   return JSON.parse(
     readFileSync(path.join(process.cwd(), relativePath), "utf8"),
   ) as FailureReport;
+}
+
+function readManifestStatus(routePath: string): "draft" | "in_review" {
+  const [topic, slug] = routePath.replace("/fixtures/pilot/", "").split("/");
+  const manifest = JSON.parse(
+    readFileSync(
+      path.join(process.cwd(), "content/pilot-staging-manifest.json"),
+      "utf8",
+    ),
+  ) as { lessons: Array<{ topic: string; slug: string; status: string }> };
+  const entry = manifest.lessons.find(
+    (lesson) => lesson.topic === topic && lesson.slug === slug,
+  );
+  if (!entry || (entry.status !== "draft" && entry.status !== "in_review")) {
+    throw new Error(`no draft/in_review manifest entry for ${routePath}`);
+  }
+  return entry.status;
+}
+
+function escapeRegExp(value: string): string {
+  return value.replace(/[.*+?^${}()|[\]\\]/gu, "\\$&");
 }
 
 function normalizeWhitespace(value: string): string {

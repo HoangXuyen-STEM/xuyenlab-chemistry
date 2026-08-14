@@ -12,9 +12,15 @@ import { loadRemediationQueueSummary } from "@/features/content/remediation-queu
 import LessonBody from "./body.mdx";
 
 const TOPIC_TITLE = "Chuyên đề 24 · Phân bón hóa học";
-const LESSON_TITLE = "Phân bón hóa học — bản nháp pilot Phần I";
+// Lifecycle-neutral title/summary (P6-B1.3U correction): must stay correct
+// whether this lesson's manifest status is draft or in_review — the
+// PilotLessonShell banner (derived from manifest.status) is what actually
+// states the lifecycle stage, not this text. This also keeps this page
+// accurate once P6-B1.4 promotes Topic 24 from draft to in_review, without
+// needing another text edit here.
+const LESSON_TITLE = "Phân bón hóa học — Pilot Phần I";
 const SUMMARY =
-  "Bản nháp pilot Phần I; mọi công thức, bảng và hình vẫn chờ Chủ dự án QA.";
+  "Bản pilot Phần I; mọi công thức, bảng và hình giữ nguyên ID ổn định để đối chiếu.";
 const ARTICLE_ID = "phan-bon-hoa-hoc-body";
 
 export default function PilotPhanBonHoaHocPage() {

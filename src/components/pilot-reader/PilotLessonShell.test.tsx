@@ -11,7 +11,10 @@ import { PilotLessonShell } from "./PilotLessonShell";
 
 afterEach(cleanup);
 
-const manifest: PilotLessonManifestEntry = {
+// Real current status (docs/handoffs/P6/P6-B1.3-copilot.md): dong-hoa-hoc
+// is already signed in_review, not draft -- the banner assertions below
+// must match that, not the other way around.
+const inReviewManifest: PilotLessonManifestEntry = {
   topic: "chuyen-de-06",
   slug: "dong-hoa-hoc",
   sourceId: "T06-S01",
@@ -21,21 +24,36 @@ const manifest: PilotLessonManifestEntry = {
   status: "in_review",
 };
 
+// Real current status: phan-bon-hoa-hoc (Topic 24) is still draft as of
+// P6-B1.3U. This fixture -- not a hardcoded assumption about which real
+// lesson is draft -- is what the draft-banner test depends on, so it stays
+// correct even after a future P6-B1.4 promotes the real Topic 24 lesson.
+const draftManifest: PilotLessonManifestEntry = {
+  topic: "chuyen-de-24",
+  slug: "phan-bon-hoa-hoc",
+  sourceId: "T24-S01",
+  sourcePath: "24. Chuyen de 24_ Phan bon hoa hoc_OK.docx",
+  blockingCount: 0,
+  warningCount: 3,
+  status: "draft",
+};
+
 describe("PilotLessonShell", () => {
-  it("renders the staging banner, provenance and QA counts without hiding them", () => {
+  it("renders the in_review staging banner, provenance and QA counts without hiding them, for an in_review manifest", () => {
     render(
       <PilotLessonShell
         articleId="dong-hoa-hoc-body"
         lessonTitle="Động hóa học"
-        manifest={manifest}
-        summary="Bản nháp pilot Phần I."
+        manifest={inReviewManifest}
+        summary="Bản pilot Phần I."
         topicTitle="Chuyên đề 6"
       >
         <p>Nội dung bài học.</p>
       </PilotLessonShell>,
     );
 
-    expect(screen.getByText(/BẢN NHÁP PILOT/)).toBeInTheDocument();
+    expect(screen.getByText(/BẢN ĐANG DUYỆT/)).toBeInTheDocument();
+    expect(screen.queryByText(/BẢN NHÁP PILOT/)).not.toBeInTheDocument();
     expect(
       screen.getByRole("heading", { level: 1, name: "Động hóa học" }),
     ).toBeInTheDocument();
@@ -51,13 +69,57 @@ describe("PilotLessonShell", () => {
     expect(screen.getByText("Nội dung bài học.")).toBeInTheDocument();
   });
 
+  it("renders the draft staging banner, not the in_review one, for a draft manifest", () => {
+    render(
+      <PilotLessonShell
+        articleId="phan-bon-hoa-hoc-body"
+        lessonTitle="Phân bón hóa học"
+        manifest={draftManifest}
+        summary="Bản pilot Phần I."
+        topicTitle="Chuyên đề 24"
+      >
+        <p>Nội dung bài học.</p>
+      </PilotLessonShell>,
+    );
+
+    expect(screen.getByText(/BẢN NHÁP PILOT/)).toBeInTheDocument();
+    expect(screen.queryByText(/BẢN ĐANG DUYỆT/)).not.toBeInTheDocument();
+  });
+
+  it("never labels an in_review lesson as published or approved", () => {
+    render(
+      <PilotLessonShell
+        articleId="dong-hoa-hoc-body"
+        lessonTitle="Động hóa học"
+        manifest={inReviewManifest}
+        summary="Bản pilot Phần I."
+        topicTitle="Chuyên đề 6"
+      >
+        <p>Nội dung bài học.</p>
+      </PilotLessonShell>,
+    );
+
+    const banner = screen.getByText(/BẢN ĐANG DUYỆT/);
+    const text = banner.textContent ?? "";
+    for (const forbidden of [
+      "đã xuất bản",
+      "đã phê duyệt",
+      "approved",
+      "published",
+      "công khai",
+    ]) {
+      expect(text).not.toContain(forbidden);
+    }
+    expect(text).toContain("chưa xuất bản");
+  });
+
   it("links back to the pilot index", () => {
     render(
       <PilotLessonShell
         articleId="dong-hoa-hoc-body"
         lessonTitle="Động hóa học"
-        manifest={manifest}
-        summary="Bản nháp pilot Phần I."
+        manifest={inReviewManifest}
+        summary="Bản pilot Phần I."
         topicTitle="Chuyên đề 6"
       >
         <p>Nội dung bài học.</p>
@@ -69,13 +131,13 @@ describe("PilotLessonShell", () => {
     ).toHaveAttribute("href", "/fixtures/pilot");
   });
 
-  it("shows the staging limitation notice as a labelled note, visible without any accepted items", () => {
+  it("shows the staging limitation notice as a labelled note, visible without any accepted items, regardless of lifecycle status", () => {
     render(
       <PilotLessonShell
         articleId="dong-hoa-hoc-body"
         lessonTitle="Động hóa học"
-        manifest={manifest}
-        summary="Bản nháp pilot Phần I."
+        manifest={inReviewManifest}
+        summary="Bản pilot Phần I."
         topicTitle="Chuyên đề 6"
       >
         <p>Nội dung bài học.</p>
@@ -128,8 +190,8 @@ describe("PilotLessonShell", () => {
         articleId="dong-hoa-hoc-body"
         discussionPrompts={discussionPrompts}
         lessonTitle="Động hóa học"
-        manifest={manifest}
-        summary="Bản nháp pilot Phần I."
+        manifest={inReviewManifest}
+        summary="Bản pilot Phần I."
         topicTitle="Chuyên đề 6"
       >
         <p>Nội dung bài học.</p>
