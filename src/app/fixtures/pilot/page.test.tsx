@@ -1,6 +1,8 @@
 import { cleanup, render, screen, within } from "@testing-library/react";
 import { afterEach, describe, expect, it } from "vitest";
 
+import manifestJson from "../../../../content/pilot-staging-manifest.json";
+
 import PilotIndexPage from "./page";
 
 afterEach(cleanup);
@@ -28,19 +30,20 @@ describe("PilotIndexPage", () => {
     ).toHaveAttribute("href", "/fixtures/pilot/chuyen-de-24/phan-bon-hoa-hoc");
   });
 
-  it("shows the staging banner, QA counts and each lesson's own status", () => {
+  it("shows the staging banner, QA counts and each manifest lesson's status", () => {
     render(<PilotIndexPage />);
 
     expect(screen.getByText(/BẢN NHÁP PILOT/)).toBeInTheDocument();
     expect(screen.getAllByText(/mục chặn/).length).toBeGreaterThan(0);
-    // Regression: the manifest now holds lessons at different lifecycle
-    // stages (in_review pilots + a draft T24); the index must show each
-    // lesson's real status rather than assuming they all match.
-    const statuses = screen
-      .getAllByTestId("lesson-status")
-      .map((node) => node.textContent);
-    expect(statuses.filter((status) => status === "in_review")).toHaveLength(2);
-    expect(statuses.filter((status) => status === "draft")).toHaveLength(1);
+    for (const lesson of manifestJson.lessons) {
+      const card = screen
+        .getByRole("link", { name: lesson.slug })
+        .closest("li");
+      expect(card).not.toBeNull();
+      expect(within(card!).getByTestId("lesson-status").textContent).toBe(
+        lesson.status,
+      );
+    }
   });
 
   it("labels Topic 24 specifically as draft, not just any card", () => {
