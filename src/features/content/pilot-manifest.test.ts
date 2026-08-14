@@ -3,7 +3,6 @@ import { describe, expect, it } from "vitest";
 import {
   getPilotLessonManifest,
   listPilotLessonManifests,
-  pilotPublicationStatus,
 } from "./pilot-manifest";
 
 describe("pilot manifest", () => {
@@ -33,7 +32,13 @@ describe("pilot manifest", () => {
     expect(() => getPilotLessonManifest("chuyen-de-99", "unknown")).toThrow();
   });
 
-  it("reports draft publication status", () => {
-    expect(pilotPublicationStatus).toBe("in_review");
+  it("reports each pilot lesson's own lifecycle status", () => {
+    expect(getPilotLessonManifest("chuyen-de-06", "dong-hoa-hoc").status).toBe(
+      "in_review",
+    );
+    expect(
+      getPilotLessonManifest("chuyen-de-08", "dung-dich-va-can-bang-hoa-hoc")
+        .status,
+    ).toBe("in_review");
   });
 });
