@@ -14,6 +14,18 @@ import { StagingLimitationNotice } from "./StagingLimitationNotice";
 
 import styles from "./PilotLessonShell.module.css";
 
+// Truthful per-status decorative label (P6-B1.3U correction): `in_review`
+// is a distinct, signed lifecycle stage from `draft` — neither is
+// `published`/`approvedForPublish`/production-ready or publicly accessible,
+// and this label must not blur that distinction by staying frozen on
+// "NHÁP" once a lesson (e.g. Topic 24 after P6-B1.4) is promoted.
+const BANNER_LABEL: Record<PilotLessonManifestEntry["status"], string> = {
+  draft:
+    "[BẢN NHÁP PILOT] — Xem trước staging, không cần đăng nhập — chưa xuất bản",
+  in_review:
+    "[BẢN ĐANG DUYỆT] — Xem trước staging, không cần đăng nhập — chưa xuất bản",
+};
+
 interface PilotLessonShellProps {
   topicTitle: string;
   lessonTitle: string;
@@ -45,8 +57,7 @@ export function PilotLessonShell({
     <main className={styles.page}>
       <div className={styles.banner} aria-hidden="true">
         <span className={styles.bannerLabel}>
-          [BẢN NHÁP PILOT] — Xem trước staging, không cần đăng nhập — chưa xuất
-          bản
+          {BANNER_LABEL[manifest.status]}
         </span>
       </div>
       <StagingLimitationNotice />

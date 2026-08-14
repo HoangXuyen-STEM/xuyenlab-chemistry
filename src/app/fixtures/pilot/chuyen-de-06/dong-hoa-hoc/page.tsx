@@ -11,9 +11,13 @@ import { loadRemediationQueueSummary } from "@/features/content/remediation-queu
 import LessonBody from "./body.mdx";
 
 const TOPIC_TITLE = "Chuyên đề 6 · Động hóa học";
-const LESSON_TITLE = "Động hóa học — bản nháp pilot Phần I";
+// Lifecycle-neutral title/summary (P6-B1.3U correction): must stay correct
+// whether this lesson's manifest status is draft or in_review — the
+// PilotLessonShell banner (derived from manifest.status) is what actually
+// states the lifecycle stage, not this text.
+const LESSON_TITLE = "Động hóa học — Pilot Phần I";
 const SUMMARY =
-  "Bản nháp pilot Phần I; mọi công thức, bảng và hình vẫn chờ Chủ dự án QA.";
+  "Bản pilot Phần I; mọi công thức, bảng và hình giữ nguyên ID ổn định để đối chiếu.";
 const ARTICLE_ID = "dong-hoa-hoc-body";
 
 export default function PilotDongHoaHocPage() {

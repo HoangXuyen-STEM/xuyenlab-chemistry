@@ -22,9 +22,10 @@ export default function PilotIndexPage() {
       <div className={styles.content}>
         <h1>Pilot nội dung Phần I</h1>
         <p className={styles.intro}>
-          Các bài học nháp Phần I từ pipeline import, dùng để Chủ dự án đối
-          chiếu trước khi chuyển sang <code>in_review</code>. Mọi mục cảnh
-          báo/chặn xuất bản vẫn hiển thị nguyên trạng.
+          Các bài học pilot Phần I từ pipeline import, mỗi bài đang ở trạng thái{" "}
+          <code>draft</code> hoặc <code>in_review</code> theo tiến độ QA riêng —
+          chưa có bài nào được xuất bản. Mọi mục cảnh báo/chặn xuất bản vẫn hiển
+          thị nguyên trạng.
         </p>
         <ul className={styles.list}>
           {lessons.map((lesson) => (
