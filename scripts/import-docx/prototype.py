@@ -425,9 +425,9 @@ def validate_manifest_source(args: argparse.Namespace) -> None:
         raise ValueError(
             f"Topic mismatch for {args.source_id}: expected {entry['topic']}, received {args.topic}"
         )
-    if entry["disposition"] not in {"pilot_import", "pilot_reference"}:
+    if entry["disposition"] not in {"pilot_import", "pilot_reference", "import_part_i"}:
         raise ValueError(
-            f"Source {args.source_id} is not authorized for the Phase 2 pilot "
+            f"Source {args.source_id} is not authorized for bounded Part I import "
             f"(disposition={entry['disposition']})"
         )
 
