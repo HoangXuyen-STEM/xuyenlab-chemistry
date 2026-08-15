@@ -67,6 +67,25 @@ describe("P5 LibraryFixture", () => {
     ).toHaveTextContent(/sử dụng dưới hướng dẫn giáo viên/u);
   });
 
+  it("shows Topic 24's real card with acceptedLimitationsCount 3, now that it is in_review (P6-B1.4)", () => {
+    renderFixture("populated");
+
+    const heading = screen.getByRole("heading", {
+      level: 3,
+      name: "Phân bón hóa học",
+    });
+    const card = heading.closest("li");
+    expect(card).not.toBeNull();
+    expect(card).toHaveTextContent("Giới hạn được lưu theo nguồn");
+    // The count "3" sits in its own <dd>; scope to the card so this doesn't
+    // collide with any other numeric text in the fixture.
+    const dt = Array.from(card!.querySelectorAll("dt")).find(
+      (element) => element.textContent === "Giới hạn được lưu theo nguồn",
+    );
+    expect(dt).toBeDefined();
+    expect(dt!.nextElementSibling?.textContent).toBe("3");
+  });
+
   it("summarizes a synthetic lesson's accepted limitations with truthful neutral wording, not as resolved/fixed/approved", () => {
     render(
       <LibraryFixture

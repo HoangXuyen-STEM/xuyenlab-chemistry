@@ -11,7 +11,8 @@ const manifest = JSON.parse(
   ),
 ) as { lessons: Array<{ status: string }> };
 // Derived from the manifest rather than hardcoded, so this stays correct
-// once a draft lesson (Topic 24 today) is promoted or a new one is added.
+// whenever a lesson's status changes (e.g. P6-B1.4 promoted Topic 24 from
+// draft to in_review) or a new lesson is added.
 const inReviewCount = manifest.lessons.filter(
   (lesson) => lesson.status === "in_review",
 ).length;
@@ -54,6 +55,21 @@ test.describe("P5 fixture library and metadata search", () => {
     await expect(
       page.getByText("Giới hạn được lưu theo nguồn").first(),
     ).toBeVisible();
+  });
+
+  test("shows Topic 24's card with acceptedLimitationsCount 3, now that it is in_review (P6-B1.4)", async ({
+    page,
+  }) => {
+    await page.goto(route);
+    const card = page
+      .getByRole("heading", { level: 3, name: "Phân bón hóa học" })
+      .locator("xpath=ancestor::li");
+    await expect(card).toBeVisible();
+    await expect(card.getByText("Giới hạn được lưu theo nguồn")).toBeVisible();
+    const dd = card
+      .locator("dt", { hasText: "Giới hạn được lưu theo nguồn" })
+      .locator("xpath=following-sibling::dd[1]");
+    await expect(dd).toHaveText("3");
   });
 
   test("submits a diacritic-insensitive search with the keyboard", async ({
