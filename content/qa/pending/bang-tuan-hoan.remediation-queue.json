@@ -1,0 +1,87 @@
+[
+  {
+    "issueCode": "EXTRACTED_IMAGE_REQUIRES_REVIEW",
+    "issueId": "T02-S01:i6022",
+    "kind": "image",
+    "lessonSlug": "bang-tuan-hoan",
+    "message": "Extracted image needs meaningful alt text and visual verification.",
+    "observedType": "figure",
+    "observedTypeEvidence": "Browser-safe raster image was extracted from the DOCX relationship.",
+    "ownerDecision": {
+      "altText": null,
+      "caption": null,
+      "decidedAt": null,
+      "decidedBy": null,
+      "qaNote": null,
+      "reviewedLatex": null
+    },
+    "previewPath": "/staging-assets/lessons/76/76e8a9324baf57ed03154de9be1ba748b436c537ee387837660ebc128f68492d.png",
+    "remediationChoice": null,
+    "severity": "warning",
+    "sourceId": "T02-S01",
+    "sourceLocator": {
+      "blockOrder": 39,
+      "pathHint": "word/document.xml#body/block[41]/a:blip[@r:embed='rId7'] -> word/media/image1.png",
+      "sectionPath": "Phần I"
+    },
+    "status": "pending-owner-review",
+    "topic": "chuyen-de-02"
+  },
+  {
+    "issueCode": "DOCX_TABLE_REQUIRES_VISUAL_REVIEW",
+    "issueId": "T02-S01:t7931",
+    "kind": "table",
+    "lessonSlug": "bang-tuan-hoan",
+    "message": "DOCX table was flattened to an HTML table and needs visual review.",
+    "observedType": "table",
+    "observedTypeEvidence": "DOCX table was extracted as a DataTable and requires visual review.",
+    "ownerDecision": {
+      "altText": null,
+      "caption": null,
+      "decidedAt": null,
+      "decidedBy": null,
+      "qaNote": null,
+      "reviewedLatex": null
+    },
+    "previewPath": null,
+    "remediationChoice": null,
+    "severity": "warning",
+    "sourceId": "T02-S01",
+    "sourceLocator": {
+      "blockOrder": 41,
+      "pathHint": "word/document.xml#body/tbl[1]",
+      "sectionPath": "Phần I",
+      "textAnchor": "Cấu tạo nguyên tửVị trí của nguyên tốCấu hình electron: ?Số proton, electron: ?Số lớp electron: ?Số electron hóa trị: ?Số thứ tự ô nguyên tố: ?Số thứ tự chu kì: ?Nhóm: ?Tính chất của nguyên tố- Tính kim loại, phi kim: ?- Hóa trị cao nhất vớ"
+    },
+    "status": "pending-owner-review",
+    "topic": "chuyen-de-02"
+  },
+  {
+    "issueCode": "UNSUPPORTED_NON_IMAGE_DRAWING",
+    "issueId": "T02-S01:d1402",
+    "kind": "drawing",
+    "lessonSlug": "bang-tuan-hoan",
+    "message": "Drawing or shape has no extractable browser-safe image relationship.",
+    "observedType": "unknown",
+    "observedTypeEvidence": "Drawing has no safe semantic classification from the importer.",
+    "ownerDecision": {
+      "altText": null,
+      "caption": null,
+      "decidedAt": null,
+      "decidedBy": null,
+      "qaNote": null,
+      "reviewedLatex": null
+    },
+    "previewPath": null,
+    "remediationChoice": null,
+    "severity": "blocking",
+    "sourceId": "T02-S01",
+    "sourceLocator": {
+      "blockOrder": 42,
+      "pathHint": "word/document.xml#body/block[43]/w:drawing[1]",
+      "sectionPath": "Phần I"
+    },
+    "status": "pending-owner-review",
+    "topic": "chuyen-de-02"
+  }
+]
