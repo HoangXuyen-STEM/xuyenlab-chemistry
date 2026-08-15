@@ -1,10 +1,23 @@
 # P6 content-batch coordination
 
-- Baseline: `main` at `3a6b881de04011b520ad1051029c6f7d8c2e84e8`
-- First micro-batch: Topic 24 only
-- Current gate: P6-B1.0 implementation is proposed in an open, unmerged PR (see
-  `docs/handoffs/P6/P6-B1.0-claude.md`); content import (P6-B1.1) remains
-  blocked until that PR is reviewed, merged and green on `main`.
+- Baseline for completed B1a integration: `main` at
+  `4d607492acbf9ec1b0eb8703ab5aac36429d58ef` (PR #38 merged).
+- First micro-batch: Topic 24 only — **complete through P6-B1.5 integration**.
+- Current gate: Topic 2 is **not ready to import**. Its Part I boundary is
+  visible, but a direct source-package scan found 80 OLE objects and 46 media
+  files across the DOCX. A bounded, read-only Part-I object inventory is needed
+  before the Owner can decide whether it enters the next micro-batch. See
+  `docs/handoffs/P6/P6-B1.5-codex.md`.
+
+## Current integrated state (2026-08-15)
+
+- P6-B1.0 through P6-B1.4 are merged on `main`; their handoffs remain the
+  canonical task evidence.
+- T06, T08 and T24 are each `in_review` in their own manifest/MDX/QA records.
+  T24 has three visible, source-traceable `accepted-with-limitation` warnings;
+  its `approvedForPublish` remains `false`.
+- P6 as a whole remains in progress. Do **not** create `docs/handoffs/P6/SUMMARY.md`
+  until the project owner closes the whole expansion phase, rather than only B1a.
 
 ## P6-B1.0 — manifest/import contract
 
