@@ -4,6 +4,15 @@ import path from "node:path";
 
 const lessons = [
   {
+    // P6-B2.0: Topic 2 has 1 blocking item (the drawing) and 2 warnings
+    // (image, table), exercising the same shared assertions with a
+    // draft-status, non-zero-blocking lesson.
+    path: "/fixtures/pilot/chuyen-de-02/bang-tuan-hoan",
+    remediationQueuePath:
+      "content/qa/pending/bang-tuan-hoan.remediation-queue.json",
+    title: "Bảng tuần hoàn",
+  },
+  {
     path: "/fixtures/pilot/chuyen-de-06/dong-hoa-hoc",
     remediationQueuePath:
       "content/qa/pending/dong-hoa-hoc.remediation-queue.json",
@@ -173,7 +182,9 @@ test.describe("pilot staging routes", () => {
       const visibleIssueIds = await blockingCallouts.evaluateAll((callouts) =>
         callouts.flatMap((callout) => {
           if ((callout as HTMLElement).offsetParent === null) return [];
-          return callout.textContent?.match(/T0[68]-S01:[a-z0-9]+/gu) ?? [];
+          return (
+            callout.textContent?.match(/T0(?:2|6|8)-S01:[a-z0-9]+/gu) ?? []
+          );
         }),
       );
       expect(visibleIssueIds.sort()).toEqual(lesson.visibleBlockingIssueIds);
@@ -235,6 +246,60 @@ test.describe("pilot staging routes", () => {
     expect(
       tableText,
       "rendered table text must contain T24-S01:t6971's recorded source text",
+    ).toContain(normalizeWhitespace(recordedText!));
+  });
+
+  test("keeps Topic 2's two warning-severity fallbacks (image, table) visible with their exact issue IDs traceable (P6-B2.0)", async ({
+    page,
+  }) => {
+    // The blocking-only coverage above proves the drawing's 1 blocking
+    // Callout; it does not prove the 2 warning items (image, table) are
+    // visible, since they render as ChemFigure/DataTable, not a Callout.
+    // Trace each exact ID's own recorded evidence straight through to the
+    // rendered DOM instead, same pattern as Topic 24's own warning test.
+    const report = readFailureReport(
+      "content/qa/import-reports/bang-tuan-hoan.failure.json",
+    );
+    const targetIds = ["T02-S01:i6022", "T02-S01:t7931"];
+    const blocksById = new Map(report.blocks.map((block) => [block.id, block]));
+    for (const id of targetIds) {
+      expect(blocksById.has(id), `${id} missing from the failure report`).toBe(
+        true,
+      );
+    }
+
+    await page.goto("/fixtures/pilot/chuyen-de-02/bang-tuan-hoan");
+
+    // T02-S01:i6022 — image fallback stays visible at its exact recorded
+    // content-addressed asset path.
+    const assetPath = blocksById.get("T02-S01:i6022")?.fallback?.assetPath;
+    expect(
+      assetPath,
+      "T02-S01:i6022 has no recorded fallback.assetPath",
+    ).toBeTruthy();
+    await expect(
+      page.locator(`figure img[src="${assetPath}"]`),
+      "T02-S01:i6022's recorded asset must remain visible",
+    ).toBeVisible();
+
+    // T02-S01:t7931 — the flattened table fallback has no asset path; prove
+    // it stays visible by checking the rendered table's text contains the
+    // failure report's own recorded source text for that exact ID.
+    const table = page.locator("table");
+    await expect(
+      table,
+      "T02-S01:t7931's table must remain visible",
+    ).toBeVisible();
+    const recordedText =
+      blocksById.get("T02-S01:t7931")?.sourceLocator?.textAnchor;
+    expect(
+      recordedText,
+      "T02-S01:t7931 has no recorded sourceLocator.textAnchor",
+    ).toBeTruthy();
+    const tableText = normalizeWhitespace(await table.innerText());
+    expect(
+      tableText,
+      "rendered table text must contain T02-S01:t7931's recorded source text",
     ).toContain(normalizeWhitespace(recordedText!));
   });
 
@@ -490,8 +555,13 @@ function normalizeWhitespace(value: string): string {
   // The recorded sourceLocator.textAnchor concatenates DOCX cell text with no
   // separator at all, while the rendered table naturally inserts whitespace
   // at cell/row boundaries; strip all whitespace on both sides rather than
-  // collapsing it, so the comparison is insensitive to that reflow.
-  return value.replace(/\s+/gu, "");
+  // collapsing it, so the comparison is insensitive to that reflow. Also
+  // strip leading-hyphen bullet markers ("- Tính kim loại...") since MDX
+  // parses a cell paragraph starting with "- " as a markdown list, and a
+  // rendered `<li>` bullet marker is not part of `innerText` the way the
+  // literal "-" character is in the DOCX-derived source text (observed on
+  // Topic 2's table, P6-B2.0).
+  return value.replace(/[\s-]+/gu, "");
 }
 
 interface RemediationQueueEntry {
