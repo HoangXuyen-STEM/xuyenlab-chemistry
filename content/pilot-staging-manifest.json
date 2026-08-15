@@ -165,14 +165,14 @@
       "failureReportPath": "content/qa/import-reports/phan-bon-hoa-hoc.failure.json",
       "failureReportSha256": "afa71f8707dc55010536e4da44627a49014930d0627a6dcc896d8bb76e401bea",
       "mdxPath": "content/topics/chuyen-de-24/phan-bon-hoa-hoc.mdx",
-      "mdxSha256": "d2d41e66f6d46dc61998f2962336f471d5618536d8e3a03b95663312311603c2",
+      "mdxSha256": "25c6bf58900ef6a5e82b9c6f595eba56463dc655cedc3d04e3ff61b73a99fb2e",
       "qaPath": "content/qa/pending/phan-bon-hoa-hoc.json",
-      "qaSha256": "41d98a738b17825838d28a6c49690f21090b53735a3393f082516d39e7882103",
+      "qaSha256": "01e4b02f509772b25e6cb2458b47b885c508c2b1a634ac0bbad2f712cd22d059",
       "slug": "phan-bon-hoa-hoc",
       "sourceId": "T24-S01",
       "sourcePath": "24. Chuyen de 24_ Phan bon hoa hoc_OK.docx",
       "sourceSha256": "d501f3af84e6fd635a1462a148181f7446fecf68c420008f21f803ed64fd872a",
-      "status": "draft",
+      "status": "in_review",
       "topic": "chuyen-de-24",
       "warningCount": 3
     }

@@ -82,17 +82,25 @@ describe("PilotIndexPage", () => {
     ).toBe(dongHoaHocEntry!.status);
   });
 
-  it("truthfully states the index mixes draft and in_review lessons and none is published", () => {
+  it("truthfully describes each lesson as draft or in_review per its own QA progress, with no lesson published", () => {
     render(<PilotIndexPage />);
 
-    // Proven against the real manifest, not asserted from a fixed
-    // assumption: the intro's claim only means something if the manifest
-    // genuinely contains both statuses right now.
+    // The intro's wording ("mỗi bài đang ở trạng thái draft hoặc in_review")
+    // is a per-lesson template, not a claim that the manifest currently
+    // contains both statuses at once -- it must stay true even after every
+    // lesson has been promoted to in_review (e.g. once P6-B1.4 promotes
+    // Topic 24, the last draft entry), so this deliberately does not
+    // require a draft entry to currently exist. It does still confirm the
+    // manifest is exactly draft/in_review, never anything else (e.g.
+    // published), so the intro's claim stays accurate regardless of mix.
     const statuses = new Set(
       manifestJson.lessons.map((lesson) => lesson.status),
     );
-    expect(statuses.has("draft")).toBe(true);
-    expect(statuses.has("in_review")).toBe(true);
+    for (const status of statuses) {
+      expect(["draft", "in_review"], `unexpected status ${status}`).toContain(
+        status,
+      );
+    }
 
     const intro = screen.getByText(/pipeline import/).closest("p");
     expect(intro).not.toBeNull();

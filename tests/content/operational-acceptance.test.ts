@@ -301,10 +301,13 @@ afterAll(() => {
 });
 
 describe("legacy remediation queue characterization (real committed data, read-only)", () => {
-  const files = [
+  // T06/T08 never adopted the new vocabulary; Topic 24's three items are the
+  // real, Owner-authorized P6-B1.4 use of it (see
+  // docs/handoffs/P6/P6-B1.4-claude.md) — characterized separately below,
+  // not folded into the "still legacy" file list.
+  const legacyOnlyFiles = [
     "content/qa/pending/dong-hoa-hoc.remediation-queue.json",
     "content/qa/pending/dung-dich-va-can-bang-hoa-hoc.remediation-queue.json",
-    "content/qa/pending/phan-bon-hoa-hoc.remediation-queue.json",
   ];
   // Locked in from the actual committed data (see docs/handoffs/P6/P6-B1.3P-claude.md):
   // never remove or rename these while adding the new vocabulary.
@@ -320,9 +323,9 @@ describe("legacy remediation queue characterization (real committed data, read-o
     "remain-blocking",
   ]);
 
-  it("every committed item still uses only a legacy status/choice combination (test 1)", () => {
+  it("every T06/T08 committed item still uses only a legacy status/choice combination (test 1)", () => {
     let total = 0;
-    for (const file of files) {
+    for (const file of legacyOnlyFiles) {
       const queue = readJson<QueueItem[]>(path.join(repoRoot, file));
       for (const item of queue) {
         total += 1;
@@ -338,6 +341,25 @@ describe("legacy remediation queue characterization (real committed data, read-o
       }
     }
     expect(total).toBeGreaterThan(0);
+  });
+
+  it("Topic 24's three committed items are exactly the P6-B1.4 Owner-authorized accepted-with-limitation dispositions (test 1)", () => {
+    const queue = readJson<QueueItem[]>(
+      path.join(
+        repoRoot,
+        "content/qa/pending/phan-bon-hoa-hoc.remediation-queue.json",
+      ),
+    );
+    expect(queue).toHaveLength(3);
+    for (const item of queue) {
+      expect(item.status, item.issueId).toBe("accepted-with-limitation");
+      expect(item.remediationChoice, item.issueId).toBe(
+        item.kind === "table"
+          ? "owner-accepted-source-fidelity"
+          : "owner-accepted-visible-fallback",
+      );
+      expect(item.discussionPrompt).toBeUndefined();
+    }
   });
 
   it("real committed content still validates clean with the new validator logic in place (test 1, test 16)", () => {

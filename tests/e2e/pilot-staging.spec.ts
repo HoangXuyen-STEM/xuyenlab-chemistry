@@ -238,6 +238,35 @@ test.describe("pilot staging routes", () => {
     ).toContain(normalizeWhitespace(recordedText!));
   });
 
+  test("shows Topic 24's three real accepted-with-limitation dispositions, with no misleading fixed/verified/published copy (P6-B1.4)", async ({
+    page,
+  }) => {
+    await page.goto("/fixtures/pilot/chuyen-de-24/phan-bon-hoa-hoc");
+
+    const section = page.getByRole("region", {
+      name: "Giới hạn được Chủ dự án chấp nhận",
+    });
+    await expect(section).toBeVisible();
+    for (const id of ["T24-S01:t6971", "T24-S01:i8191", "T24-S01:i0305"]) {
+      await expect(section.getByText(id)).toBeVisible();
+    }
+    await expect(section).toContainText(
+      "chưa có mô tả thay thế (alt text) mới hay cải thiện khả năng tiếp cận nào được thêm vào",
+    );
+    const text = ((await section.textContent()) ?? "").toLowerCase();
+    for (const forbidden of [
+      "resolved",
+      "fixed",
+      "accessibility improved",
+      "published",
+      "đã sửa",
+      "đã khắc phục",
+      "đã xuất bản",
+    ]) {
+      expect(text).not.toContain(forbidden.toLowerCase());
+    }
+  });
+
   test("hides staging controls but retains lesson content in print media", async ({
     page,
   }) => {
