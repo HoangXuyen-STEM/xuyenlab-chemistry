@@ -81,4 +81,31 @@ describe("PilotIndexPage", () => {
       within(dongHoaHocCard!).getByTestId("lesson-status").textContent,
     ).toBe(dongHoaHocEntry!.status);
   });
+
+  it("truthfully states the index mixes draft and in_review lessons and none is published", () => {
+    render(<PilotIndexPage />);
+
+    // Proven against the real manifest, not asserted from a fixed
+    // assumption: the intro's claim only means something if the manifest
+    // genuinely contains both statuses right now.
+    const statuses = new Set(
+      manifestJson.lessons.map((lesson) => lesson.status),
+    );
+    expect(statuses.has("draft")).toBe(true);
+    expect(statuses.has("in_review")).toBe(true);
+
+    const intro = screen.getByText(/pipeline import/).closest("p");
+    expect(intro).not.toBeNull();
+    expect(intro).toHaveTextContent("draft");
+    expect(intro).toHaveTextContent("in_review");
+    const text = intro!.textContent ?? "";
+    for (const forbidden of [
+      "published",
+      "đã xuất bản",
+      "đã phê duyệt",
+      "approved",
+    ]) {
+      expect(text.toLowerCase()).not.toContain(forbidden.toLowerCase());
+    }
+  });
 });

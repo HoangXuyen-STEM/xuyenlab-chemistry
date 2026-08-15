@@ -1,11 +1,30 @@
 import Link from "next/link";
 
+import type {
+  AcceptedLimitation,
+  DiscussionPromptEntry,
+} from "@/features/content/remediation-queue";
 import type { PilotLessonManifestEntry } from "@/features/content/pilot-manifest";
 
+import { AcceptedLimitations } from "./AcceptedLimitations";
+import { DiscussionPrompts } from "./DiscussionPrompts";
 import { PilotHeadingNav } from "./PilotHeadingNav";
 import { PilotPrintButton } from "./PilotPrintButton";
+import { StagingLimitationNotice } from "./StagingLimitationNotice";
 
 import styles from "./PilotLessonShell.module.css";
+
+// Truthful per-status decorative label (P6-B1.3U correction): `in_review`
+// is a distinct, signed lifecycle stage from `draft` — neither is
+// `published`/`approvedForPublish`/production-ready or publicly accessible,
+// and this label must not blur that distinction by staying frozen on
+// "NHÁP" once a lesson (e.g. Topic 24 after P6-B1.4) is promoted.
+const BANNER_LABEL: Record<PilotLessonManifestEntry["status"], string> = {
+  draft:
+    "[BẢN NHÁP PILOT] — Xem trước staging, không cần đăng nhập — chưa xuất bản",
+  in_review:
+    "[BẢN ĐANG DUYỆT] — Xem trước staging, không cần đăng nhập — chưa xuất bản",
+};
 
 interface PilotLessonShellProps {
   topicTitle: string;
@@ -13,6 +32,8 @@ interface PilotLessonShellProps {
   summary: string;
   manifest: PilotLessonManifestEntry;
   articleId: string;
+  acceptedLimitations?: AcceptedLimitation[];
+  discussionPrompts?: DiscussionPromptEntry[];
   children: React.ReactNode;
 }
 
@@ -28,16 +49,18 @@ export function PilotLessonShell({
   summary,
   manifest,
   articleId,
+  acceptedLimitations = [],
+  discussionPrompts = [],
   children,
 }: PilotLessonShellProps) {
   return (
     <main className={styles.page}>
       <div className={styles.banner} aria-hidden="true">
         <span className={styles.bannerLabel}>
-          [BẢN NHÁP PILOT] — Xem trước staging, không cần đăng nhập — chưa xuất
-          bản
+          {BANNER_LABEL[manifest.status]}
         </span>
       </div>
+      <StagingLimitationNotice />
       <nav aria-label="Điều hướng" className={styles.breadcrumbs}>
         <Link href="/fixtures/pilot">Danh sách pilot</Link>
         <span aria-hidden="true">/</span>
@@ -69,6 +92,8 @@ export function PilotLessonShell({
         <PilotHeadingNav articleId={articleId} />
         <article className={styles.prose} id={articleId}>
           {children}
+          <AcceptedLimitations items={acceptedLimitations} />
+          <DiscussionPrompts items={discussionPrompts} />
         </article>
       </div>
     </main>
