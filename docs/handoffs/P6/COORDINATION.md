@@ -1,7 +1,8 @@
 # P6 content-batch coordination
 
-- Baseline for completed B1a integration + B2.0 import: `main` at
-  `f4f4f5322936a1587330a4d962de360e14763407` (PR #41 merged).
+- Baseline for completed B1a integration + B2.0 import + B2.1 presentation
+  audit: `main` at `26e44b5c675e037727207429aa85c0d67cf0e7a2` (PR #43
+  merged).
 - First micro-batch: Topic 24 — **complete through P6-B1.5 integration**.
 - P6-B1.5 is **complete**. Its verdict was **Topic 2 verdict: NOT READY TO
   IMPORT**, pending a bounded, read-only Part I object inventory — see
@@ -12,36 +13,45 @@
   `docs/handoffs/P6/P6-B2.0-topic2-preflight-claude.md`.
 - The P6-B2.0 **import** step is the Owner-authorized action taken on that
   preflight verdict, merged on `main` at `f4f4f53` (PR #41). Topic 2
-  (`chuyen-de-02/bang-tuan-hoan`) is registered as `draft`, 1 blocking + 2
+  (`chuyen-de-02/bang-tuan-hoan`) was registered as `draft`, 1 blocking + 2
   warning items, with its `/fixtures/pilot/chuyen-de-02/bang-tuan-hoan`
   presentation route live on `main`. See
   `docs/handoffs/P6/P6-B2.0-import-claude.md`.
 - P6-B2.1 (presentation audit of that route on a `main`-baseline production
-  build) is **complete in PR #43 and awaiting merge** — not yet on `main`.
-  See `docs/handoffs/P6/P6-B2.1-topic2-presentation-claude.md`. State after
-  PR #43 merges: no presentation code change, since the audit found none
-  required.
+  build) is **merged on `main` at `26e44b5`** (PR #43). No presentation code
+  change was required. See
+  `docs/handoffs/P6/P6-B2.1-topic2-presentation-claude.md`.
+- P6-B2.2 (Owner QA recording + lifecycle promotion for Topic 2) is
+  **complete in a follow-on PR and awaiting merge** — not yet on `main` as
+  of this update. Records the Owner's real dispositions for all three
+  unresolved items (2 `accepted-with-limitation`, 1 `blocked`/
+  `remain-blocking`) and promotes Topic 2 `draft` → `in_review`. See
+  `docs/handoffs/P6/P6-B2.2-topic2-owner-qa-claude.md`.
 - Current gate is **no longer** "Topic 2 not ready to import" (that was
-  P6-B1.5's verdict, since superseded by P6-B2.0's preflight and import).
-  The current gate is **Owner QA for Topic 2**: dispositioning the image
-  (alt text/visual review), the table (visual review) and the blocking
-  drawing, then deciding whether to promote the lesson's lifecycle status —
-  the same per-lesson gate P6-B1.4 satisfied for Topic 24. Not authorized by
-  any task so far.
+  P6-B1.5's verdict, since superseded by P6-B2.0's preflight and import) and
+  is **no longer** "Owner QA for Topic 2" (that gate is satisfied by
+  P6-B2.2, pending its own merge). The next gate, once P6-B2.2 merges, is
+  entirely at Owner discretion: whether to import a further topic, and
+  whether to author an SVG/ChemFigure replacement for Topic 2's still-
+  blocking drawing (`T02-S01:d1402`) — neither is required, and **this is
+  not a publication gate**: `approvedForPublish` stays `false` regardless.
 
 ## Current integrated state (2026-08-15)
 
-- P6-B1.0 through P6-B1.5 and P6-B2.0 are merged on `main`; their handoffs
-  remain the canonical task evidence. **P6-B2.1 is open as PR #43, not yet
-  merged** — see that PR before assuming its docs-only change is live.
-- T06, T08 and T24 are each `in_review` in their own manifest/MDX/QA records.
-  T24 has three visible, source-traceable `accepted-with-limitation` warnings;
-  its `approvedForPublish` remains `false`.
-- T02 (`chuyen-de-02/bang-tuan-hoan`) is `draft`, 1 blocking + 2 warning items
-  (image, table, drawing), QA record pending/unsigned, `approvedForPublish`
-  `false`. Its fixture route is already live on `main` (from P6-B2.0) and was
-  presentation-audited in PR #43 (P6-B2.1, not yet merged); no chemistry
-  decision, alt text or Owner QA has been recorded for it.
+- P6-B1.0 through P6-B1.5, P6-B2.0 and P6-B2.1 are merged on `main`; their
+  handoffs remain the canonical task evidence. **P6-B2.2 is open as a
+  follow-on PR, not yet merged** — see that PR before assuming its content
+  change is live.
+- T06 and T08 are each `in_review` in their own manifest/MDX/QA records.
+- T24 is `in_review` with three visible, source-traceable
+  `accepted-with-limitation` warnings; its `approvedForPublish` remains
+  `false`.
+- T02 (`chuyen-de-02/bang-tuan-hoan`) is `draft` on `main` as of `26e44b5`,
+  1 blocking + 2 warning items (image, table, drawing), QA record
+  pending/unsigned. P6-B2.2 (not yet merged) promotes it to `in_review` with
+  2 `accepted-with-limitation` dispositions (image, table) and 1
+  `blocked`/`remain-blocking` disposition (the drawing, still blocking);
+  `approvedForPublish` stays `false` throughout.
 - P6 as a whole remains in progress. Do **not** create `docs/handoffs/P6/SUMMARY.md`
   until the project owner closes the whole expansion phase, rather than only B1a.
 
@@ -156,8 +166,38 @@
 - Excluded: chemistry rewrite, alt-text authorship, Owner QA recording,
   lifecycle promotion, `approvedForPublish`, T06/T08/T24 content edits,
   package/lockfile, auth, PDF/R2, P7.
-- Status: complete in PR #43, **not yet merged**.
+- Status: **merged on `main` at `26e44b5`** (PR #43).
 - Handoff: `docs/handoffs/P6/P6-B2.1-topic2-presentation-claude.md`.
+
+## P6-B2.2 — Topic 2 Owner QA recording + lifecycle promotion
+
+- Owner: Thầy Xuyên decided; Claude Code records the decision (same
+  delegation basis as P6-B1.0/P6-B2.0's ownership notes — recording an
+  already-made Owner decision faithfully, not a delegation of chemistry
+  judgment, QA discretion or publication authority). Integration review
+  before merge.
+- Prerequisite: P6-B2.1 merged on `main` (route live and presentation-clean).
+- Deliverable: record the Owner's real dispositions for Topic 2's three
+  unresolved items — the image and the table as
+  `accepted-with-limitation` (`owner-accepted-visible-fallback` /
+  `owner-accepted-source-fidelity`, the only contract-valid choices for
+  their respective kinds), and the drawing as `blocked`/`remain-blocking`
+  (explicitly not `accepted-with-limitation`, since its failure-report
+  block carries no `fallback.assetPath`/`altText` to pair against) — sign
+  all seven QA checks, and promote the lesson `draft` → `in_review`.
+- Acceptance: `npm run content:validate` passes with the dispositions
+  recorded exactly as the Owner specified (no contract amendment); T02
+  `in_review`, `approvedForPublish` stays `false`; T06/T08/T24 byte-
+  identical; full unit/E2E/build verification passes; T02 now eligible for
+  PDF dry-run generation, matching T06/T08/T24's own established pattern.
+- Excluded: contract/validator amendment, chemistry rewrite, semantic alt
+  text authorship, `approvedForPublish: true`, `publishWaiver`, `published`,
+  re-import, package/lockfile, auth, R2, P7, T06/T08/T24 content edits.
+- Plan-extension note: not itself named in the plan text; it is the direct
+  structural analogue of the plan-named P6-B1.4 (Topic 24's own Owner QA
+  step), applied to Topic 2 and authorized by the Project Owner as this
+  task.
+- Handoff: `docs/handoffs/P6/P6-B2.2-topic2-owner-qa-claude.md`.
 
 ## Shared gates
 

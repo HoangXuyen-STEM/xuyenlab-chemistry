@@ -86,6 +86,23 @@ describe("P5 LibraryFixture", () => {
     expect(dt!.nextElementSibling?.textContent).toBe("3");
   });
 
+  it("shows Topic 2's real card with acceptedLimitationsCount 2, now that it is in_review (P6-B2.2)", () => {
+    renderFixture("populated");
+
+    const heading = screen.getByRole("heading", {
+      level: 3,
+      name: "Bảng tuần hoàn",
+    });
+    const card = heading.closest("li");
+    expect(card).not.toBeNull();
+    expect(card).toHaveTextContent("Giới hạn được lưu theo nguồn");
+    const dt = Array.from(card!.querySelectorAll("dt")).find(
+      (element) => element.textContent === "Giới hạn được lưu theo nguồn",
+    );
+    expect(dt).toBeDefined();
+    expect(dt!.nextElementSibling?.textContent).toBe("2");
+  });
+
   it("summarizes a synthetic lesson's accepted limitations with truthful neutral wording, not as resolved/fixed/approved", () => {
     render(
       <LibraryFixture

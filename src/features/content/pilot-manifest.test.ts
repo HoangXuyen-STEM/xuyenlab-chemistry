@@ -15,12 +15,12 @@ describe("pilot manifest", () => {
     expect(lessons).toHaveLength(4);
   });
 
-  it("resolves the Topic 2 lesson with its provenance and QA counts (P6-B2.0)", () => {
+  it("resolves the Topic 2 lesson with its provenance and QA counts (P6-B2.2)", () => {
     const entry = getPilotLessonManifest("chuyen-de-02", "bang-tuan-hoan");
     expect(entry.sourceId).toBe("T02-S01");
     expect(entry.blockingCount).toBe(1);
     expect(entry.warningCount).toBe(2);
-    expect(entry.status).toBe("draft");
+    expect(entry.status).toBe("in_review");
   });
 
   it("resolves the Topic 6 lesson with its provenance and QA counts", () => {
