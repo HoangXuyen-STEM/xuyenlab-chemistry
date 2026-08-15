@@ -30,8 +30,8 @@
   of P6-B1.5 for Topic 24) is **merged on `main` at `0a245be`** (PR #45).
   See `docs/handoffs/P6/P6-B2.3-topic2-integration-claude.md`.
 - P6-B2.4A (candidate SVG diagram for the still-blocking drawing
-  `T02-S01:d1402`) is **complete in a follow-on PR and awaiting merge** —
-  not yet on `main`. **No remediation status changed**: the item stays
+  `T02-S01:d1402`) is **complete in PR #46 and awaiting merge** — not yet
+  on `main`. **No remediation status changed**: the item stays
   `blocked`/`remain-blocking`/`severity: "blocking"`; the existing warning
   Callout is kept alongside the new candidate diagram, not replaced. This
   is Owner visual review only — P6-B2.4B (acting on the Owner's decision)
@@ -52,7 +52,7 @@
 
 - P6-B1.0 through P6-B1.5, P6-B2.0, P6-B2.1, P6-B2.2 and P6-B2.3 are merged
   on `main`; their handoffs remain the canonical task evidence. **P6-B2.4A
-  is open as a follow-on PR, not yet merged** — see that PR before assuming
+  is open as PR #46, not yet merged** — see that PR before assuming
   its candidate diagram is live; it changes no remediation status.
 - T06 and T08 are each `in_review` in their own manifest/MDX/QA records.
 - T24 is `in_review` with three visible, source-traceable
