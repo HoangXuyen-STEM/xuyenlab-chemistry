@@ -61,6 +61,12 @@
       "sourceIds": ["T08-S01"]
     },
     {
+      "bytes": 16887,
+      "path": "staging-assets/lessons/76/76e8a9324baf57ed03154de9be1ba748b436c537ee387837660ebc128f68492d.png",
+      "sha256": "76e8a9324baf57ed03154de9be1ba748b436c537ee387837660ebc128f68492d",
+      "sourceIds": ["T02-S01"]
+    },
+    {
       "bytes": 11410,
       "path": "staging-assets/lessons/7c/7c7739c9ba78b5b7534eac7515e97ea6d4ed660f2181cf16a88ec683841ca30e.jpg",
       "sha256": "7c7739c9ba78b5b7534eac7515e97ea6d4ed660f2181cf16a88ec683841ca30e",
@@ -128,6 +134,22 @@
     }
   ],
   "lessons": [
+    {
+      "blockingCount": 1,
+      "failureReportPath": "content/qa/import-reports/bang-tuan-hoan.failure.json",
+      "failureReportSha256": "5695e1e999c05fb12c29cc46e35d8543965641b566658db784b5e6efd70350f8",
+      "mdxPath": "content/topics/chuyen-de-02/bang-tuan-hoan.mdx",
+      "mdxSha256": "54ec82480d53176910645b3540f75757de7090db72eb783a0ae9ffca511fbf79",
+      "qaPath": "content/qa/pending/bang-tuan-hoan.json",
+      "qaSha256": "d63e9ac166cea015253fe6ac21c2ffb0aa216fc95cefde91f6eb4385c16272f3",
+      "slug": "bang-tuan-hoan",
+      "sourceId": "T02-S01",
+      "sourcePath": "2. Chuyen de 2.Bảng tuần hoàn. Phan Thị Hà.ok.docx",
+      "sourceSha256": "a99d3a4d1d0a2bab049d354d15159fb3c4f8d0763b87fa5bd19c645c5a5325a3",
+      "status": "draft",
+      "topic": "chuyen-de-02",
+      "warningCount": 2
+    },
     {
       "blockingCount": 96,
       "failureReportPath": "content/qa/import-reports/dong-hoa-hoc.failure.json",
