@@ -334,6 +334,51 @@ test.describe("pilot staging routes", () => {
     }
   });
 
+  test("shows Topic 2's two real accepted-with-limitation dispositions, with no misleading fixed/verified/published copy (P6-B2.2)", async ({
+    page,
+  }) => {
+    await page.goto("/fixtures/pilot/chuyen-de-02/bang-tuan-hoan");
+
+    const section = page.getByRole("region", {
+      name: "Giới hạn được Chủ dự án chấp nhận",
+    });
+    await expect(section).toBeVisible();
+    for (const id of ["T02-S01:i6022", "T02-S01:t7931"]) {
+      await expect(section.getByText(id)).toBeVisible();
+    }
+    // The drawing stays blocked, not accepted-with-limitation -- it must
+    // not appear in this section, even though it is the lesson's third
+    // unresolved item.
+    await expect(section.getByText("T02-S01:d1402")).toHaveCount(0);
+    await expect(section).toContainText(
+      "chưa có mô tả thay thế (alt text) mới hay cải thiện khả năng tiếp cận nào được thêm vào",
+    );
+    const text = ((await section.textContent()) ?? "").toLowerCase();
+    for (const forbidden of [
+      "resolved",
+      "fixed",
+      "accessibility improved",
+      "published",
+      "đã sửa",
+      "đã khắc phục",
+      "đã xuất bản",
+    ]) {
+      expect(text).not.toContain(forbidden.toLowerCase());
+    }
+  });
+
+  test("keeps Topic 2's blocking drawing Callout visible and traceable, unaffected by the image/table dispositions (P6-B2.2)", async ({
+    page,
+  }) => {
+    await page.goto("/fixtures/pilot/chuyen-de-02/bang-tuan-hoan");
+
+    const blockingCallout = page.locator(
+      'aside[aria-label="Hình vẽ Word cần biên tập"]',
+    );
+    await expect(blockingCallout).toHaveCount(1);
+    await expect(blockingCallout).toContainText("T02-S01:d1402");
+  });
+
   test("hides staging controls but retains lesson content in print media", async ({
     page,
   }) => {

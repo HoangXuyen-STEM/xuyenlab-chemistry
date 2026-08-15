@@ -72,6 +72,21 @@ test.describe("P5 fixture library and metadata search", () => {
     await expect(dd).toHaveText("3");
   });
 
+  test("shows Topic 2's card with acceptedLimitationsCount 2, now that it is in_review (P6-B2.2)", async ({
+    page,
+  }) => {
+    await page.goto(route);
+    const card = page
+      .getByRole("heading", { level: 3, name: "Bảng tuần hoàn" })
+      .locator("xpath=ancestor::li");
+    await expect(card).toBeVisible();
+    await expect(card.getByText("Giới hạn được lưu theo nguồn")).toBeVisible();
+    const dd = card
+      .locator("dt", { hasText: "Giới hạn được lưu theo nguồn" })
+      .locator("xpath=following-sibling::dd[1]");
+    await expect(dd).toHaveText("2");
+  });
+
   test("submits a diacritic-insensitive search with the keyboard", async ({
     page,
   }) => {

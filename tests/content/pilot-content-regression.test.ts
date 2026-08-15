@@ -202,9 +202,15 @@ describe("P4 pilot content regression", () => {
           ).toHaveLength(1);
 
           if (entry.status === "blocked") {
-            expect(entry.remediationChoice, entry.issueId).toBe(
-              "reviewed-image-fallback",
-            );
+            // Both are recognized legacy "blocked" choices (see
+            // scripts/validate-content/validate.py's REMEDIATION_NEW_STATUS
+            // comment): "reviewed-image-fallback" (T08) and "remain-blocking"
+            // (T02, P6-B2.2 -- the Owner accepts the visible Callout as-is
+            // without authoring a replacement, keeping the item blocking).
+            expect(
+              ["reviewed-image-fallback", "remain-blocking"],
+              entry.issueId,
+            ).toContain(entry.remediationChoice);
             expect(entry.ownerDecision.decidedBy, entry.issueId).toBeTruthy();
             expect(entry.ownerDecision.decidedAt, entry.issueId).toBeTruthy();
             expect(entry.ownerDecision.qaNote, entry.issueId).toBeTruthy();

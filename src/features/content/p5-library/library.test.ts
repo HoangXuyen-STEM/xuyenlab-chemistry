@@ -62,6 +62,14 @@ describe("P5 pilot library metadata", () => {
     expect(topic24!.acceptedLimitationsCount).toBe(3);
   });
 
+  it("includes Topic 2 with acceptedLimitationsCount 2 (image + table only, not the still-blocking drawing), derived from its real canonical remediation queue (P6-B2.2)", () => {
+    const lessons = loadPilotLibrary();
+    const topic2 = lessons.find((lesson) => lesson.slug === "bang-tuan-hoan");
+    expect(topic2, "Topic 2 must now be in_review and present").toBeDefined();
+    expect(topic2!.status).toBe("in_review");
+    expect(topic2!.acceptedLimitationsCount).toBe(2);
+  });
+
   it("excludes a draft entry from a synthetic mixed-status manifest, independent of the real manifest's current draft count", () => {
     // Fully synthetic: does not depend on any real lesson's current status,
     // and does not require any real draft lesson to exist, so this stays a
