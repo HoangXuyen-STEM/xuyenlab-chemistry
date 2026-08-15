@@ -1,0 +1,35 @@
+{
+  "approvedForPublish": false,
+  "checks": {
+    "chemistryVerified": false,
+    "figuresVerified": false,
+    "formulasVerified": false,
+    "mobileVerified": false,
+    "printVerified": false,
+    "scopePartIOnly": false,
+    "tablesVerified": false
+  },
+  "lessonSlug": "bang-tuan-hoan",
+  "lessonVersion": 1,
+  "reviewStatus": "pending",
+  "reviewedAt": null,
+  "reviewer": null,
+  "sourceIds": ["T02-S01"],
+  "unresolved": [
+    {
+      "description": "Extracted image needs meaningful alt text and visual verification.",
+      "id": "T02-S01:i6022",
+      "severity": "warning"
+    },
+    {
+      "description": "DOCX table was flattened to an HTML table and needs visual review.",
+      "id": "T02-S01:t7931",
+      "severity": "warning"
+    },
+    {
+      "description": "Drawing or shape has no extractable browser-safe image relationship.",
+      "id": "T02-S01:d1402",
+      "severity": "blocking"
+    }
+  ]
+}

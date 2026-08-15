@@ -1,0 +1,556 @@
+{
+  "$schema": "https://raw.githubusercontent.com/HoangXuyen-STEM/xuyenlab-chemistry/main/scripts/import-docx/failure-report.schema.json",
+  "blocks": [
+    {
+      "id": "T02-S01:p0091",
+      "kind": "paragraph",
+      "outcome": "semantic",
+      "semanticKind": "paragraph",
+      "sourceLocator": {
+        "blockOrder": 1,
+        "pathHint": "word/document.xml#body/p[3]",
+        "sectionPath": "Phần I",
+        "textAnchor": "Phần I: HỆ THỐNG LÝ THUYẾT CƠ BẢN VÀ NÂNG CAO"
+      }
+    },
+    {
+      "id": "T02-S01:h9692",
+      "kind": "heading",
+      "outcome": "semantic",
+      "semanticKind": "heading",
+      "sourceLocator": {
+        "blockOrder": 2,
+        "pathHint": "word/document.xml#body/p[4]",
+        "sectionPath": "Phần I",
+        "textAnchor": "I. CẤU TẠO BẢNG TUẦN HOÀN CÁC NGUYÊN TỐ HÓA HỌC"
+      }
+    },
+    {
+      "id": "T02-S01:p9230",
+      "kind": "paragraph",
+      "outcome": "semantic",
+      "semanticKind": "paragraph",
+      "sourceLocator": {
+        "blockOrder": 3,
+        "pathHint": "word/document.xml#body/p[5]",
+        "sectionPath": "Phần I",
+        "textAnchor": "* Nguyên tắc sắp xếp"
+      }
+    },
+    {
+      "id": "T02-S01:p9638",
+      "kind": "paragraph",
+      "outcome": "semantic",
+      "semanticKind": "paragraph",
+      "sourceLocator": {
+        "blockOrder": 4,
+        "pathHint": "word/document.xml#body/p[6]",
+        "sectionPath": "Phần I",
+        "textAnchor": "- Các nguyên tố được sắp xếp theo chiều tăng dần của điện tích hạt nhân nguyên tử."
+      }
+    },
+    {
+      "id": "T02-S01:p6564",
+      "kind": "paragraph",
+      "outcome": "semantic",
+      "semanticKind": "paragraph",
+      "sourceLocator": {
+        "blockOrder": 5,
+        "pathHint": "word/document.xml#body/p[7]",
+        "sectionPath": "Phần I",
+        "textAnchor": "- Các nguyên tố có cùng số lớp electron trong nguyên tử được xếp thành 1 hàng."
+      }
+    },
+    {
+      "id": "T02-S01:p4129",
+      "kind": "paragraph",
+      "outcome": "semantic",
+      "semanticKind": "paragraph",
+      "sourceLocator": {
+        "blockOrder": 6,
+        "pathHint": "word/document.xml#body/p[8]",
+        "sectionPath": "Phần I",
+        "textAnchor": "- Các nguyên tố có cùng số electron hóa trị trong nguyên tử được xếp thành 1 cột (trừ nhóm VIIIB)."
+      }
+    },
+    {
+      "id": "T02-S01:p2109",
+      "kind": "paragraph",
+      "outcome": "semantic",
+      "semanticKind": "paragraph",
+      "sourceLocator": {
+        "blockOrder": 7,
+        "pathHint": "word/document.xml#body/p[9]",
+        "sectionPath": "Phần I",
+        "textAnchor": "* Cấu tạo bảng tuần hoàn"
+      }
+    },
+    {
+      "id": "T02-S01:p5802",
+      "kind": "paragraph",
+      "outcome": "semantic",
+      "semanticKind": "paragraph",
+      "sourceLocator": {
+        "blockOrder": 8,
+        "pathHint": "word/document.xml#body/p[10]",
+        "sectionPath": "Phần I",
+        "textAnchor": "- Ô nguyên tố: mỗi nguyên tố hóa học được xếp vào 1 ô trong bảng tuần hoàn."
+      }
+    },
+    {
+      "id": "T02-S01:p6872",
+      "kind": "paragraph",
+      "outcome": "semantic",
+      "semanticKind": "paragraph",
+      "sourceLocator": {
+        "blockOrder": 9,
+        "pathHint": "word/document.xml#body/p[11]",
+        "sectionPath": "Phần I",
+        "textAnchor": "Số thứ tự ô nguyên tố = số hiệu nguyên tử Z"
+      }
+    },
+    {
+      "id": "T02-S01:p1998",
+      "kind": "paragraph",
+      "outcome": "semantic",
+      "semanticKind": "paragraph",
+      "sourceLocator": {
+        "blockOrder": 10,
+        "pathHint": "word/document.xml#body/p[12]",
+        "sectionPath": "Phần I",
+        "textAnchor": "- Chu kì: là dãy các nguyên tố mà nguyên tử của chúng có cùng số lớp electron, được sắp xếp theo chiều tăng dần điện tích hạt nhân tăng dần."
+      }
+    },
+    {
+      "id": "T02-S01:p2324",
+      "kind": "paragraph",
+      "outcome": "semantic",
+      "semanticKind": "paragraph",
+      "sourceLocator": {
+        "blockOrder": 11,
+        "pathHint": "word/document.xml#body/p[13]",
+        "sectionPath": "Phần I",
+        "textAnchor": "Số thứ tự chu kì = số lớp electron"
+      }
+    },
+    {
+      "id": "T02-S01:p3558",
+      "kind": "paragraph",
+      "outcome": "semantic",
+      "semanticKind": "paragraph",
+      "sourceLocator": {
+        "blockOrder": 12,
+        "pathHint": "word/document.xml#body/p[14]",
+        "sectionPath": "Phần I",
+        "textAnchor": "- Nhóm nguyên tố: là tập hợp các nguyên tố mà nguyên tử có cấu hình electron tương tự nhau, do đó tính chất hóa học gần giống nhau và được xếp thành 1 cột."
+      }
+    },
+    {
+      "id": "T02-S01:p5068",
+      "kind": "paragraph",
+      "outcome": "semantic",
+      "semanticKind": "paragraph",
+      "sourceLocator": {
+        "blockOrder": 13,
+        "pathHint": "word/document.xml#body/p[15]",
+        "sectionPath": "Phần I",
+        "textAnchor": "Số thứ tự nhóm nguyên tố = số electron hóa trị"
+      }
+    },
+    {
+      "id": "T02-S01:p1183",
+      "kind": "paragraph",
+      "outcome": "semantic",
+      "semanticKind": "paragraph",
+      "sourceLocator": {
+        "blockOrder": 14,
+        "pathHint": "word/document.xml#body/p[16]",
+        "sectionPath": "Phần I",
+        "textAnchor": "Electron hóa trị = electron lớp ngoài cùng + phân lớp sát ngoài cùng chưa bão hòa."
+      }
+    },
+    {
+      "id": "T02-S01:p3011",
+      "kind": "paragraph",
+      "outcome": "semantic",
+      "semanticKind": "paragraph",
+      "sourceLocator": {
+        "blockOrder": 15,
+        "pathHint": "word/document.xml#body/p[17]",
+        "sectionPath": "Phần I",
+        "textAnchor": "* Phân loại nguyên tố"
+      }
+    },
+    {
+      "id": "T02-S01:p4284",
+      "kind": "paragraph",
+      "outcome": "semantic",
+      "semanticKind": "paragraph",
+      "sourceLocator": {
+        "blockOrder": 16,
+        "pathHint": "word/document.xml#body/p[18]",
+        "sectionPath": "Phần I",
+        "textAnchor": "- Nguyên tố s: là nguyên tố mà electron cuối cùng được phân bố vào phân lớp s. Gồm nhóm IA, IIA và He."
+      }
+    },
+    {
+      "id": "T02-S01:p2041",
+      "kind": "paragraph",
+      "outcome": "semantic",
+      "semanticKind": "paragraph",
+      "sourceLocator": {
+        "blockOrder": 17,
+        "pathHint": "word/document.xml#body/p[19]",
+        "sectionPath": "Phần I",
+        "textAnchor": "- Nguyên tố p: là nguyên tố mà electron cuối cùng được phân bố vào phân lớp p. Gồm nhóm IIIA - VIIIA (trừ He)."
+      }
+    },
+    {
+      "id": "T02-S01:p5610",
+      "kind": "paragraph",
+      "outcome": "semantic",
+      "semanticKind": "paragraph",
+      "sourceLocator": {
+        "blockOrder": 18,
+        "pathHint": "word/document.xml#body/p[20]",
+        "sectionPath": "Phần I",
+        "textAnchor": "- Nguyên tố d: là nguyên tố mà electron cuối cùng được phân bố vào phân lớp d. Gồm nhóm IB – VIIIB.( trừ họ La, Họ Ac )"
+      }
+    },
+    {
+      "id": "T02-S01:p3548",
+      "kind": "paragraph",
+      "outcome": "semantic",
+      "semanticKind": "paragraph",
+      "sourceLocator": {
+        "blockOrder": 19,
+        "pathHint": "word/document.xml#body/p[21]",
+        "sectionPath": "Phần I",
+        "textAnchor": "- Nguyên tố f: là nguyên tố mà electron cuối cùng được phân bố vào phân lớp f. .( họ La, Họ Ac )"
+      }
+    },
+    {
+      "id": "T02-S01:h8952",
+      "kind": "heading",
+      "outcome": "semantic",
+      "semanticKind": "heading",
+      "sourceLocator": {
+        "blockOrder": 20,
+        "pathHint": "word/document.xml#body/p[22]",
+        "sectionPath": "Phần I",
+        "textAnchor": "II.XU HƯỚNG BIẾN ĐỔI MỘT SỐ TÍNH CHẤT TRONG MỘT CHU KÌ, NHÓM A"
+      }
+    },
+    {
+      "id": "T02-S01:p9007",
+      "kind": "paragraph",
+      "outcome": "semantic",
+      "semanticKind": "paragraph",
+      "sourceLocator": {
+        "blockOrder": 21,
+        "pathHint": "word/document.xml#body/p[23]",
+        "sectionPath": "Phần I",
+        "textAnchor": "* Xu hướng biến đổi một số tính chất nguyên tử các nguyên tố trong 1 chu kì và trong 1 nhóm A"
+      }
+    },
+    {
+      "id": "T02-S01:p2656",
+      "kind": "paragraph",
+      "outcome": "semantic",
+      "semanticKind": "paragraph",
+      "sourceLocator": {
+        "blockOrder": 22,
+        "pathHint": "word/document.xml#body/p[24]",
+        "sectionPath": "Phần I",
+        "textAnchor": "- Trong một chu kì từ trái sang phải theo chiều tăng của điện tích hạt nhân nguyên tử thì:"
+      }
+    },
+    {
+      "id": "T02-S01:p8847",
+      "kind": "paragraph",
+      "outcome": "semantic",
+      "semanticKind": "paragraph",
+      "sourceLocator": {
+        "blockOrder": 23,
+        "pathHint": "word/document.xml#body/p[25]",
+        "sectionPath": "Phần I",
+        "textAnchor": "+ Bán kính nguyên tử giảm dần."
+      }
+    },
+    {
+      "id": "T02-S01:p8931",
+      "kind": "paragraph",
+      "outcome": "semantic",
+      "semanticKind": "paragraph",
+      "sourceLocator": {
+        "blockOrder": 24,
+        "pathHint": "word/document.xml#body/p[26]",
+        "sectionPath": "Phần I",
+        "textAnchor": "+ Độ âm điện tăng dần."
+      }
+    },
+    {
+      "id": "T02-S01:p8072",
+      "kind": "paragraph",
+      "outcome": "semantic",
+      "semanticKind": "paragraph",
+      "sourceLocator": {
+        "blockOrder": 25,
+        "pathHint": "word/document.xml#body/p[27]",
+        "sectionPath": "Phần I",
+        "textAnchor": "+ Tính kim loại giảm dần và tính phi kim tăng dần."
+      }
+    },
+    {
+      "id": "T02-S01:p5666",
+      "kind": "paragraph",
+      "outcome": "semantic",
+      "semanticKind": "paragraph",
+      "sourceLocator": {
+        "blockOrder": 26,
+        "pathHint": "word/document.xml#body/p[28]",
+        "sectionPath": "Phần I",
+        "textAnchor": "+ Số electron hóa trị của các nguyên tố nhóm A (trừ chu kì 1) tăng từ 1 – 8."
+      }
+    },
+    {
+      "id": "T02-S01:p8952",
+      "kind": "paragraph",
+      "outcome": "semantic",
+      "semanticKind": "paragraph",
+      "sourceLocator": {
+        "blockOrder": 27,
+        "pathHint": "word/document.xml#body/p[29]",
+        "sectionPath": "Phần I",
+        "textAnchor": "- Trong một nhóm A từ trên xuống theo chiều tăng dần của điện tích hạt nhân nguyên tử thì:"
+      }
+    },
+    {
+      "id": "T02-S01:p7571",
+      "kind": "paragraph",
+      "outcome": "semantic",
+      "semanticKind": "paragraph",
+      "sourceLocator": {
+        "blockOrder": 28,
+        "pathHint": "word/document.xml#body/p[30]",
+        "sectionPath": "Phần I",
+        "textAnchor": "+ Bán kính nguyên tử tăng dần."
+      }
+    },
+    {
+      "id": "T02-S01:p5035",
+      "kind": "paragraph",
+      "outcome": "semantic",
+      "semanticKind": "paragraph",
+      "sourceLocator": {
+        "blockOrder": 29,
+        "pathHint": "word/document.xml#body/p[31]",
+        "sectionPath": "Phần I",
+        "textAnchor": "+ Độ âm điện giảm dần."
+      }
+    },
+    {
+      "id": "T02-S01:p3573",
+      "kind": "paragraph",
+      "outcome": "semantic",
+      "semanticKind": "paragraph",
+      "sourceLocator": {
+        "blockOrder": 30,
+        "pathHint": "word/document.xml#body/p[32]",
+        "sectionPath": "Phần I",
+        "textAnchor": "+ Tính kim loại tăng dần và tính phi kim giảm dần."
+      }
+    },
+    {
+      "id": "T02-S01:p9783",
+      "kind": "paragraph",
+      "outcome": "semantic",
+      "semanticKind": "paragraph",
+      "sourceLocator": {
+        "blockOrder": 31,
+        "pathHint": "word/document.xml#body/p[33]",
+        "sectionPath": "Phần I",
+        "textAnchor": "* Xu hướng biến đổi thành phần và một số tính chất của hợp chất trong 1 chu kì"
+      }
+    },
+    {
+      "id": "T02-S01:p6907",
+      "kind": "paragraph",
+      "outcome": "semantic",
+      "semanticKind": "paragraph",
+      "sourceLocator": {
+        "blockOrder": 32,
+        "pathHint": "word/document.xml#body/p[34]",
+        "sectionPath": "Phần I",
+        "textAnchor": "- Trong một chu kì từ trái sang phải theo chiều tăng của điện tích hạt nhân nguyên tử thì:"
+      }
+    },
+    {
+      "id": "T02-S01:p1539",
+      "kind": "paragraph",
+      "outcome": "semantic",
+      "semanticKind": "paragraph",
+      "sourceLocator": {
+        "blockOrder": 33,
+        "pathHint": "word/document.xml#body/p[35]",
+        "sectionPath": "Phần I",
+        "textAnchor": "+ Hóa trị cao nhất của các nguyên tố nhóm A trong hợp chất với oxygen tăng từ I – VII (trừ chu kì 1 và nguyên tố fluorine)."
+      }
+    },
+    {
+      "id": "T02-S01:p2517",
+      "kind": "paragraph",
+      "outcome": "semantic",
+      "semanticKind": "paragraph",
+      "sourceLocator": {
+        "blockOrder": 34,
+        "pathHint": "word/document.xml#body/p[36]",
+        "sectionPath": "Phần I",
+        "textAnchor": "+ Tính base của oxide và hydroxide tương ứng giảm dần, đồng thời tính acid của chúng tăng dần."
+      }
+    },
+    {
+      "id": "T02-S01:h6565",
+      "kind": "heading",
+      "outcome": "semantic",
+      "semanticKind": "heading",
+      "sourceLocator": {
+        "blockOrder": 35,
+        "pathHint": "word/document.xml#body/p[37]",
+        "sectionPath": "Phần I",
+        "textAnchor": "III. Ý NGHĨA BẢNG TUẦN HOÀN CÁC NGUYÊN TỐ HÓA HỌC – ĐỊNH LUẬT TUẦN HOÀN"
+      }
+    },
+    {
+      "id": "T02-S01:p3709",
+      "kind": "paragraph",
+      "outcome": "semantic",
+      "semanticKind": "paragraph",
+      "sourceLocator": {
+        "blockOrder": 36,
+        "pathHint": "word/document.xml#body/p[38]",
+        "sectionPath": "Phần I",
+        "textAnchor": "* Định luật tuần hoàn:"
+      }
+    },
+    {
+      "id": "T02-S01:p6707",
+      "kind": "paragraph",
+      "outcome": "semantic",
+      "semanticKind": "paragraph",
+      "sourceLocator": {
+        "blockOrder": 37,
+        "pathHint": "word/document.xml#body/p[39]",
+        "sectionPath": "Phần I",
+        "textAnchor": "Tính chất của các nguyên tố và đơn chất, cũng như thành phần và tính chất của các hợp chất tạo nên từ các nguyên tố đó biến đổi tuần hoàn theo chiều tăng của điện tích hạt nhân nguyên tử."
+      }
+    },
+    {
+      "id": "T02-S01:p9298",
+      "kind": "paragraph",
+      "outcome": "semantic",
+      "semanticKind": "paragraph",
+      "sourceLocator": {
+        "blockOrder": 38,
+        "pathHint": "word/document.xml#body/p[40]",
+        "sectionPath": "Phần I",
+        "textAnchor": "* Ý nghĩa bảng tuần hoàn"
+      }
+    },
+    {
+      "fallback": {
+        "altText": "Hình trích từ DOCX; cần chủ dự án bổ sung mô tả",
+        "assetPath": "/staging-assets/lessons/76/76e8a9324baf57ed03154de9be1ba748b436c537ee387837660ebc128f68492d.png",
+        "caption": "Nguồn T02-S01, hình 1",
+        "reason": "The prototype cannot infer a chemically accurate description.",
+        "strategy": "chemfigure"
+      },
+      "id": "T02-S01:i6022",
+      "issueCode": "EXTRACTED_IMAGE_REQUIRES_REVIEW",
+      "kind": "image",
+      "message": "Extracted image needs meaningful alt text and visual verification.",
+      "outcome": "fallback",
+      "severity": "warning",
+      "sourceLocator": {
+        "blockOrder": 39,
+        "pathHint": "word/document.xml#body/block[41]/a:blip[@r:embed='rId7'] -> word/media/image1.png",
+        "sectionPath": "Phần I"
+      }
+    },
+    {
+      "id": "T02-S01:p4665",
+      "kind": "paragraph",
+      "outcome": "semantic",
+      "semanticKind": "paragraph",
+      "sourceLocator": {
+        "blockOrder": 40,
+        "pathHint": "word/document.xml#body/p[42]",
+        "sectionPath": "Phần I",
+        "textAnchor": "Cụ thể"
+      }
+    },
+    {
+      "fallback": {
+        "reason": "Merged cells, widths and borders may not survive the prototype.",
+        "strategy": "manual-review"
+      },
+      "id": "T02-S01:t7931",
+      "issueCode": "DOCX_TABLE_REQUIRES_VISUAL_REVIEW",
+      "kind": "table",
+      "message": "DOCX table was flattened to an HTML table and needs visual review.",
+      "outcome": "fallback",
+      "severity": "warning",
+      "sourceLocator": {
+        "blockOrder": 41,
+        "pathHint": "word/document.xml#body/tbl[1]",
+        "sectionPath": "Phần I",
+        "textAnchor": "Cấu tạo nguyên tửVị trí của nguyên tốCấu hình electron: ?Số proton, electron: ?Số lớp electron: ?Số electron hóa trị: ?Số thứ tự ô nguyên tố: ?Số thứ tự chu kì: ?Nhóm: ?Tính chất của nguyên tố- Tính kim loại, phi kim: ?- Hóa trị cao nhất vớ"
+      }
+    },
+    {
+      "fallback": {
+        "reason": "A reviewed semantic recreation or browser-safe image fallback is required.",
+        "strategy": "manual-review"
+      },
+      "id": "T02-S01:d1402",
+      "issueCode": "UNSUPPORTED_NON_IMAGE_DRAWING",
+      "kind": "drawing",
+      "message": "Drawing or shape has no extractable browser-safe image relationship.",
+      "outcome": "fallback",
+      "severity": "blocking",
+      "sourceLocator": {
+        "blockOrder": 42,
+        "pathHint": "word/document.xml#body/block[43]/w:drawing[1]",
+        "sectionPath": "Phần I"
+      }
+    }
+  ],
+  "fixtureId": "t02-s01-docx-part-i",
+  "generator": {
+    "name": "xuyenlab-hybrid-pilot-importer",
+    "strategy": "hybrid",
+    "version": "0.3.0"
+  },
+  "reportVersion": "1.0.0",
+  "run": {
+    "generatedAt": "2026-08-11T00:00:00Z",
+    "rerunOf": null,
+    "runId": "t02-s01-docx-part-i-a99d3a4d1d0a",
+    "runOrdinal": 1,
+    "sourceDigest": "sha256:a99d3a4d1d0a2bab049d354d15159fb3c4f8d0763b87fa5bd19c645c5a5325a3"
+  },
+  "source": {
+    "section": "Phần I",
+    "sourceId": "T02-S01",
+    "sourcePath": "2. Chuyen de 2.Bảng tuần hoàn. Phan Thị Hà.ok.docx"
+  },
+  "summary": {
+    "blockingCount": 1,
+    "fallbackBlockCount": 3,
+    "issueCount": 3,
+    "omittedBlockCount": 0,
+    "semanticBlockCount": 39,
+    "totalBlocks": 42,
+    "warningCount": 2
+  }
+}

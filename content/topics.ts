@@ -5,6 +5,7 @@ export interface TopicDefinition {
 }
 
 export const topics: TopicDefinition[] = [
+  { slug: "chuyen-de-02", title: "Bảng tuần hoàn", order: 2 },
   { slug: "chuyen-de-06", title: "Động hóa học", order: 6 },
   {
     slug: "chuyen-de-08",
