@@ -10,13 +10,13 @@
     "ownerDecision": {
       "altText": null,
       "caption": null,
-      "decidedAt": null,
-      "decidedBy": null,
-      "qaNote": null,
+      "decidedAt": "2026-08-15",
+      "decidedBy": "Thầy Xuyên (Project Owner)",
+      "qaNote": "Owner visually verified the source image (flowchart relating electron configuration, position in the periodic table, and element properties) and accepted the existing placeholder alt text (\"Hình trích từ DOCX; cần chủ dự án bổ sung mô tả\") unchanged. No meaningful semantic alt text or accessibility improvement was authored or applied.",
       "reviewedLatex": null
     },
     "previewPath": "/staging-assets/lessons/76/76e8a9324baf57ed03154de9be1ba748b436c537ee387837660ebc128f68492d.png",
-    "remediationChoice": null,
+    "remediationChoice": "owner-accepted-visible-fallback",
     "severity": "warning",
     "sourceId": "T02-S01",
     "sourceLocator": {
@@ -24,7 +24,7 @@
       "pathHint": "word/document.xml#body/block[41]/a:blip[@r:embed='rId7'] -> word/media/image1.png",
       "sectionPath": "Phần I"
     },
-    "status": "pending-owner-review",
+    "status": "accepted-with-limitation",
     "topic": "chuyen-de-02"
   },
   {
@@ -38,13 +38,13 @@
     "ownerDecision": {
       "altText": null,
       "caption": null,
-      "decidedAt": null,
-      "decidedBy": null,
-      "qaNote": null,
+      "decidedAt": "2026-08-15",
+      "decidedBy": "Thầy Xuyên (Project Owner)",
+      "qaNote": "Owner compared the flattened table with the Word source and confirmed the displayed scaffold (including placeholder \"?\" cells) is accurate to the source. It is accepted unchanged for teacher-led use. No content remediation was performed.",
       "reviewedLatex": null
     },
     "previewPath": null,
-    "remediationChoice": null,
+    "remediationChoice": "owner-accepted-source-fidelity",
     "severity": "warning",
     "sourceId": "T02-S01",
     "sourceLocator": {
@@ -53,7 +53,7 @@
       "sectionPath": "Phần I",
       "textAnchor": "Cấu tạo nguyên tửVị trí của nguyên tốCấu hình electron: ?Số proton, electron: ?Số lớp electron: ?Số electron hóa trị: ?Số thứ tự ô nguyên tố: ?Số thứ tự chu kì: ?Nhóm: ?Tính chất của nguyên tố- Tính kim loại, phi kim: ?- Hóa trị cao nhất vớ"
     },
-    "status": "pending-owner-review",
+    "status": "accepted-with-limitation",
     "topic": "chuyen-de-02"
   },
   {
@@ -67,13 +67,13 @@
     "ownerDecision": {
       "altText": null,
       "caption": null,
-      "decidedAt": null,
-      "decidedBy": null,
-      "qaNote": null,
+      "decidedAt": "2026-08-15",
+      "decidedBy": "Thầy Xuyên (Project Owner)",
+      "qaNote": "Owner accepts the existing visible Callout fallback for teacher-led staging (\"Chưa chuyển hình vẽ T02-S01:d1402 (số 1).\"). No SVG or ChemFigure replacement was authored. Item remains blocking for publication rules; this is not a publication bypass.",
       "reviewedLatex": null
     },
     "previewPath": null,
-    "remediationChoice": null,
+    "remediationChoice": "remain-blocking",
     "severity": "blocking",
     "sourceId": "T02-S01",
     "sourceLocator": {
@@ -81,7 +81,7 @@
       "pathHint": "word/document.xml#body/block[43]/w:drawing[1]",
       "sectionPath": "Phần I"
     },
-    "status": "pending-owner-review",
+    "status": "blocked",
     "topic": "chuyen-de-02"
   }
 ]
