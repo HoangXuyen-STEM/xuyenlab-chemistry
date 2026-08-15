@@ -2,6 +2,8 @@ import { expect, test, type Page } from "@playwright/test";
 import { readFileSync } from "node:fs";
 import path from "node:path";
 
+import { normalizeWhitespace } from "../e2e-helpers/normalize-table-text";
+
 const lessons = [
   {
     // P6-B2.0: Topic 2 has 1 blocking item (the drawing) and 2 warnings
@@ -549,19 +551,6 @@ function readManifestStatus(routePath: string): "draft" | "in_review" {
 
 function escapeRegExp(value: string): string {
   return value.replace(/[.*+?^${}()|[\]\\]/gu, "\\$&");
-}
-
-function normalizeWhitespace(value: string): string {
-  // The recorded sourceLocator.textAnchor concatenates DOCX cell text with no
-  // separator at all, while the rendered table naturally inserts whitespace
-  // at cell/row boundaries; strip all whitespace on both sides rather than
-  // collapsing it, so the comparison is insensitive to that reflow. Also
-  // strip leading-hyphen bullet markers ("- Tính kim loại...") since MDX
-  // parses a cell paragraph starting with "- " as a markdown list, and a
-  // rendered `<li>` bullet marker is not part of `innerText` the way the
-  // literal "-" character is in the DOCX-derived source text (observed on
-  // Topic 2's table, P6-B2.0).
-  return value.replace(/[\s-]+/gu, "");
 }
 
 interface RemediationQueueEntry {
