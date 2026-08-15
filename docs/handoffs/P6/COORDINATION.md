@@ -46,9 +46,9 @@
   content change. That amendment (extending `applied` to accept
   `reviewed-image-fallback` for `kind: "drawing"`, with a validated
   required-fields/ChemFigure-pairing/Callout-removal rule) is **complete
-  in a follow-on PR and awaiting merge** — not yet on `main`. **This PR
-  changes no content, QA record, remediation-queue item, or manifest
-  field**: `T02-S01:d1402` remains exactly as merged in PR #46. See
+  in PR #47 and awaiting merge** — not yet on `main`. **This PR changes no
+  content, QA record, remediation-queue item, or manifest field**:
+  `T02-S01:d1402` remains exactly as merged in PR #46. See
   `docs/handoffs/P6/P6-B2.4B-policy-applied-drawing-fallback-claude.md`.
 - Current gate is **no longer** "Topic 2 not ready to import" (superseded by
   P6-B2.0) and **no longer** "Owner QA for Topic 2" (satisfied by P6-B2.2,
@@ -65,9 +65,9 @@
 
 - P6-B1.0 through P6-B1.5, P6-B2.0, P6-B2.1, P6-B2.2, P6-B2.3 and P6-B2.4A
   are merged on `main`; their handoffs remain the canonical task evidence.
-  **The P6-B2.4B policy PR is open, not yet merged** — see that PR before
-  assuming the new `applied`/`reviewed-image-fallback` capability is live;
-  it changes no content.
+  **The P6-B2.4B policy PR (#47) is open, not yet merged** — see that PR
+  before assuming the new `applied`/`reviewed-image-fallback` capability
+  is live; it changes no content.
 - T06 and T08 are each `in_review` in their own manifest/MDX/QA records.
 - T24 is `in_review` with three visible, source-traceable
   `accepted-with-limitation` warnings; its `approvedForPublish` remains
