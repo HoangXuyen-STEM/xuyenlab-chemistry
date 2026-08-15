@@ -10,13 +10,13 @@
     "ownerDecision": {
       "altText": null,
       "caption": null,
-      "decidedAt": null,
-      "decidedBy": null,
-      "qaNote": null,
+      "decidedAt": "2026-08-14",
+      "decidedBy": "Thầy Xuyên (Project Owner)",
+      "qaNote": "Owner compared the flattened table with the Word source and confirmed the displayed values are accurate. It is accepted unchanged for teacher-led use. No content remediation was performed.",
       "reviewedLatex": null
     },
     "previewPath": null,
-    "remediationChoice": null,
+    "remediationChoice": "owner-accepted-source-fidelity",
     "severity": "warning",
     "sourceId": "T24-S01",
     "sourceLocator": {
@@ -25,7 +25,7 @@
       "sectionPath": "Phần I",
       "textAnchor": "Phân loạiCách tính độ dinh dưỡngPhân đạmTính theo phần trăm khối lượng N trong phân.Phân lânTính theo phần trăm khối lượng P2O5 trong phân.Phân kaliTính theo phần trăm khối lượng K2O trong phân."
     },
-    "status": "pending-owner-review",
+    "status": "accepted-with-limitation",
     "topic": "chuyen-de-24"
   },
   {
@@ -39,13 +39,13 @@
     "ownerDecision": {
       "altText": null,
       "caption": null,
-      "decidedAt": null,
-      "decidedBy": null,
-      "qaNote": null,
+      "decidedAt": "2026-08-14",
+      "decidedBy": "Thầy Xuyên (Project Owner)",
+      "qaNote": "Owner visually verified the source image and accepted the existing placeholder alt text (\"Hình trích từ DOCX; cần chủ dự án bổ sung mô tả\") unchanged. No meaningful semantic alt text or accessibility improvement was authored or applied.",
       "reviewedLatex": null
     },
     "previewPath": "/staging-assets/lessons/d4/d430885438c33c62a0f3bbe2cf7e7969af17747d2da2be3622becd4639456453.jpeg",
-    "remediationChoice": null,
+    "remediationChoice": "owner-accepted-visible-fallback",
     "severity": "warning",
     "sourceId": "T24-S01",
     "sourceLocator": {
@@ -53,7 +53,7 @@
       "pathHint": "word/document.xml#body/block[13]/a:blip[@r:embed='rId7'] -> word/media/image1.jpeg",
       "sectionPath": "Phần I"
     },
-    "status": "pending-owner-review",
+    "status": "accepted-with-limitation",
     "topic": "chuyen-de-24"
   },
   {
@@ -67,13 +67,13 @@
     "ownerDecision": {
       "altText": null,
       "caption": null,
-      "decidedAt": null,
-      "decidedBy": null,
-      "qaNote": null,
+      "decidedAt": "2026-08-14",
+      "decidedBy": "Thầy Xuyên (Project Owner)",
+      "qaNote": "Owner visually verified the source image and accepted the existing placeholder alt text (\"Hình trích từ DOCX; cần chủ dự án bổ sung mô tả\") unchanged. No meaningful semantic alt text or accessibility improvement was authored or applied.",
       "reviewedLatex": null
     },
     "previewPath": "/staging-assets/lessons/95/955c50af88187216dafd2353c74b540e510403a0c970d8f247cc0d2e01e25dce.jpeg",
-    "remediationChoice": null,
+    "remediationChoice": "owner-accepted-visible-fallback",
     "severity": "warning",
     "sourceId": "T24-S01",
     "sourceLocator": {
@@ -81,7 +81,7 @@
       "pathHint": "word/document.xml#body/block[14]/a:blip[@r:embed='rId8'] -> word/media/image2.jpeg",
       "sectionPath": "Phần I"
     },
-    "status": "pending-owner-review",
+    "status": "accepted-with-limitation",
     "topic": "chuyen-de-24"
   }
 ]
