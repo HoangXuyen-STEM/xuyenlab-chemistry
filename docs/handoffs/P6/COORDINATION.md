@@ -27,8 +27,8 @@
   1 `blocked`/`remain-blocking`) and promoted Topic 2 `draft` → `in_review`.
   See `docs/handoffs/P6/P6-B2.2-topic2-owner-qa-claude.md`.
 - P6-B2.3 (integration/metrics close-out for the Topic 2 loop, the analogue
-  of P6-B1.5 for Topic 24) is **complete in a follow-on PR and awaiting
-  merge** — not yet on `main` as of this update. See
+  of P6-B1.5 for Topic 24) is **complete in PR #45 and awaiting merge** —
+  not yet on `main` as of this update. See
   `docs/handoffs/P6/P6-B2.3-topic2-integration-claude.md`.
 - Current gate is **no longer** "Topic 2 not ready to import" (superseded by
   P6-B2.0) and **no longer** "Owner QA for Topic 2" (satisfied by P6-B2.2,
@@ -45,8 +45,8 @@
 
 - P6-B1.0 through P6-B1.5, P6-B2.0, P6-B2.1 and P6-B2.2 are merged on
   `main`; their handoffs remain the canonical task evidence. **P6-B2.3 is
-  open as a follow-on PR, not yet merged** — see that PR before assuming
-  its docs-only change is live.
+  open as PR #45, not yet merged** — see that PR before assuming its
+  docs-only change is live.
 - T06 and T08 are each `in_review` in their own manifest/MDX/QA records.
 - T24 is `in_review` with three visible, source-traceable
   `accepted-with-limitation` warnings; its `approvedForPublish` remains
