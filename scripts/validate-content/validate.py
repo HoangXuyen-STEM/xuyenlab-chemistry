@@ -62,10 +62,11 @@ PUBLISH_WAIVER_REQUIRED_ACKNOWLEDGED_BLOCKED_ITEMS: dict[str, set[str]] = {
 }
 # P6-B1.3P: operational teaching acceptance vocabulary for
 # content/qa/pending/<slug>.remediation-queue.json entries. Additive only —
-# existing legacy status/choice values (pending-owner-review/applied/blocked;
-# reviewed-latex-mdx/reviewed-image-fallback/remain-blocking/null) are never
-# rejected or rewritten by this validator; see docs/contracts/content.md
-# "Remediation queue".
+# every other legacy status/choice combination (pending-owner-review/applied/
+# blocked paired with reviewed-latex-mdx/reviewed-image-fallback/
+# remain-blocking/null) is still never rejected or rewritten by this
+# validator, except for the one specific combination named below (P6-B2.4B);
+# see docs/contracts/content.md "Remediation queue".
 REMEDIATION_NEW_STATUS = "accepted-with-limitation"
 REMEDIATION_NEW_CHOICES = {
     "owner-accepted-source-fidelity",
@@ -77,6 +78,14 @@ REMEDIATION_CHOICE_KIND = {
     "owner-accepted-source-fidelity": "table",
     "owner-accepted-visible-fallback": "image",
 }
+# P6-B2.4B: the one legacy combination this validator does check. Initial
+# supported use is `kind: "drawing"` only (docs/contracts/content.md
+# "Applied reviewed-image-fallback"); extending to another kind requires a
+# later contract amendment. This is a capability amendment only — it does
+# not itself change any committed remediation-queue item.
+REMEDIATION_APPLIED_STATUS = "applied"
+REMEDIATION_APPLIED_IMAGE_FALLBACK_CHOICE = "reviewed-image-fallback"
+REMEDIATION_APPLIED_IMAGE_FALLBACK_KINDS = {"drawing"}
 DISCUSSION_PROMPT_CLASSIFICATION = "discussion-prompt"
 DISCUSSION_PROMPT_SCIENTIFIC_STATUS = "not-a-verified-scientific-conclusion"
 DISCUSSION_PROMPT_IDENTITY_ASSURANCE = "declared-not-authenticated"
@@ -397,6 +406,134 @@ def validate_accepted_with_limitation(
     return errors
 
 
+def validate_applied_image_fallback(
+    item: dict[str, Any],
+    qa_unresolved_by_id: dict[str, dict[str, Any]],
+    block_by_id: dict[str, dict[str, Any]],
+    report_source_id: str | None,
+    lesson_slug: str,
+    lesson_topic: str,
+    body: str,
+    relative: str,
+) -> list[str]:
+    """P6-B2.4B: `status: "applied"` + `remediationChoice:
+    "reviewed-image-fallback"` — an Owner-approved visual replacement for a
+    native, non-extractable drawing/shape, now live in the canonical MDX.
+    See docs/contracts/content.md "Applied reviewed-image-fallback"."""
+    errors: list[str] = []
+    issue_id = item.get("issueId", "?")
+    decision = item.get("ownerDecision")
+    if not isinstance(decision, dict):
+        return [f"{relative}: {issue_id} applied reviewed-image-fallback requires an ownerDecision object"]
+
+    if item.get("lessonSlug") != lesson_slug:
+        errors.append(
+            f"{relative}: {issue_id} lessonSlug {item.get('lessonSlug')!r} differs from the "
+            f"canonical lesson being validated ({lesson_slug!r})"
+        )
+    if item.get("topic") != lesson_topic:
+        errors.append(
+            f"{relative}: {issue_id} topic {item.get('topic')!r} differs from the canonical "
+            f"lesson topic ({lesson_topic!r})"
+        )
+    if item.get("kind") not in REMEDIATION_APPLIED_IMAGE_FALLBACK_KINDS:
+        errors.append(
+            f"{relative}: {issue_id} applied reviewed-image-fallback is only supported for kind "
+            f"in {sorted(REMEDIATION_APPLIED_IMAGE_FALLBACK_KINDS)}, got {item.get('kind')!r}"
+        )
+
+    if not isinstance(decision.get("decidedBy"), str) or not decision["decidedBy"].strip():
+        errors.append(f"{relative}: {issue_id} ownerDecision.decidedBy is required")
+    if not is_iso_date(decision.get("decidedAt")):
+        errors.append(
+            f"{relative}: {issue_id} ownerDecision.decidedAt must be an ISO 8601 date (YYYY-MM-DD)"
+        )
+    if not isinstance(decision.get("qaNote"), str) or not decision["qaNote"].strip():
+        errors.append(f"{relative}: {issue_id} ownerDecision.qaNote is required")
+    if decision.get("reviewedLatex") is not None:
+        errors.append(
+            f"{relative}: {issue_id} ownerDecision.reviewedLatex must remain null for "
+            "reviewed-image-fallback (no LaTeX was authored)"
+        )
+
+    alt_text = decision.get("altText")
+    caption = decision.get("caption")
+    if not isinstance(alt_text, str) or not alt_text.strip():
+        errors.append(
+            f"{relative}: {issue_id} ownerDecision.altText is required for an applied "
+            "reviewed-image-fallback disposition"
+        )
+    if not isinstance(caption, str) or not caption.strip():
+        errors.append(
+            f"{relative}: {issue_id} ownerDecision.caption is required for an applied "
+            "reviewed-image-fallback disposition"
+        )
+
+    preview = item.get("previewPath")
+    if not isinstance(preview, str) or not preview.strip():
+        errors.append(
+            f"{relative}: {issue_id} previewPath is required for an applied "
+            "reviewed-image-fallback disposition"
+        )
+    elif isinstance(alt_text, str) and isinstance(caption, str):
+        paired = any(
+            attrs.get("src") == preview
+            and attrs.get("alt") == alt_text
+            and attrs.get("caption") == caption
+            for attrs in find_chemfigure_attribute_pairs(body)
+        )
+        if not paired:
+            errors.append(
+                f"{relative}: {issue_id} applied replacement is not traceable to a single "
+                "canonical ChemFigure pairing src/alt/caption exactly"
+            )
+
+    matching_callouts = [
+        match.group(0)
+        for match in re.finditer(r"<Callout\b[\s\S]*?</Callout>", body)
+        if issue_id in match.group(0)
+    ]
+    if matching_callouts:
+        errors.append(
+            f"{relative}: {issue_id} is applied and must not remain a fallback Callout"
+        )
+
+    unresolved = qa_unresolved_by_id.get(issue_id)
+    if unresolved is None:
+        errors.append(f"{relative}: {issue_id} applied issue missing from QA unresolved")
+    block = block_by_id.get(issue_id)
+    if block is None:
+        errors.append(f"{relative}: {issue_id} applied issue missing from the failure report")
+    if unresolved is not None and block is not None:
+        severities = {item.get("severity"), unresolved.get("severity"), block.get("severity")}
+        if len(severities) != 1:
+            errors.append(
+                f"{relative}: {issue_id} severity is inconsistent across the queue item, QA record "
+                "and failure report"
+            )
+        if item.get("sourceLocator") != block.get("sourceLocator"):
+            errors.append(
+                f"{relative}: {issue_id} sourceLocator differs from the original failure-report evidence"
+            )
+        if item.get("issueCode") != block.get("issueCode"):
+            errors.append(
+                f"{relative}: {issue_id} issueCode {item.get('issueCode')!r} differs from the "
+                f"failure report's {block.get('issueCode')!r}"
+            )
+        if item.get("kind") != block.get("kind"):
+            errors.append(
+                f"{relative}: {issue_id} kind {item.get('kind')!r} differs from the failure "
+                f"report's {block.get('kind')!r}"
+            )
+    if report_source_id is not None and item.get("sourceId") != report_source_id:
+        errors.append(
+            f"{relative}: {issue_id} sourceId {item.get('sourceId')!r} differs from the failure "
+            f"report's source {report_source_id!r}"
+        )
+
+    return errors
+
+
 def validate_remediation_queue(
     queue: list[dict[str, Any]],
     qa: dict[str, Any],
@@ -426,6 +563,22 @@ def validate_remediation_queue(
         if status == REMEDIATION_NEW_STATUS:
             errors.extend(
                 validate_accepted_with_limitation(
+                    item,
+                    qa_unresolved_by_id,
+                    block_by_id,
+                    report_source_id,
+                    lesson_slug,
+                    lesson_topic,
+                    body,
+                    relative,
+                )
+            )
+        if (
+            status == REMEDIATION_APPLIED_STATUS
+            and choice == REMEDIATION_APPLIED_IMAGE_FALLBACK_CHOICE
+        ):
+            errors.extend(
+                validate_applied_image_fallback(
                     item,
                     qa_unresolved_by_id,
                     block_by_id,

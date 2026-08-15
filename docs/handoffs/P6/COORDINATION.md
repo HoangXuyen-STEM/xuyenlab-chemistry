@@ -1,8 +1,9 @@
 # P6 content-batch coordination
 
 - Baseline for the completed Topic 2 loop (B1a integration + B2.0 import +
-  B2.1 presentation audit + B2.2 Owner QA + B2.3 integration close-out):
-  `main` at `0a245bed8c1241eb1f0503d5c72b9483096be16b` (PR #45 merged).
+  B2.1 presentation audit + B2.2 Owner QA + B2.3 integration close-out +
+  B2.4A candidate diagram): `main` at
+  `41dd06615868c3720ef4a56d337a406b1acbcdbe` (PR #46 merged).
 - First micro-batch: Topic 24 — **complete through P6-B1.5 integration**.
 - P6-B1.5 is **complete**. Its verdict was **Topic 2 verdict: NOT READY TO
   IMPORT**, pending a bounded, read-only Part I object inventory — see
@@ -30,40 +31,54 @@
   of P6-B1.5 for Topic 24) is **merged on `main` at `0a245be`** (PR #45).
   See `docs/handoffs/P6/P6-B2.3-topic2-integration-claude.md`.
 - P6-B2.4A (candidate SVG diagram for the still-blocking drawing
-  `T02-S01:d1402`) is **complete in PR #46 and awaiting merge** — not yet
-  on `main`. **No remediation status changed**: the item stays
-  `blocked`/`remain-blocking`/`severity: "blocking"`; the existing warning
-  Callout is kept alongside the new candidate diagram, not replaced. This
-  is Owner visual review only — P6-B2.4B (acting on the Owner's decision)
-  has not started and is not authorized until that review happens. See
+  `T02-S01:d1402`) is **merged on `main` at `41dd066`** (PR #46). **No
+  remediation status changed**: the item stays `blocked`/`remain-blocking`/
+  `severity: "blocking"`; the existing warning Callout is kept alongside
+  the candidate diagram, not replaced. See
   `docs/handoffs/P6/P6-B2.4A-topic2-drawing-candidate-claude.md`.
+- The Owner approved that candidate ("OK hình", 2026-08-15). P6-B2.4B's
+  Phase 0 contract discovery then found no already-valid path both records
+  that approval and removes the Callout without inventing an unreviewed
+  combination — the pre-existing `applied` status only validated
+  `reviewed-latex-mdx` (formula recreation); `reviewed-image-fallback` had
+  only ever paired with `blocked` (`T08-S01:e6352`). Presented with this,
+  the Owner chose a policy amendment first, kept fully separate from any
+  content change. That amendment (extending `applied` to accept
+  `reviewed-image-fallback` for `kind: "drawing"`, with a validated
+  required-fields/ChemFigure-pairing/Callout-removal rule) is **complete
+  in a follow-on PR and awaiting merge** — not yet on `main`. **This PR
+  changes no content, QA record, remediation-queue item, or manifest
+  field**: `T02-S01:d1402` remains exactly as merged in PR #46. See
+  `docs/handoffs/P6/P6-B2.4B-policy-applied-drawing-fallback-claude.md`.
 - Current gate is **no longer** "Topic 2 not ready to import" (superseded by
   P6-B2.0) and **no longer** "Owner QA for Topic 2" (satisfied by P6-B2.2,
   merged). The current gate is **Owner discretion**: whether to import a
   further topic (a fresh Owner decision and its own bounded preflight, not
-  authorized by any task so far), and — now narrowed by P6-B2.4A — whether
-  to approve the candidate SVG diagram for Topic 2's still-blocking drawing
-  (`T02-S01:d1402`) or request changes, before any P6-B2.4B follow-on. None
-  of this is required, and **this is not a publication gate**:
-  `approvedForPublish` stays `false` regardless of which the Owner later
-  chooses.
+  authorized by any task so far), and — pending the P6-B2.4B policy PR's
+  merge — a not-yet-started, not-yet-authorized follow-up task to actually
+  apply the newly-defined `applied`/`reviewed-image-fallback` combination
+  to `T02-S01:d1402` and remove its Callout. None of this is required, and
+  **this is not a publication gate**: `approvedForPublish` stays `false`
+  regardless of which the Owner later chooses.
 
 ## Current integrated state (2026-08-15)
 
-- P6-B1.0 through P6-B1.5, P6-B2.0, P6-B2.1, P6-B2.2 and P6-B2.3 are merged
-  on `main`; their handoffs remain the canonical task evidence. **P6-B2.4A
-  is open as PR #46, not yet merged** — see that PR before assuming
-  its candidate diagram is live; it changes no remediation status.
+- P6-B1.0 through P6-B1.5, P6-B2.0, P6-B2.1, P6-B2.2, P6-B2.3 and P6-B2.4A
+  are merged on `main`; their handoffs remain the canonical task evidence.
+  **The P6-B2.4B policy PR is open, not yet merged** — see that PR before
+  assuming the new `applied`/`reviewed-image-fallback` capability is live;
+  it changes no content.
 - T06 and T08 are each `in_review` in their own manifest/MDX/QA records.
 - T24 is `in_review` with three visible, source-traceable
   `accepted-with-limitation` warnings; its `approvedForPublish` remains
   `false`.
 - T02 (`chuyen-de-02/bang-tuan-hoan`) is `in_review` on `main` as of
-  `0a245be`, 1 blocking + 2 warning items: the image and table are
+  `41dd066`, 1 blocking + 2 warning items: the image and table are
   `accepted-with-limitation` (2), the drawing is `blocked`/`remain-blocking`
-  and stays `severity: "blocking"` (1). QA is signed (7/7 checks,
-  reviewer/reviewedAt set); `approvedForPublish` stays `false`; no
-  `publishWaiver`.
+  and stays `severity: "blocking"` (1), now paired with an Owner-approved
+  candidate SVG diagram (PR #46) shown alongside its still-visible Callout.
+  QA is signed (7/7 checks, reviewer/reviewedAt set); `approvedForPublish`
+  stays `false`; no `publishWaiver`.
 - All four manifest lessons (T02, T06, T08, T24) are now `in_review`; none
   is `published`.
 - P6 as a whole remains in progress. Do **not** create `docs/handoffs/P6/SUMMARY.md`
@@ -260,7 +275,36 @@
   the failure report, contract/validator changes, and — explicitly — any
   P6-B2.4B work (registering the asset, resolving the item, updating QA)
   until the Owner reviews and approves the candidate in this PR.
+- Status: **merged on `main` at `41dd066`** (PR #46). The Owner approved
+  the candidate diagram ("OK hình", 2026-08-15) in review.
 - Handoff: `docs/handoffs/P6/P6-B2.4A-topic2-drawing-candidate-claude.md`.
+
+## P6-B2.4B (policy) — Contract amendment for applied drawing replacement
+
+- Owner: the Owner selected this path (amendment first, kept separate from
+  content) after Phase 0 contract discovery found no already-valid path
+  both records the PR #46 approval and removes the Callout without
+  inventing an unreviewed combination. Claude Code implements the
+  amendment per that authorization.
+- Prerequisite: P6-B2.4A merged on `main` (Owner approval of the candidate
+  diagram already given).
+- Deliverable: extend `applied`/`reviewed-image-fallback` (previously only
+  demonstrated for `applied`/`reviewed-latex-mdx`, and for
+  `reviewed-image-fallback` only under `blocked`, `T08-S01:e6352`) to
+  `kind: "drawing"` items, with a validated required-fields/ChemFigure-
+  pairing/Callout-removal rule in `docs/contracts/content.md` and
+  `scripts/validate-content/validate.py`, proven by direct synthetic
+  positive/negative-case execution (no Python test infrastructure existed
+  to extend).
+- Acceptance: `content:validate`/unit/build pass unchanged (no real
+  content exercises the new path); the new validator function is proven
+  correct with real executed output.
+- Excluded: **any change to `content/` or `public/`** — `T02-S01:d1402`
+  stays exactly `blocked`/`remain-blocking` with its Callout present;
+  applying the new capability to it is separate, later, not-yet-started
+  work; also excluded: `approvedForPublish`/`publishWaiver` change,
+  T06/T08/T24 edits, package/lockfile, auth, R2, P7.
+- Handoff: `docs/handoffs/P6/P6-B2.4B-policy-applied-drawing-fallback-claude.md`.
 
 ## Shared gates
 
