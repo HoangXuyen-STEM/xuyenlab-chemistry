@@ -1,5 +1,7 @@
 import Link from "next/link";
 
+import { StagingLimitationNotice } from "@/components/pilot-reader/StagingLimitationNotice";
+
 import type { PilotLibraryLesson } from "./library";
 import styles from "./LibraryFixture.module.css";
 
@@ -19,6 +21,7 @@ export function LibraryFixture({ lessons, query, state }: Props) {
       <div className={styles.banner} role="status">
         Staging — nội dung đang duyệt
       </div>
+      <StagingLimitationNotice />
       <div className={styles.shell}>
         <nav className={styles.nav} aria-label="Điều hướng fixture P5">
           <Link href="/fixtures/p5/library">Thư viện fixture</Link>
@@ -111,6 +114,10 @@ function LessonCard({ lesson }: { lesson: PilotLibraryLesson }) {
             {lesson.unresolvedBlocking} chặn · {lesson.unresolvedWarnings} cảnh
             báo
           </dd>
+        </div>
+        <div>
+          <dt>Giới hạn được lưu theo nguồn</dt>
+          <dd>{lesson.acceptedLimitationsCount}</dd>
         </div>
       </dl>
     </li>
