@@ -3,31 +3,44 @@
 - Baseline for completed B1a integration + B2.0 import: `main` at
   `f4f4f5322936a1587330a4d962de360e14763407` (PR #41 merged).
 - First micro-batch: Topic 24 — **complete through P6-B1.5 integration**.
-- B1.5 is **complete**. Its read-only preflight verdict (RECOMMEND IMPORT) is
-  recorded in `docs/handoffs/P6/P6-B1.5-codex.md`,
+- P6-B1.5 is **complete**. Its verdict was **Topic 2 verdict: NOT READY TO
+  IMPORT**, pending a bounded, read-only Part I object inventory — see
+  `docs/handoffs/P6/P6-B1.5-codex.md`.
+- The P6-B2.0 **preflight** then ran that bounded inventory and reached a
+  distinct, later verdict: **RECOMMEND IMPORT**, based on an isolated,
+  executed converter dry-run (not projected from code inspection) — see
   `docs/handoffs/P6/P6-B2.0-topic2-preflight-claude.md`.
-- B2.0 (Topic 2 Part I draft import) is **complete** on `main`. Topic 2
+- The P6-B2.0 **import** step is the Owner-authorized action taken on that
+  preflight verdict, merged on `main` at `f4f4f53` (PR #41). Topic 2
   (`chuyen-de-02/bang-tuan-hoan`) is registered as `draft`, 1 blocking + 2
   warning items, with its `/fixtures/pilot/chuyen-de-02/bang-tuan-hoan`
-  presentation route live and audited (P6-B2.1, no code change required). See
-  `docs/handoffs/P6/P6-B2.0-import-claude.md` and
-  `docs/handoffs/P6/P6-B2.1-topic2-presentation-claude.md`.
-- Current gate is **no longer** "Topic 2 not ready to import." The current
-  gate is **Owner QA for Topic 2**: dispositioning the image (alt text/visual
-  review), the table (visual review) and the blocking drawing, then deciding
-  whether to promote the lesson's lifecycle status — the same per-lesson gate
-  P6-B1.4 satisfied for Topic 24. Not authorized by any task so far.
+  presentation route live on `main`. See
+  `docs/handoffs/P6/P6-B2.0-import-claude.md`.
+- P6-B2.1 (presentation audit of that route on a `main`-baseline production
+  build) is **complete in PR #43 and awaiting merge** — not yet on `main`.
+  See `docs/handoffs/P6/P6-B2.1-topic2-presentation-claude.md`. State after
+  PR #43 merges: no presentation code change, since the audit found none
+  required.
+- Current gate is **no longer** "Topic 2 not ready to import" (that was
+  P6-B1.5's verdict, since superseded by P6-B2.0's preflight and import).
+  The current gate is **Owner QA for Topic 2**: dispositioning the image
+  (alt text/visual review), the table (visual review) and the blocking
+  drawing, then deciding whether to promote the lesson's lifecycle status —
+  the same per-lesson gate P6-B1.4 satisfied for Topic 24. Not authorized by
+  any task so far.
 
 ## Current integrated state (2026-08-15)
 
-- P6-B1.0 through P6-B1.5 and P6-B2.0/P6-B2.1 are merged on `main`; their
-  handoffs remain the canonical task evidence.
+- P6-B1.0 through P6-B1.5 and P6-B2.0 are merged on `main`; their handoffs
+  remain the canonical task evidence. **P6-B2.1 is open as PR #43, not yet
+  merged** — see that PR before assuming its docs-only change is live.
 - T06, T08 and T24 are each `in_review` in their own manifest/MDX/QA records.
   T24 has three visible, source-traceable `accepted-with-limitation` warnings;
   its `approvedForPublish` remains `false`.
 - T02 (`chuyen-de-02/bang-tuan-hoan`) is `draft`, 1 blocking + 2 warning items
   (image, table, drawing), QA record pending/unsigned, `approvedForPublish`
-  `false`. Its fixture route is live and presentation-audited; no chemistry
+  `false`. Its fixture route is already live on `main` (from P6-B2.0) and was
+  presentation-audited in PR #43 (P6-B2.1, not yet merged); no chemistry
   decision, alt text or Owner QA has been recorded for it.
 - P6 as a whole remains in progress. Do **not** create `docs/handoffs/P6/SUMMARY.md`
   until the project owner closes the whole expansion phase, rather than only B1a.
@@ -143,6 +156,7 @@
 - Excluded: chemistry rewrite, alt-text authorship, Owner QA recording,
   lifecycle promotion, `approvedForPublish`, T06/T08/T24 content edits,
   package/lockfile, auth, PDF/R2, P7.
+- Status: complete in PR #43, **not yet merged**.
 - Handoff: `docs/handoffs/P6/P6-B2.1-topic2-presentation-claude.md`.
 
 ## Shared gates
