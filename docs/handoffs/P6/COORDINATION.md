@@ -1,21 +1,34 @@
 # P6 content-batch coordination
 
-- Baseline for completed B1a integration: `main` at
-  `4d607492acbf9ec1b0eb8703ab5aac36429d58ef` (PR #38 merged).
-- First micro-batch: Topic 24 only — **complete through P6-B1.5 integration**.
-- Current gate: Topic 2 is **not ready to import**. Its Part I boundary is
-  visible, but a direct source-package scan found 80 OLE objects and 46 media
-  files across the DOCX. A bounded, read-only Part-I object inventory is needed
-  before the Owner can decide whether it enters the next micro-batch. See
-  `docs/handoffs/P6/P6-B1.5-codex.md`.
+- Baseline for completed B1a integration + B2.0 import: `main` at
+  `f4f4f5322936a1587330a4d962de360e14763407` (PR #41 merged).
+- First micro-batch: Topic 24 — **complete through P6-B1.5 integration**.
+- B1.5 is **complete**. Its read-only preflight verdict (RECOMMEND IMPORT) is
+  recorded in `docs/handoffs/P6/P6-B1.5-codex.md`,
+  `docs/handoffs/P6/P6-B2.0-topic2-preflight-claude.md`.
+- B2.0 (Topic 2 Part I draft import) is **complete** on `main`. Topic 2
+  (`chuyen-de-02/bang-tuan-hoan`) is registered as `draft`, 1 blocking + 2
+  warning items, with its `/fixtures/pilot/chuyen-de-02/bang-tuan-hoan`
+  presentation route live and audited (P6-B2.1, no code change required). See
+  `docs/handoffs/P6/P6-B2.0-import-claude.md` and
+  `docs/handoffs/P6/P6-B2.1-topic2-presentation-claude.md`.
+- Current gate is **no longer** "Topic 2 not ready to import." The current
+  gate is **Owner QA for Topic 2**: dispositioning the image (alt text/visual
+  review), the table (visual review) and the blocking drawing, then deciding
+  whether to promote the lesson's lifecycle status — the same per-lesson gate
+  P6-B1.4 satisfied for Topic 24. Not authorized by any task so far.
 
 ## Current integrated state (2026-08-15)
 
-- P6-B1.0 through P6-B1.4 are merged on `main`; their handoffs remain the
-  canonical task evidence.
+- P6-B1.0 through P6-B1.5 and P6-B2.0/P6-B2.1 are merged on `main`; their
+  handoffs remain the canonical task evidence.
 - T06, T08 and T24 are each `in_review` in their own manifest/MDX/QA records.
   T24 has three visible, source-traceable `accepted-with-limitation` warnings;
   its `approvedForPublish` remains `false`.
+- T02 (`chuyen-de-02/bang-tuan-hoan`) is `draft`, 1 blocking + 2 warning items
+  (image, table, drawing), QA record pending/unsigned, `approvedForPublish`
+  `false`. Its fixture route is live and presentation-audited; no chemistry
+  decision, alt text or Owner QA has been recorded for it.
 - P6 as a whole remains in progress. Do **not** create `docs/handoffs/P6/SUMMARY.md`
   until the project owner closes the whole expansion phase, rather than only B1a.
 
@@ -90,6 +103,47 @@
   metrics, decide whether Topic 2 can enter the next micro-batch, and update
   `docs/handoffs/P6/SUMMARY.md` when the entire phase is actually complete.
 - Handoff: `docs/handoffs/P6/P6-B1.5-codex.md`.
+
+## P6-B2.0 — Topic 2 read-only preflight + Part I draft import
+
+- Owner: Copilot by plan; **reassigned to Claude Code for this instance, by
+  explicit project-owner instruction on 2026-08-15, since Copilot
+  quota/availability was the constraint, not a change in normal ownership.**
+  Plan deviation recorded per `KE_HOACH_XUYENLAB_CHEMISTRY.md`'s "Sai lệch so
+  với plan" rule.
+- Prerequisite: P6-B1.5's preflight gate ("Topic 2 verdict: NOT READY TO
+  IMPORT" pending exactly this inventory).
+- Deliverable: a bounded, read-only Part I object inventory for `T02-S01`
+  (package entries vs. body visual elements, per-category converter
+  classification, confirmed by an isolated executed dry-run); then, after
+  Owner review of that chat report, the actual Part I draft import via the
+  existing incremental importer — same shape as Topic 24's own P6-B1.1
+  import (MDX, assets, failure report, pending QA record, remediation queue,
+  manifest registration).
+- Acceptance: T02 registered as `draft`, 1 blocking + 2 warning items;
+  T06/T08/T24 byte-identical; full unit/E2E/build verification passes.
+- Excluded: chemistry judgment, `approvedForPublish`, Owner QA recording,
+  lifecycle promotion, live R2 upload, production workflows and auth.
+- Handoffs: `docs/handoffs/P6/P6-B2.0-topic2-preflight-claude.md`,
+  `docs/handoffs/P6/P6-B2.0-import-claude.md`.
+
+## P6-B2.1 — Topic 2 presentation verification + coordination update
+
+- Owner: Claude Code Sonnet (presentation/MDX-component work is Claude-owned
+  by plan, the same role as P6-B1.2 — not a quota-driven deviation; this task
+  is an Owner-approved extension of the plan authorized after P6-B2.0 merged).
+- Prerequisite: P6-B2.0 merged on `main`.
+- Deliverable: production/`main`-baseline mechanical presentation audit of
+  Topic 2's fixture route (desktop, mobile ~390px, print emulation) and this
+  coordination-file update.
+- Acceptance: evidence-backed confirmation that the route loads, shows its
+  draft banner, blocking Callout and both warning items correctly, with no
+  console error and no viewport overflow — or, if a real defect is found, a
+  minimal fix to the shared component or the T02 fixture shell only.
+- Excluded: chemistry rewrite, alt-text authorship, Owner QA recording,
+  lifecycle promotion, `approvedForPublish`, T06/T08/T24 content edits,
+  package/lockfile, auth, PDF/R2, P7.
+- Handoff: `docs/handoffs/P6/P6-B2.1-topic2-presentation-claude.md`.
 
 ## Shared gates
 
