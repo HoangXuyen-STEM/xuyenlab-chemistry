@@ -1,8 +1,8 @@
 # P6 content-batch coordination
 
 - Baseline for the completed Topic 2 loop (B1a integration + B2.0 import +
-  B2.1 presentation audit + B2.2 Owner QA): `main` at
-  `681de3193c796adf9438d078ac313b2a96ee19cd` (PR #44 merged).
+  B2.1 presentation audit + B2.2 Owner QA + B2.3 integration close-out):
+  `main` at `0a245bed8c1241eb1f0503d5c72b9483096be16b` (PR #45 merged).
 - First micro-batch: Topic 24 — **complete through P6-B1.5 integration**.
 - P6-B1.5 is **complete**. Its verdict was **Topic 2 verdict: NOT READY TO
   IMPORT**, pending a bounded, read-only Part I object inventory — see
@@ -27,32 +27,39 @@
   1 `blocked`/`remain-blocking`) and promoted Topic 2 `draft` → `in_review`.
   See `docs/handoffs/P6/P6-B2.2-topic2-owner-qa-claude.md`.
 - P6-B2.3 (integration/metrics close-out for the Topic 2 loop, the analogue
-  of P6-B1.5 for Topic 24) is **complete in PR #45 and awaiting merge** —
-  not yet on `main` as of this update. See
-  `docs/handoffs/P6/P6-B2.3-topic2-integration-claude.md`.
+  of P6-B1.5 for Topic 24) is **merged on `main` at `0a245be`** (PR #45).
+  See `docs/handoffs/P6/P6-B2.3-topic2-integration-claude.md`.
+- P6-B2.4A (candidate SVG diagram for the still-blocking drawing
+  `T02-S01:d1402`) is **complete in PR #46 and awaiting merge** — not yet
+  on `main`. **No remediation status changed**: the item stays
+  `blocked`/`remain-blocking`/`severity: "blocking"`; the existing warning
+  Callout is kept alongside the new candidate diagram, not replaced. This
+  is Owner visual review only — P6-B2.4B (acting on the Owner's decision)
+  has not started and is not authorized until that review happens. See
+  `docs/handoffs/P6/P6-B2.4A-topic2-drawing-candidate-claude.md`.
 - Current gate is **no longer** "Topic 2 not ready to import" (superseded by
   P6-B2.0) and **no longer** "Owner QA for Topic 2" (satisfied by P6-B2.2,
-  merged). The current gate, once P6-B2.3 merges, is entirely at **Owner
-  discretion**: whether to import a further topic (a fresh Owner decision
-  and its own bounded preflight, not authorized by any task so far), and
-  whether to author an SVG/ChemFigure replacement for Topic 2's still-
-  blocking drawing (`T02-S01:d1402`) or grant it a future publish-waiver —
-  none of these is required, and **this is not a publication gate**:
+  merged). The current gate is **Owner discretion**: whether to import a
+  further topic (a fresh Owner decision and its own bounded preflight, not
+  authorized by any task so far), and — now narrowed by P6-B2.4A — whether
+  to approve the candidate SVG diagram for Topic 2's still-blocking drawing
+  (`T02-S01:d1402`) or request changes, before any P6-B2.4B follow-on. None
+  of this is required, and **this is not a publication gate**:
   `approvedForPublish` stays `false` regardless of which the Owner later
   chooses.
 
 ## Current integrated state (2026-08-15)
 
-- P6-B1.0 through P6-B1.5, P6-B2.0, P6-B2.1 and P6-B2.2 are merged on
-  `main`; their handoffs remain the canonical task evidence. **P6-B2.3 is
-  open as PR #45, not yet merged** — see that PR before assuming its
-  docs-only change is live.
+- P6-B1.0 through P6-B1.5, P6-B2.0, P6-B2.1, P6-B2.2 and P6-B2.3 are merged
+  on `main`; their handoffs remain the canonical task evidence. **P6-B2.4A
+  is open as PR #46, not yet merged** — see that PR before assuming
+  its candidate diagram is live; it changes no remediation status.
 - T06 and T08 are each `in_review` in their own manifest/MDX/QA records.
 - T24 is `in_review` with three visible, source-traceable
   `accepted-with-limitation` warnings; its `approvedForPublish` remains
   `false`.
 - T02 (`chuyen-de-02/bang-tuan-hoan`) is `in_review` on `main` as of
-  `681de31`, 1 blocking + 2 warning items: the image and table are
+  `0a245be`, 1 blocking + 2 warning items: the image and table are
   `accepted-with-limitation` (2), the drawing is `blocked`/`remain-blocking`
   and stays `severity: "blocking"` (1). QA is signed (7/7 checks,
   reviewer/reviewedAt set); `approvedForPublish` stays `false`; no
@@ -228,7 +235,32 @@
   `approvedForPublish: true`/`publishWaiver`/allowlist change,
   importer/validator/contract/package/lockfile changes, T06/T08/T24 edits,
   auth/R2/P7/public publish, import of Topic 16 or any other topic.
+- Status: **merged on `main` at `0a245be`** (PR #45).
 - Handoff: `docs/handoffs/P6/P6-B2.3-topic2-integration-claude.md`.
+
+## P6-B2.4A — Topic 2 candidate diagram for the still-blocking drawing
+
+- Owner: Thầy Xuyên specified the exact teaching meaning, alt text and
+  caption for the candidate; Claude Code implements it for Owner visual
+  review in the PR. Not a chemistry/QA-discretion delegation.
+- Prerequisite: P6-B2.3 merged on `main`.
+- Deliverable: a print-safe SVG diagram (two-way atomic-structure ↔
+  periodic-table-position relation, both feeding element properties; no
+  arrow-shaft text; Vietnamese box labels only — meaning fixed by the
+  Owner, not invented) inserted into Topic 2's MDX immediately before the
+  existing `T02-S01:d1402` warning Callout, which is kept unchanged
+  alongside it.
+- Acceptance: `content:validate` passes; full unit/E2E suites pass
+  unchanged; the fixture route still shows the `in_review` banner; both
+  the candidate diagram and the original Callout are visible on the real
+  rendered page.
+- Excluded: any remediation-queue status/choice change for `T02-S01:d1402`
+  (stays `blocked`/`remain-blocking`), QA `unresolved` change,
+  `approvedForPublish`/`publishWaiver`/allowlist change, T06/T08/T24 edits,
+  the failure report, contract/validator changes, and — explicitly — any
+  P6-B2.4B work (registering the asset, resolving the item, updating QA)
+  until the Owner reviews and approves the candidate in this PR.
+- Handoff: `docs/handoffs/P6/P6-B2.4A-topic2-drawing-candidate-claude.md`.
 
 ## Shared gates
 
