@@ -1,8 +1,8 @@
 # P6 content-batch coordination
 
-- Baseline for completed B1a integration + B2.0 import + B2.1 presentation
-  audit: `main` at `26e44b5c675e037727207429aa85c0d67cf0e7a2` (PR #43
-  merged).
+- Baseline for the completed Topic 2 loop (B1a integration + B2.0 import +
+  B2.1 presentation audit + B2.2 Owner QA): `main` at
+  `681de3193c796adf9438d078ac313b2a96ee19cd` (PR #44 merged).
 - First micro-batch: Topic 24 — **complete through P6-B1.5 integration**.
 - P6-B1.5 is **complete**. Its verdict was **Topic 2 verdict: NOT READY TO
   IMPORT**, pending a bounded, read-only Part I object inventory — see
@@ -22,36 +22,43 @@
   change was required. See
   `docs/handoffs/P6/P6-B2.1-topic2-presentation-claude.md`.
 - P6-B2.2 (Owner QA recording + lifecycle promotion for Topic 2) is
-  **complete in a follow-on PR and awaiting merge** — not yet on `main` as
-  of this update. Records the Owner's real dispositions for all three
-  unresolved items (2 `accepted-with-limitation`, 1 `blocked`/
-  `remain-blocking`) and promotes Topic 2 `draft` → `in_review`. See
-  `docs/handoffs/P6/P6-B2.2-topic2-owner-qa-claude.md`.
-- Current gate is **no longer** "Topic 2 not ready to import" (that was
-  P6-B1.5's verdict, since superseded by P6-B2.0's preflight and import) and
-  is **no longer** "Owner QA for Topic 2" (that gate is satisfied by
-  P6-B2.2, pending its own merge). The next gate, once P6-B2.2 merges, is
-  entirely at Owner discretion: whether to import a further topic, and
+  **merged on `main` at `681de31`** (PR #44). Recorded the Owner's real
+  dispositions for all three unresolved items (2 `accepted-with-limitation`,
+  1 `blocked`/`remain-blocking`) and promoted Topic 2 `draft` → `in_review`.
+  See `docs/handoffs/P6/P6-B2.2-topic2-owner-qa-claude.md`.
+- P6-B2.3 (integration/metrics close-out for the Topic 2 loop, the analogue
+  of P6-B1.5 for Topic 24) is **complete in a follow-on PR and awaiting
+  merge** — not yet on `main` as of this update. See
+  `docs/handoffs/P6/P6-B2.3-topic2-integration-claude.md`.
+- Current gate is **no longer** "Topic 2 not ready to import" (superseded by
+  P6-B2.0) and **no longer** "Owner QA for Topic 2" (satisfied by P6-B2.2,
+  merged). The current gate, once P6-B2.3 merges, is entirely at **Owner
+  discretion**: whether to import a further topic (a fresh Owner decision
+  and its own bounded preflight, not authorized by any task so far), and
   whether to author an SVG/ChemFigure replacement for Topic 2's still-
-  blocking drawing (`T02-S01:d1402`) — neither is required, and **this is
-  not a publication gate**: `approvedForPublish` stays `false` regardless.
+  blocking drawing (`T02-S01:d1402`) or grant it a future publish-waiver —
+  none of these is required, and **this is not a publication gate**:
+  `approvedForPublish` stays `false` regardless of which the Owner later
+  chooses.
 
 ## Current integrated state (2026-08-15)
 
-- P6-B1.0 through P6-B1.5, P6-B2.0 and P6-B2.1 are merged on `main`; their
-  handoffs remain the canonical task evidence. **P6-B2.2 is open as a
-  follow-on PR, not yet merged** — see that PR before assuming its content
-  change is live.
+- P6-B1.0 through P6-B1.5, P6-B2.0, P6-B2.1 and P6-B2.2 are merged on
+  `main`; their handoffs remain the canonical task evidence. **P6-B2.3 is
+  open as a follow-on PR, not yet merged** — see that PR before assuming
+  its docs-only change is live.
 - T06 and T08 are each `in_review` in their own manifest/MDX/QA records.
 - T24 is `in_review` with three visible, source-traceable
   `accepted-with-limitation` warnings; its `approvedForPublish` remains
   `false`.
-- T02 (`chuyen-de-02/bang-tuan-hoan`) is `draft` on `main` as of `26e44b5`,
-  1 blocking + 2 warning items (image, table, drawing), QA record
-  pending/unsigned. P6-B2.2 (not yet merged) promotes it to `in_review` with
-  2 `accepted-with-limitation` dispositions (image, table) and 1
-  `blocked`/`remain-blocking` disposition (the drawing, still blocking);
-  `approvedForPublish` stays `false` throughout.
+- T02 (`chuyen-de-02/bang-tuan-hoan`) is `in_review` on `main` as of
+  `681de31`, 1 blocking + 2 warning items: the image and table are
+  `accepted-with-limitation` (2), the drawing is `blocked`/`remain-blocking`
+  and stays `severity: "blocking"` (1). QA is signed (7/7 checks,
+  reviewer/reviewedAt set); `approvedForPublish` stays `false`; no
+  `publishWaiver`.
+- All four manifest lessons (T02, T06, T08, T24) are now `in_review`; none
+  is `published`.
 - P6 as a whole remains in progress. Do **not** create `docs/handoffs/P6/SUMMARY.md`
   until the project owner closes the whole expansion phase, rather than only B1a.
 
@@ -197,7 +204,31 @@
   structural analogue of the plan-named P6-B1.4 (Topic 24's own Owner QA
   step), applied to Topic 2 and authorized by the Project Owner as this
   task.
+- Status: **merged on `main` at `681de31`** (PR #44).
 - Handoff: `docs/handoffs/P6/P6-B2.2-topic2-owner-qa-claude.md`.
+
+## P6-B2.3 — Topic 2 integration and metrics close-out
+
+- Owner: Claude Code (docs/metrics integration close-out; Owner decisions
+  were already made in P6-B2.2, this task only integrates and measures —
+  no chemistry, no drawing recreation, no publish waiver, no import of
+  another topic). Owner-approved analogue of the plan-named P6-B1.5,
+  applied to the Topic 2 loop instead of the Topic 24 loop.
+- Prerequisite: P6-B2.2 merged on `main`.
+- Deliverable: re-verify the merged Topic 2 state independently (not merely
+  re-read the prior task's own claims), measure converter/asset/QA/staging-
+  corpus metrics, and state the next gate as Owner-discretion-only —
+  explicitly not a new topic's "RECOMMEND IMPORT" verdict.
+- Acceptance: metrics table backed by re-run local
+  `content:validate`/`vitest`/Playwright/`pdf:dry-run` evidence on the
+  merged commit; `docs/handoffs/P6/SUMMARY.md` intentionally not created,
+  since P6 as a whole remains in progress.
+- Excluded: content/MDX/QA/remediation/manifest edits (read-only verify
+  only), drawing recreation/SVG/ChemFigure authorship,
+  `approvedForPublish: true`/`publishWaiver`/allowlist change,
+  importer/validator/contract/package/lockfile changes, T06/T08/T24 edits,
+  auth/R2/P7/public publish, import of Topic 16 or any other topic.
+- Handoff: `docs/handoffs/P6/P6-B2.3-topic2-integration-claude.md`.
 
 ## Shared gates
 
