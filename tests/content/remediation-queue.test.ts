@@ -92,10 +92,10 @@ const VALID_STATUSES = new Set(["pending-owner-review", "applied", "blocked"]);
  * confirmed the source object's real content (a two-arrow diagram), but no
  * renderer available in this environment can produce a faithful asset from
  * it (missing proprietary fonts; see its `ownerDecision.qaNote`). P6-B2.7
- * (Batch A1), P6-B2.8 (Batch A2) and P6-B2.9 (Batch A3) later applied
- * Owner-approved LaTeX to 11 more T06 OLE formulas each. Every other
- * entry must remain untouched (`status: "pending-owner-review"`, no
- * decision).
+ * (Batch A1), P6-B2.8 (Batch A2), P6-B2.9 (Batch A3) and P6-B2.10
+ * (Batch A4) later applied Owner-approved LaTeX to 11 more T06 OLE
+ * formulas each. Every other entry must remain untouched
+ * (`status: "pending-owner-review"`, no decision).
  */
 const PROCESSED_ISSUE_IDS = new Set([
   "T06-S01:e6259",
@@ -135,6 +135,17 @@ const PROCESSED_ISSUE_IDS = new Set([
   "T06-S01:e3315",
   "T06-S01:e8561",
   "T06-S01:e8929",
+  "T06-S01:e8707",
+  "T06-S01:e3159",
+  "T06-S01:e1309",
+  "T06-S01:e9697",
+  "T06-S01:e5216",
+  "T06-S01:e1428",
+  "T06-S01:e1754",
+  "T06-S01:e9497",
+  "T06-S01:e3885",
+  "T06-S01:e3465",
+  "T06-S01:e9430",
   "T08-S01:e7414",
   "T08-S01:e3055",
   "T08-S01:e6352",
