@@ -81,8 +81,16 @@ const VALID_REMEDIATION_CHOICES = new Set([
   "reviewed-latex-mdx",
   "reviewed-image-fallback",
   "remain-blocking",
+  // P6-B2.4 / T24 vocabulary (also used for T06 A1 table dispositions):
+  "owner-accepted-source-fidelity",
+  "owner-accepted-visible-fallback",
 ]);
-const VALID_STATUSES = new Set(["pending-owner-review", "applied", "blocked"]);
+const VALID_STATUSES = new Set([
+  "pending-owner-review",
+  "applied",
+  "blocked",
+  "accepted-with-limitation",
+]);
 
 /**
  * P4.5 processed these 7 sample issues (the same 7 named in the P4.4
@@ -97,9 +105,10 @@ const VALID_STATUSES = new Set(["pending-owner-review", "applied", "blocked"]);
  * applied the remaining 36 -- completing 100% of T06's formula items.
  * P6-B2.13 then applied an Owner-approved visual replacement to T06's
  * one remaining blocking item, the drawing `T06-S01:d6703` (see
- * `IMAGE_FALLBACK_APPLIED_ISSUE_IDS` below). T06's 3 warning-severity
- * table items are still out of scope for either pairing and must
- * remain untouched (`status: "pending-owner-review"`, no decision).
+ * `IMAGE_FALLBACK_APPLIED_ISSUE_IDS` below). P6 A1 (2026-08-16) then
+ * recorded Owner dispositions on T06's 3 warning-severity tables (see
+ * `TABLE_SOURCE_FIDELITY_ISSUE_IDS`) -- flattened DataTables accepted as
+ * matching DOCX source fidelity; no MDX content rewrite.
  */
 const PROCESSED_ISSUE_IDS = new Set([
   "T06-S01:e6259",
@@ -198,6 +207,10 @@ const PROCESSED_ISSUE_IDS = new Set([
   "T06-S01:e4186",
   "T06-S01:e5276",
   "T06-S01:d6703",
+  // P6 A1 (2026-08-16): Owner accepted three T06 warning tables as source-fidelity.
+  "T06-S01:t3041",
+  "T06-S01:t2740",
+  "T06-S01:t6560",
   "T08-S01:e7414",
   "T08-S01:e3055",
   "T08-S01:e6352",
@@ -208,6 +221,12 @@ const BLOCKED_ISSUE_IDS = new Set(["T08-S01:e6352"]);
  * `applied` + `reviewed-latex-mdx` items above and from the `blocked` +
  * `reviewed-image-fallback` item in `BLOCKED_ISSUE_IDS`. */
 const IMAGE_FALLBACK_APPLIED_ISSUE_IDS = new Set(["T06-S01:d6703"]);
+/** P6 A1: T06 warning tables accepted with limitation (source fidelity). */
+const TABLE_SOURCE_FIDELITY_ISSUE_IDS = new Set([
+  "T06-S01:t3041",
+  "T06-S01:t2740",
+  "T06-S01:t6560",
+]);
 
 describe.each(LESSONS)(
   "remediation queue for $lessonSlug",
@@ -261,6 +280,15 @@ describe.each(LESSONS)(
           expect(item.ownerDecision.reviewedLatex).toBeNull();
           expect(item.ownerDecision.altText).toBeTruthy();
           expect(item.ownerDecision.caption).toBeTruthy();
+        } else if (TABLE_SOURCE_FIDELITY_ISSUE_IDS.has(item.issueId)) {
+          // P6 A1: Owner accepted flattened DOCX tables as source-fidelity
+          // (no MDX rewrite; warning remains warning).
+          expect(item.status).toBe("accepted-with-limitation");
+          expect(item.remediationChoice).toBe("owner-accepted-source-fidelity");
+          expect(item.kind).toBe("table");
+          expect(item.severity).toBe("warning");
+          expect(item.ownerDecision.reviewedLatex).toBeNull();
+          expect(item.ownerDecision.qaNote).toBeTruthy();
         } else {
           expect(item.status).toBe("applied");
           expect(item.remediationChoice).toBe("reviewed-latex-mdx");

@@ -2693,9 +2693,10 @@
     "topic": "chuyen-de-06",
     "lessonSlug": "dong-hoa-hoc",
     "sourceLocator": {
+      "blockOrder": 235,
       "pathHint": "word/document.xml#body/tbl[2]",
       "sectionPath": "Phần I",
-      "blockOrder": 235
+      "textAnchor": "t (phút)02175119V dung dịch NaOH (ml)19,5220,6423,4425,3637,76"
     },
     "issueCode": "DOCX_TABLE_REQUIRES_VISUAL_REVIEW",
     "kind": "table",
@@ -2704,15 +2705,15 @@
     "observedType": "table",
     "observedTypeEvidence": "DOCX <w:tbl> element; already rendered as DataTable on the P4.2 staging page (/fixtures/pilot/...).",
     "previewPath": null,
-    "status": "pending-owner-review",
-    "remediationChoice": null,
+    "status": "accepted-with-limitation",
+    "remediationChoice": "owner-accepted-source-fidelity",
     "ownerDecision": {
-      "decidedBy": null,
-      "decidedAt": null,
+      "decidedBy": "Chủ dự án (Owner)",
+      "decidedAt": "2026-08-16",
       "altText": null,
       "caption": null,
       "reviewedLatex": null,
-      "qaNote": null
+      "qaNote": "Owner A1 (2026-08-16): \"t2740: matches-source — accept\". Compared flattened DataTable (Bảng 2, metyl axetat titration times) with DOCX word/document.xml#body/tbl[2]: 2×6, no merges; final time cell is blank in the Word source and remains blank in MDX. No content remediation was performed."
     }
   },
   {
@@ -2721,9 +2722,10 @@
     "topic": "chuyen-de-06",
     "lessonSlug": "dong-hoa-hoc",
     "sourceLocator": {
+      "blockOrder": 102,
       "pathHint": "word/document.xml#body/tbl[1]",
       "sectionPath": "Phần I",
-      "blockOrder": 102
+      "textAnchor": "t (phút)4915243753V (ml)44,138,633,727,922,918,5"
     },
     "issueCode": "DOCX_TABLE_REQUIRES_VISUAL_REVIEW",
     "kind": "table",
@@ -2732,15 +2734,15 @@
     "observedType": "table",
     "observedTypeEvidence": "DOCX <w:tbl> element; already rendered as DataTable on the P4.2 staging page (/fixtures/pilot/...).",
     "previewPath": null,
-    "status": "pending-owner-review",
-    "remediationChoice": null,
+    "status": "accepted-with-limitation",
+    "remediationChoice": "owner-accepted-source-fidelity",
     "ownerDecision": {
-      "decidedBy": null,
-      "decidedAt": null,
+      "decidedBy": "Chủ dự án (Owner)",
+      "decidedAt": "2026-08-16",
       "altText": null,
       "caption": null,
       "reviewedLatex": null,
-      "qaNote": null
+      "qaNote": "Owner A1 (2026-08-16): \"t3041: matches-source — accept\". Compared flattened DataTable (Bảng 1, etyl axetat kinetics) with DOCX word/document.xml#body/tbl[1]: 2×7, no merges; headers/values match source byte-for-byte after flatten. No content remediation was performed."
     }
   },
   {
@@ -2749,9 +2751,10 @@
     "topic": "chuyen-de-06",
     "lessonSlug": "dong-hoa-hoc",
     "sourceLocator": {
+      "blockOrder": 272,
       "pathHint": "word/document.xml#body/tbl[3]",
       "sectionPath": "Phần I",
-      "blockOrder": 272
+      "textAnchor": "Thời gian (ph)V (t)219,2518,241,9032120,6417,122,8407523,4414,322,66211925,3612,42,51837,76"
     },
     "issueCode": "DOCX_TABLE_REQUIRES_VISUAL_REVIEW",
     "kind": "table",
@@ -2760,15 +2763,15 @@
     "observedType": "table",
     "observedTypeEvidence": "DOCX <w:tbl> element; already rendered as DataTable on the P4.2 staging page (/fixtures/pilot/...).",
     "previewPath": null,
-    "status": "pending-owner-review",
-    "remediationChoice": null,
+    "status": "accepted-with-limitation",
+    "remediationChoice": "owner-accepted-source-fidelity",
     "ownerDecision": {
-      "decidedBy": null,
-      "decidedAt": null,
+      "decidedBy": "Chủ dự án (Owner)",
+      "decidedAt": "2026-08-16",
       "altText": null,
       "caption": null,
       "reviewedLatex": null,
-      "qaNote": null
+      "qaNote": "Owner A1 (2026-08-16): \"t6560: accepted-with-limitation\". Compared flattened DataTable (Bảng 3, inside Ví dụ 3 Solution) with DOCX word/document.xml#body/tbl[3]: 6×4, no merges; two header cells and the final time cell are blank in the Word source and remain blank in MDX. Limitation accepted for teacher-led use without inventing column labels. No content remediation was performed."
     }
   }
 ]
