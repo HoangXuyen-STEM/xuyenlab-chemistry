@@ -53,8 +53,8 @@
   the real `T02-S01:d1402` item: `status: "applied"`, `remediationChoice:
 "reviewed-image-fallback"`, the warning Callout removed, the candidate
   `ChemFigure` (unchanged from PR #46) now the live replacement. This is
-  **complete in a follow-on PR and awaiting merge** — not yet on `main`.
-  Still not a publication decision: `approvedForPublish` stays `false`,
+  **complete in PR #48 and awaiting merge** — not yet on `main`. Still not
+  a publication decision: `approvedForPublish` stays `false`,
   `blockingCount`/`warningCount` stay `1`/`2` (frozen historical
   import-time metrics, per contract). See
   `docs/handoffs/P6/P6-B2.4B-content-topic2-drawing-applied-claude.md`.
@@ -73,8 +73,8 @@
 
 - P6-B1.0 through P6-B1.5, P6-B2.0, P6-B2.1, P6-B2.2, P6-B2.3, P6-B2.4A and
   P6-B2.4B (policy) are merged on `main`; their handoffs remain the
-  canonical task evidence. **The P6-B2.4B content PR is open, not yet
-  merged** — see that PR before assuming `T02-S01:d1402` is already
+  canonical task evidence. **The P6-B2.4B content PR (#48) is open, not
+  yet merged** — see that PR before assuming `T02-S01:d1402` is already
   `applied` on `main`.
 - T06 and T08 are each `in_review` in their own manifest/MDX/QA records.
 - T24 is `in_review` with three visible, source-traceable
@@ -345,6 +345,7 @@
   contract/validator changes (policy already merged), T06/T08/T24 edits,
   re-import, R2, P7, any chemistry rewrite beyond the Callout removal
   itself.
+- Status: complete in PR #48, **not yet merged**.
 - Handoff: `docs/handoffs/P6/P6-B2.4B-content-topic2-drawing-applied-claude.md`.
 
 ## Shared gates
