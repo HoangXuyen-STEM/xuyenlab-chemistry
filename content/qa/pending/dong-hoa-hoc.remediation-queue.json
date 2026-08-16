@@ -100,15 +100,15 @@
     "observedType": "formula",
     "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.DSMT4\"> (MathType (Equation.DSMT4)) read directly from the source DOCX XML.",
     "previewPath": "/qa-preview/lessons/chuyen-de-06/e0189.png",
-    "status": "pending-owner-review",
-    "remediationChoice": null,
+    "status": "applied",
+    "remediationChoice": "reviewed-latex-mdx",
     "ownerDecision": {
-      "decidedBy": null,
-      "decidedAt": null,
+      "decidedBy": "Chủ dự án (Owner)",
+      "decidedAt": "2026-08-16",
       "altText": null,
       "caption": null,
-      "reviewedLatex": null,
-      "qaNote": null
+      "reviewedLatex": "$$\\text{CH}_3\\text{COOC}_2\\text{H}_5 + \\text{NaOH} \\rightarrow \\text{CH}_3\\text{COONa} + \\text{C}_2\\text{H}_5\\text{OH}$$",
+      "qaNote": "Owner phê duyệt Lô A5 (2026-08-16)."
     }
   },
   {
@@ -240,15 +240,15 @@
     "observedType": "formula",
     "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.DSMT4\"> (MathType (Equation.DSMT4)) read directly from the source DOCX XML.",
     "previewPath": "/qa-preview/lessons/chuyen-de-06/e0530.png",
-    "status": "pending-owner-review",
-    "remediationChoice": null,
+    "status": "applied",
+    "remediationChoice": "reviewed-latex-mdx",
     "ownerDecision": {
-      "decidedBy": null,
-      "decidedAt": null,
+      "decidedBy": "Chủ dự án (Owner)",
+      "decidedAt": "2026-08-16",
       "altText": null,
       "caption": null,
-      "reviewedLatex": null,
-      "qaNote": null
+      "reviewedLatex": "$$t_{1/2(127^\\circ\\text{C})} = \\dfrac{40}{4} = 10\\text{ phút}$$",
+      "qaNote": "Owner phê duyệt Lô A5 (2026-08-16)."
     }
   },
   {
@@ -324,15 +324,15 @@
     "observedType": "formula",
     "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.DSMT4\"> (MathType (Equation.DSMT4)) read directly from the source DOCX XML.",
     "previewPath": "/qa-preview/lessons/chuyen-de-06/e0969.png",
-    "status": "pending-owner-review",
-    "remediationChoice": null,
+    "status": "applied",
+    "remediationChoice": "reviewed-latex-mdx",
     "ownerDecision": {
-      "decidedBy": null,
-      "decidedAt": null,
+      "decidedBy": "Chủ dự án (Owner)",
+      "decidedAt": "2026-08-16",
       "altText": null,
       "caption": null,
-      "reviewedLatex": null,
-      "qaNote": null
+      "reviewedLatex": "$$t_{1/2} = \\dfrac{1}{k \\cdot a} = 40\\text{ phút}$$",
+      "qaNote": "Owner phê duyệt Lô A5 (2026-08-16)."
     }
   },
   {
@@ -1332,15 +1332,15 @@
     "observedType": "formula",
     "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.DSMT4\"> (MathType (Equation.DSMT4)) read directly from the source DOCX XML.",
     "previewPath": "/qa-preview/lessons/chuyen-de-06/e4567.png",
-    "status": "pending-owner-review",
-    "remediationChoice": null,
+    "status": "applied",
+    "remediationChoice": "reviewed-latex-mdx",
     "ownerDecision": {
-      "decidedBy": null,
-      "decidedAt": null,
+      "decidedBy": "Chủ dự án (Owner)",
+      "decidedAt": "2026-08-16",
       "altText": null,
       "caption": null,
-      "reviewedLatex": null,
-      "qaNote": null
+      "reviewedLatex": "$$\\ln\\left(\\dfrac{k_{T_2}}{k_{T_1}}\\right) = \\dfrac{E_a}{R}\\left(\\dfrac{1}{T_1} - \\dfrac{1}{T_2}\\right)$$",
+      "qaNote": "Owner phê duyệt Lô A5 (2026-08-16)."
     }
   },
   {
@@ -1416,15 +1416,15 @@
     "observedType": "formula",
     "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.DSMT4\"> (MathType (Equation.DSMT4)) read directly from the source DOCX XML.",
     "previewPath": "/qa-preview/lessons/chuyen-de-06/e4964.png",
-    "status": "pending-owner-review",
-    "remediationChoice": null,
+    "status": "applied",
+    "remediationChoice": "reviewed-latex-mdx",
     "ownerDecision": {
-      "decidedBy": null,
-      "decidedAt": null,
+      "decidedBy": "Chủ dự án (Owner)",
+      "decidedAt": "2026-08-16",
       "altText": null,
       "caption": null,
-      "reviewedLatex": null,
-      "qaNote": null
+      "reviewedLatex": "$$\\gamma = \\dfrac{k_{T+10}}{k_T} = \\left(\\dfrac{k_{T_2}}{k_{T_1}}\\right)^{\\frac{10}{T_2 - T_1}}$$",
+      "qaNote": "Owner phê duyệt Lô A5 (2026-08-16)."
     }
   },
   {
@@ -1612,15 +1612,15 @@
     "observedType": "formula",
     "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.DSMT4\"> (MathType (Equation.DSMT4)) read directly from the source DOCX XML.",
     "previewPath": "/qa-preview/lessons/chuyen-de-06/e5909.png",
-    "status": "pending-owner-review",
-    "remediationChoice": null,
+    "status": "applied",
+    "remediationChoice": "reviewed-latex-mdx",
     "ownerDecision": {
-      "decidedBy": null,
-      "decidedAt": null,
+      "decidedBy": "Chủ dự án (Owner)",
+      "decidedAt": "2026-08-16",
       "altText": null,
       "caption": null,
-      "reviewedLatex": null,
-      "qaNote": null
+      "reviewedLatex": "$$t_{1/2} = 40\\text{ phút}$$",
+      "qaNote": "Owner phê duyệt Lô A5 (2026-08-16)."
     }
   },
   {
@@ -1836,15 +1836,15 @@
     "observedType": "formula",
     "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.DSMT4\"> (MathType (Equation.DSMT4)) read directly from the source DOCX XML.",
     "previewPath": "/qa-preview/lessons/chuyen-de-06/e6474.png",
-    "status": "pending-owner-review",
-    "remediationChoice": null,
+    "status": "applied",
+    "remediationChoice": "reviewed-latex-mdx",
     "ownerDecision": {
-      "decidedBy": null,
-      "decidedAt": null,
+      "decidedBy": "Chủ dự án (Owner)",
+      "decidedAt": "2026-08-16",
       "altText": null,
       "caption": null,
-      "reviewedLatex": null,
-      "qaNote": null
+      "reviewedLatex": "$$k = \\dfrac{1}{t} \\cdot \\dfrac{x}{a(a - x)}$$",
+      "qaNote": "Owner phê duyệt Lô A5 (2026-08-16)."
     }
   },
   {
@@ -1864,15 +1864,15 @@
     "observedType": "formula",
     "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.DSMT4\"> (MathType (Equation.DSMT4)) read directly from the source DOCX XML.",
     "previewPath": "/qa-preview/lessons/chuyen-de-06/e6997.png",
-    "status": "pending-owner-review",
-    "remediationChoice": null,
+    "status": "applied",
+    "remediationChoice": "reviewed-latex-mdx",
     "ownerDecision": {
-      "decidedBy": null,
-      "decidedAt": null,
+      "decidedBy": "Chủ dự án (Owner)",
+      "decidedAt": "2026-08-16",
       "altText": null,
       "caption": null,
-      "reviewedLatex": null,
-      "qaNote": null
+      "reviewedLatex": "$$\\ln k = \\ln A - \\dfrac{E_a}{RT}$$",
+      "qaNote": "Owner phê duyệt Lô A5 (2026-08-16)."
     }
   },
   {
@@ -1920,15 +1920,15 @@
     "observedType": "formula",
     "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.DSMT4\"> (MathType (Equation.DSMT4)) read directly from the source DOCX XML.",
     "previewPath": "/qa-preview/lessons/chuyen-de-06/e7135.png",
-    "status": "pending-owner-review",
-    "remediationChoice": null,
+    "status": "applied",
+    "remediationChoice": "reviewed-latex-mdx",
     "ownerDecision": {
-      "decidedBy": null,
-      "decidedAt": null,
+      "decidedBy": "Chủ dự án (Owner)",
+      "decidedAt": "2026-08-16",
       "altText": null,
       "caption": null,
-      "reviewedLatex": null,
-      "qaNote": null
+      "reviewedLatex": "$$E_a = \\dfrac{R \\cdot T_1 \\cdot T_2 \\cdot \\ln(4)}{T_2 - T_1} \\approx 13{,}8\\text{ kJ/mol}$$",
+      "qaNote": "Owner phê duyệt Lô A5 (2026-08-16)."
     }
   },
   {
@@ -1948,15 +1948,15 @@
     "observedType": "formula",
     "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.DSMT4\"> (MathType (Equation.DSMT4)) read directly from the source DOCX XML.",
     "previewPath": "/qa-preview/lessons/chuyen-de-06/e7326.png",
-    "status": "pending-owner-review",
-    "remediationChoice": null,
+    "status": "applied",
+    "remediationChoice": "reviewed-latex-mdx",
     "ownerDecision": {
-      "decidedBy": null,
-      "decidedAt": null,
+      "decidedBy": "Chủ dự án (Owner)",
+      "decidedAt": "2026-08-16",
       "altText": null,
       "caption": null,
-      "reviewedLatex": null,
-      "qaNote": null
+      "reviewedLatex": "$$k = A \\cdot e^{-\\frac{E_a}{RT}}$$",
+      "qaNote": "Owner phê duyệt Lô A5 (2026-08-16)."
     }
   },
   {
@@ -2228,15 +2228,15 @@
     "observedType": "formula",
     "observedTypeEvidence": "<o:OLEObject ProgID=\"Equation.DSMT4\"> (MathType (Equation.DSMT4)) read directly from the source DOCX XML.",
     "previewPath": "/qa-preview/lessons/chuyen-de-06/e8721.png",
-    "status": "pending-owner-review",
-    "remediationChoice": null,
+    "status": "applied",
+    "remediationChoice": "reviewed-latex-mdx",
     "ownerDecision": {
-      "decidedBy": null,
-      "decidedAt": null,
+      "decidedBy": "Chủ dự án (Owner)",
+      "decidedAt": "2026-08-16",
       "altText": null,
       "caption": null,
-      "reviewedLatex": null,
-      "qaNote": null
+      "reviewedLatex": "$$k = \\dfrac{3}{2 \\cdot a} = 0{,}0417 \\text{ L/(mol}\\cdot\\text{s)}$$",
+      "qaNote": "Owner phê duyệt Lô A5 (2026-08-16)."
     }
   },
   {
