@@ -346,9 +346,9 @@ test.describe("pilot staging routes", () => {
     for (const id of ["T02-S01:i6022", "T02-S01:t7931"]) {
       await expect(section.getByText(id)).toBeVisible();
     }
-    // The drawing stays blocked, not accepted-with-limitation -- it must
-    // not appear in this section, even though it is the lesson's third
-    // unresolved item.
+    // The drawing is "applied" (P6-B2.4B), not accepted-with-limitation --
+    // it must not appear in this section, even though it is the lesson's
+    // third unresolved item.
     await expect(section.getByText("T02-S01:d1402")).toHaveCount(0);
     await expect(section).toContainText(
       "chưa có mô tả thay thế (alt text) mới hay cải thiện khả năng tiếp cận nào được thêm vào",
@@ -367,16 +367,45 @@ test.describe("pilot staging routes", () => {
     }
   });
 
-  test("keeps Topic 2's blocking drawing Callout visible and traceable, unaffected by the image/table dispositions (P6-B2.2)", async ({
+  test("shows Topic 2's applied candidate diagram in place of the drawing's warning Callout, still traceable by issue ID (P6-B2.4B)", async ({
     page,
   }) => {
     await page.goto("/fixtures/pilot/chuyen-de-02/bang-tuan-hoan");
 
+    // The drawing's own Callout is gone -- it was replaced, not merely
+    // accepted-as-is (contrast with the image/table above, which stay
+    // accepted-with-limitation and never had a Callout to remove).
     const blockingCallout = page.locator(
       'aside[aria-label="Hình vẽ Word cần biên tập"]',
     );
-    await expect(blockingCallout).toHaveCount(1);
-    await expect(blockingCallout).toContainText("T02-S01:d1402");
+    await expect(blockingCallout).toHaveCount(0);
+
+    const candidateDiagram = page.locator(
+      'figure img[src="/staging-assets/lessons/51/518163475c46c8fb17d9e41e50048e535453ab66823d2b0ab7c5aada28d6fc18.svg"]',
+    );
+    await expect(candidateDiagram).toBeVisible();
+    // The issue ID stays traceable in the diagram's own caption, satisfying
+    // the same "blocking issue must remain visible in the MDX" rule the
+    // Callout used to satisfy.
+    const figure = page.locator("figure").filter({
+      has: page.locator(
+        'img[src="/staging-assets/lessons/51/518163475c46c8fb17d9e41e50048e535453ab66823d2b0ab7c5aada28d6fc18.svg"]',
+      ),
+    });
+    await expect(figure).toContainText("T02-S01:d1402");
+  });
+
+  test("counts Topic 2's applied drawing as blocking in the manifest metric, without it substituting for a publication decision (P6-B2.4B)", async ({
+    page,
+  }) => {
+    await page.goto("/fixtures/pilot/chuyen-de-02/bang-tuan-hoan");
+
+    // blockingCount/warningCount are frozen historical import-time metrics
+    // (docs/contracts/content.md), unaffected by this disposition change --
+    // still "1 mục chặn xuất bản" even though the drawing is now applied.
+    await expect(page.getByText(/1 mục chặn xuất bản/)).toBeVisible();
+    await expect(page.getByText(/2 cảnh báo/)).toBeVisible();
+    await expect(page.getByText(/BẢN ĐANG DUYỆT/)).toBeVisible();
   });
 
   test("hides staging controls but retains lesson content in print media", async ({
