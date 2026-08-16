@@ -157,8 +157,13 @@ describe("P4 pilot content regression", () => {
         `content/qa/pending/${lesson.slug}.remediation-queue.json`,
       );
       const mdx = readText(lesson.mdxPath);
+      // Scoped to type="warning" specifically -- the importer's fallback
+      // placeholder Callout. P6-B3.1 introduced type="definition"/"note"
+      // Callouts for pedagogical presentation, which legitimately preserve
+      // a formula's {/* issueId */} tracer comment in their body; those
+      // are not fallback Callouts and must not be conflated with one.
       const calloutBlocks = Array.from(
-        mdx.matchAll(/<Callout\b[\s\S]*?<\/Callout>/gu),
+        mdx.matchAll(/<Callout type="warning"[\s\S]*?<\/Callout>/gu),
         (match) => match[0],
       );
       const fallbackBlocks = report.blocks.filter(
