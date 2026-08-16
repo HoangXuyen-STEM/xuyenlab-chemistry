@@ -3,6 +3,7 @@
 import { spawnSync } from "node:child_process";
 import {
   cpSync,
+  mkdirSync,
   mkdtempSync,
   readFileSync,
   rmSync,
@@ -217,7 +218,7 @@ function cloneTarget(): string {
 
 function findItem(
   target: string,
-  kind: "table" | "image",
+  kind: "table" | "image" | "drawing",
 ): { lessonSlug: string; queuePath: string; qaPath: string; item: QueueItem } {
   const manifest = readManifest(target);
   for (const lesson of manifest.lessons) {
@@ -287,6 +288,70 @@ function baseAcceptedImageItem(item: QueueItem): QueueItem {
       reviewedLatex: null,
     },
   };
+}
+
+/** Writes a real, content-addressed static asset under the target's
+ * public/staging-assets/lessons/ tree (same convention P6-B2.4A used for
+ * the real T02 candidate diagram), so a synthetic applied/
+ * reviewed-image-fallback test exercises the validator's real asset-path
+ * check (scripts/validate-content/validate.py's HASHED_ASSET match)
+ * instead of pointing at a file that doesn't exist. */
+function writeSyntheticAsset(target: string, content: string): string {
+  const bytes = Buffer.from(content, "utf8");
+  const hash = createHash("sha256").update(bytes).digest("hex");
+  const relDir = `public/staging-assets/lessons/${hash.slice(0, 2)}`;
+  mkdirSync(path.join(target, relDir), { recursive: true });
+  const relPath = `${relDir}/${hash}.svg`;
+  writeFileSync(path.join(target, relPath), bytes);
+  return `/staging-assets/lessons/${hash.slice(0, 2)}/${hash}.svg`;
+}
+
+const P6_B2_4B_ALT_TEXT = "Sơ đồ thay thế cho hình vẽ Word gốc.";
+const P6_B2_4B_CAPTION_FOR = (issueId: string) =>
+  `Hình vẽ tái tạo (thay AutoShape Word ${issueId})`;
+
+/** P6-B2.4B: status applied + remediationChoice reviewed-image-fallback,
+ * the only supported combination for kind: "drawing" (docs/contracts/
+ * content.md "Applied reviewed-image-fallback"). `assetPath` must already
+ * exist on disk (see writeSyntheticAsset) for the validator's ChemFigure
+ * pairing/asset-path checks to resolve. */
+function baseAppliedDrawingItem(item: QueueItem, assetPath: string): QueueItem {
+  return {
+    ...item,
+    status: "applied",
+    remediationChoice: "reviewed-image-fallback",
+    previewPath: assetPath,
+    ownerDecision: {
+      decidedBy: "Thầy Xuyên (Project Owner)",
+      decidedAt: "2026-08-15",
+      qaNote: "Owner approved the candidate diagram replacing this drawing.",
+      altText: P6_B2_4B_ALT_TEXT,
+      caption: P6_B2_4B_CAPTION_FOR(item.issueId),
+      reviewedLatex: null,
+    },
+  };
+}
+
+/** Replaces the target lesson's MDX with: the item's own blocking Callout
+ * removed (if present), and a single matching `<ChemFigure>` for the given
+ * asset/alt/caption appended -- the exact shape P6-B2.4B's validator rule
+ * requires for an applied reviewed-image-fallback item. */
+function applyDrawingReplacementInMdx(
+  target: string,
+  lessonSlug: string,
+  issueId: string,
+  assetPath: string,
+): void {
+  updateMdx(target, lessonSlug, (mdx) => {
+    const withoutCallout = mdx.replace(
+      /<Callout\b[\s\S]*?<\/Callout>\n*/gu,
+      (match) => (match.includes(issueId) ? "" : match),
+    );
+    return (
+      `${withoutCallout}\n<ChemFigure src="${assetPath}" alt="${P6_B2_4B_ALT_TEXT}" ` +
+      `caption="${P6_B2_4B_CAPTION_FOR(issueId)}" />\n`
+    );
+  });
 }
 
 let baseTarget: string;
@@ -1008,6 +1073,208 @@ describe("discussionPrompt", () => {
         true,
       );
       expect(qa.approvedForPublish).toBe(false);
+    } finally {
+      rmSync(target, { recursive: true, force: true });
+    }
+  });
+});
+
+describe("P6-B2.4B: applied reviewed-image-fallback (kind: drawing)", () => {
+  it("accepts a synthetic applied reviewed-image-fallback drawing item with a matching ChemFigure and no Callout (P6-B2.4B test 1)", () => {
+    const target = cloneTarget();
+    try {
+      const { queuePath, qaPath, item, lessonSlug } = findItem(
+        target,
+        "drawing",
+      );
+      const assetPath = writeSyntheticAsset(
+        target,
+        `<svg xmlns="http://www.w3.org/2000/svg"><title>${item.issueId}</title></svg>`,
+      );
+      writeQueueItem(queuePath, baseAppliedDrawingItem(item, assetPath));
+      applyDrawingReplacementInMdx(target, lessonSlug, item.issueId, assetPath);
+
+      expect(validate(target)).toEqual([]);
+
+      // The item is still a real blocking issue in QA/failure-report terms
+      // (P6-B2.4B does not remove it from the historical record), same
+      // invariant already proven for accepted-with-limitation above.
+      const qa = readJson<QaRecord>(qaPath);
+      const stillUnresolved = qa.unresolved.find(
+        (entry) => entry.id === item.issueId,
+      );
+      expect(stillUnresolved?.severity).toBe("blocking");
+    } finally {
+      rmSync(target, { recursive: true, force: true });
+    }
+  });
+
+  it("rejects applied reviewed-image-fallback used on a non-drawing kind (P6-B2.4B test 2)", () => {
+    const target = cloneTarget();
+    try {
+      const { queuePath, item, lessonSlug } = findItem(target, "image");
+      const assetPath = writeSyntheticAsset(target, "<svg></svg>");
+      writeQueueItem(queuePath, baseAppliedDrawingItem(item, assetPath));
+      applyDrawingReplacementInMdx(target, lessonSlug, item.issueId, assetPath);
+      expect(validate(target).join("\n")).toContain(
+        "is only supported for kind in ['drawing']",
+      );
+    } finally {
+      rmSync(target, { recursive: true, force: true });
+    }
+  });
+
+  it("rejects a missing ownerDecision.altText, caption or previewPath (P6-B2.4B test 3)", () => {
+    const target = cloneTarget();
+    try {
+      const { queuePath, item, lessonSlug } = findItem(target, "drawing");
+      const assetPath = writeSyntheticAsset(target, "<svg></svg>");
+      const applied = baseAppliedDrawingItem(item, assetPath);
+      applyDrawingReplacementInMdx(target, lessonSlug, item.issueId, assetPath);
+
+      writeQueueItem(queuePath, {
+        ...applied,
+        ownerDecision: { ...applied.ownerDecision, altText: null },
+      });
+      expect(validate(target).join("\n")).toContain(
+        "ownerDecision.altText is required for an applied reviewed-image-fallback",
+      );
+
+      writeQueueItem(queuePath, {
+        ...applied,
+        ownerDecision: { ...applied.ownerDecision, caption: "" },
+      });
+      expect(validate(target).join("\n")).toContain(
+        "ownerDecision.caption is required for an applied reviewed-image-fallback",
+      );
+
+      writeQueueItem(queuePath, { ...applied, previewPath: null });
+      expect(validate(target).join("\n")).toContain(
+        "previewPath is required for an applied reviewed-image-fallback",
+      );
+    } finally {
+      rmSync(target, { recursive: true, force: true });
+    }
+  });
+
+  it("rejects a non-null ownerDecision.reviewedLatex (P6-B2.4B test 4)", () => {
+    const target = cloneTarget();
+    try {
+      const { queuePath, item, lessonSlug } = findItem(target, "drawing");
+      const assetPath = writeSyntheticAsset(target, "<svg></svg>");
+      const applied = baseAppliedDrawingItem(item, assetPath);
+      applyDrawingReplacementInMdx(target, lessonSlug, item.issueId, assetPath);
+
+      writeQueueItem(queuePath, {
+        ...applied,
+        ownerDecision: { ...applied.ownerDecision, reviewedLatex: "$$x$$" },
+      });
+      expect(validate(target).join("\n")).toContain(
+        "ownerDecision.reviewedLatex must remain null for reviewed-image-fallback",
+      );
+    } finally {
+      rmSync(target, { recursive: true, force: true });
+    }
+  });
+
+  it("rejects a ChemFigure whose alt or caption doesn't match ownerDecision (P6-B2.4B test 5)", () => {
+    const target = cloneTarget();
+    try {
+      const { queuePath, item, lessonSlug } = findItem(target, "drawing");
+      const assetPath = writeSyntheticAsset(target, "<svg></svg>");
+      writeQueueItem(queuePath, baseAppliedDrawingItem(item, assetPath));
+
+      // ChemFigure present, but its alt text does not match
+      // ownerDecision.altText exactly.
+      updateMdx(target, lessonSlug, (mdx) => {
+        const withoutCallout = mdx.replace(
+          /<Callout\b[\s\S]*?<\/Callout>\n*/gu,
+          (match) => (match.includes(item.issueId) ? "" : match),
+        );
+        return (
+          `${withoutCallout}\n<ChemFigure src="${assetPath}" alt="Wrong alt text" ` +
+          `caption="${P6_B2_4B_CAPTION_FOR(item.issueId)}" />\n`
+        );
+      });
+      expect(validate(target).join("\n")).toContain(
+        "applied replacement is not traceable to a single canonical ChemFigure",
+      );
+    } finally {
+      rmSync(target, { recursive: true, force: true });
+    }
+  });
+
+  it("rejects an applied item whose fallback Callout is still present in the MDX (P6-B2.4B test 6)", () => {
+    const target = cloneTarget();
+    try {
+      const { queuePath, item, lessonSlug } = findItem(target, "drawing");
+      const assetPath = writeSyntheticAsset(target, "<svg></svg>");
+      writeQueueItem(queuePath, baseAppliedDrawingItem(item, assetPath));
+
+      // Add the matching ChemFigure but deliberately leave the original
+      // Callout in place (do not strip it, unlike applyDrawingReplacementInMdx).
+      updateMdx(
+        target,
+        lessonSlug,
+        (mdx) =>
+          `${mdx}\n<ChemFigure src="${assetPath}" alt="${P6_B2_4B_ALT_TEXT}" ` +
+          `caption="${P6_B2_4B_CAPTION_FOR(item.issueId)}" />\n`,
+      );
+      expect(validate(target).join("\n")).toContain(
+        `${item.issueId} is applied and must not remain a fallback Callout`,
+      );
+    } finally {
+      rmSync(target, { recursive: true, force: true });
+    }
+  });
+
+  it("rejects an applied drawing item missing from QA unresolved or the failure report (P6-B2.4B test 7)", () => {
+    const target = cloneTarget();
+    try {
+      const { queuePath, qaPath, item, lessonSlug } = findItem(
+        target,
+        "drawing",
+      );
+      const assetPath = writeSyntheticAsset(target, "<svg></svg>");
+      writeQueueItem(queuePath, baseAppliedDrawingItem(item, assetPath));
+      applyDrawingReplacementInMdx(target, lessonSlug, item.issueId, assetPath);
+
+      updateQa(target, lessonSlug, (qa) => {
+        qa.unresolved = qa.unresolved.filter(
+          (entry) => entry.id !== item.issueId,
+        );
+      });
+      expect(validate(target).join("\n")).toContain(
+        "applied issue missing from QA unresolved",
+      );
+      void qaPath;
+
+      const target2 = cloneTarget();
+      try {
+        const found = findItem(target2, "drawing");
+        expect(found.item.issueId).toBe(item.issueId);
+        const asset2 = writeSyntheticAsset(target2, "<svg></svg>");
+        writeQueueItem(
+          found.queuePath,
+          baseAppliedDrawingItem(found.item, asset2),
+        );
+        applyDrawingReplacementInMdx(
+          target2,
+          found.lessonSlug,
+          found.item.issueId,
+          asset2,
+        );
+        updateFailureReport(target2, found.lessonSlug, (report) => {
+          report.blocks = report.blocks.filter(
+            (block) => block.id !== found.item.issueId,
+          );
+        });
+        expect(validate(target2).join("\n")).toContain(
+          "applied issue missing from the failure report",
+        );
+      } finally {
+        rmSync(target2, { recursive: true, force: true });
+      }
     } finally {
       rmSync(target, { recursive: true, force: true });
     }
