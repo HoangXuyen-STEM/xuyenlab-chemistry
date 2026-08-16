@@ -431,6 +431,35 @@ test.describe("pilot staging routes", () => {
     }
   });
 
+  test("renders every formula in dong-hoa-hoc sections 3-4 as real KaTeX with no raw LaTeX leakage (P6-B3.1)", async ({
+    page,
+  }) => {
+    await expectRouteToLoad(page, "/fixtures/pilot/chuyen-de-06/dong-hoa-hoc");
+    const section = await extractSection35(page);
+
+    expect(section, "sections 3-4 heading pair not found").not.toBeNull();
+    // Exactly 25 formulas: the 20 preserved {/* T06-S01:eXXXX */} pairs plus
+    // the 5 broken-reaction-text fixes this task authored (rule 4). This
+    // codebase's remark-math/rehype-katex pipeline renders every $$...$$
+    // block as an inline .katex span inside its own <p> (verified: no
+    // lesson anywhere in this repo ever produces a .katex-display wrapper,
+    // not just this one), so katexDisplayCount is not asserted -- .katex
+    // presence plus the absence of raw-leakage text below is what actually
+    // proves real rendering, not a stylistic display-vs-inline distinction.
+    expect(section!.katexCount).toBe(25);
+
+    for (const leak of [
+      "\\dfrac",
+      "\\text{",
+      "\\rightarrow",
+      "\\xrightarrow",
+      "$$",
+      "$C_A$",
+    ]) {
+      expect(section!.text, `raw LaTeX leakage: ${leak}`).not.toContain(leak);
+    }
+  });
+
   test("hides staging controls but retains lesson content in print media", async ({
     page,
   }) => {
@@ -597,7 +626,60 @@ test.describe("pilot staging routes on mobile", () => {
       ).toBeVisible();
     }
   });
+
+  test("renders dong-hoa-hoc sections 3-4 formulas as KaTeX at 375px too (P6-B3.1)", async ({
+    page,
+  }) => {
+    await page.goto("/fixtures/pilot/chuyen-de-06/dong-hoa-hoc");
+    const section = await extractSection35(page);
+    expect(section, "sections 3-4 heading pair not found").not.toBeNull();
+    expect(section!.katexCount).toBeGreaterThan(0);
+  });
 });
+
+interface Section35Snapshot {
+  text: string;
+  katexCount: number;
+  katexDisplayCount: number;
+}
+
+/** Extracts the DOM range between dong-hoa-hoc's "3. ..." and "5. ..." h2
+ * headings (P6-B3.1's exact restructure scope) via a live Range, not a
+ * fixed heading id -- ids are assigned client-side by PilotHeadingNav from
+ * heading text, so matching by text prefix is the stable approach. */
+async function extractSection35(page: Page): Promise<Section35Snapshot | null> {
+  return page.evaluate(() => {
+    const article = document.getElementById("dong-hoa-hoc-body");
+    if (!article) return null;
+    const headings = Array.from(article.querySelectorAll("h2"));
+    const start = headings.find((h) => h.textContent?.trim().startsWith("3."));
+    const end = headings.find((h) => h.textContent?.trim().startsWith("5."));
+    if (!start || !end) return null;
+
+    const range = document.createRange();
+    range.setStartBefore(start);
+    range.setEndBefore(end);
+    const container = document.createElement("div");
+    container.appendChild(range.cloneContents());
+
+    // KaTeX embeds the raw TeX source in a visually-hidden (CSS clip-rect)
+    // .katex-mathml annotation for screen readers/copy-paste -- present on
+    // every KaTeX formula in this app, not a leak. element.textContent
+    // ignores CSS visibility, so it must be stripped before checking for
+    // visible raw-LaTeX leakage, or every real formula would false-positive.
+    for (const mathml of Array.from(
+      container.querySelectorAll(".katex-mathml"),
+    )) {
+      mathml.remove();
+    }
+
+    return {
+      text: container.textContent ?? "",
+      katexCount: container.querySelectorAll(".katex").length,
+      katexDisplayCount: container.querySelectorAll(".katex-display").length,
+    };
+  });
+}
 
 async function expectRouteToLoad(page: Page, path: string): Promise<void> {
   const consoleErrors: string[] = [];

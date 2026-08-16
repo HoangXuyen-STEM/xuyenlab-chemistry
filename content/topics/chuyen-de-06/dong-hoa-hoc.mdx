@@ -118,11 +118,12 @@ $$v = -\dfrac{1}{2}\dfrac{dC_{\text{SO}_2}}{dt} = -\dfrac{dC_{\text{O}_2}}{dt} =
 
 ## 3. Hằng số tốc độ phản ứng
 
-- Từ thực nghiệm, một quy luật được phát hiện là: Tốc độ của một phản ứng tỉ lệ với tích số nồng độ tại thời điểm đang xét của các chất tham gia, mỗi nông độ đó trong trường hợp đơn giản - có số mũ bằng đúng hệ số các chất trong phản ứng. Đó là nội dung của định luật tác dụng khối lượng do hai nhà bác học Nauy là G.Guldberg và P.Waage đưa ra vào năm 1867.
+<Callout type="definition" title="Định luật tác dụng khối lượng">
+  Từ thực nghiệm, một quy luật được phát hiện là: Tốc độ của một phản ứng tỉ lệ với tích số nồng độ tại thời điểm đang xét của các chất tham gia, mỗi nông độ đó trong trường hợp đơn giản - có số mũ bằng đúng hệ số các chất trong phản ứng. Đó là nội dung của định luật tác dụng khối lượng do hai nhà bác học Nauy là G.Guldberg và P.Waage đưa ra vào năm 1867.
 
 Đối với phản ứng:
 
-aA + bB C + dD
+$$aA + bB \rightarrow cC + dD$$
 
 Ta có:
 
@@ -140,11 +141,14 @@ k là hằng số tốc độ của phản ứng; k càng lớn tốc độ ph�
 
 Biểu thức (\*) được gọi là phương trình động học của phản ứng hóa học. Mỗi phản ứng hóa học có một phương trình động học tương ứng.
 
+</Callout>
+
 ## 4. Bậc phản ứng. Một số phản ứng đơn giản
 
 a) Bậc phản ứng
 
-Bậc riêng phần của phản ứng là trị số riêng rẽ của từng số mũ a, b, ... trong phương trình động học.
+<Callout type="definition">
+  Bậc riêng phần của phản ứng là trị số riêng rẽ của từng số mũ a, b, ... trong phương trình động học.
 
 Bậc toàn phần của một phản ứng là tổng các số mũ của các chất trong phương trình động học của phản ứng đó.
 
@@ -168,11 +172,16 @@ Bậc phản ứng thường là những số nguyên nhỏ (0, 1, 2, 3) nhưng 
 
 $$v = k C_A^a C_B^b$$
 
+</Callout>
+
 b) Một số loại phản ứng đơn giản
 
 • Phản ứng một chiều bậc nhất
 
-A Sản phẩm (4.1)
+<Callout type="definition">
+  $$A \rightarrow \text{Sản phẩm}$$
+
+(4.1)
 
 Ta có:
 
@@ -196,39 +205,49 @@ Biểu thức (2) là phương trình động học dưới dạng vi phân củ
 
 $$kt = \ln\dfrac{a}{a - x}$$
 
-Ví dụ 1: Cho chất xúc tác MnO2 vào 100 ml dung dịch H2O2 0,05M, sau 60 giây thu được 33,6 ml khí O2 (ở đkc). Hãy xác định hằng số tốc độ k của phản ứng.
+</Callout>
 
-Giải
+<Example title="Ví dụ 1">
+  Cho chất xúc tác MnO2 vào 100 ml dung dịch H2O2 0,05M, sau 60 giây thu được 33,6 ml khí O2 (ở đkc). Hãy xác định hằng số tốc độ k của phản ứng.
 
-{/* T06-S01:e2486 */}
+  <Solution>
+    {/* T06-S01:e2486 */}
 
-$$2\text{H}_2\text{O}_2 \xrightarrow{\text{MnO}_2} 2\text{H}_2\text{O} + \text{O}_2$$
+    $$2\text{H}_2\text{O}_2 \xrightarrow{\text{MnO}_2} 2\text{H}_2\text{O} + \text{O}_2$$
 
-Mol:3.10-31,5.10-3
+    Mol:3.10-31,5.10-3
 
-Nồng độ HO2 đã mất đi trong khoảng thời gian 60 giây là
+    Nồng độ HO2 đã mất đi trong khoảng thời gian 60 giây là
 
-{/* T06-S01:e1418 */}
+    {/* T06-S01:e1418 */}
 
-$$\Delta C = \dfrac{3 \cdot 10^{-3}}{0{,}1} = 0{,}03\text{ M}$$
+    $$\Delta C = \dfrac{3 \cdot 10^{-3}}{0{,}1} = 0{,}03\text{ M}$$
 
-Vậy:
+    Vậy:
 
-{/* T06-S01:e3135 */}
+    {/* T06-S01:e3135 */}
 
-$$\bar{v} = \dfrac{\Delta C}{\Delta t} = \dfrac{0{,}03}{60} = 5 \cdot 10^{-4}\text{ M/s}$$
+    $$\bar{v} = \dfrac{\Delta C}{\Delta t} = \dfrac{0{,}03}{60} = 5 \cdot 10^{-4}\text{ M/s}$$
+
+  </Solution>
+</Example>
 
 • Phản ứng một chiều bậc hai
 
-Có hai trường hợp về loại phản ứng này:
+<Callout type="definition">
+  Có hai trường hợp về loại phản ứng này:
 
 Trường hợp 1: Sơ đồ chung là
 
-2A Sản phẩm (4.4)
+$$2A \rightarrow \text{Sản phẩm}$$
+
+(4.4)
 
 Hoặc:
 
-A + B Sản phẩm (4.5)
+$$A + B \rightarrow \text{Sản phẩm}$$
+
+(4.5)
 
 Với nồng độ ban đầu của A, B bằng nhau. Phương trình động học cho hai loại phản ứng trên là
 
@@ -254,17 +273,23 @@ $$kt = \dfrac{1}{a - b}\ln\dfrac{b(a - x)}{a(b - x)}$$
 
 Trong đó a> b; a là nồng độ ban đầu của chất A; b là nồng độ ban đầu của chất B.
 
+</Callout>
+
 • Các loại phản ứng đơn giản khác
 
-- Phản ứng bậc 0: Khi đó v=k
+<Callout type="note">
+  Phản ứng bậc 0: Khi đó v=k
 
-- Phản ứng bậc phân số như
+Phản ứng bậc phân số như
 
 H2 + Br2 → 2HBr
 
-- Phản ứng bậc 3 trở lên ít gặp.
+Phản ứng bậc 3 trở lên ít gặp.
 
-Ví dụ 2: Người ta nghiên cứu động học của phản ứng xà phòng hóa etyl axetat:
+</Callout>
+
+<Example title="Ví dụ 2">
+  Người ta nghiên cứu động học của phản ứng xà phòng hóa etyl axetat:
 
 {/* T06-S01:e3265 */}
 
@@ -272,7 +297,7 @@ $$\text{CH}_3\text{COOC}_2\text{H}_5 + \text{NaOH} \rightarrow \text{CH}_3\text{
 
 Nồng độ ban đầu của etyl axetat và NaOH đều bằng 0,05M. Phản ứng được theo dõi bằng cách lấy 10 ml dung dịch hỗn hợp phản ứng ở từng thời điểm t và chuẩn độ bằng V ml dung dịch HCl 0,01M. Kết quả như sau:
 
-<DataTable caption="Bảng 1 trích từ DOCX">
+  <DataTable caption="Bảng 1 trích từ DOCX">
 
 <thead>
   <tr>
@@ -297,39 +322,42 @@ Nồng độ ban đầu của etyl axetat và NaOH đều bằng 0,05M. Phản �
   </tr>
 </tbody>
 
-</DataTable>
+  </DataTable>
 
 Tính bậc của phản ứng, hằng số tốc độ phản ứng và chu kì bán hủy của phản ứng.
 
-Giải
+  <Solution>
+    a)
 
-a)
+    {/* T06-S01:e3603 */}
 
-{/* T06-S01:e3603 */}
+    $$\text{CH}_3\text{COOC}_2\text{H}_5 + \text{NaOH} \rightarrow \text{CH}_3\text{COONa} + \text{C}_2\text{H}_5\text{OH}$$
 
-$$\text{CH}_3\text{COOC}_2\text{H}_5 + \text{NaOH} \rightarrow \text{CH}_3\text{COONa} + \text{C}_2\text{H}_5\text{OH}$$
+    t = 00,050,05
 
-t = 00,050,05
+    t0,05 – x0,05 - x
 
-t0,05 – x0,05 - x
+    Giả sử phản ứng trên là bậc 2. Ta có: (\*)
 
-Giả sử phản ứng trên là bậc 2. Ta có: (\*)
+    {/* T06-S01:e9139 */}
 
-{/* T06-S01:e9139 */}
+    $$k = \dfrac{1}{t} \cdot \dfrac{x}{a(a - x)}$$
 
-$$k = \dfrac{1}{t} \cdot \dfrac{x}{a(a - x)}$$
+    Theo phép chuẩn độ: 10(a-x) = 0,01V. Xác định được 0,05 - x tại thời điểm t, thay vào (\*) ta tính được k. Kết quả k = const, nghĩa là giả thiết phản ứng bậc 2 là đúng.
 
-Theo phép chuẩn độ: 10(a-x) = 0,01V. Xác định được 0,05 - x tại thời điểm t, thay vào (\*) ta tính được k. Kết quả k = const, nghĩa là giả thiết phản ứng bậc 2 là đúng.
+    k = 0,651 và t1/2 30 phút.
 
-k = 0,651 và t1/2 30 phút.
+  </Solution>
+</Example>
 
 c) Phản ứng phức tạp
 
-Khác với phản ứng đơn giản, phản ứng phức tạp diễn ra theo nhiều giai đoạn trung gian, do đó phương trình hóa học ở dạng tổng quát chỉ là sự tổ hợp của nhiều phản ứng trung gian vì vậy nó không biểu thị cơ chế phản ứng. Trong trường hợp này bậc và phân tử số không trùng nhau. Ta xét hai thí dụ sau:
+<Callout type="definition">
+  Khác với phản ứng đơn giản, phản ứng phức tạp diễn ra theo nhiều giai đoạn trung gian, do đó phương trình hóa học ở dạng tổng quát chỉ là sự tổ hợp của nhiều phản ứng trung gian vì vậy nó không biểu thị cơ chế phản ứng. Trong trường hợp này bậc và phân tử số không trùng nhau. Ta xét hai thí dụ sau:
 
 Thí dụ 1: Sự nhiệt phân etanal (CH3CHO) không tuân theo quy luật đơn giản về sự biến thiên nồng độ chất theo thời gian:
 
-CH3CHO CH4 + CO
+$$\text{CH}_3\text{CHO} \rightarrow \text{CH}_4 + \text{CO}$$
 
 Phương trình động học có dạng:
 
@@ -365,9 +393,14 @@ $$[\text{CH}_3\text{C(OH)CH}_3]^+ + \text{I}_2 \xrightarrow{\text{nhanh}} \text{
 
 Phản ứng (1) xảy ra chậm hơn nhiều so với phản ứng (2), do đó tốc độ phản ứng (1) quyết định tốc độ của phản ứng giữa axeton và I2.
 
+</Callout>
+
 d) Thời gian bán hủy
 
-Thời điểm để lượng ban đầu của chất phản ứng mất đi (hay còn lại, một nửa được gọi là thời gian bán hủy hay chu kì bán hủy. Kí hiệu: t1/2 hay T1/2.
+<Callout type="definition">
+  Thời điểm để lượng ban đầu của chất phản ứng mất đi (hay còn lại, một nửa được
+  gọi là thời gian bán hủy hay chu kì bán hủy. Kí hiệu: t1/2 hay T1/2.
+</Callout>
 
 ## 5. Sơ lược về cơ chế phản ứng
 
