@@ -1,5 +1,24 @@
 {
-  "approvedForPublish": false,
+  "approvedForPublish": true,
+  "publishWaiver": {
+    "type": "P6.2-owner-exception",
+    "scope": "in_review",
+    "authorizedBy": "Thầy Xuyên (Project Owner)",
+    "authorizedDate": "2026-08-16",
+    "doesNotAuthorize": [
+      "published",
+      "productionDeployment",
+      "publicBucketAccess",
+      "automaticPublication"
+    ],
+    "remediationDebtRetained": true,
+    "unresolvedBlockingCount": 1,
+    "acknowledgedBlockedItems": ["T02-S01:d1402"],
+    "reference": {
+      "contractAmendment": "docs/contracts/content.md#amendments",
+      "handoff": "docs/handoffs/P6/P6-B2.5-topic2-approve-for-publication-claude.md"
+    }
+  },
   "checks": {
     "chemistryVerified": true,
     "figuresVerified": true,
