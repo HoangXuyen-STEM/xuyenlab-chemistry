@@ -139,7 +139,7 @@
       "failureReportPath": "content/qa/import-reports/bang-tuan-hoan.failure.json",
       "failureReportSha256": "5695e1e999c05fb12c29cc46e35d8543965641b566658db784b5e6efd70350f8",
       "mdxPath": "content/topics/chuyen-de-02/bang-tuan-hoan.mdx",
-      "mdxSha256": "a74ed40ce7b5a9822d3b604e341ef14d19bfa352af8ce46ae074c68cae6d8b37",
+      "mdxSha256": "d5a43992d9e767755aaae6735db07ca9522600a668b1c1604176dcbec355dcd1",
       "qaPath": "content/qa/pending/bang-tuan-hoan.json",
       "qaSha256": "e238d9fd6ac164b6ea6141c240d5f2522eada359ea0c126396e5342e3fdb7104",
       "slug": "bang-tuan-hoan",

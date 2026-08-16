@@ -2,8 +2,8 @@
 
 - Baseline for the completed Topic 2 loop (B1a integration + B2.0 import +
   B2.1 presentation audit + B2.2 Owner QA + B2.3 integration close-out +
-  B2.4A candidate diagram): `main` at
-  `41dd06615868c3720ef4a56d337a406b1acbcdbe` (PR #46 merged).
+  B2.4A candidate diagram + B2.4B policy amendment): `main` at
+  `33ba8b0fe4968c0000d0fb7711cf074da3b2b181` (PR #47 merged).
 - First micro-batch: Topic 24 — **complete through P6-B1.5 integration**.
 - P6-B1.5 is **complete**. Its verdict was **Topic 2 verdict: NOT READY TO
   IMPORT**, pending a bounded, read-only Part I object inventory — see
@@ -45,40 +45,49 @@
   the Owner chose a policy amendment first, kept fully separate from any
   content change. That amendment (extending `applied` to accept
   `reviewed-image-fallback` for `kind: "drawing"`, with a validated
-  required-fields/ChemFigure-pairing/Callout-removal rule) is **complete
-  in PR #47 and awaiting merge** — not yet on `main`. **This PR changes no
-  content, QA record, remediation-queue item, or manifest field**:
-  `T02-S01:d1402` remains exactly as merged in PR #46. See
+  required-fields/ChemFigure-pairing/Callout-removal rule, proven by
+  durable CI-executed tests after a review round) is **merged on `main` at
+  `33ba8b0`** (PR #47). See
   `docs/handoffs/P6/P6-B2.4B-policy-applied-drawing-fallback-claude.md`.
+- **P6-B2.4B (content)** then applied that newly-authorized combination to
+  the real `T02-S01:d1402` item: `status: "applied"`, `remediationChoice:
+"reviewed-image-fallback"`, the warning Callout removed, the candidate
+  `ChemFigure` (unchanged from PR #46) now the live replacement. This is
+  **complete in PR #48 and awaiting merge** — not yet on `main`. Still not
+  a publication decision: `approvedForPublish` stays `false`,
+  `blockingCount`/`warningCount` stay `1`/`2` (frozen historical
+  import-time metrics, per contract). See
+  `docs/handoffs/P6/P6-B2.4B-content-topic2-drawing-applied-claude.md`.
 - Current gate is **no longer** "Topic 2 not ready to import" (superseded by
-  P6-B2.0) and **no longer** "Owner QA for Topic 2" (satisfied by P6-B2.2,
-  merged). The current gate is **Owner discretion**: whether to import a
-  further topic (a fresh Owner decision and its own bounded preflight, not
-  authorized by any task so far), and — pending the P6-B2.4B policy PR's
-  merge — a not-yet-started, not-yet-authorized follow-up task to actually
-  apply the newly-defined `applied`/`reviewed-image-fallback` combination
-  to `T02-S01:d1402` and remove its Callout. None of this is required, and
-  **this is not a publication gate**: `approvedForPublish` stays `false`
-  regardless of which the Owner later chooses.
+  P6-B2.0), **no longer** "Owner QA for Topic 2" (satisfied by P6-B2.2), and
+  once the P6-B2.4B content PR merges, the Topic 2 loop (P6-B2.0 →
+  P6-B2.4B) is fully closed with zero remaining structurally-blocking
+  presentation gaps for staging/teacher-led use. The current gate is
+  entirely **Owner discretion**: whether to import a further topic (a
+  fresh Owner decision and its own bounded preflight, not authorized by
+  any task so far). None of this is required, and **this is not a
+  publication gate**: `approvedForPublish` stays `false` regardless of
+  what the Owner later chooses.
 
 ## Current integrated state (2026-08-15)
 
-- P6-B1.0 through P6-B1.5, P6-B2.0, P6-B2.1, P6-B2.2, P6-B2.3 and P6-B2.4A
-  are merged on `main`; their handoffs remain the canonical task evidence.
-  **The P6-B2.4B policy PR (#47) is open, not yet merged** — see that PR
-  before assuming the new `applied`/`reviewed-image-fallback` capability
-  is live; it changes no content.
+- P6-B1.0 through P6-B1.5, P6-B2.0, P6-B2.1, P6-B2.2, P6-B2.3, P6-B2.4A and
+  P6-B2.4B (policy) are merged on `main`; their handoffs remain the
+  canonical task evidence. **The P6-B2.4B content PR (#48) is open, not
+  yet merged** — see that PR before assuming `T02-S01:d1402` is already
+  `applied` on `main`.
 - T06 and T08 are each `in_review` in their own manifest/MDX/QA records.
 - T24 is `in_review` with three visible, source-traceable
   `accepted-with-limitation` warnings; its `approvedForPublish` remains
   `false`.
 - T02 (`chuyen-de-02/bang-tuan-hoan`) is `in_review` on `main` as of
-  `41dd066`, 1 blocking + 2 warning items: the image and table are
-  `accepted-with-limitation` (2), the drawing is `blocked`/`remain-blocking`
-  and stays `severity: "blocking"` (1), now paired with an Owner-approved
-  candidate SVG diagram (PR #46) shown alongside its still-visible Callout.
-  QA is signed (7/7 checks, reviewer/reviewedAt set); `approvedForPublish`
-  stays `false`; no `publishWaiver`.
+  `33ba8b0`, 1 blocking + 2 warning items (frozen historical metric): the
+  image and table are `accepted-with-limitation` (2); the drawing is still
+  `blocked`/`remain-blocking` **on `main`** (severity `blocking`), with
+  its Callout still visible there — the P6-B2.4B content PR (not yet
+  merged) is what promotes it to `applied`/`reviewed-image-fallback` and
+  removes the Callout. QA is signed (7/7 checks, reviewer/reviewedAt set);
+  `approvedForPublish` stays `false`; no `publishWaiver`.
 - All four manifest lessons (T02, T06, T08, T24) are now `in_review`; none
   is `published`.
 - P6 as a whole remains in progress. Do **not** create `docs/handoffs/P6/SUMMARY.md`
@@ -304,7 +313,40 @@
   applying the new capability to it is separate, later, not-yet-started
   work; also excluded: `approvedForPublish`/`publishWaiver` change,
   T06/T08/T24 edits, package/lockfile, auth, R2, P7.
+- Status: **merged on `main` at `33ba8b0`** (PR #47). Durable CI-executed
+  tests (`tests/content/operational-acceptance.test.ts`) were added after
+  a review round correctly flagged the first push's proof as
+  CI-invisible.
 - Handoff: `docs/handoffs/P6/P6-B2.4B-policy-applied-drawing-fallback-claude.md`.
+
+## P6-B2.4B (content) — Apply the applied/reviewed-image-fallback disposition to T02-S01:d1402
+
+- Owner: Owner decisions already recorded (visual approval of PR #46,
+  authorization of the P6-B2.4B policy path); Claude Code implements the
+  content recording only. Integration review before merge.
+- Prerequisite: P6-B2.4B (policy) merged on `main` — re-verified at task
+  start, not assumed.
+- Deliverable: `T02-S01:d1402` → `status: "applied"`, `remediationChoice:
+"reviewed-image-fallback"`, `ownerDecision.altText`/`caption` set to
+  the exact live `ChemFigure` strings (verified byte-identical
+  programmatically), `previewPath` set to the candidate SVG path,
+  `reviewedLatex` stays `null`; the warning Callout removed from the MDX
+  (the `ChemFigure` itself, already merged in PR #46, is untouched); QA
+  record left byte-unchanged (the item already sat in `unresolved` at its
+  correct final state); only `mdxSha256` refreshed in the manifest.
+- Acceptance: `content:validate` passes and — for the first time —
+  actually exercises the P6-B2.4B validator path on real content; full
+  unit/E2E suites pass with tests updated only where the disposition
+  change required it; `pdf:dry-run` still includes T02; local production
+  build confirms the Callout is gone, the diagram is visible, and the
+  `in_review` banner and frozen `1`/`2` blocking/warning counts are
+  unaffected.
+- Excluded: `approvedForPublish: true`/`publishWaiver`/allowlist change,
+  contract/validator changes (policy already merged), T06/T08/T24 edits,
+  re-import, R2, P7, any chemistry rewrite beyond the Callout removal
+  itself.
+- Status: complete in PR #48, **not yet merged**.
+- Handoff: `docs/handoffs/P6/P6-B2.4B-content-topic2-drawing-applied-claude.md`.
 
 ## Shared gates
 

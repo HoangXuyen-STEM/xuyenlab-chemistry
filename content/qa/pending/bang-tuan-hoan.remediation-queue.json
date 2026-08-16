@@ -65,15 +65,15 @@
     "observedType": "unknown",
     "observedTypeEvidence": "Drawing has no safe semantic classification from the importer.",
     "ownerDecision": {
-      "altText": null,
-      "caption": null,
+      "altText": "Sơ đồ quan hệ: từ cấu tạo nguyên tử xác định vị trí nguyên tố trong bảng tuần hoàn và ngược lại; từ cấu tạo nguyên tử và vị trí xác định tính chất của nguyên tố.",
+      "caption": "Nguồn T02-S01, hình vẽ tái tạo (thay AutoShape Word T02-S01:d1402)",
       "decidedAt": "2026-08-15",
       "decidedBy": "Thầy Xuyên (Project Owner)",
-      "qaNote": "Owner accepts the existing visible Callout fallback for teacher-led staging (\"Chưa chuyển hình vẽ T02-S01:d1402 (số 1).\"). No SVG or ChemFigure replacement was authored. Item remains blocking for publication rules; this is not a publication bypass.",
+      "qaNote": "Owner visually approved the B2.4A candidate SVG (PR #46) as a meaning-faithful recreation of unsupported Word AutoShape T02-S01:d1402. Applied under P6-B2.4B policy (PR #47): Callout removed; ChemFigure is the live replacement. Not a publication approval.",
       "reviewedLatex": null
     },
-    "previewPath": null,
-    "remediationChoice": "remain-blocking",
+    "previewPath": "/staging-assets/lessons/51/518163475c46c8fb17d9e41e50048e535453ab66823d2b0ab7c5aada28d6fc18.svg",
+    "remediationChoice": "reviewed-image-fallback",
     "severity": "blocking",
     "sourceId": "T02-S01",
     "sourceLocator": {
@@ -81,7 +81,7 @@
       "pathHint": "word/document.xml#body/block[43]/w:drawing[1]",
       "sectionPath": "Phần I"
     },
-    "status": "blocked",
+    "status": "applied",
     "topic": "chuyen-de-02"
   }
 ]
