@@ -10,6 +10,18 @@ import { describe, expect, it } from "vitest";
 const here = path.dirname(fileURLToPath(import.meta.url));
 const repoRoot = path.resolve(here, "../..");
 
+interface PublishWaiver {
+  type: string;
+  scope: string;
+  authorizedBy: string;
+  authorizedDate: string;
+  doesNotAuthorize: string[];
+  remediationDebtRetained: boolean;
+  unresolvedBlockingCount: number;
+  acknowledgedBlockedItems: string[];
+  reference: { contractAmendment: string; handoff: string };
+}
+
 interface QaRecord {
   approvedForPublish: boolean;
   checks: Record<string, boolean>;
@@ -20,7 +32,7 @@ interface QaRecord {
   reviewer: string | null;
   sourceIds: string[];
   unresolved: Array<{ id: string; severity: string; description: string }>;
-  publishWaiver?: unknown;
+  publishWaiver?: PublishWaiver;
 }
 
 interface QueueItem {
@@ -117,9 +129,36 @@ describe("P6-B2.2: Topic 2 Owner QA record", () => {
     expect(qa.reviewedAt).toMatch(/^\d{4}-\d{2}-\d{2}$/u);
   });
 
-  it("keeps approvedForPublish false and carries no publishWaiver", () => {
-    expect(qa.approvedForPublish).toBe(false);
-    expect(qa.publishWaiver).toBeUndefined();
+  it("carries approvedForPublish true with a well-formed T06/T08-style publishWaiver (P6-B2.5)", () => {
+    expect(qa.approvedForPublish).toBe(true);
+    const waiver = qa.publishWaiver;
+    expect(waiver, "publishWaiver must be present").toBeDefined();
+    expect(waiver!.type).toBe("P6.2-owner-exception");
+    expect(waiver!.scope).toBe("in_review");
+    expect(waiver!.authorizedBy).toBe("Thầy Xuyên (Project Owner)");
+    expect(waiver!.authorizedDate).toBe("2026-08-16");
+    expect(waiver!.authorizedDate).toMatch(/^\d{4}-\d{2}-\d{2}$/u);
+    expect(new Set(waiver!.doesNotAuthorize)).toEqual(
+      new Set([
+        "published",
+        "productionDeployment",
+        "publicBucketAccess",
+        "automaticPublication",
+      ]),
+    );
+    expect(waiver!.remediationDebtRetained).toBe(true);
+    expect(waiver!.unresolvedBlockingCount).toBe(1);
+    expect(waiver!.acknowledgedBlockedItems).toEqual(["T02-S01:d1402"]);
+    expect(waiver!.reference.contractAmendment).toBe(
+      "docs/contracts/content.md#amendments",
+    );
+    expect(waiver!.reference.handoff).toBe(
+      "docs/handoffs/P6/P6-B2.5-topic2-approve-for-publication-claude.md",
+    );
+  });
+
+  it("does not claim the lesson is published -- reviewStatus stays in_review", () => {
+    expect(qa.reviewStatus).toBe("in_review");
   });
 
   it("keeps all three unresolved entries unchanged, including the still-blocking drawing", () => {
@@ -347,12 +386,25 @@ describe("P6-B2.2: Topic 2 lifecycle metadata", () => {
   });
 });
 
-describe("P6-B2.4B: the drawing's applied disposition never satisfies publication rules", () => {
-  it("keeps approvedForPublish false while a blocking item remains unresolved", () => {
+describe("P6-B2.4B: the drawing's applied disposition alone never grants publication", () => {
+  it("requires an explicit P6-B2.5 waiver naming the exact retained blocking item -- approvedForPublish is not an automatic side effect of applied", () => {
     expect(qa.unresolved.some((entry) => entry.severity === "blocking")).toBe(
       true,
     );
-    expect(qa.approvedForPublish).toBe(false);
+    // approvedForPublish is true now, but only because P6-B2.5 added a
+    // structured waiver that explicitly names T02-S01:d1402 as a
+    // retained/acknowledged blocking item -- the applied disposition
+    // itself never grants this on its own (there is no such rule
+    // anywhere in the validator), and the waiver's own
+    // unresolvedBlockingCount/acknowledgedBlockedItems fields are
+    // validator-checked against the real QA record, not merely asserted.
+    expect(qa.approvedForPublish).toBe(true);
+    expect(qa.publishWaiver?.acknowledgedBlockedItems).toContain(
+      "T02-S01:d1402",
+    );
+    expect(qa.publishWaiver?.unresolvedBlockingCount).toBe(
+      qa.unresolved.filter((entry) => entry.severity === "blocking").length,
+    );
   });
 
   it("does not use accepted-with-limitation vocabulary for the blocking item anywhere", () => {

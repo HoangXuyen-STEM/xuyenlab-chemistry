@@ -34,9 +34,9 @@ interface LessonFrontmatter {
 }
 
 interface SourceReference {
-  sourceId: string;       // ID from docs/source-manifest.csv
-  sourcePath: string;     // exact repository-relative source path
-  section: string;        // e.g. "Phần I > II. Cân bằng hóa học"
+  sourceId: string; // ID from docs/source-manifest.csv
+  sourcePath: string; // exact repository-relative source path
+  section: string; // e.g. "Phần I > II. Cân bằng hóa học"
 }
 ```
 
@@ -51,14 +51,14 @@ Rules:
 
 ## Supported MDX components
 
-| Component | Required properties | Purpose |
-|---|---|---|
-| `Example` | `title?` | groups problem, hint and solution |
-| `Hint` | none | collapsible hint |
-| `Solution` | none | collapsible worked solution |
+| Component    | Required properties                   | Purpose                             |
+| ------------ | ------------------------------------- | ----------------------------------- |
+| `Example`    | `title?`                              | groups problem, hint and solution   |
+| `Hint`       | none                                  | collapsible hint                    |
+| `Solution`   | none                                  | collapsible worked solution         |
 | `ChemFigure` | `src`, `alt`, `caption?`, `sourceId?` | consistent image and print behavior |
-| `DataTable` | normal table children, `caption?` | responsive/print-safe table wrapper |
-| `Callout` | `type`, `title?` | note, warning or definition |
+| `DataTable`  | normal table children, `caption?`     | responsive/print-safe table wrapper |
+| `Callout`    | `type`, `title?`                      | note, warning or definition         |
 
 Inline/display math uses KaTeX-compatible LaTeX. Chemical formulae and reactions use `mhchem` syntax when semantic conversion is reliable. Unsupported embedded objects use a `ChemFigure` fallback and must be listed in QA.
 
@@ -97,7 +97,10 @@ interface LessonQaRecord {
     // recorded rather than a fabricated time-of-day.
     authorizedDate: string;
     doesNotAuthorize: Array<
-      "published" | "productionDeployment" | "publicBucketAccess" | "automaticPublication"
+      | "published"
+      | "productionDeployment"
+      | "publicBucketAccess"
+      | "automaticPublication"
     >;
     remediationDebtRetained: true;
     unresolvedBlockingCount: number; // must equal unresolved.filter(blocking).length
@@ -210,10 +213,7 @@ lesson without one is unaffected by this section.
 // backward compatibility, not because any committed item uses it today.
 type LegacyRemediationStatus = "pending-owner-review" | "applied" | "blocked";
 type LegacyRemediationChoice =
-  | null
-  | "reviewed-latex-mdx"
-  | "reviewed-image-fallback"
-  | "remain-blocking";
+  null | "reviewed-latex-mdx" | "reviewed-image-fallback" | "remain-blocking";
 
 // P6-B1.3P addition:
 type RemediationStatus = LegacyRemediationStatus | "accepted-with-limitation";
@@ -319,23 +319,23 @@ items only):
   unchanged; no semantic alt text/accessibility/content remediation is
   implied.
 - `ownerDecision.altText`, `caption` and `reviewedLatex` must remain `null`.
-- Locked to the *original* failure-evidence fallback, not merely to some
+- Locked to the _original_ failure-evidence fallback, not merely to some
   asset that happens to be referenced somewhere in the MDX: the
   corresponding failure-report block must itself carry a `fallback` object;
   `previewPath` must equal `fallback.assetPath` exactly; `fallback.altText`
   must be a non-empty string; and the canonical MDX must contain one
   `ChemFigure` whose `src` and `alt` **both** match that exact
-  `assetPath`/`altText` pair on the *same* element — a `src` that matches on
+  `assetPath`/`altText` pair on the _same_ element — a `src` that matches on
   one `ChemFigure` and an `alt` that happens to match on a different one
   does not count, and neither does a `previewPath` that points at some
-  *other* image that is also legitimately referenced elsewhere in the same
+  _other_ image that is also legitimately referenced elsewhere in the same
   MDX. Attribute ordering and newlines inside the `ChemFigure` tag do not
   affect this check.
 
 This locks `owner-accepted-visible-fallback` to the specific asset and alt
 text the converter's own failure report already recorded, not to any
 image/text pair an editor could substitute later — the whole point of this
-choice is "the Owner reviewed *this exact* fallback," not "some acceptable
+choice is "the Owner reviewed _this exact_ fallback," not "some acceptable
 fallback exists somewhere in the lesson."
 
 Using either new choice for the other kind (e.g. `owner-accepted-visible-fallback`
@@ -359,7 +359,7 @@ the drawing/shape equivalent of the pre-existing `applied`/
 - `ownerDecision.decidedBy`, `decidedAt` and `qaNote` are required, as for
   every disposition.
 - `ownerDecision.altText` and `caption` are required (non-empty strings) —
-  unlike `accepted-with-limitation`, content *was* authored here, so these
+  unlike `accepted-with-limitation`, content _was_ authored here, so these
   describe the actual replacement, not a retained original.
 - `ownerDecision.reviewedLatex` must remain `null` — this choice is for an
   image/diagram replacement, not a formula recreation; `reviewed-latex-mdx`
@@ -492,10 +492,10 @@ or publication state.
   evidence.
 - **P6-B2.4B policy (2026-08-15):** the project owner authorized extending
   the legacy `applied`/`reviewed-image-fallback` pairing to `kind:
-  "drawing"` items specifically (see "Applied `reviewed-image-fallback`"
+"drawing"` items specifically (see "Applied `reviewed-image-fallback`"
   above), with the required fields and validator checks defined there.
   This followed a Phase 0 contract-discovery finding that no already-valid
-  path both records an Owner-approved visual replacement *and* removes the
+  path both records an Owner-approved visual replacement _and_ removes the
   item's fallback Callout for a `drawing` item: the pre-existing `applied`
   status only validated/tested `reviewed-latex-mdx` (formula recreation),
   and `reviewed-image-fallback` had only ever been used with `blocked`
@@ -509,4 +509,27 @@ or publication state.
   specific item is separate, later work, not done by this PR. See
   `docs/handoffs/P6/P6-B2.4B-policy-applied-drawing-fallback-claude.md`
   for the full Phase 0 discovery record and evidence.
-
+- **P6-B2.5 (2026-08-16):** the project owner explicitly authorized
+  `approvedForPublish: true` for a third `in_review` lesson —
+  `bang-tuan-hoan` (Chuyên đề 02) — the same T06/T08-style, per-lesson
+  exception to the "no blocking issue remains" clause above, not a
+  general loosening of it: one `unresolved` blocking item remains
+  (`T02-S01:d1402`, the native drawing's historical QA severity, retained
+  unchanged since its P6-B2.4B `applied`/`reviewed-image-fallback`
+  disposition — resolving the presentation issue does not itself clear
+  the QA record's own severity), alongside the lesson's two
+  `accepted-with-limitation` warnings (`T02-S01:i6022`, `T02-S01:t7931`).
+  Tracked in code as `P6_OWNER_APPROVED_PUBLISH_SLUGS` in
+  `scripts/validate-content/validate.py`, now naming all three lessons.
+  Like the P6.2 exception, this does not change lesson `status` away from
+  `in_review`, and does not authorize `published`, production deployment,
+  public bucket access, or automatic publication — those remain separate,
+  later Owner/P7 decisions. `bang-tuan-hoan`'s QA record carries the same
+  structured `publishWaiver` shape the P6.2 amendment defined, naming this
+  amendment, `unresolvedBlockingCount: 1`, and acknowledging
+  `T02-S01:d1402` as the retained blocked item (tracked in
+  `PUBLISH_WAIVER_REQUIRED_ACKNOWLEDGED_BLOCKED_ITEMS`, the same
+  discipline already used for `dung-dich-va-can-bang-hoa-hoc`'s
+  `T08-S01:e6352`). See
+  `docs/handoffs/P6/P6-B2.5-topic2-approve-for-publication-claude.md` for
+  full evidence.

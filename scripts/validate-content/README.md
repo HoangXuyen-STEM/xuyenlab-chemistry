@@ -18,13 +18,13 @@ baseline additionally requires an owner-signed QA record with `reviewer`, ISO-86
 later publication gate. A passing result confirms structural integrity and recorded
 approval, not independent chemical correctness.
 
-`approvedForPublish` must be `false` for every lesson except the pilots the project
-owner explicitly authorized under P6.2
-(`P6_OWNER_APPROVED_PUBLISH_SLUGS` in `validate.py`), which may be `true` while
-remaining `in_review` and while blocking QA items are still pending owner review, as
-long as the reviewer/reviewedAt/checks and visible-blocker requirements above still
-hold. This does not mark those lessons `published`; only the project owner may do
-that.
+`approvedForPublish` must be `false` for every lesson except the ones the project
+owner has individually named as an approved exception
+(`P6_OWNER_APPROVED_PUBLISH_SLUGS` in `validate.py` — currently the two P6.2
+pilots plus `bang-tuan-hoan`, P6-B2.5), which may be `true` while remaining
+`in_review` and while blocking QA items are retained/acknowledged, as long as the
+reviewer/reviewedAt/checks and visible-blocker requirements above still hold. This
+does not mark those lessons `published`; only the project owner may do that.
 
 For those lessons, `approvedForPublish: true` additionally requires a structured
 `publishWaiver` object on the same QA record — the source of truth carries the
@@ -47,8 +47,10 @@ QA record. A `publishWaiver` must have:
 - `acknowledgedBlockedItems`, a string array of `unresolved` ids that must include
   any lesson-specific ids `PUBLISH_WAIVER_REQUIRED_ACKNOWLEDGED_BLOCKED_ITEMS`
   names for that `lessonSlug` (currently `T08-S01:e6352` for
-  `dung-dich-va-can-bang-hoa-hoc`) and must not reference an id absent from
-  `unresolved`;
+  `dung-dich-va-can-bang-hoa-hoc`, and `T02-S01:d1402` for `bang-tuan-hoan`
+  — P6-B2.5, the drawing's retained historical QA severity after its
+  P6-B2.4B `applied`/`reviewed-image-fallback` disposition) and must not
+  reference an id absent from `unresolved`;
 - `reference.contractAmendment` and `reference.handoff`, each a repository-relative
   path (optionally with a `#fragment`) that must point to a file that actually
   exists.

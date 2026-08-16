@@ -40,10 +40,16 @@ QA_CHECKS = {
     "mobileVerified",
     "printVerified",
 }
-# P6.2: the project owner explicitly authorized approvedForPublish: true for
-# exactly these two in_review pilot lessons, despite remaining pending-owner-review
-# blocking items. Every other lesson keeps the P4 "must stay false" rule.
-P6_OWNER_APPROVED_PUBLISH_SLUGS = {"dong-hoa-hoc", "dung-dich-va-can-bang-hoa-hoc"}
+# P6.2 (dong-hoa-hoc, dung-dich-va-can-bang-hoa-hoc) and P6-B2.5
+# (bang-tuan-hoan): the project owner explicitly authorized
+# approvedForPublish: true for exactly these named in_review lessons,
+# despite each retaining unresolved blocking items. Every other lesson
+# keeps the P4 "must stay false" rule.
+P6_OWNER_APPROVED_PUBLISH_SLUGS = {
+    "dong-hoa-hoc",
+    "dung-dich-va-can-bang-hoa-hoc",
+    "bang-tuan-hoan",
+}
 # P6.2 follow-up: approvedForPublish: true additionally requires a structured
 # qa.publishWaiver recording the exception at its source, so the reason it is
 # permitted is visible directly on the QA record, not only in the contract/handoff.
@@ -59,6 +65,7 @@ PUBLISH_WAIVER_DOES_NOT_AUTHORIZE = {
 # ids in their waiver (a subset check; other unresolved ids need no such mention).
 PUBLISH_WAIVER_REQUIRED_ACKNOWLEDGED_BLOCKED_ITEMS: dict[str, set[str]] = {
     "dung-dich-va-can-bang-hoa-hoc": {"T08-S01:e6352"},
+    "bang-tuan-hoan": {"T02-S01:d1402"},
 }
 # P6-B1.3P: operational teaching acceptance vocabulary for
 # content/qa/pending/<slug>.remediation-queue.json entries. Additive only —

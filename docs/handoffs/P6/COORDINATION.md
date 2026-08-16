@@ -2,8 +2,9 @@
 
 - Baseline for the completed Topic 2 loop (B1a integration + B2.0 import +
   B2.1 presentation audit + B2.2 Owner QA + B2.3 integration close-out +
-  B2.4A candidate diagram + B2.4B policy amendment): `main` at
-  `33ba8b0fe4968c0000d0fb7711cf074da3b2b181` (PR #47 merged).
+  B2.4A candidate diagram + B2.4B policy amendment + B2.4B content
+  applied): `main` at `fbbb97b05eced6b72f894f8319db55fbb508b7b3` (PR #48
+  merged).
 - First micro-batch: Topic 24 — **complete through P6-B1.5 integration**.
 - P6-B1.5 is **complete**. Its verdict was **Topic 2 verdict: NOT READY TO
   IMPORT**, pending a bounded, read-only Part I object inventory — see
@@ -52,44 +53,61 @@
 - **P6-B2.4B (content)** then applied that newly-authorized combination to
   the real `T02-S01:d1402` item: `status: "applied"`, `remediationChoice:
 "reviewed-image-fallback"`, the warning Callout removed, the candidate
-  `ChemFigure` (unchanged from PR #46) now the live replacement. This is
-  **complete in PR #48 and awaiting merge** — not yet on `main`. Still not
-  a publication decision: `approvedForPublish` stays `false`,
-  `blockingCount`/`warningCount` stay `1`/`2` (frozen historical
-  import-time metrics, per contract). See
+  `ChemFigure` (unchanged from PR #46) now the live replacement. **Merged
+  on `main` at `fbbb97b`** (PR #48). This closed the Topic 2 loop
+  (P6-B2.0 → P6-B2.4B) with zero remaining structurally-blocking
+  presentation gaps for staging/teacher-led use. See
   `docs/handoffs/P6/P6-B2.4B-content-topic2-drawing-applied-claude.md`.
+- **P6-B2.5** then added a fourth, separate step: the Owner explicitly
+  chose the same T06/T08-style (P6.2) publish-exception path for Topic 2
+  (option A), after rejecting "production now." `bang-tuan-hoan` gets
+  `approvedForPublish: true` plus a structured `publishWaiver` naming
+  `T02-S01:d1402` as its one retained/acknowledged blocking item — the
+  same governance mechanism, contract amendment and validator allowlist
+  already proven for T06/T08, extended to name a third lesson. This is
+  **complete in PR #49 and awaiting merge** — not yet on `main`. **This
+  is not `status: "published"`, not production deployment, not
+  public bucket access, and not automatic publication** — the staging
+  banner still reads `in_review`/`chưa xuất bản`, and `d1402` stays in
+  `unresolved` at `severity: "blocking"` exactly as before. See
+  `docs/handoffs/P6/P6-B2.5-topic2-approve-for-publication-claude.md`.
 - Current gate is **no longer** "Topic 2 not ready to import" (superseded by
   P6-B2.0), **no longer** "Owner QA for Topic 2" (satisfied by P6-B2.2), and
-  once the P6-B2.4B content PR merges, the Topic 2 loop (P6-B2.0 →
-  P6-B2.4B) is fully closed with zero remaining structurally-blocking
-  presentation gaps for staging/teacher-led use. The current gate is
-  entirely **Owner discretion**: whether to import a further topic (a
-  fresh Owner decision and its own bounded preflight, not authorized by
-  any task so far). None of this is required, and **this is not a
-  publication gate**: `approvedForPublish` stays `false` regardless of
-  what the Owner later chooses.
+  the Topic 2 presentation/publish-governance loop (P6-B2.0 → P6-B2.5) is
+  fully closed once the P6-B2.5 PR merges — Topic 2 then sits in the exact
+  same governance state as T06/T08. The current gate is entirely **Owner
+  discretion**: whether to import a further topic (a fresh Owner decision
+  and its own bounded preflight, not authorized by any task so far), or a
+  future, separate, explicit P7 production/public-access decision. None of
+  this is required, and **none of P6-B2.0 through P6-B2.5 is a
+  publication or production decision**: no lesson's `status` is
+  `published`, and P7 remains an entirely separate later gate.
 
-## Current integrated state (2026-08-15)
+## Current integrated state (2026-08-16)
 
 - P6-B1.0 through P6-B1.5, P6-B2.0, P6-B2.1, P6-B2.2, P6-B2.3, P6-B2.4A and
-  P6-B2.4B (policy) are merged on `main`; their handoffs remain the
-  canonical task evidence. **The P6-B2.4B content PR (#48) is open, not
-  yet merged** — see that PR before assuming `T02-S01:d1402` is already
-  `applied` on `main`.
-- T06 and T08 are each `in_review` in their own manifest/MDX/QA records.
+  P6-B2.4B (policy + content) are merged on `main`; their handoffs remain
+  the canonical task evidence. **The P6-B2.5 PR (#49) is open, not yet
+  merged** — see that PR before assuming `bang-tuan-hoan` already carries
+  `approvedForPublish: true`/a `publishWaiver` on `main`.
+- T06 and T08 are each `in_review`, `approvedForPublish: true` with a
+  structured `publishWaiver` (the original P6.2 exception).
 - T24 is `in_review` with three visible, source-traceable
   `accepted-with-limitation` warnings; its `approvedForPublish` remains
-  `false`.
+  `false` — it is not a named publish exception.
 - T02 (`chuyen-de-02/bang-tuan-hoan`) is `in_review` on `main` as of
-  `33ba8b0`, 1 blocking + 2 warning items (frozen historical metric): the
-  image and table are `accepted-with-limitation` (2); the drawing is still
-  `blocked`/`remain-blocking` **on `main`** (severity `blocking`), with
-  its Callout still visible there — the P6-B2.4B content PR (not yet
-  merged) is what promotes it to `applied`/`reviewed-image-fallback` and
-  removes the Callout. QA is signed (7/7 checks, reviewer/reviewedAt set);
-  `approvedForPublish` stays `false`; no `publishWaiver`.
-- All four manifest lessons (T02, T06, T08, T24) are now `in_review`; none
-  is `published`.
+  `fbbb97b`, 1 blocking + 2 warning items (frozen historical metric): the
+  image and table are `accepted-with-limitation` (2); the drawing is
+  `applied`/`reviewed-image-fallback` (1) — the warning Callout is gone,
+  the Owner-approved candidate SVG (PR #46) is the live replacement, and
+  the item stays in QA `unresolved` at `severity: "blocking"` (P6-B2.4B
+  did not clear it, only P6-B2.4A/B resolved the presentation). QA is
+  signed (7/7 checks, reviewer/reviewedAt set). **On `main` right now**:
+  `approvedForPublish` is still `false`, no `publishWaiver` — PR #49 (not
+  yet merged) is what adds the T06/T08-style exception naming
+  `T02-S01:d1402` as the retained/acknowledged blocking item.
+- All four manifest lessons (T02, T06, T08, T24) are `in_review`; none is
+  `published`.
 - P6 as a whole remains in progress. Do **not** create `docs/handoffs/P6/SUMMARY.md`
   until the project owner closes the whole expansion phase, rather than only B1a.
 
@@ -345,8 +363,35 @@
   contract/validator changes (policy already merged), T06/T08/T24 edits,
   re-import, R2, P7, any chemistry rewrite beyond the Callout removal
   itself.
-- Status: complete in PR #48, **not yet merged**.
+- Status: **merged on `main` at `fbbb97b`** (PR #48).
 - Handoff: `docs/handoffs/P6/P6-B2.4B-content-topic2-drawing-applied-claude.md`.
+
+## P6-B2.5 — Owner approval for later publication (P6.2-style) for Topic 2
+
+- Owner: the Owner chose option A (T06/T08-style approval path) on
+  2026-08-16, after explicitly rejecting "production now" — wants
+  governance parity with T06/T08, not a P7 production decision. Claude
+  Code implements the recording.
+- Prerequisite: P6-B2.4B (content) merged on `main` (the drawing already
+  `applied`, Callout already gone).
+- Deliverable: `bang-tuan-hoan` gets `approvedForPublish: true` plus a
+  structured `publishWaiver` (same shape as the T06/T08 P6.2 exception)
+  naming `T02-S01:d1402` as its one retained/acknowledged blocking item;
+  `P6_OWNER_APPROVED_PUBLISH_SLUGS` and
+  `PUBLISH_WAIVER_REQUIRED_ACKNOWLEDGED_BLOCKED_ITEMS` in `validate.py`
+  extended to name the third lesson; a new dated Amendments entry in
+  `docs/contracts/content.md`.
+- Acceptance: `content:validate` passes on the first attempt; QA
+  `unresolved`/`checks`/`reviewer`/`reviewedAt`/`reviewStatus` and the
+  drawing's `applied` disposition all stay byte-unchanged; the staging
+  banner still reads `in_review`/`chưa xuất bản`, never "published"; a
+  non-allowlisted lesson still cannot set `approvedForPublish: true`
+  (negative control proving the allowlist gate itself still works).
+- Excluded: `status: "published"` on any lesson, any MDX/fixture-body/SVG/
+  public-asset edit, T06/T08/T24 content changes, R2/deploy/auth/
+  package/lockfile changes, any chemistry rewrite.
+- Status: complete in PR #49, **not yet merged**.
+- Handoff: `docs/handoffs/P6/P6-B2.5-topic2-approve-for-publication-claude.md`.
 
 ## Shared gates
 
