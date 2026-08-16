@@ -183,11 +183,12 @@ describe("P6-B2.2: Topic 2 remediation queue dispositions", () => {
     );
   });
 
-  it("keeps the drawing blocked with remain-blocking, NOT accepted-with-limitation", () => {
+  it("applies the drawing with reviewed-image-fallback, NOT accepted-with-limitation (P6-B2.4B)", () => {
     const drawing = queue.find((item) => item.issueId === "T02-S01:d1402")!;
-    expect(drawing.status).toBe("blocked");
-    expect(drawing.remediationChoice).toBe("remain-blocking");
+    expect(drawing.status).toBe("applied");
+    expect(drawing.remediationChoice).toBe("reviewed-image-fallback");
     expect(drawing.status).not.toBe("accepted-with-limitation");
+    expect(drawing.status).not.toBe("blocked");
     expect(drawing.remediationChoice).not.toBe(
       "owner-accepted-visible-fallback",
     );
@@ -196,19 +197,32 @@ describe("P6-B2.2: Topic 2 remediation queue dispositions", () => {
     expect(drawing.ownerDecision.decidedBy).toBe("Thầy Xuyên (Project Owner)");
     expect(drawing.ownerDecision.decidedAt).toBe("2026-08-15");
     expect(drawing.ownerDecision.qaNote).toContain(
-      "accepts the existing visible Callout fallback",
+      "Owner visually approved the B2.4A candidate SVG (PR #46)",
     );
     expect(drawing.ownerDecision.qaNote).toContain(
-      "this is not a publication bypass",
+      "Not a publication approval",
     );
+    expect(drawing.previewPath).toBe(
+      "/staging-assets/lessons/51/518163475c46c8fb17d9e41e50048e535453ab66823d2b0ab7c5aada28d6fc18.svg",
+    );
+    expect(drawing.ownerDecision.reviewedLatex).toBeNull();
   });
 
-  it("keeps ownerDecision.altText, caption and reviewedLatex null for all three items", () => {
-    for (const item of queue) {
-      expect(item.ownerDecision.altText, item.issueId).toBeNull();
-      expect(item.ownerDecision.caption, item.issueId).toBeNull();
-      expect(item.ownerDecision.reviewedLatex, item.issueId).toBeNull();
+  it("keeps ownerDecision.altText/caption null for the two accepted-with-limitation items, but populated (matching the live ChemFigure) for the applied drawing (P6-B2.4B)", () => {
+    for (const issueId of ["T02-S01:i6022", "T02-S01:t7931"]) {
+      const item = queue.find((entry) => entry.issueId === issueId)!;
+      expect(item.ownerDecision.altText, issueId).toBeNull();
+      expect(item.ownerDecision.caption, issueId).toBeNull();
+      expect(item.ownerDecision.reviewedLatex, issueId).toBeNull();
     }
+
+    const drawing = queue.find((item) => item.issueId === "T02-S01:d1402")!;
+    expect(drawing.ownerDecision.altText).toBe(
+      "Sơ đồ quan hệ: từ cấu tạo nguyên tử xác định vị trí nguyên tố trong bảng tuần hoàn và ngược lại; từ cấu tạo nguyên tử và vị trí xác định tính chất của nguyên tố.",
+    );
+    expect(drawing.ownerDecision.caption).toBe(
+      "Nguồn T02-S01, hình vẽ tái tạo (thay AutoShape Word T02-S01:d1402)",
+    );
   });
 
   it("does not add a discussionPrompt to any item (no concrete prompt was authorized)", () => {
@@ -286,7 +300,7 @@ describe("P6-B2.2: Topic 2 lifecycle metadata", () => {
     expect(full.manifestVersion).toBe("1.1.0");
   });
 
-  it("did not change the Chemistry body, table, ChemFigure src/alt/caption, or the blocking Callout", () => {
+  it("did not change the Chemistry body, table, or the original accepted image ChemFigure src/alt/caption", () => {
     const mdx = readFileSync(
       path.join(repoRoot, "content/topics/chuyen-de-02/bang-tuan-hoan.mdx"),
       "utf8",
@@ -305,14 +319,35 @@ describe("P6-B2.2: Topic 2 lifecycle metadata", () => {
       'alt="Hình trích từ DOCX; cần chủ dự án bổ sung mô tả"',
     );
     expect(mdx).toContain('caption="Nguồn T02-S01, hình 1"');
-    expect(mdx).toContain(
+  });
+
+  it("removed the drawing's warning Callout, keeping the applied candidate ChemFigure byte-identical to the PR #46 candidate and the issueId still traceable (P6-B2.4B)", () => {
+    const mdx = readFileSync(
+      path.join(repoRoot, "content/topics/chuyen-de-02/bang-tuan-hoan.mdx"),
+      "utf8",
+    );
+    expect(mdx).not.toContain(
       '<Callout type="warning" title="Hình vẽ Word cần biên tập">',
     );
-    expect(mdx).toContain("Chưa chuyển hình vẽ `T02-S01:d1402` (số 1).");
+    expect(mdx).not.toContain("Chưa chuyển hình vẽ `T02-S01:d1402` (số 1).");
+
+    expect(mdx).toContain(
+      'src="/staging-assets/lessons/51/518163475c46c8fb17d9e41e50048e535453ab66823d2b0ab7c5aada28d6fc18.svg"',
+    );
+    expect(mdx).toContain(
+      'alt="Sơ đồ quan hệ: từ cấu tạo nguyên tử xác định vị trí nguyên tố trong bảng tuần hoàn và ngược lại; từ cấu tạo nguyên tử và vị trí xác định tính chất của nguyên tố."',
+    );
+    expect(mdx).toContain(
+      'caption="Nguồn T02-S01, hình vẽ tái tạo (thay AutoShape Word T02-S01:d1402)"',
+    );
+    // The blocking issueId must still be visibly traceable in the MDX body
+    // (validate.py's pre-existing "hidden unresolved blocking issue" rule) --
+    // the candidate ChemFigure's own caption already carries it.
+    expect(mdx).toContain("T02-S01:d1402");
   });
 });
 
-describe("P6-B2.2: the drawing's blocked disposition never satisfies publication rules", () => {
+describe("P6-B2.4B: the drawing's applied disposition never satisfies publication rules", () => {
   it("keeps approvedForPublish false while a blocking item remains unresolved", () => {
     expect(qa.unresolved.some((entry) => entry.severity === "blocking")).toBe(
       true,
