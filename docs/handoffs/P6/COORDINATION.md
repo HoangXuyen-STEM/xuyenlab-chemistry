@@ -65,8 +65,8 @@
   `T02-S01:d1402` as its one retained/acknowledged blocking item — the
   same governance mechanism, contract amendment and validator allowlist
   already proven for T06/T08, extended to name a third lesson. This is
-  **complete in a follow-on PR and awaiting merge** — not yet on `main`.
-  **This is not `status: "published"`, not production deployment, not
+  **complete in PR #49 and awaiting merge** — not yet on `main`. **This
+  is not `status: "published"`, not production deployment, not
   public bucket access, and not automatic publication** — the staging
   banner still reads `in_review`/`chưa xuất bản`, and `d1402` stays in
   `unresolved` at `severity: "blocking"` exactly as before. See
@@ -87,8 +87,8 @@
 
 - P6-B1.0 through P6-B1.5, P6-B2.0, P6-B2.1, P6-B2.2, P6-B2.3, P6-B2.4A and
   P6-B2.4B (policy + content) are merged on `main`; their handoffs remain
-  the canonical task evidence. **The P6-B2.5 PR is open, not yet merged**
-  — see that PR before assuming `bang-tuan-hoan` already carries
+  the canonical task evidence. **The P6-B2.5 PR (#49) is open, not yet
+  merged** — see that PR before assuming `bang-tuan-hoan` already carries
   `approvedForPublish: true`/a `publishWaiver` on `main`.
 - T06 and T08 are each `in_review`, `approvedForPublish: true` with a
   structured `publishWaiver` (the original P6.2 exception).
@@ -103,8 +103,8 @@
   the item stays in QA `unresolved` at `severity: "blocking"` (P6-B2.4B
   did not clear it, only P6-B2.4A/B resolved the presentation). QA is
   signed (7/7 checks, reviewer/reviewedAt set). **On `main` right now**:
-  `approvedForPublish` is still `false`, no `publishWaiver` — the P6-B2.5
-  PR (not yet merged) is what adds the T06/T08-style exception naming
+  `approvedForPublish` is still `false`, no `publishWaiver` — PR #49 (not
+  yet merged) is what adds the T06/T08-style exception naming
   `T02-S01:d1402` as the retained/acknowledged blocking item.
 - All four manifest lessons (T02, T06, T08, T24) are `in_review`; none is
   `published`.
@@ -390,6 +390,7 @@
 - Excluded: `status: "published"` on any lesson, any MDX/fixture-body/SVG/
   public-asset edit, T06/T08/T24 content changes, R2/deploy/auth/
   package/lockfile changes, any chemistry rewrite.
+- Status: complete in PR #49, **not yet merged**.
 - Handoff: `docs/handoffs/P6/P6-B2.5-topic2-approve-for-publication-claude.md`.
 
 ## Shared gates
