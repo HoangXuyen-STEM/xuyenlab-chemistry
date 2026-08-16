@@ -185,12 +185,31 @@ describe("P4 pilot content regression", () => {
         ).toContain(entry.issueId);
 
         if (entry.status === "applied") {
-          expect(entry.remediationChoice, entry.issueId).toBe(
-            "reviewed-latex-mdx",
-          );
+          // Two recognized "applied" choices (docs/contracts/content.md
+          // "Remediation queue" / "Applied reviewed-image-fallback",
+          // P6-B2.4B): "reviewed-latex-mdx" for a formula recreation (the
+          // only one with real committed use so far, T06) and
+          // "reviewed-image-fallback" for a drawing/shape visual
+          // replacement (kind: "drawing" only) -- distinct from the
+          // pre-existing "blocked"/"reviewed-image-fallback" pairing below,
+          // which records a reviewed-but-not-yet-finalized candidate.
+          expect(
+            ["reviewed-latex-mdx", "reviewed-image-fallback"],
+            entry.issueId,
+          ).toContain(entry.remediationChoice);
           expect(entry.ownerDecision.decidedBy, entry.issueId).toBeTruthy();
           expect(entry.ownerDecision.decidedAt, entry.issueId).toBeTruthy();
-          expect(entry.ownerDecision.reviewedLatex, entry.issueId).toBeTruthy();
+          if (entry.remediationChoice === "reviewed-latex-mdx") {
+            expect(
+              entry.ownerDecision.reviewedLatex,
+              entry.issueId,
+            ).toBeTruthy();
+          } else if (entry.remediationChoice === "reviewed-image-fallback") {
+            expect(entry.kind, entry.issueId).toBe("drawing");
+            expect(entry.ownerDecision.altText, entry.issueId).toBeTruthy();
+            expect(entry.ownerDecision.caption, entry.issueId).toBeTruthy();
+            expect(entry.ownerDecision.reviewedLatex, entry.issueId).toBeNull();
+          }
           expect(
             matchingCallouts,
             `${entry.issueId} was applied and must not remain a fallback Callout`,
@@ -275,7 +294,10 @@ interface PendingQaRecord {
 
 interface RemediationQueueEntry {
   issueId: string;
+  kind: string;
   ownerDecision: {
+    altText: string | null;
+    caption: string | null;
     decidedAt: string | null;
     decidedBy: string | null;
     qaNote: string | null;

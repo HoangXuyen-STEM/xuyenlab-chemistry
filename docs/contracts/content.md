@@ -343,6 +343,53 @@ on a `table` item) is rejected. Extending either choice to a kind beyond its
 initial supported use, or adding a new choice, requires a later contract
 amendment — this section intentionally does not generalize silently.
 
+### Applied `reviewed-image-fallback` (initial supported use: `kind: "drawing"` items only)
+
+This is a distinct pairing from the pre-existing legacy `blocked`/
+`reviewed-image-fallback` combination (the Owner reviewed a candidate
+replacement but the item could not yet be finalized — see the real
+`T08-S01:e6352` precedent, which stays `blocked` because no browser-safe
+asset preserving the original diagram could be produced). `status:
+"applied"` + `remediationChoice: "reviewed-image-fallback"` instead records
+that the Owner approved a **completed** visual replacement for a native,
+non-extractable drawing/shape and it is now live in the canonical MDX —
+the drawing/shape equivalent of the pre-existing `applied`/
+`reviewed-latex-mdx` pairing for formula recreation.
+
+- `ownerDecision.decidedBy`, `decidedAt` and `qaNote` are required, as for
+  every disposition.
+- `ownerDecision.altText` and `caption` are required (non-empty strings) —
+  unlike `accepted-with-limitation`, content *was* authored here, so these
+  describe the actual replacement, not a retained original.
+- `ownerDecision.reviewedLatex` must remain `null` — this choice is for an
+  image/diagram replacement, not a formula recreation; `reviewed-latex-mdx`
+  remains the applied choice for that case.
+- `previewPath` is required (a non-empty string) and identifies the
+  replacement asset.
+- The canonical MDX must contain exactly one `ChemFigure` whose `src`,
+  `alt` and `caption` all match `previewPath`/`ownerDecision.altText`/
+  `ownerDecision.caption` exactly, on the same element — the same
+  single-element pairing discipline `owner-accepted-visible-fallback` uses
+  above.
+- The item's fallback Callout must no longer be present in the MDX body —
+  the same rule the pre-existing `applied`/`reviewed-latex-mdx` pairing
+  already enforces for a resolved item.
+- The item remains in the QA record's `unresolved` array at its original
+  `severity`, exactly like every other `applied` item (proven by
+  `T06-S01`'s four `reviewed-latex-mdx` items, still listed in
+  `unresolved` at `severity: "blocking"` today): `unresolved` is a fixed
+  historical record of every converter-flagged item, not a live
+  remediation ledger. `blockingCount`/`warningCount` do not change either
+  (see "Staging manifest" above — both are explicitly historical
+  import-time metrics, not live remediation state).
+- This status has no automatic effect on lesson `status`, `checks`,
+  `approvedForPublish`, `publishWaiver`, or `published` — a resolved
+  drawing does not itself authorize publication.
+
+Extending this pairing to another kind requires a later contract amendment
+— this section intentionally does not generalize silently, the same
+discipline the two choices above already follow.
+
 ### Discussion prompt
 
 `discussionPrompt` is optional on any remediation item. It **may be
@@ -443,4 +490,23 @@ or publication state.
   `scripts/validate-content/README.md` and
   `docs/handoffs/P6/P6-B1.3P-claude.md` for the validator rules and
   evidence.
+- **P6-B2.4B policy (2026-08-15):** the project owner authorized extending
+  the legacy `applied`/`reviewed-image-fallback` pairing to `kind:
+  "drawing"` items specifically (see "Applied `reviewed-image-fallback`"
+  above), with the required fields and validator checks defined there.
+  This followed a Phase 0 contract-discovery finding that no already-valid
+  path both records an Owner-approved visual replacement *and* removes the
+  item's fallback Callout for a `drawing` item: the pre-existing `applied`
+  status only validated/tested `reviewed-latex-mdx` (formula recreation),
+  and `reviewed-image-fallback` had only ever been used with `blocked`
+  (`T08-S01:e6352`, which stays blocked for unrelated font-rendering
+  reasons, not because the pairing itself forbids resolution). This is a
+  **capability amendment only**: it does not itself change any committed
+  remediation-queue item. `T02-S01:d1402` (Topic 2's still-blocking native
+  drawing, for which the Owner separately approved a print-safe SVG
+  recreation in PR #46) remains `blocked`/`remain-blocking` on `main`
+  after this amendment; applying the newly authorized combination to that
+  specific item is separate, later work, not done by this PR. See
+  `docs/handoffs/P6/P6-B2.4B-policy-applied-drawing-fallback-claude.md`
+  for the full Phase 0 discovery record and evidence.
 

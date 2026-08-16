@@ -179,10 +179,62 @@ Rejected:
 Rejected: `owner-accepted-source-fidelity` requires
 `status: "accepted-with-limitation"`.
 
+## Applied `reviewed-image-fallback` for drawings (P6-B2.4B)
+
+`validate.py` also validates one specific legacy combination beyond the new
+vocabulary above: `status: "applied"` + `remediationChoice:
+"reviewed-image-fallback"`, for `kind: "drawing"` items only. Every other
+legacy status/choice combination is still left exactly as unvalidated as
+before. See `docs/contracts/content.md` "Applied `reviewed-image-fallback`"
+for the full prose.
+
+This records that the Owner approved a **completed** visual replacement for
+a native, non-extractable drawing/shape, now live in the MDX — the
+drawing/shape equivalent of the pre-existing `applied`/`reviewed-latex-mdx`
+pairing for formula recreation. It is a distinct thing from the
+pre-existing `blocked`/`reviewed-image-fallback` pairing (a reviewed
+candidate that could not yet be finalized, e.g. `T08-S01:e6352`).
+
+For this combination, the validator requires:
+
+- `kind` is exactly `"drawing"`;
+- `ownerDecision.decidedBy`, `decidedAt` and `qaNote` as for every
+  disposition;
+- `ownerDecision.altText` and `caption` are **non-empty** (unlike
+  `accepted-with-limitation`, content *was* authored here);
+- `ownerDecision.reviewedLatex` is `null` (this is an image/diagram
+  replacement, not a formula recreation);
+- `previewPath` is a non-empty string;
+- the canonical MDX contains exactly one `ChemFigure` whose `src`, `alt`
+  and `caption` all match `previewPath`/`ownerDecision.altText`/
+  `ownerDecision.caption` exactly, on the same element;
+- the item's fallback Callout is **no longer present** in the MDX body
+  (mirrors the existing `applied`/`reviewed-latex-mdx` rule);
+- the item stays in QA `unresolved` and the failure report at its original
+  `severity`, `sourceLocator`, `issueCode`, `sourceId` — same
+  cross-reference discipline as `accepted-with-limitation`.
+
+This status has no automatic effect on lesson `status`, QA `checks`,
+`approvedForPublish`, `publishWaiver`, or `published`. `blockingCount`/
+`warningCount` never change under this or any disposition — they are a
+historical import-time metric (see "Staging manifest" in
+`docs/contracts/content.md`), not a live remediation ledger.
+
+Automated coverage: `tests/content/operational-acceptance.test.ts`
+("P6-B2.4B: applied reviewed-image-fallback (kind: drawing)") exercises
+this combination against a real, isolated, importer-generated synthetic
+corpus — one positive case and six negative cases (wrong kind, missing
+altText/caption/previewPath, non-null `reviewedLatex`, a mismatched
+ChemFigure, a Callout left in place, and the item missing from QA
+`unresolved`/the failure report) — run under `npm run verify` in CI. This
+is a capability amendment only: as of P6-B2.4B, no real committed
+remediation-queue item uses this combination yet.
+
 ### Non-authorization
 
 `accepted-with-limitation` and `discussionPrompt` do **not** authorize
 `approvedForPublish`, `published`, production deployment, R2, or P7 work —
 those remain governed entirely by the existing rules above (`published`
 lifecycle gate, the P6.2 `publishWaiver` exception) and by
-`docs/handoffs/P6/COORDINATION.md`'s phase gates.
+`docs/handoffs/P6/COORDINATION.md`'s phase gates. The same applies to
+`applied`/`reviewed-image-fallback` above.
