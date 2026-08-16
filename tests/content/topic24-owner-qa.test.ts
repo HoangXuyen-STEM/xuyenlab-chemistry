@@ -305,7 +305,7 @@ describe("P6-B1.4: T06/T08 preserved exactly", () => {
         "3cba350fc6b3f866599005a9ec4954fb660aa3ed3c3da4cbf10289fd57d1e7d6",
       mdxPath: "content/topics/chuyen-de-06/dong-hoa-hoc.mdx",
       mdxSha256:
-        "c9fb96888559fd932ce3e2385832a26c2fd17c83e92e344e9686c27fb7195f86",
+        "e70b2ea90b2441e623573622dc8d2175a4e0682908fcf02fb75c06c7a00157ef",
       qaPath: "content/qa/pending/dong-hoa-hoc.json",
       qaSha256:
         "cab856f5ac0529b052c9cfe58de96beea09584ae557e49ea953408ae2b474343",

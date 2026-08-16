@@ -157,35 +157,65 @@ $$v = -\dfrac{1}{2}\dfrac{dC_{\text{SO}_2}}{dt} = -\dfrac{dC_{\text{O}_2}}{dt} =
 
 ## 3. Hằng số tốc độ phản ứng
 
-- Từ thực nghiệm, một quy luật được phát hiện là: Tốc độ của một phản ứng tỉ lệ với tích số nồng độ tại thời điểm đang xét của các chất tham gia, mỗi nông độ đó trong trường hợp đơn giản - có số mũ bằng đúng hệ số các chất trong phản ứng. Đó là nội dung của định luật tác dụng khối lượng do hai nhà bác học Nauy là G.Guldberg và P.Waage đưa ra vào năm 1867.
+<Callout type="definition" title="Định luật tác dụng khối lượng">
+  Tốc độ phản ứng tỉ lệ với tích nồng độ các chất tham gia, mỗi nồng độ có số mũ
+  bằng hệ số của chất đó trong phương trình phản ứng. Định luật do G. Guldberg
+  và P. Waage đưa ra năm 1867.
+</Callout>
 
-Đối với phản ứng:
-
-aA + bB C + dD
-
-Ta có:
-
-(\*)
+Với phản ứng tổng quát $aA + bB \rightarrow cC + dD$, biểu thức tốc độ là:
 
 {/* T06-S01:e4184 */}
 
 $$v = k C_A^a C_B^b$$
 
-Trong đó: CA, CB là nồng độ chất A và B tại thời điểm đang xét.
+<DataTable>
+  <thead>
+    <tr>
+      <th>Ký hiệu</th>
+      <th>Ý nghĩa</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <Math formula="C_A,\ C_B" />
+      </td>
+      <td>nồng độ chất A, B tại thời điểm đang xét</td>
+    </tr>
+    <tr>
+      <td>
+        <Math formula="a,\ b" />
+      </td>
+      <td>hệ số của A, B trong phương trình phản ứng</td>
+    </tr>
+    <tr>
+      <td>
+        <Math formula="k" />
+      </td>
+      <td>hằng số tốc độ phản ứng</td>
+    </tr>
+  </tbody>
+</DataTable>
 
-a, b là hệ số tương ứng của chất A, chất B trong phương trình phản ứng.
+<Callout type="note" title="Hằng số tốc độ k">
 
-k là hằng số tốc độ của phản ứng; k càng lớn tốc độ phản ứng càng lớn. Hằng số k phụ thuộc vào bản chất của phản ứng, vào nhiệt độ, vào dung môi và vào chất xúc tác.
+- $k$ càng lớn, phản ứng xảy ra càng nhanh.
+- $k$ phụ thuộc bản chất phản ứng, nhiệt độ, dung môi và chất xúc tác — không
+  phụ thuộc nồng độ.
 
-Biểu thức (\*) được gọi là phương trình động học của phản ứng hóa học. Mỗi phản ứng hóa học có một phương trình động học tương ứng.
+</Callout>
+
+Biểu thức trên gọi là **phương trình động học** của phản ứng.
 
 ## 4. Bậc phản ứng. Một số phản ứng đơn giản
 
-a) Bậc phản ứng
+### 4a. Bậc phản ứng
 
-Bậc riêng phần của phản ứng là trị số riêng rẽ của từng số mũ a, b, ... trong phương trình động học.
-
-Bậc toàn phần của một phản ứng là tổng các số mũ của các chất trong phương trình động học của phản ứng đó.
+<Callout type="definition" title="Bậc phản ứng">
+  Bậc riêng phần là số mũ của một chất trong phương trình động học. Bậc toàn
+  phần là tổng các số mũ của mọi chất trong phương trình đó.
+</Callout>
 
 Giả sử có phản ứng:
 
@@ -193,123 +223,108 @@ Giả sử có phản ứng:
 
 $$aA + bB \rightarrow \text{Sản phẩm}$$
 
-Tốc độ phản ứng được xác định theo biểu thức:
+Tốc độ được xác định bằng thực nghiệm theo biểu thức:
 
 {/* T06-S01:e4121 */}
 
 $$v = k C_A^x C_B^y$$
 
-Trong đó x là bậc phản ứng đối với A, y là bậc phản ứng đối với B, tổng x + y là bậc toàn phần của phản ứng trên.
+trong đó $x$, $y$ là bậc phản ứng riêng phần theo $A$, $B$ — không nhất thiết
+bằng hệ số $a$, $b$. Bậc phản ứng thường là số nguyên nhỏ (0, 1, 2, 3), đôi khi
+là phân số.
 
-Bậc phản ứng thường là những số nguyên nhỏ (0, 1, 2, 3) nhưng cũng có thể là phân số. Thông thường ta gặp phản ứng bậc 1, bậc 2, bậc 3 và các số mũ x, y trùng với giá trị a, b nên tốc độ phản ứng trên được viết:
+<Callout type="note" title="Trường hợp thường gặp">
+  Khi $x = a$ và $y = b$, phương trình động học trùng với biểu thức của định
+  luật tác dụng khối lượng:
+</Callout>
 
 {/* T06-S01:e7002 */}
 
 $$v = k C_A^a C_B^b$$
 
-b) Một số loại phản ứng đơn giản
+### 4b. Một số loại phản ứng đơn giản
 
-• Phản ứng một chiều bậc nhất
-
-A Sản phẩm (4.1)
-
-Ta có:
-
-v=kCA
-
-Gọi a là nồng độ ban đầu của A tại thời điểm t = 0; nồng độ của A đã phản ứng sau thời gian dt là x. Khi đó:
-
-CA = a - x
-
-(4.2)
+<Callout type="definition" title="Phản ứng một chiều bậc 1">
+  Sơ đồ chung $A \rightarrow \text{Sản phẩm}$, tốc độ $v = kC_A$. Gọi $a$ là
+  nồng độ đầu của $A$, $x$ là nồng độ đã phản ứng sau thời gian $t$
+  ($C_A = a - x$).
+</Callout>
 
 {/* T06-S01:e0984 */}
 
 $$\dfrac{dx}{dt} = k(a - x)$$
 
-Biểu thức (2) là phương trình động học dưới dạng vi phân của phản ứng (1). Lấy tích phân không xác định hai về biểu thức (2) ta được:
-
-(4.3)
+Lấy tích phân hai vế:
 
 {/* T06-S01:e9355 */}
 
 $$kt = \ln\dfrac{a}{a - x}$$
 
-Ví dụ 1: Cho chất xúc tác MnO2 vào 100 ml dung dịch H2O2 0,05M, sau 60 giây thu được 33,6 ml khí O2 (ở đkc). Hãy xác định hằng số tốc độ k của phản ứng.
+<Example title="Ví dụ 1: Xác định k của phản ứng phân hủy H₂O₂">
+  Cho xúc tác MnO₂ vào 100 ml dung dịch H₂O₂ 0,05M. Sau 60 giây thu được
+  33,6 ml khí O₂ (đkc). Xác định hằng số tốc độ $k$.
 
-Giải
+  <Solution>
+    Phản ứng phân hủy:
 
 {/* T06-S01:e2486 */}
 
 $$2\text{H}_2\text{O}_2 \xrightarrow{\text{MnO}_2} 2\text{H}_2\text{O} + \text{O}_2$$
 
-Mol:3.10-31,5.10-3
-
-Nồng độ HO2 đã mất đi trong khoảng thời gian 60 giây là
+    Nồng độ H₂O₂ đã mất đi sau 60 giây:
 
 {/* T06-S01:e1418 */}
 
 $$\Delta C = \dfrac{3 \cdot 10^{-3}}{0{,}1} = 0{,}03\text{ M}$$
 
-Vậy:
+    Tốc độ trung bình:
 
 {/* T06-S01:e3135 */}
 
 $$\bar{v} = \dfrac{\Delta C}{\Delta t} = \dfrac{0{,}03}{60} = 5 \cdot 10^{-4}\text{ M/s}$$
 
-• Phản ứng một chiều bậc hai
+  </Solution>
+</Example>
 
-Có hai trường hợp về loại phản ứng này:
-
-Trường hợp 1: Sơ đồ chung là
-
-2A Sản phẩm (4.4)
-
-Hoặc:
-
-A + B Sản phẩm (4.5)
-
-Với nồng độ ban đầu của A, B bằng nhau. Phương trình động học cho hai loại phản ứng trên là
+<Callout type="definition" title="Phản ứng một chiều bậc 2">
+  Hai trường hợp: $2A \rightarrow \text{Sản phẩm}$ hoặc
+  $A + B \rightarrow \text{Sản phẩm}$ (với nồng độ đầu của $A$, $B$ bằng
+  nhau). Cả hai có cùng dạng phương trình động học:
+</Callout>
 
 {/* T06-S01:e0042 */}
 
 $$\dfrac{dx}{dt} = k(a - x)^2$$
 
-Lấy tích phân hai vế ta được:
-
-(4.6)
+Lấy tích phân:
 
 {/* T06-S01:e9605 */}
 
 $$kt = \dfrac{x}{a(a - x)}$$
 
-Trường hợp 2: Sơ đồ chung như (4,5) nhưng nồng độ ban đầu của A và B khác nhau. Phương trình động học là
-
-(4.7)
+Khi nồng độ đầu của $A$, $B$ khác nhau ($a > b$):
 
 {/* T06-S01:e8522 */}
 
 $$kt = \dfrac{1}{a - b}\ln\dfrac{b(a - x)}{a(b - x)}$$
 
-Trong đó a> b; a là nồng độ ban đầu của chất A; b là nồng độ ban đầu của chất B.
+<Callout type="note" title="Các trường hợp bậc khác">
 
-• Các loại phản ứng đơn giản khác
+- Phản ứng bậc 0: $v = k$ (không phụ thuộc nồng độ).
+- Phản ứng bậc phân số, ví dụ $\text{H}_2 + \text{Br}_2 \rightarrow 2\text{HBr}$.
+- Phản ứng bậc 3 trở lên rất ít gặp.
 
-- Phản ứng bậc 0: Khi đó v=k
+</Callout>
 
-- Phản ứng bậc phân số như
-
-H2 + Br2 → 2HBr
-
-- Phản ứng bậc 3 trở lên ít gặp.
-
-Ví dụ 2: Người ta nghiên cứu động học của phản ứng xà phòng hóa etyl axetat:
+<Example title="Ví dụ 2: Bậc phản ứng xà phòng hóa etyl axetat">
+  Phản ứng xà phòng hóa etyl axetat:
 
 {/* T06-S01:e3265 */}
 
 $$\text{CH}_3\text{COOC}_2\text{H}_5 + \text{NaOH} \rightarrow \text{CH}_3\text{COONa} + \text{C}_2\text{H}_5\text{OH}$$
 
-Nồng độ ban đầu của etyl axetat và NaOH đều bằng 0,05M. Phản ứng được theo dõi bằng cách lấy 10 ml dung dịch hỗn hợp phản ứng ở từng thời điểm t và chuẩn độ bằng V ml dung dịch HCl 0,01M. Kết quả như sau:
+Nồng độ đầu của etyl axetat và NaOH đều 0,05M. Lấy 10 ml hỗn hợp phản ứng ở
+từng thời điểm $t$, chuẩn độ bằng $V$ ml dung dịch HCl 0,01M:
 
 <DataTable caption="Bảng 1 trích từ DOCX">
 
@@ -338,39 +353,35 @@ Nồng độ ban đầu của etyl axetat và NaOH đều bằng 0,05M. Phản �
 
 </DataTable>
 
-Tính bậc của phản ứng, hằng số tốc độ phản ứng và chu kì bán hủy của phản ứng.
+Xác định bậc phản ứng, hằng số tốc độ và chu kì bán hủy.
 
-Giải
-
-a)
+  <Solution>
+    Giả sử phản ứng bậc 2:
 
 {/* T06-S01:e3603 */}
 
 $$\text{CH}_3\text{COOC}_2\text{H}_5 + \text{NaOH} \rightarrow \text{CH}_3\text{COONa} + \text{C}_2\text{H}_5\text{OH}$$
 
-t = 00,050,05
-
-t0,05 – x0,05 - x
-
-Giả sử phản ứng trên là bậc 2. Ta có: (\*)
-
 {/* T06-S01:e9139 */}
 
 $$k = \dfrac{1}{t} \cdot \dfrac{x}{a(a - x)}$$
 
-Theo phép chuẩn độ: 10(a-x) = 0,01V. Xác định được 0,05 - x tại thời điểm t, thay vào (\*) ta tính được k. Kết quả k = const, nghĩa là giả thiết phản ứng bậc 2 là đúng.
+    Theo phép chuẩn độ, $10(a - x) = 0{,}01V$. Thay các giá trị $V$ đo được
+    vào biểu thức trên, $k$ tính ra gần như không đổi — xác nhận phản ứng bậc
+    2, với $k = 0{,}651$ và $t_{1/2} = 30$ phút.
 
-k = 0,651 và t1/2 30 phút.
+  </Solution>
+</Example>
 
-c) Phản ứng phức tạp
+<Callout type="definition" title="Phản ứng phức tạp">
+  Phản ứng phức tạp diễn ra qua nhiều giai đoạn trung gian; phương trình hóa học
+  tổng quát chỉ là tổ hợp các phản ứng trung gian đó nên bậc phản ứng và hệ số
+  tỉ lượng thường không trùng nhau.
+</Callout>
 
-Khác với phản ứng đơn giản, phản ứng phức tạp diễn ra theo nhiều giai đoạn trung gian, do đó phương trình hóa học ở dạng tổng quát chỉ là sự tổ hợp của nhiều phản ứng trung gian vì vậy nó không biểu thị cơ chế phản ứng. Trong trường hợp này bậc và phân tử số không trùng nhau. Ta xét hai thí dụ sau:
+Sự nhiệt phân etanal không tuân theo hệ số tỉ lượng đơn giản:
 
-Thí dụ 1: Sự nhiệt phân etanal (CH3CHO) không tuân theo quy luật đơn giản về sự biến thiên nồng độ chất theo thời gian:
-
-CH3CHO CH4 + CO
-
-Phương trình động học có dạng:
+$$\text{CH}_3\text{CHO} \rightarrow \text{CH}_4 + \text{CO}$$
 
 {/* T06-S01:e8797 */}
 
@@ -378,7 +389,7 @@ $$v = k C_{\text{CH}_3\text{CHO}}^{3/2}$$
 
 Bậc động học của phản ứng này là 3/2.
 
-Thí dụ 2: Phản ứng ion hóa axeton là phản ứng bậc 1:
+Phản ứng ion hóa axeton (bậc 1) diễn ra qua hai giai đoạn:
 
 {/* T06-S01:e6161 */}
 
@@ -388,47 +399,41 @@ $$\text{CH}_3\text{COCH}_3 + \text{I}_2 \xrightarrow{\text{H}^+} \text{CH}_3\tex
 
 $$v = k C_{\text{CH}_3\text{COCH}_3} C_{\text{H}^+}$$
 
-Đây là phản ứng phức tạp diễn ra theo hai giai đoạn:
-
-Giai đoạn 1: (1)
+Giai đoạn 1 (chậm):
 
 {/* T06-S01:e2635 */}
 
 $$\text{CH}_3\text{COCH}_3 + \text{H}^+ \xrightarrow{\text{chậm}} [\text{CH}_3\text{C(OH)CH}_3]^+$$
 
-Giai đoạn 2: (2)
+Giai đoạn 2 (nhanh):
 
 {/* T06-S01:e3315 */}
 
 $$[\text{CH}_3\text{C(OH)CH}_3]^+ + \text{I}_2 \xrightarrow{\text{nhanh}} \text{CH}_3\text{COCH}_2\text{I} + \text{HI} + \text{H}^+$$
 
-Phản ứng (1) xảy ra chậm hơn nhiều so với phản ứng (2), do đó tốc độ phản ứng (1) quyết định tốc độ của phản ứng giữa axeton và I2.
+Giai đoạn (1) chậm hơn nhiều nên quyết định tốc độ chung của phản ứng.
 
-d) Thời gian bán hủy
-
-Thời điểm để lượng ban đầu của chất phản ứng mất đi (hay còn lại, một nửa được gọi là thời gian bán hủy hay chu kì bán hủy. Kí hiệu: t1/2 hay T1/2.
+<Callout type="definition" title="Thời gian bán hủy">
+  Thời gian bán hủy (chu kì bán hủy) $t_{1 / 2}$ là thời gian để nồng độ chất
+  phản ứng giảm còn một nửa nồng độ ban đầu.
+</Callout>
 
 ## 5. Sơ lược về cơ chế phản ứng
 
-Sự mô tả chi tiết quá trình biến đổi từ các chất tham gia thành các sản phẩm gọi là cơ chế phản ứng. Dưới đây ta xét một số trường hợp:
+Cơ chế phản ứng là sự mô tả chi tiết quá trình biến đổi từ chất tham gia
+thành sản phẩm.
 
-a) Các phản ứng một giai đoạn
+### 5a. Các phản ứng một giai đoạn
 
-- Phản ứng đơn phân tử:
+<Callout type="definition" title="Phản ứng đơn phân tử">
+  Một phân tử tự phân hủy hoặc tự sắp xếp lại liên kết: $A \rightarrow B + C +
+  \ldots$. Đây là phản ứng bậc 1: $v = kC_A$.
+</Callout>
 
-Loại phản ứng này xảy ra do sự tự phân hủy chất hoặc tự thay đổi trật tự liên kết của các nguyên tử trong phân tử. Sơ đồ chung:
-
-A B + C + ....
-
-Đây là loại phản ứng bậc nhất, do đó tốc độ phản ứng: v = kCA
-
-Ví dụ:
-
-{/* T06-S01:e8561 */}
+<Example title="Ví dụ: Đồng phân hóa xyclopropan thành propen">
+  {/* T06-S01:e8561 */}
 
 $$\text{Cyclopropan} \xrightarrow{t^\circ} \text{CH}_3\text{-CH=CH}_2$$
-
-CH2
 
 <ChemFigure
   src="/staging-assets/lessons/33/33f44212249802055b6ea0c0bfc8d605ab3b35aaa5205335230cc7cd84cd5d36.png"
@@ -441,15 +446,14 @@ CH2
 
 $$\text{CH}_2\text{=CH-CH}_3$$
 
-H2CCH2
+</Example>
 
-- Phản ứng lưỡng (hai) phân tử:
+<Callout type="definition" title="Phản ứng lưỡng phân tử">
+  Hai phân tử va chạm tạo sản phẩm trong một giai đoạn: thường là phản ứng bậc
+  2.
+</Callout>
 
-Trong loại phản ứng này, chỉ có một giai đoạn, hai phân tử ban đầu va chạm với nhau tạo ra sản phẩm. Đây thường là loại phản ứng bậc 2. Sơ đồ tổng quát:
-
-A + B C + ... Tốc độ phản ứng v=kCA.CB
-
-A + A B + ... Tốc độ phản ứng
+Với $A + A \rightarrow B + \ldots$:
 
 {/* T06-S01:e8707 */}
 
@@ -461,13 +465,10 @@ Ví dụ:
 
 $$2\text{HI} \rightarrow \text{H}_2 + \text{I}_2$$
 
-- Phản ứng tam (ba) phân tử:
-
-Là phản ứng xảy ra do sự va chạm đồng thời của ba phân tử. Số phản ứng loại này rất ít vì xác suất ba phân tử va chạm đồng thời rất nhỏ. Sơ đồ tổng quát:
-
-2A + B C + ...
-
-Đây là phản ứng bậc 3 nên tốc độ phản ứng:
+<Callout type="definition" title="Phản ứng tam phân tử">
+  Ba phân tử va chạm đồng thời — hiếm gặp vì xác suất va chạm ba phân tử cùng
+  lúc rất nhỏ. Với $2A + B \rightarrow \ldots$, đây là phản ứng bậc 3:
+</Callout>
 
 {/* T06-S01:e1309 */}
 
@@ -479,125 +480,162 @@ Ví dụ:
 
 $$2\text{NO} + \text{O}_2 \rightarrow 2\text{NO}_2$$
 
-Đối với phản ứng từ tứ (bốn) phân tử trở lên rất hiếm gặp.
+<Callout type="note" title="Phản ứng đa phân tử">
+  Phản ứng cần va chạm đồng thời từ 4 phân tử trở lên rất hiếm gặp.
+</Callout>
 
-b) Các phản ứng nhiều giai đoạn
+### 5b. Các phản ứng nhiều giai đoạn
 
-Trong phản ứng một giai đoạn, bậc phản ứng đối với từng chất đúng bằng hệ số tỉ lượng (số nguyên) trong phương trình hóa học.
+<Callout type="definition" title="Phản ứng nhiều giai đoạn">
+  Trong phản ứng một giai đoạn, bậc phản ứng đúng bằng hệ số tỉ lượng. Nhưng
+  nhiều phản ứng không tuân theo định luật tác dụng khối lượng vì thực chất gồm
+  nhiều giai đoạn — tốc độ chung do giai đoạn **chậm nhất** quyết định.
+</Callout>
 
-Tuy nhiên, đối với rất nhiều phản ứng, bậc phản ứng và do đó tốc độ phản ứng không phù hợp với hệ số tỉ lượng, tức không tuân theo biểu thức định luật tác dụng khối lượng. Nguyên nhân là do phản ứng tổng cộng bao gồm nhiều giai đoạn. Tốc độ phản ứng được quyết định bởi tốc độ của giai đoạn chậm nhất.
-
-Ví dụ: Xét phản ứng:
+Phản ứng phân hủy $\text{N}_2\text{O}_5$:
 
 {/* T06-S01:e5216 */}
 
 $$2\text{N}_2\text{O}_5 \rightarrow 4\text{NO}_2 + \text{O}_2$$
 
-Về hình thức đây là phản ứng bậc 2, nhưng thực nghiệm cho biết đây là phản ứng một chiều bậc nhất.
+Về hình thức đây là phản ứng bậc 2, nhưng thực nghiệm cho thấy nó là bậc 1:
 
 {/* T06-S01:e1428 */}
 
 $$v = k C_{\text{N}_2\text{O}_5}$$
 
-Điều này được giải thích như sau: Sự phân hủy N2O5, xảy ra theo ba giai đoạn:
+Nguyên nhân: phản ứng gồm ba giai đoạn cơ sở —
 
-(Chậm) (1)
+Giai đoạn 1 (chậm):
 
 {/* T06-S01:e1754 */}
 
 $$\text{N}_2\text{O}_5 \xrightarrow{\text{chậm}} \text{NO}_2 + \text{NO}_3$$
 
-(Nhanh) (2)
+Giai đoạn 2 (nhanh):
 
 {/* T06-S01:e9497 */}
 
 $$\text{NO}_2 + \text{NO}_3 \xrightarrow{\text{nhanh}} \text{NO}_2 + \text{O}_2 + \text{NO}$$
 
-(Nhanh) (3)
+Giai đoạn 3 (nhanh):
 
 {/* T06-S01:e3885 */}
 
 $$\text{NO} + \text{NO}_3 \xrightarrow{\text{nhanh}} 2\text{NO}_2$$
 
-Mỗi giai đoạn trên còn được gọi là quá trình cơ sở. Tập hợp các giai đoạn xảy ra tạo thành cơ chế của phản ứng phân hủy N2O5. Trong cơ chế đó giai đoạn chậm nhất quyết định tốc độ quá trình. Giai đoạn (1) là chậm nhất nên tốc độ phản ứng như thực nghiệm đã xác định chứ không phải .
-
-{/* T06-S01:e3465 */}
-
-$$v = k C_{\text{N}_2\text{O}_5}$$
+<Callout type="note" title="Giai đoạn quyết định tốc độ">
+  Nếu chỉ dựa vào phương trình tổng quát, bậc phản ứng theo lý thuyết va chạm sẽ
+  là bậc 2:
+</Callout>
 
 {/* T06-S01:e9430 */}
 
 $$v = k C_{\text{N}_2\text{O}_5}^2$$
 
+Nhưng vì giai đoạn 1 (chậm) quyết định tốc độ chung, tốc độ thực nghiệm đúng
+bằng tốc độ giai đoạn 1 — bậc 1, khớp với kết quả đo được ở trên:
+
+{/* T06-S01:e3465 */}
+
+$$v = k C_{\text{N}_2\text{O}_5}$$
+
 ## 6. Ảnh hưởng của nhiệt độ đến tốc độ phản ứng. Năng lượng hoạt động hóa
 
-a) Ảnh hưởng của nhiệt độ đến tốc độ phản ứng. Phương trình trêniuxơ
+### 6a. Quy tắc Van't Hoff và phương trình Arrhenius
 
-• Khi tăng nhiệt độ, tốc độ phản ứng tăng. Điều này được giải thích như sau: Khi nhiệt độ phản ứng tăng dẫn đến hai hệ quả sau:
+<Callout type="definition" title="Quy tắc Van't Hoff">
+  Khi tăng nhiệt độ, tần số va chạm giữa các phân tử tăng, đặc biệt là tần số va
+  chạm hiệu quả — nguyên nhân chính khiến tốc độ phản ứng tăng nhanh theo nhiệt
+  độ. Ở nhiệt độ gần nhiệt độ phòng, cứ tăng thêm 10°C thì tốc độ phản ứng tăng
+  2–4 lần.
+</Callout>
 
-- Tốc độ chuyển động của các phân tử tăng, dẫn đến tần số va chạm giữa các phân tử chất phản ứng tăng.
-
-- Tần số va chạm có hiệu quả giữa các phân tử chất phản ứng tăng nhanh. Đây là yếu tố chính làm cho tốc độ phản ứng tăng nhanh theo nhiệt độ.
-
-• Quy tắc Van Hốp: Ở khoảng nhiệt độ gần nhiệt độ phòng, khi tăng nhiệt độ thêm 10°C thì tốc độ phản ứng tăng từ 2 đến 4 lần.
-
-Kí hiệu (đọc là gama) được gọi là hệ số nhiệt độ của tốc độ phản ứng:
+Hệ số nhiệt độ $\gamma$ của tốc độ phản ứng:
 
 {/* T06-S01:e4964 */}
 
 $$\gamma = \dfrac{k_{T+10}}{k_T} = \left(\dfrac{k_{T_2}}{k_{T_1}}\right)^{\frac{10}{T_2 - T_1}}$$
 
-Trong đó: k là tốc độ phản ứng ở nhiệt độ T1
-
-k' là tốc độ phản ứng ở nhiệt độ T2
-
-• Phương trình Arêniuxơ:
+<Callout type="definition" title="Phương trình Arrhenius">
+  Hằng số tốc độ $k$ phụ thuộc nhiệt độ theo phương trình Arrhenius:
+</Callout>
 
 {/* T06-S01:e7326 */}
 
 $$k = A \cdot e^{-\frac{E_a}{RT}}$$
 
-Lấy logarit hai vế ta được:
+Lấy logarit hai vế:
 
 {/* T06-S01:e6997 */}
 
 $$\ln k = \ln A - \dfrac{E_a}{RT}$$
 
-Trong đó:
+<DataTable>
+  <thead>
+    <tr>
+      <th>Ký hiệu</th>
+      <th>Ý nghĩa</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <Math formula="A" />
+      </td>
+      <td>thừa số Arrhenius, đặc trưng cho mỗi phản ứng</td>
+    </tr>
+    <tr>
+      <td>
+        <Math formula="R" />
+      </td>
+      <td>
+        hằng số khí, <Math formula="8{,}314\ \text{J·mol}^{-1}\text{·K}^{-1}" />
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <Math formula="T" />
+      </td>
+      <td>nhiệt độ tuyệt đối (K)</td>
+    </tr>
+    <tr>
+      <td>
+        <Math formula="E_a" />
+      </td>
+      <td>năng lượng hoạt động hóa</td>
+    </tr>
+  </tbody>
+</DataTable>
 
-A là thừa số Arêniuxơ, được đặc trưng cho mỗi phản ứng.
+### 6b. Năng lượng hoạt động hóa
 
-R là hằng số khí; R = 1,987 calmol-1. độ-1 hay R = 8,314 J.mol-1. độ-1.
+<Callout type="definition" title="Năng lượng hoạt động hóa">
+  Năng lượng hoạt động hóa $E_a$ là năng lượng dư mà các tiểu phân cần có, vượt
+  trên mức năng lượng trung bình, để phản ứng có thể xảy ra. So sánh $k$ ở hai
+  nhiệt độ $T_1$, $T_2$ cho phép tính $E_a$ từ phương trình Arrhenius.
+</Callout>
 
-e là cơ số logarit Nepe (e = 2,7183)
-
-T là nhiệt độ Kenvin..
-
-Ea là năng lượng hoạt động hóa.
-
-b) Năng lượng hoạt động hóa (Ea)
-
-Năng lượng dư so với năng lượng trung bình vốn có của tiêu phần tham gia phản ứng mà các tiểu phân này cần để cho phản ứng xảy ra được, gọi là năng lượng hoạt động hóa.
-
-Ví dụ 1: Hòa tan 10-2 mol NaOH vào 10-2mol vào 1 x1,107 lít H2O ở 27oC.
+<Example title="Ví dụ 1: Ea của phản ứng xà phòng hóa etyl axetat">
+  Phản ứng xà phòng hóa etyl axetat (bậc 2) ở 27°C:
 
 {/* T06-S01:e0189 */}
 
-$$\text{CH}_3\text{COOC}_2\text{H}_5 + \text{NaOH} \rightarrow \text{CH}_3\text{COONa} + \text{C}_2\text{H}_5\text{OH}$$
+$$\text{CH}_3\text{COOC}_2\text{H}_5 + \text{NaOH} \rightarrow \text{CH}_3\text{COONa} + \text{C}_2\text{H}_5\text{OH}$$ {/* same as e3265 above */}
 
-a) Biết rằng phản ứng có bậc động học bằng 2 và 3/4 este đã bị phân hủy sau 2 giờ. Tính hằng số tốc độ và thời gian nửa phản ứng.
+3/4 lượng este bị phân hủy sau 2 giờ. Tính hằng số tốc độ và thời gian nửa
+phản ứng. Biết khi tăng nhiệt độ lên 127°C, tốc độ phản ứng tăng gấp 4 lần —
+tính thời gian nửa phản ứng ở 127°C và năng lượng hoạt động hóa của phản
+ứng.
 
-b) Khi nhiệt độ tăng từ 27°C lên 127°C, thì tốc độ phản ứng tăng lên gấp 4 lần. Tính thời gian nửa phản ứng tại 127°C và năng lượng hoạt động hóa của phản ứng.
-
-Giải
-
-a) Đối với phản ứng bậc 2 có nồng độ ban đầu của các chất bằng nhau, ta có:
+  <Solution>
+    Với phản ứng bậc 2, nồng độ đầu bằng nhau:
 
 {/* T06-S01:e6474 */}
 
 $$k = \dfrac{1}{t} \cdot \dfrac{x}{a(a - x)}$$
 
-Với thì
+    Thay số:
 
 {/* T06-S01:e8721 */}
 
@@ -607,21 +645,17 @@ $$k = \dfrac{3}{2 \cdot a} = 0{,}0417 \text{ L/(mol}\cdot\text{s)}$$
 
 $$t_{1/2} = \dfrac{1}{k \cdot a} = 40\text{ phút}$$
 
-Thời gian nửa phản ứng: phút
+    Ở 127°C, tốc độ tăng gấp 4 lần nên thời gian bán hủy giảm 4 lần:
 
 {/* T06-S01:e5909 */}
 
 $$t_{1/2} = 40\text{ phút}$$
 
-b) Thời gian nữa phản ứng tại 127°c:
-
-phút
-
 {/* T06-S01:e0530 */}
 
 $$t_{1/2(127^\circ\text{C})} = \dfrac{40}{4} = 10\text{ phút}$$
 
-Năng lượng hoạt động hóa:
+    Từ hai giá trị $k$ ở hai nhiệt độ, tính năng lượng hoạt động hóa:
 
 {/* T06-S01:e4567 */}
 
@@ -631,7 +665,13 @@ $$\ln\left(\dfrac{k_{T_2}}{k_{T_1}}\right) = \dfrac{E_a}{R}\left(\dfrac{1}{T_1} 
 
 $$E_a = \dfrac{R \cdot T_1 \cdot T_2 \cdot \ln(4)}{T_2 - T_1} \approx 13{,}8\text{ kJ/mol}$$
 
-Ví dụ 2: Trong một phản ứng bậc nhất tiến hành ở, nồng độ chất phản ứng giảm xuống một nửa sau 5000s. Ở nồng độ giảm đi hai lần sau 1000s.
+  </Solution>
+</Example>
+
+<Example title="Ví dụ 2: Ea từ hai hằng số tốc độ đo ở hai nhiệt độ">
+  Một phản ứng bậc nhất tiến hành ở hai nhiệt độ $T_1$ và $T_2$. Ở $T_1$,
+  nồng độ chất phản ứng giảm còn một nửa sau 5000 s. Ở $T_2$, nồng độ giảm đi
+  hai lần sau 1000 s.
 
 {/* T06-S01:e8081 */}
 
@@ -641,51 +681,57 @@ $$T_1 = 25^\circ\text{C} = 298\text{ K}$$
 
 $$T_2 = 40^\circ\text{C} = 313\text{ K}$$
 
-Tính:
+Tính: a) hằng số tốc độ ở mỗi nhiệt độ; b) thời gian để nồng độ giảm còn
+1/4 ở $T_1$; c) năng lượng hoạt động hóa của phản ứng.
 
-a) Hằng số tốc độ phản ứng ở .
+  <Solution>
+    a) Phản ứng bậc nhất nên $k = \ln 2 / t_{1/2}$. Ở $T_1$:
 
 {/* T06-S01:e0742 */}
 
 $$k_1 = \dfrac{\ln 2}{t_{1/2}} = \dfrac{0{,}693}{5000} = 1{,}386 \cdot 10^{-4}\text{ s}^{-1}$$
 
-b) Thời gian để nồng độ giảm xuống còn 1/4 ở .
-
-{/* T06-S01:e2673 */}
-
-$$t = 2 \cdot t_{1/2} = 2 \cdot 5000 = 10000\text{ s}$$
-
-c) Năng lượng hoạt động hóa của phản ứng.
-
-Giải
-
-a) Phản ứng bậc nhất nên:
+    Tương tự, tính cả $k_1$ và $k_2$ ở hai nhiệt độ:
 
 {/* T06-S01:e9792 */}
 
 $$k_1 = \dfrac{\ln 2}{5000} = 1{,}386 \cdot 10^{-4}\text{ s}^{-1}, \quad k_2 = \dfrac{\ln 2}{1000} = 6{,}93 \cdot 10^{-4}\text{ s}^{-1}$$
 
-b)
+    b) Nồng độ giảm còn 1/4 sau hai lần bán hủy liên tiếp:
+
+{/* T06-S01:e2673 */}
+
+$$t = 2 \cdot t_{1/2} = 2 \cdot 5000 = 10000\text{ s}$$
+
+    Cách khác — dùng trực tiếp $k_1$:
 
 {/* T06-S01:e9097 */}
 
 $$t = \dfrac{1}{k_1}\ln\left(\dfrac{C_0}{C_0/4}\right) = \dfrac{\ln 4}{1{,}386 \cdot 10^{-4}} = 10000\text{ s}$$
 
-{/* T06-S01:e5962 */}
-
-$$E_a = \dfrac{R \cdot T_1 \cdot T_2}{T_2 - T_1} \ln\left(\dfrac{k_2}{k_1}\right) = \dfrac{8{,}314 \cdot 298 \cdot 313}{15} \ln(5) \approx 83{,}7\text{ kJ/mol}$$
-
-c)
+    c) Với $T_1 = 25°\text{C}$:
 
 {/* T06-S01:e6260 */}
 
 $$T = 25^\circ\text{C}$$
 
-Ví dụ 3: Khảo sát bằng thực nghiệm ở phản ứng thủy phân metyl axetat với sự có mặt của HCl dư, nồng độ 0,05M. Thể tích dung dịch NaOH có nồng độ cố định dùng để trung hòa 20 ml hỗn hợp phản ứng theo thời gian như sau:
+    Thay $k_1$, $k_2$, $T_1$, $T_2$ vào phương trình Arrhenius dạng logarit:
+
+{/* T06-S01:e5962 */}
+
+$$E_a = \dfrac{R \cdot T_1 \cdot T_2}{T_2 - T_1} \ln\left(\dfrac{k_2}{k_1}\right) = \dfrac{8{,}314 \cdot 298 \cdot 313}{15} \ln(5) \approx 83{,}7\text{ kJ/mol}$$
+
+  </Solution>
+</Example>
+
+<Example title="Ví dụ 3: Xác định bậc phản ứng thủy phân metyl axetat bằng chuẩn độ">
+  Phản ứng thủy phân metyl axetat với xúc tác HCl dư (0,05M):
 
 {/* T06-S01:e7784 */}
 
 $$\text{CH}_3\text{COOCH}_3 + \text{H}_2\text{O} \xrightarrow{\text{HCl}} \text{CH}_3\text{COOH} + \text{CH}_3\text{OH}$$
+
+Chuẩn độ 20 ml hỗn hợp phản ứng bằng dung dịch NaOH ở từng thời điểm $t$:
 
 <DataTable caption="Bảng 2 trích từ DOCX">
 
@@ -712,21 +758,27 @@ $$\text{CH}_3\text{COOCH}_3 + \text{H}_2\text{O} \xrightarrow{\text{HCl}} \text{
 
 </DataTable>
 
+a) Viết các phương trình hóa học xảy ra khi chuẩn độ. b) Chứng minh phản
+ứng là bậc 1; tính hằng số tốc độ và thời gian nửa phản ứng.
+
+  <Solution>
+    **a) Các phản ứng khi chuẩn độ**
+
+    NaOH trung hòa đồng thời acid acetic sinh ra và HCl xúc tác dư:
+
 {/* T06-S01:e2971 */}
 
 $$\text{CH}_3\text{COOH} + \text{NaOH} \rightarrow \text{CH}_3\text{COONa} + \text{H}_2\text{O}$$
 
-a) Viết phương trình hóa học của các phản ứng xảy ra.
-
-b) Chứng minh phản ứng thủy phân metyl axetat là phản ứng bậc 1. Tính hằng số tốc độ và thời gian nửa phản ứng.
-
-Giải
-
-a) Phương trình hóa học:
-
 {/* T06-S01:e6018 */}
 
 $$\text{HCl} + \text{NaOH} \rightarrow \text{NaCl} + \text{H}_2\text{O}$$
+
+    **b) Thiết lập biểu thức tốc độ theo thể tích chuẩn độ**
+
+    Vì HCl chỉ đóng vai trò xúc tác (lượng không đổi), thể tích NaOH dùng ở
+    thời điểm $t$ gồm phần trung hòa HCl (không đổi) và phần trung hòa
+    CH₃COOH sinh ra (tăng dần theo $t$):
 
 {/* T06-S01:e2170 */}
 
@@ -740,6 +792,9 @@ $$V_0 = V_{\text{HCl}}$$
 
 $$V_\infty = V_0 + V_{\text{este}(0)}$$
 
+    Nồng độ đầu $a$ và nồng độ đã phản ứng $x$ tại thời điểm $t$ tỉ lệ với
+    các hiệu thể tích tương ứng:
+
 {/* T06-S01:e3386 */}
 
 $$a \propto (V_\infty - V_0)$$
@@ -748,33 +803,28 @@ $$a \propto (V_\infty - V_0)$$
 
 $$a - x \propto (V_\infty - V_t)$$
 
-b) HCl chỉ đóng vai trò xúc tác cho phản ứng , nên khi chuẩn độ mẫu trích từ hỗn hợp phản ứng, thì thể tích dung dịch NaOH cần dùng tại thời điểm t một phần là để chuẩn độ HCl, một phần là để chuẩn độ CH3COOH sinh ra.
+    Tách riêng phần thể tích dùng cho CH₃COOH:
 
 {/* T06-S01:e5556 */}
 
 $$V_t = V_{\text{HCl}} + V_{\text{acid}(t)}$$
 
-V (t) = V (phản ứng với HCl) + V (phản ứng với CH3COOH)
-
 {/* T06-S01:e6224 */}
 
 $$V_{\text{acid}(t)} = V_t - V_0$$
-
-Trong đó: V (phản ứng với HCl) = const
-
-Theo phương trình chuẩn độ, ta luôn có:
-
-V (phản ứng với CH3COOH)
 
 {/* T06-S01:e3184 */}
 
 $$x \propto (V_t - V_0)$$
 
-(phản ứng với CH3COOH ở ) – V (phản ứng với ở t)
+    Suy ra nồng độ CH₃COOH (hay este đã phản ứng) tại thời điểm $t$ theo tỉ
+    lệ thể tích:
 
 {/* T06-S01:e4982 */}
 
 $$C_t = C_0 \cdot \dfrac{V_\infty - V_t}{V_\infty - V_0}$$
+
+    Áp dụng công thức tốc độ bậc 1 (mục 4b):
 
 {/* T06-S01:e1570 */}
 
@@ -784,11 +834,11 @@ $$k = \dfrac{1}{t}\ln\left(\dfrac{V_\infty - V_0}{V_\infty - V_t}\right)$$
 
 $$k = \dfrac{2{,}303}{t}\lg\left(\dfrac{V_\infty - V_0}{V_\infty - V_t}\right)$$
 
+    Vì $C_{\text{CH}_3\text{COOH}(0)} = 0$:
+
 {/* T06-S01:e1191 */}
 
 $$C_{\text{CH}_3\text{COOH}(0)} = 0$$
-
-CCH3COOH ở - CCH3COOH ở t
 
 {/* T06-S01:e7854 */}
 
@@ -798,7 +848,7 @@ $$C_{\text{CH}_3\text{COOH}(t)} = C_0 - C_t$$
 
 $$C_{\text{este}(0)} = C_{\text{este}(t)} + C_{\text{CH}_3\text{COOH}(t)}$$
 
-Ta có: CCH3COOH ở = CCH3COOH ở t=0 CCH3COOH ở - CCH3COOH ở t = CCH3COOH3 ở t
+    Đặt $k'$ là hằng số tỉ lệ giữa nồng độ và thể tích chuẩn độ:
 
 {/* T06-S01:e0202 */}
 
@@ -812,19 +862,18 @@ $$C_t = k' (V_\infty - V_t)$$
 
 $$\dfrac{C_0}{C_t} = \dfrac{V_\infty - V_0}{V_\infty - V_t}$$
 
-Do đó: CCH3COOH3 ở t
+    Kết hợp với biểu thức tốc độ bậc 1, ta có phương trình làm việc theo thể
+    tích chuẩn độ — nếu phản ứng là bậc 1 thì vế trái tỉ lệ thuận với $t$:
 
 {/* T06-S01:e4328 */}
 
 $$\ln\left(\dfrac{V_\infty - V_0}{V_\infty - V_t}\right) = k \cdot t$$
 
-Từ đó suy ra, nếu phản ứng đã cho là bậc 1, ta có mối liên hệ:
-
 {/* T06-S01:e9229 */}
 
 $$k = \dfrac{1}{t}\ln\left(\dfrac{V_\infty - V_0}{V_\infty - V_t}\right) \approx \text{const}$$
 
-Ta có bảng sau:
+    Số liệu chuẩn độ cho bảng sau:
 
 <DataTable caption="Bảng 3 trích từ DOCX">
 
@@ -871,9 +920,14 @@ Ta có bảng sau:
 
 </DataTable>
 
+    Vẽ đồ thị $\ln\!\left(\dfrac{V_\infty - V_0}{V_\infty - V_t}\right)$
+    theo $t$:
+
 {/* T06-S01:e4172 */}
 
 $$\ln\left(\dfrac{V_\infty - V_0}{V_\infty - V_t}\right) = f(t)$$
+
+    Đồ thị là đường thẳng qua gốc tọa độ với độ dốc:
 
 {/* T06-S01:e0904 */}
 
@@ -883,20 +937,19 @@ $$\text{Độ dốc } m = k$$
 
 $$\text{Phản ứng là bậc 1}$$
 
-Từ đồ thị của phụ thuộc t phải là đường thẳng với độ dốc chứng tỏ phản ứng là bậc nhất.
+    Đường thẳng này xác nhận phản ứng là bậc 1, với độ dốc chính là $k$:
 
 {/* T06-S01:e0067 */}
 
 $$k \approx 0{,}0032\text{ phút}^{-1}$$
 
-Từ đồ thị trên, hằng số tốc độ phản ứng là: phút-1
-
 {/* T06-S01:e4186 */}
 
 $$t_{1/2} = \dfrac{\ln 2}{k} = \dfrac{0{,}693}{0{,}0032} \approx 216{,}5\text{ phút}$$
 
-Do đó thời gian bản phản ứng là: phút
-
 {/* T06-S01:e5276 */}
 
-$$t_{1/2} \approx 216{,}5\text{ phút}$$
+$$t_{1/2} \approx 216{,}5\text{ phút}$$ {/* same as e4186 above */}
+
+  </Solution>
+</Example>
