@@ -84,11 +84,24 @@ interface ManifestFile {
   lessons: ManifestLesson[];
 }
 
+interface PublishWaiver {
+  type: string;
+  scope: string;
+  authorizedBy: string;
+  authorizedDate: string;
+  doesNotAuthorize: string[];
+  remediationDebtRetained: boolean;
+  unresolvedBlockingCount: number;
+  acknowledgedBlockedItems: string[];
+  reference: { contractAmendment: string; handoff: string };
+}
+
 interface QaRecord {
   lessonSlug: string;
   checks: Record<string, boolean>;
   approvedForPublish: boolean;
   unresolved: Array<{ id: string; severity: string; description: string }>;
+  publishWaiver?: PublishWaiver;
 }
 
 interface FailureReportBlock {
@@ -1275,6 +1288,80 @@ describe("P6-B2.4B: applied reviewed-image-fallback (kind: drawing)", () => {
       } finally {
         rmSync(target2, { recursive: true, force: true });
       }
+    } finally {
+      rmSync(target, { recursive: true, force: true });
+    }
+  });
+});
+
+describe("P6-B2.5: bang-tuan-hoan publishWaiver allowlist", () => {
+  // These tests need all four real lessons (including bang-tuan-hoan,
+  // which the shared baseTarget above never imports -- it stays on the
+  // legacy T06/T08 PILOTS fallback), so they clone the real, already-valid
+  // content/ and public/ trees directly rather than running the importer
+  // again. content/qa/pending/bang-tuan-hoan.json is then mutated per test
+  // to isolate exactly one failure mode at a time.
+  function cloneRealRepoTarget(): string {
+    const target = mkdtempSync(path.join(tmpdir(), "xuyenlab-oa-real-"));
+    cpSync(path.join(repoRoot, "content"), path.join(target, "content"), {
+      recursive: true,
+    });
+    cpSync(path.join(repoRoot, "public"), path.join(target, "public"), {
+      recursive: true,
+    });
+    return target;
+  }
+
+  it("validates cleanly with bang-tuan-hoan's real approvedForPublish/publishWaiver already on the allowlist (P6-B2.5)", () => {
+    const target = cloneRealRepoTarget();
+    try {
+      expect(validate(target)).toEqual([]);
+    } finally {
+      rmSync(target, { recursive: true, force: true });
+    }
+  });
+
+  it("rejects an invalid publishWaiver on bang-tuan-hoan even though the slug is allowlisted (P6-B2.5)", () => {
+    const target = cloneRealRepoTarget();
+    try {
+      updateQa(target, "bang-tuan-hoan", (qa) => {
+        // acknowledgedBlockedItems no longer names the retained blocking
+        // item -- the allowlist alone must not be enough.
+        qa.publishWaiver!.acknowledgedBlockedItems = [];
+      });
+      expect(validate(target).join("\n")).toContain(
+        "publishWaiver.acknowledgedBlockedItems must include",
+      );
+
+      updateQa(target, "bang-tuan-hoan", (qa) => {
+        qa.publishWaiver!.unresolvedBlockingCount = 0;
+      });
+      expect(validate(target).join("\n")).toContain(
+        "publishWaiver.unresolvedBlockingCount must equal",
+      );
+
+      updateQa(target, "bang-tuan-hoan", (qa) => {
+        delete (qa as { publishWaiver?: unknown }).publishWaiver;
+      });
+      expect(validate(target).join("\n")).toContain(
+        "approvedForPublish requires a structured publishWaiver",
+      );
+    } finally {
+      rmSync(target, { recursive: true, force: true });
+    }
+  });
+
+  it("still rejects approvedForPublish: true on a non-allowlisted lesson (negative control: the allowlist gate itself still works)", () => {
+    const target = cloneRealRepoTarget();
+    try {
+      // phan-bon-hoa-hoc (Topic 24) is real, in_review, and deliberately
+      // NOT on P6_OWNER_APPROVED_PUBLISH_SLUGS.
+      updateQa(target, "phan-bon-hoa-hoc", (qa) => {
+        qa.approvedForPublish = true;
+      });
+      expect(validate(target).join("\n")).toContain(
+        "approvedForPublish is only permitted for the P6 owner-approved pilot lessons",
+      );
     } finally {
       rmSync(target, { recursive: true, force: true });
     }

@@ -408,6 +408,29 @@ test.describe("pilot staging routes", () => {
     await expect(page.getByText(/BẢN ĐANG DUYỆT/)).toBeVisible();
   });
 
+  test("keeps Topic 2's staging banner unchanged by the new P6-B2.5 publishWaiver -- still in_review, never published (P6-B2.5)", async ({
+    page,
+  }) => {
+    await page.goto("/fixtures/pilot/chuyen-de-02/bang-tuan-hoan");
+
+    // approvedForPublish/publishWaiver are QA-record-only fields; no UI
+    // surface reads them directly. This proves that absence, not merely
+    // assumes it: the banner is still exactly the in_review label, and no
+    // "published"/"đã xuất bản" wording appears anywhere on the page.
+    await expect(
+      page.getByText(
+        "[BẢN ĐANG DUYỆT] — Xem trước staging, không cần đăng nhập — chưa xuất bản",
+        { exact: true },
+      ),
+    ).toBeVisible();
+    const bodyText = (
+      (await page.locator("body").textContent()) ?? ""
+    ).toLowerCase();
+    for (const forbidden of ["đã xuất bản", "published", "đã phê duyệt"]) {
+      expect(bodyText).not.toContain(forbidden.toLowerCase());
+    }
+  });
+
   test("hides staging controls but retains lesson content in print media", async ({
     page,
   }) => {
