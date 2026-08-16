@@ -91,15 +91,27 @@ const VALID_STATUSES = new Set(["pending-owner-review", "applied", "blocked"]);
  * image-fallback decision that is still `status: "blocked"` -- the Owner
  * confirmed the source object's real content (a two-arrow diagram), but no
  * renderer available in this environment can produce a faithful asset from
- * it (missing proprietary fonts; see its `ownerDecision.qaNote`). Every
- * other entry must remain untouched (`status: "pending-owner-review"`, no
- * decision).
+ * it (missing proprietary fonts; see its `ownerDecision.qaNote`). P6-B2.7
+ * (Batch A1) later applied Owner-approved LaTeX to 11 more T06 OLE
+ * formulas. Every other entry must remain untouched
+ * (`status: "pending-owner-review"`, no decision).
  */
 const PROCESSED_ISSUE_IDS = new Set([
   "T06-S01:e6259",
   "T06-S01:e5248",
   "T06-S01:e4743",
   "T06-S01:e9544",
+  "T06-S01:e0469",
+  "T06-S01:e0245",
+  "T06-S01:e1520",
+  "T06-S01:e8803",
+  "T06-S01:e2801",
+  "T06-S01:e4916",
+  "T06-S01:e3758",
+  "T06-S01:e2548",
+  "T06-S01:e7681",
+  "T06-S01:e2249",
+  "T06-S01:e7685",
   "T08-S01:e7414",
   "T08-S01:e3055",
   "T08-S01:e6352",
@@ -319,10 +331,10 @@ describe("P4.5: applied LaTeX is actually present in the canonical MDX", () => {
       String.raw`$$\bar{v} = \pm\dfrac{\Delta C}{\Delta t}$$`,
     );
     expect(t06Mdx).toContain(String.raw`$\bar{v}$`);
-    // The 3 replaced Callouts are gone; e0469 (out of this task's scope)
-    // must still be an untouched Callout.
+    // The 3 replaced Callouts are gone. e0469 was applied later, in
+    // P6-B2.7 (Batch A1), and its Callout is gone too.
     expect(t06Mdx).not.toMatch(/Chưa chuyển đối tượng `T06-S01:e6259`/);
-    expect(t06Mdx).toContain("Chưa chuyển đối tượng `T06-S01:e0469`");
+    expect(t06Mdx).not.toMatch(/Chưa chuyển đối tượng `T06-S01:e0469`/);
   });
 
   it("T08 combined reversible-reaction LaTeX is present exactly once", () => {
