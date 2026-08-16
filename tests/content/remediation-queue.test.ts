@@ -95,10 +95,11 @@ const VALID_STATUSES = new Set(["pending-owner-review", "applied", "blocked"]);
  * (Batch A1) through P6-B2.11 (Batch A5) later applied Owner-approved
  * LaTeX to 11 more T06 OLE formulas each, and P6-B2.12 (Batch A6-FINAL)
  * applied the remaining 36 -- completing 100% of T06's formula items.
- * The one remaining T06 blocking item (`T06-S01:d6703`, a drawing) and
- * its 3 warning-severity table items are out of scope for this pairing
- * and must remain untouched (`status: "pending-owner-review"`, no
- * decision).
+ * P6-B2.13 then applied an Owner-approved visual replacement to T06's
+ * one remaining blocking item, the drawing `T06-S01:d6703` (see
+ * `IMAGE_FALLBACK_APPLIED_ISSUE_IDS` below). T06's 3 warning-severity
+ * table items are still out of scope for either pairing and must
+ * remain untouched (`status: "pending-owner-review"`, no decision).
  */
 const PROCESSED_ISSUE_IDS = new Set([
   "T06-S01:e6259",
@@ -196,11 +197,17 @@ const PROCESSED_ISSUE_IDS = new Set([
   "T06-S01:e0067",
   "T06-S01:e4186",
   "T06-S01:e5276",
+  "T06-S01:d6703",
   "T08-S01:e7414",
   "T08-S01:e3055",
   "T08-S01:e6352",
 ]);
 const BLOCKED_ISSUE_IDS = new Set(["T08-S01:e6352"]);
+/** P6-B2.13: the only `applied` + `reviewed-image-fallback` (kind:
+ * "drawing") item in this test's two lessons -- distinct from the
+ * `applied` + `reviewed-latex-mdx` items above and from the `blocked` +
+ * `reviewed-image-fallback` item in `BLOCKED_ISSUE_IDS`. */
+const IMAGE_FALLBACK_APPLIED_ISSUE_IDS = new Set(["T06-S01:d6703"]);
 
 describe.each(LESSONS)(
   "remediation queue for $lessonSlug",
@@ -246,6 +253,14 @@ describe.each(LESSONS)(
           // produce a faithful asset (missing fonts) -- recorded, not
           // silently actioned.
           expect(item.status).toBe("blocked");
+        } else if (IMAGE_FALLBACK_APPLIED_ISSUE_IDS.has(item.issueId)) {
+          // P6-B2.13: an Owner-approved visual diagram replacement for a
+          // native drawing -- no LaTeX was authored.
+          expect(item.status).toBe("applied");
+          expect(item.remediationChoice).toBe("reviewed-image-fallback");
+          expect(item.ownerDecision.reviewedLatex).toBeNull();
+          expect(item.ownerDecision.altText).toBeTruthy();
+          expect(item.ownerDecision.caption).toBeTruthy();
         } else {
           expect(item.status).toBe("applied");
           expect(item.remediationChoice).toBe("reviewed-latex-mdx");
