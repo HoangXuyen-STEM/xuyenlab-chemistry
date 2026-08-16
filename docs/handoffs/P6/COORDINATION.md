@@ -405,3 +405,10 @@ bản`, and `d1402` stays in `unresolved` at `severity: "blocking"`
 - Every agent reads the plan, relevant ADR/contracts, P5 summary, this coordination
   file and predecessor handoffs before editing.
 - CI Validate and Vercel preview must pass for each implementation PR.
+
+## Checkpoint — P6 A1 T06 tables (2026-08-16)
+
+- Owner A1 dispositions recorded for `T06-S01:t3041`, `t2740`, `t6560` (source-fidelity accept / accepted-with-limitation).
+- Queue: 0 `pending-owner-review` remaining on T06; 3 tables `accepted-with-limitation` + `owner-accepted-source-fidelity`.
+- No MDX content change; no publish.
+- Handoff: `docs/handoffs/P6/P6-A1-t06-table-dispositions.md`
