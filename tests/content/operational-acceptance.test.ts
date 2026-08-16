@@ -379,12 +379,11 @@ afterAll(() => {
 });
 
 describe("legacy remediation queue characterization (real committed data, read-only)", () => {
-  // T06/T08 never adopted the new vocabulary; Topic 24's three items are the
-  // real, Owner-authorized P6-B1.4 use of it (see
-  // docs/handoffs/P6/P6-B1.4-claude.md) — characterized separately below,
-  // not folded into the "still legacy" file list.
+  // T08 remains legacy-only. T06 is mixed after P6 A1 (2026-08-16): formulas /
+  // drawing stay on legacy applied|blocked choices; the 3 warning tables use
+  // new accepted-with-limitation + owner-accepted-source-fidelity (same
+  // vocabulary as Topic 24). Topic 24 remains characterized separately below.
   const legacyOnlyFiles = [
-    "content/qa/pending/dong-hoa-hoc.remediation-queue.json",
     "content/qa/pending/dung-dich-va-can-bang-hoa-hoc.remediation-queue.json",
   ];
   // Locked in from the actual committed data (see docs/handoffs/P6/P6-B1.3P-claude.md):
@@ -400,8 +399,18 @@ describe("legacy remediation queue characterization (real committed data, read-o
     "reviewed-image-fallback",
     "remain-blocking",
   ]);
+  const NEW_STATUSES = new Set(["accepted-with-limitation"]);
+  const NEW_CHOICES = new Set([
+    "owner-accepted-source-fidelity",
+    "owner-accepted-visible-fallback",
+  ]);
+  const T06_TABLE_SOURCE_FIDELITY_IDS = new Set([
+    "T06-S01:t3041",
+    "T06-S01:t2740",
+    "T06-S01:t6560",
+  ]);
 
-  it("every T06/T08 committed item still uses only a legacy status/choice combination (test 1)", () => {
+  it("every T08 committed item still uses only a legacy status/choice combination (test 1)", () => {
     let total = 0;
     for (const file of legacyOnlyFiles) {
       const queue = readJson<QueueItem[]>(path.join(repoRoot, file));
@@ -419,6 +428,49 @@ describe("legacy remediation queue characterization (real committed data, read-o
       }
     }
     expect(total).toBeGreaterThan(0);
+  });
+
+  it("T06 is mixed: formulas/drawing stay legacy; 3 warning tables use A1 source-fidelity vocabulary", () => {
+    const queue = readJson<QueueItem[]>(
+      path.join(
+        repoRoot,
+        "content/qa/pending/dong-hoa-hoc.remediation-queue.json",
+      ),
+    );
+    const tableItems = queue.filter((i) =>
+      T06_TABLE_SOURCE_FIDELITY_IDS.has(i.issueId),
+    );
+    expect(tableItems).toHaveLength(3);
+    for (const item of tableItems) {
+      expect(item.status, item.issueId).toBe("accepted-with-limitation");
+      expect(item.remediationChoice, item.issueId).toBe(
+        "owner-accepted-source-fidelity",
+      );
+      expect(item.kind, item.issueId).toBe("table");
+      expect(item.severity, item.issueId).toBe("warning");
+      expect(item.ownerDecision.qaNote, item.issueId).toBeTruthy();
+      expect(item.discussionPrompt).toBeUndefined();
+    }
+    for (const item of queue) {
+      if (T06_TABLE_SOURCE_FIDELITY_IDS.has(item.issueId)) continue;
+      expect(
+        LEGACY_STATUSES.has(item.status),
+        `${item.issueId} status ${item.status}`,
+      ).toBe(true);
+      expect(
+        LEGACY_CHOICES.has(item.remediationChoice),
+        `${item.issueId} remediationChoice ${item.remediationChoice}`,
+      ).toBe(true);
+    }
+    // Guard: both vocabularies must remain present (no accidental full rewrite).
+    expect(queue.some((i) => NEW_STATUSES.has(i.status))).toBe(true);
+    expect(queue.some((i) => LEGACY_STATUSES.has(i.status))).toBe(true);
+    expect(
+      queue.some(
+        (i) =>
+          i.remediationChoice !== null && NEW_CHOICES.has(i.remediationChoice),
+      ),
+    ).toBe(true);
   });
 
   it("Topic 24's three committed items are exactly the P6-B1.4 Owner-authorized accepted-with-limitation dispositions (test 1)", () => {
