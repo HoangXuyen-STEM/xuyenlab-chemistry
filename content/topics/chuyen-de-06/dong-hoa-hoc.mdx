@@ -18,15 +18,31 @@ Phần I: HỆ THỐNG LÝ THUYẾT CƠ BẢN VÀ NÂNG CAO
 
 ## I. TỐC ĐỘ PHẢN ỨNG
 
-## 1. Khái niệm về tốc độ phản ứng
+## 1. Khái niệm tốc độ phản ứng
 
-Tốc độ của một phản ứng hóa học (thường kí hiệu là v) là độ biến thiên nồng độ của một trong các chất phản ứng hoặc sản phẩm trong một đơn vị thời gian. Theo quy ước, nồng độ tính bằng mol/l, còn đơn vị thời gian có thể là giây (s), phút (ph), giờ (h),...
+<Callout type="definition" title="Tốc độ phản ứng hóa học">
+  Tốc độ phản ứng $v$ là độ biến thiên nồng độ của một chất tham gia hoặc sản
+  phẩm trong một đơn vị thời gian.
+</Callout>
 
-Trường hợp chung, tốc độ v là hàm của nồng độ và nhiệt độ, nghĩa là v = f (C, T). Khi T = const thì y = f(C).
+Tốc độ $v$ phụ thuộc vào nồng độ và nhiệt độ: $v = f(C,\, T)$.
+Ở nhiệt độ không đổi ($T = \text{const}$), $v$ chỉ phụ thuộc nồng độ.
 
-## 2. Tốc độ trung bình của phản ứng
+<Callout type="note" title="Đơn vị">
 
-Xét biến thiên nồng độ trong khoảng thời gian , ta có:
+- Nồng độ: $\text{mol·L}^{-1}$ (mol/L).
+- Thời gian: giây $(\text{s})$, phút $(\text{ph})$, giờ $(\text{h})$.
+
+</Callout>
+
+## 2. Tốc độ trung bình
+
+### 2a. Định nghĩa và công thức
+
+<Callout type="definition" title="Tốc độ trung bình">
+  Tốc độ trung bình $\bar{v}$ đo biến thiên nồng độ $\Delta C$ trong khoảng thời
+  gian $\Delta t$:
+</Callout>
 
 {/* T06-S01:e6259 */}
 
@@ -36,85 +52,124 @@ $\Delta C$
 
 $\Delta t$
 
-{/* T06-S01:e4743 */}
-
-$$\bar{v} = \pm\dfrac{\Delta C}{\Delta t}$$
-
-Dấu (+) ứng với chất tạo thành sản phẩm), dấu (-) ứng với chất tham gia (chất đầu).
-
-Giả sử có phản ứng: A + B C + D, với tốc độ trung bình của phản ứng trong khoảng thời gian từ t1 đến t2 là . Như vậy tốc độ phản ứng được xác định theo biểu thức:
-
 {/* T06-S01:e9544 */}
 
 $\bar{v}$
 
-{/* T06-S01:e0469 */}
+{/* T06-S01:e4743 */}
 
-$$\bar{v} = -\dfrac{\Delta C_A}{\Delta t} = -\dfrac{\Delta C_B}{\Delta t} = \dfrac{\Delta C_C}{\Delta t} = \dfrac{\Delta C_D}{\Delta t}$$
+$$\bar{v} = \pm\dfrac{\Delta C}{\Delta t}$$
 
-Đối với phản ứng tổng quát:
+<DataTable>
+  <thead>
+    <tr>
+      <th>Ký hiệu</th>
+      <th>Ý nghĩa</th>
+      <th>Đơn vị</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <Math formula="\Delta C = C_2 - C_1" />
+      </td>
+      <td>biến thiên nồng độ</td>
+      <td>
+        <Math formula="\text{mol·L}^{-1}" />
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <Math formula="\Delta t = t_2 - t_1" />
+      </td>
+      <td>khoảng thời gian</td>
+      <td>
+        <Math formula="\text{s}" />
+      </td>
+    </tr>
+  </tbody>
+</DataTable>
+
+<Callout type="note" title="Quy ước dấu">
+
+- Dấu **−** với chất **tham gia** (nồng độ giảm theo thời gian).
+- Dấu **+** với chất **sản phẩm** (nồng độ tăng theo thời gian).
+
+</Callout>
+
+### 2b. Tốc độ trung bình đơn giá
+
+Với phản ứng tổng quát:
 
 {/* T06-S01:e0245 */}
 
 $$aA + bB \rightarrow cC + dD$$
 
-Muốn cho tốc độ phản ứng đơn giá (nghĩa là tính theo bất cứ chất nào: A, B, C hay D đều cho cùng một giá trị) thì độ biến thiên nồng độ phải chia cho hệ số tỉ lượng tương ứng, nghĩa là
+Để tốc độ tính theo bất kỳ chất nào đều cho cùng một giá trị,
+chia biến thiên nồng độ cho hệ số tỉ lượng tương ứng:
 
 {/* T06-S01:e1520 */}
 
 $$\bar{v} = -\dfrac{1}{a}\dfrac{\Delta C_A}{\Delta t} = -\dfrac{1}{b}\dfrac{\Delta C_B}{\Delta t} = \dfrac{1}{c}\dfrac{\Delta C_C}{\Delta t} = \dfrac{1}{d}\dfrac{\Delta C_D}{\Delta t}$$
 
+{/* T06-S01:e0469 */}
+
+$$\bar{v} = -\dfrac{\Delta C_A}{\Delta t} = -\dfrac{\Delta C_B}{\Delta t} = \dfrac{\Delta C_C}{\Delta t} = \dfrac{\Delta C_D}{\Delta t}$$
+
+Dạng gọn (chất thứ $i$ có hệ số $\nu_i$):
+
 {/* T06-S01:e8803 */}
 
 $$\bar{v}_i = \pm \dfrac{1}{\nu_i} \dfrac{\Delta C_i}{\Delta t}$$
 
-Tốc độ tức thời: Xét các đại lượng biến thiên trên đủ nhỏ, nghĩa là
+### 2c. Tốc độ tức thời
 
 {/* T06-S01:e2801 */}
 
 $$\Delta t \to 0$$
 
-Lúc đó:
+Khi $\Delta t \to 0$, tốc độ trung bình tiến đến **tốc độ tức thời**:
 
 {/* T06-S01:e4916 */}
 
 $$v = \pm\dfrac{dC}{dt}$$
 
-v được gọi là tốc độ tức thời của phản ứng.
-
-Xét phản ứng tổng quát:
-
-aA + bB cC + dD
-
-Tốc độ của phản ứng trên được xác định bằng một trong các đại lượng sau:
-
 {/* T06-S01:e3758 */}
 
 $$v_A = -\dfrac{dC_A}{dt}, \quad v_B = -\dfrac{dC_B}{dt}, \quad v_C = \dfrac{dC_C}{dt}, \quad v_D = \dfrac{dC_D}{dt}$$
 
-Các đại lượng trên có thể khác nhau. Để tốc độ phản ứng đơn giá thì ta viết:
+Với phản ứng $aA + bB \rightarrow cC + dD$, tốc độ tức thời đơn giá:
 
 {/* T06-S01:e2548 */}
 
 $$v = -\dfrac{1}{a}\dfrac{dC_A}{dt} = -\dfrac{1}{b}\dfrac{dC_B}{dt} = \dfrac{1}{c}\dfrac{dC_C}{dt} = \dfrac{1}{d}\dfrac{dC_D}{dt}$$
 
-Ví dụ: Xét phản ứng tổng hợp SO3:
+<Example title="Ví dụ: Phản ứng tổng hợp SO₃">
+
+Xét phản ứng:
 
 {/* T06-S01:e7681 */}
 
 $$2\text{SO}_2 + \text{O}_2 \rightleftharpoons 2\text{SO}_3$$
 
-- Tốc độ trung bình của phản ứng:
+Viết biểu thức tốc độ trung bình và tốc độ tức thời đơn giá.
+
+<Solution>
+
+**Tốc độ trung bình:**
 
 {/* T06-S01:e2249 */}
 
 $$\bar{v} = -\dfrac{1}{2}\dfrac{\Delta C_{\text{SO}_2}}{\Delta t} = -\dfrac{\Delta C_{\text{O}_2}}{\Delta t} = \dfrac{1}{2}\dfrac{\Delta C_{\text{SO}_3}}{\Delta t}$$
 
-- Tốc độ tức thời của phản ứng:
+**Tốc độ tức thời:**
 
 {/* T06-S01:e7685 */}
 
 $$v = -\dfrac{1}{2}\dfrac{dC_{\text{SO}_2}}{dt} = -\dfrac{dC_{\text{O}_2}}{dt} = \dfrac{1}{2}\dfrac{dC_{\text{SO}_3}}{dt}$$
+
+</Solution>
+</Example>
 
 ## 3. Hằng số tốc độ phản ứng
 
