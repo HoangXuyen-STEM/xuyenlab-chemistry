@@ -25,6 +25,20 @@ Before editing, read:
 - Never change lesson status to `published`; only the project owner approves chemical content.
 - Never commit or output secret values.
 
+## Content
+
+Editorial standard for every lesson under `content/topics/**` is mandatory, not optional, for all
+chuyên đề (current pilots: **CD06 — Động hóa học**, **CD08 — Dung dịch và cân bằng hóa học**).
+Before writing or editing any lesson, read in order:
+
+1. `docs/content/LESSON-STYLE-GUIDE.md` — how to write a section (structure, allowed components,
+   `Callout` types, math rules, checklist).
+2. `docs/content/samples/SAMPLE-I1-toc-do-phan-ung.mdx` — the locked, owner-approved example.
+3. `docs/content/CONTENT-WORKFLOW.md` — which flow to run and the `draft` / `in_review` /
+   `published` lifecycle; `docs/contracts/content.md` for the frozen schema/QA record shape.
+
+No pasting DOCX text into lessons, no new MDX components, no bulk rewrites of `content/topics/**`
+in one task, no self-publish.
 
 <!-- BEGIN:nextjs-agent-rules -->
 
