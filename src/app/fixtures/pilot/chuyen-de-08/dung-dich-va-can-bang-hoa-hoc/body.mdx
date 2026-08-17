@@ -1,2281 +1,478 @@
-Phần I: HỆ THỐNG LÝ THUYẾT CƠ BẢN VÀ NÂNG CAO
+# Phần I — Hệ thống lý thuyết
 
-Cân bằng hóa học: Phản ứng thuận nghịch. Cân bằng hóa học. Hằng số cân bằng. Các yếu tố ảnh hưởng đến cân bằng. Sự chuyển dời cân bằng. Năng lượng tự do Gibbs ΔG và cân bằng hóa học.
+## I. Phản ứng một chiều và phản ứng thuận nghịch
 
-PHẢN ỨNG MỘT CHIỀU & PHẢN ỨNG THUẬN NGHỊCH
+<Callout type="definition" title="Phản ứng một chiều">
+  Phản ứng xảy ra theo **một chiều** từ chất đầu sang sản phẩm trong cùng điều
+  kiện.
+</Callout>
 
-<DataTable caption="Bảng 1 trích từ DOCX">
+$$\ce{aA + bB -> cC + dD}$$
 
-<thead>
-  <tr>
-    <th></th>
-    <th>1. Phản ứng một chiều</th>
-    <th>2. Phản ứng thuận nghịch</th>
-  </tr>
-</thead>
-<tbody>
-  <tr>
-    <td>Khái niệm</td>
-    <td>
-      Phản ứng một chiều là phản ứng xảy ra theo một chiều từ chất đầu sang sản
-      phẩm trong cùng một điều kiện.aA + bB cC + dD
-    </td>
-    <td>
-      Phản ứng thuận nghịch là phản ứng xảy ra theo hai chiều ngược nhau trong
-      cùng điều kiện.aA + bB cC + dD
-    </td>
-  </tr>
-  <tr>
-    <td>Biểu diễn</td>
-    <td>Bằng một mũi tên : →</td>
-    <td>Bằng hai nửa mũi tên ngược chiều nhau:</td>
-  </tr>
-</tbody>
+<Callout type="definition" title="Phản ứng thuận nghịch">
+  Phản ứng xảy ra theo **hai chiều ngược nhau** trong cùng điều kiện.
+</Callout>
+
+$$\ce{aA + bB <=> cC + dD}$$
+
+<Callout type="note" title="Ghi nhớ">
+  - Một chiều: một mũi tên $\rightarrow$. - Thuận nghịch: hai nửa mũi tên
+  $\rightleftharpoons$.
+</Callout>
+
+## II. Cân bằng hóa học
+
+<Callout type="definition" title="Trạng thái cân bằng">
+  Trạng thái của phản ứng thuận nghịch tại đó tốc độ thuận bằng tốc độ nghịch:
+  $v_{\mathrm{t}} = v_{\mathrm{n}}$.
+</Callout>
+
+Cân bằng hóa học là **cân bằng động**: phản ứng vẫn xảy ra, chỉ là hai chiều
+cùng tốc độ nên nồng độ các chất không đổi theo thời gian.
+
+### 1. Hằng số cân bằng nồng độ $K_C$
+
+Với phản ứng $\ce{aA + bB <=> cC + dD}$:
+
+$$
+K_C = \dfrac{[\ce{C}]^c[\ce{D}]^d}{[\ce{A}]^a[\ce{B}]^b}
+$$
+
+| Ký hiệu                               | Ý nghĩa                  |
+| ------------------------------------- | ------------------------ |
+| $[\ce{A}],[\ce{B}],[\ce{C}],[\ce{D}]$ | nồng độ mol tại cân bằng |
+| $a,b,c,d$                             | hệ số tỉ lượng           |
+
+<Callout type="note" title="Tính chất của $K_C$">
+  - $K_C$ chỉ phụ thuộc **nhiệt độ** và **bản chất phản ứng**. - Không viết chất
+  rắn (và dung môi nước khi dư) vào biểu thức $K_C$. - $K_C$ lớn: thuận chiếm ưu
+  thế. $K_C$ nhỏ: nghịch chiếm ưu thế.
+</Callout>
+
+## III. Sự chuyển dịch cân bằng
+
+<Callout type="definition" title="Chuyển dịch cân bằng">
+  Sự phá vỡ cân bằng cũ để lập cân bằng mới khi nồng độ, nhiệt độ hoặc áp suất
+  thay đổi.
+</Callout>
+
+<Callout type="definition" title="Nguyên lí Le Chatelier">
+  Hệ đang cân bằng, khi bị tác động làm đổi nồng độ, nhiệt độ hoặc áp suất, sẽ
+  chuyển dịch theo chiều **làm giảm tác động đó**.
+</Callout>
+
+### 1. Nhiệt độ
+
+Tăng $T$: cân bằng dịch theo chiều **thu nhiệt**. Giảm $T$: dịch theo chiều
+**tỏa nhiệt**.
+
+### 2. Nồng độ
+
+Tăng nồng độ một chất: cân bằng dịch theo chiều **tiêu thụ** chất đó.
+
+### 3. Áp suất (hệ khí)
+
+Tăng áp suất chung: cân bằng dịch theo chiều **giảm số mol khí**.
+
+### 4. Chất xúc tác
+
+<Callout type="warning" title="Xúc tác không chuyển dịch cân bằng">
+  Xúc tác tăng $v_{\mathrm{t}}$ và $v_{\mathrm{n}}$ như nhau. Hệ chỉ **đạt cân
+  bằng nhanh hơn**, $K$ không đổi.
+</Callout>
+
+## IV. Năng lượng tự do $\Delta G$ và cân bằng
+
+$$
+\Delta G = \Delta H - T\Delta S
+$$
+
+$\Delta G$ phụ thuộc thành phần hệ:
+
+$$
+\Delta G = \Delta G^{\circ} + RT\ln Q
+$$
+
+| Ký hiệu            | Ý nghĩa                                                                   |
+| ------------------ | ------------------------------------------------------------------------- |
+| $\Delta G^{\circ}$ | thế đẳng áp chuẩn ($1\,\mathrm{bar}$, $298\,\mathrm{K}$, $1\,\mathrm{M}$) |
+| $Q$                | thương số phản ứng                                                        |
+| $K$                | hằng số cân bằng                                                          |
+
+Tại cân bằng $\Delta G = 0$ và $Q = K$, nên:
+
+$$
+\Delta G^{\circ} = -RT\ln K
+$$
+
+<Callout type="note" title="Chiều tự diễn biến">
+  - $\Delta G &lt; 0$: phản ứng tự xảy ra theo chiều thuận. - $\Delta G = 0$:
+  cân bằng. - $\Delta G &gt; 0$: thuận không tự xảy ra (nghịch chiếm ưu thế).
+</Callout>
+
+## V. Dung dịch, độ tan và tích số tan
+
+<Callout type="definition" title="Độ tan $S$">
+  Nồng độ chất điện li trong dung dịch **bão hòa**. Thường tính bằng
+  $\mathrm{mol\,L^{-1}}$ (cũng gặp $\mathrm{g\,L^{-1}}$, $\mathrm{g}/100\,\mathrm{g}$
+  dung dịch).
+</Callout>
+
+$S$ phụ thuộc bản chất chất tan và dung môi, nhiệt độ, áp suất và trạng thái
+pha rắn.
+
+Với muối ít tan $\ce{M_{m}A_{n}(s) <=> m M^{n+} + n A^{m-}}$:
+
+<Callout type="definition" title="Tích số tan $K_S$">
+  Tích hoạt độ các ion trong dung dịch bão hòa, với số mũ bằng hệ số tỉ lượng,
+  tại một nhiệt độ xác định.
+</Callout>
+
+$$
+K_S = a(\ce{M^{n+}})^m \cdot a(\ce{A^{m-}})^n
+$$
+
+Khi gần đúng bằng nồng độ: $K_S = [\ce{M^{n+}}]^m[\ce{A^{m-}}]^n$. $K_S$ càng
+lớn, kết tủa càng dễ tan.
+
+### Tích số tan điều kiện $K_S'$
+
+Khi có quá trình phụ (pH, tạo phức), dùng $K_S'$ theo **nồng độ các dạng tồn
+tại** của mỗi ion, ở lực ion và pH cố định:
+
+$$
+K_S' = [\mathrm{M}]'[\mathrm{A}]' = K_S \cdot \alpha_{\mathrm{M}} \cdot \alpha_{\mathrm{A}}
+$$
+
+### Yếu tố ảnh hưởng độ tan
+
+- **Ion chung:** giảm $S$ (cân bằng hòa tan dịch về phía kết tủa).
+- **pH:** gốc acid yếu kết hợp $\ce{H+}$ làm tăng $S$.
+- **Tạo phức:** ion kim loại bị phức hóa làm tăng $S$.
+
+## VI. Sự điện li
+
+<Callout type="definition" title="Sự điện li">
+  Quá trình chất tan trong nước phân li thành ion.
+</Callout>
+
+<DataTable caption="Chất điện li và chất không điện li">
+
+|           | Điện li                           | Không điện li                           |
+| --------- | --------------------------------- | --------------------------------------- |
+| Khái niệm | Tan trong nước, phân li thành ion | Tan nhưng không phân li thành ion       |
+| Tính chất | Dẫn điện                          | Không dẫn điện                          |
+| Ví dụ     | Acid, base, muối (dung dịch)      | Nước cất, saccharose, ethanol, glycerol |
 
 </DataTable>
 
-{/* T08-S01:e7414 T08-S01:e3055 */}
-
-$$\text{aA} + \text{bB} \rightleftharpoons \text{cC} + \text{dD}$$
-
-<Callout type="warning" title="Đối tượng Word cần biên tập">
-  Chưa chuyển đối tượng `T08-S01:e6352`.
-</Callout>
-
-CÂN BẰNG HÓA HỌC
-
-## 1. Trạng thái cân bằng
-
-Trạng thái cân bằng của phản ứng thuận nghịch là trạng thái tại đó tốc độ phản ứng thuận bằng tốc độ phản ứng nghịch (vt = vn)
-
-<ChemFigure
-  src="/staging-assets/lessons/d0/d03b05cfd0bede85d8d061ac94bf9851cafb0a841b81b31d66e8100c9d8bccc5.png"
-  alt="Hình trích từ DOCX; cần chủ dự án bổ sung mô tả"
-  caption="Nguồn T08-S01, hình 1"
-  sourceId="T08-S01"
-/>
-
-Cân bằng hóa học là một cân bằng động => tại thời điểm cân bằng phản ứng vẫn diễn ra với tốc độ phản ứng thuận bằng tốc độ phản ứng nghịch.
-
-## 2. Hằng số cân bằng
-
-a) Biểu thức của hằng số cân bằng
-
-Xét phản ứng thuận nghịch tổng quát:
-
-<Callout type="warning" title="Đối tượng Word cần biên tập">
-  Chưa chuyển đối tượng `T08-S01:e0245`.
-</Callout>
-
-<Callout type="warning" title="Đối tượng Word cần biên tập">
-  Chưa chuyển đối tượng `T08-S01:e4430`.
-</Callout>
-
-- Một số lưu ý:
-
-* Trong đó : [A], [B], [C], [D] là nồng độ mol của các chất A, B, C, D ở trạng thái cân bằng.
-
-a,b,c,d là hệ số tỉ lượng của các chất trong phương trình hóa học của phản ứng.
-
-- KC chỉ phụ thuộc vào nhiệt độ và bản chất của phản ứng.
-
-- Đối với các phản ứng có chất rắn tham gia, không biểu diễn nồng độ của chất rắn trong biểu thức KC
-
-b)Ý nghĩa của hằng số cân bằng
-
-KC càng lớn thì phản ứng thuận càng chiếm ưu thế hơn và ngược lại, KC càng nhỏ thì phản ứng nghịch càng chiếm ưu thế hơn.
-
-SỰ CHUYỂN DỊCH CÂN BẰNG HÓA HỌC
-
-a. Khái niệm :
-
-Sự chuyển dịch cân bằng là sự phá vỡ trạng thái cân bằng cũ để chuyển sang trạng thái cân bằng mới do các yếu tố bên ngoài (nồng độ, nhiệt độ, áp suất) tác động lên cân bằng.
-
-b. Nguyên lí chuyển dịch cân bằng Le Chatelier
-
-“ Một phản ứng thuận nghịch đang ở trạng thái cân bằng, khi chịu một tác động bên ngoài làm thay đổi nồng độ, nhiệt độ, áp suất thì cân bằng sẽ chuyển dịch theo chiều làm giảm tác động bên ngoài đó”.
-
-CÁC YẾU TỐ ẢNH HƯỞNG ĐẾN SỰ CHUYỂN DỊCH CÂN BẰNG HÓA HỌC
-
-## 1. Ảnh hưởng của nhiệt độ (chất khí, chất lỏng)
-
-“ Khi tăng nhiệt độ, cân bằng chuyển dịch theo chiều làm giảm nhiệt độ, tức là chiều phản ứng thu nhiệt (), nghĩa là chiều làm giảm tác động của việc tăng nhiệt độ và ngược lại”
-
-<Callout type="warning" title="Đối tượng Word cần biên tập">
-  Chưa chuyển đối tượng `T08-S01:e2249`.
-</Callout>
-
-2.Ảnh hưởng của nồng độ (chất khí, chất lỏng)
-
-“Khi tăng nồng độ một chất trong phản ứng thì cân bằng hóa học bị phá vỡ và chuyển dịch theo chiều làm giảm tác động của chất đó và ngược lại”.
-
-## 3. Ảnh hưởng của áp suất (chất khí)
-
-“Khi tăng áp suất chung của hệ, thì cân bằng chuyển dịch theo chiều làm giảm áp suất, tức là chiều làm giảm số mol khí và ngược lại”.
-
-## 4. Ảnh hưởng chất xúc tác
-
-Trong phản ứng thuận nghịch nếu dùng chất xúc tác thì tốc độ phản ứng thuận và tốc độ phản ứng nghịch tăng như nhau nên chất xúc tác không có tác dụng làm chuyển dịch cân bằng , mà chỉ có tác dụng làm cho phản ứng nhanh chóng đạt đến trạng thái cân bằng.
-
-=> chất xúc tác không ảnh hưởng đến cân bằng hóa học
-
-NĂNG LƯỢNG TỰ DO ΔG VÀ CÂN BẰNG HÓA HỌC.
-
-Năng lượng tự do và hằng số cân bằng: (Gibbs Free Energy & Equilibrium Constants)
-
-ΔG = ΔH - TΔS
-
-ΔG hàm phụ thuộc vào nồng độ của tác chất & sản phẩm
-
-ΔG = ΔG0 - RT ln Q
-
-G0: năng lượng Gibbs ở đk chuẩn (1bar, 298K,1M)
-
-Tại cân bằng: ΔG = 0
-
-ΔG0 = RT ln K
-
-## 2. Khái niệm về dung dịch. Sự hòa tan. Độ tan
-
-2.1. Độ tan của chất ít tan
-
-Khi hòa tan hợp chất ít tan MmAn vào nước, dưới tác dụng của các phân tử nước phân cực thì các ion Mn+, Am- sẽ bị hydrat hóa và chuyển vào dung dịch dưới dạng phức chất aqua [M(H2O)x]n+, [A(H2O)y]m-. Đến một lúc nào đó thì tốc độ của hai quá trình thuận và nghịch bằng nhau và có cân bằng thiết lập giữa pha rắn và dung dịch bão hòa:
-
-MmAn ↓ + (mx+ny) H2O m M(H2O)xn+ + n A(H2O)ym-
-
-<ChemFigure
-  src="/staging-assets/lessons/12/12a5af017fc2009b7792d86c009749300bd9ca6e8468767d599d7d1b2b281136.png"
-  alt="Hình trích từ DOCX; cần chủ dự án bổ sung mô tả"
-  caption="Nguồn T08-S01, hình 2"
-  sourceId="T08-S01"
-/>
-
-Pha rắn dung dịch bão hòa
-
-Nồng độ của chất điện li trong dung dịch bão hòa được gọi là độ tan, kí hiệu là S. Độ tan có thể được biểu diễn bằng các đơn vị khác nhau: mol/L; g/L; g/100g dung dịch nhưng thường được biểu diễn bằng mol/L.
-
-Độ tan phụ thuộc vào nhiều yếu tố: bản chất của chất tan và dung môi, nhiệt độ, áp suất, trạng thái vật lí của pha rắn…
-
-Tích số tan
-
-Tích số tan là tích số hoạt độ của các ion trong dung dịch bão hòa với số mũ thích hợp tại một nhiệt độ xác định.
-
-Có thể viết cân bằng dưới dạng:
-
-MmAn ↓ m Mn+ + n Am- KS
-
-<ChemFigure
-  src="/staging-assets/lessons/12/12a5af017fc2009b7792d86c009749300bd9ca6e8468767d599d7d1b2b281136.png"
-  alt="Hình trích từ DOCX; cần chủ dự án bổ sung mô tả"
-  caption="Nguồn T08-S01, hình 3"
-  sourceId="T08-S01"
-/>
-
-Áp dụng định luật tác dụng khối lượng cho cân bằng :
-
-KS = (Mn+)m. (Am-)n
-
-Trong đó (i) là hoạt độ của ion i.
-
-KS được gọi là tích số tan.
-
-Tích số tan càng lớn thì kết tủa có khả năng tan càng nhiều và ngược lại.
-
-2.3.Tích số tan điều kiện
-
-Để thuận tiện cho việc đánh giá gần đúng độ tan trong các trường hợp phức tạp có xảy ra các quá trình phụ, người ta sử dụng tích số tan điều kiện. Cũng như hằng số tạo thành điều kiện, tích số tan điều kiện chỉ áp dụng cho một số điều kiện thực nghiệm xác định (lực ion, pH, chất tạo phức phụ…). Tích số tan nồng độ chính là tích số tan điều kiện ở lực ion và điều kiện đã cho. Trong biểu thức tích số tan điều kiện, hoạt độ của các ion được thay bằng nồng độ các dạng tồn tại trong dung dịch của mỗi ion.
-
-Đối với trường hợp tổng quát, đơn giản cân bằng trong dung dịch chứa kết tủa MA:
-
-MA↓ M + A Ks
-
-<ChemFigure
-  src="/staging-assets/lessons/12/12a5af017fc2009b7792d86c009749300bd9ca6e8468767d599d7d1b2b281136.png"
-  alt="Hình trích từ DOCX; cần chủ dự án bổ sung mô tả"
-  caption="Nguồn T08-S01, hình 4"
-  sourceId="T08-S01"
-/>
-
-Các quá trình phụ:
-
-M + H2O MOH + H+
-
-<Callout type="warning" title="Đối tượng Word cần biên tập">
-  Chưa chuyển đối tượng `T08-S01:e0730`.
-</Callout>
-
-<ChemFigure
-  src="/staging-assets/lessons/12/12a5af017fc2009b7792d86c009749300bd9ca6e8468767d599d7d1b2b281136.png"
-  alt="Hình trích từ DOCX; cần chủ dự án bổ sung mô tả"
-  caption="Nguồn T08-S01, hình 5"
-  sourceId="T08-S01"
-/>
-
-A + H+ HA Ka-1
-
-<ChemFigure
-  src="/staging-assets/lessons/12/12a5af017fc2009b7792d86c009749300bd9ca6e8468767d599d7d1b2b281136.png"
-  alt="Hình trích từ DOCX; cần chủ dự án bổ sung mô tả"
-  caption="Nguồn T08-S01, hình 6"
-  sourceId="T08-S01"
-/>
-
-M + X MX β
-
-<ChemFigure
-  src="/staging-assets/lessons/12/12a5af017fc2009b7792d86c009749300bd9ca6e8468767d599d7d1b2b281136.png"
-  alt="Hình trích từ DOCX; cần chủ dự án bổ sung mô tả"
-  caption="Nguồn T08-S01, hình 7"
-  sourceId="T08-S01"
-/>
-
-Độ tan của MA phụ thuộc vào pH và nồng độ chất tạo phức phụ X. Ở điều kiện cố định pH và nồng độ của X có thể tính được tích số tan điều kiện Ks’:
-
-Ks’ = [M]’[A]’
-
-Trong đó:
-
-[M]’= [M] +[MOH] + [MX] = [M] + .[M].[H+]-1 + β.[M].[X]
-
-<Callout type="warning" title="Đối tượng Word cần biên tập">
-  Chưa chuyển đối tượng `T08-S01:e6659`.
-</Callout>
-
-[A]’ = [A] + [HA] = [A] + Ka-1.[A].[H+] = [A].(1 + Ka-1 .[H+])
-
-Do đó: Ks’ = [M] ( 1 + .[H+]-1 + β.[X]).[A] ( 1+ Ka-1.[H+])
-
-<Callout type="warning" title="Đối tượng Word cần biên tập">
-  Chưa chuyển đối tượng `T08-S01:e9542`.
-</Callout>
-
-Hay: Ks’ = Ks.( 1 + .[H+]-1 + β.[X]) ( 1+ Ka-1.[H+])
-
-<Callout type="warning" title="Đối tượng Word cần biên tập">
-  Chưa chuyển đối tượng `T08-S01:e9403`.
-</Callout>
-
-Suy ra: Ks’ = Ks. αM .αA
-
-Ở đây: αM = ( 1+ β\*MOH+ .[H+]-1 + β.[X]) ; αA = ( 1+ Ka-1.[H+])
-
-Nếu cho pH và nồng độ chất tạo phức X ta có thể tính được Ks’ và từ đó tính độ tan của kết tủa theo ĐLTDKL áp dụng cho Ks’ thay thế cho Ks.
-
-2.4.Các yếu tố ảnh hưởng
-
-2.4.1. Sự có mặt của ion chung
-
-Sự có mặt của ion đồng dạng làm giảm độ tan các chất, làm cân bằng hòa tan chuyển dịch theo chiều nghịch.
-
-2.4.1.Ảnh hưởng của pH
-
-Để thuận tiện cho việc đánh giá gần đúng độ tan trong các trường hợp phức tạp có xảy ra các quá trình phụ, người ta sử dụng tích số tan điều kiện ().
-
-<Callout type="warning" title="Đối tượng Word cần biên tập">
-  Chưa chuyển đối tượng `T08-S01:e5555`.
-</Callout>
-
-M3A 3M+ + A3-
-
-<ChemFigure
-  src="/staging-assets/lessons/12/12a5af017fc2009b7792d86c009749300bd9ca6e8468767d599d7d1b2b281136.png"
-  alt="Hình trích từ DOCX; cần chủ dự án bổ sung mô tả"
-  caption="Nguồn T08-S01, hình 8"
-  sourceId="T08-S01"
-/>
-
-Xem M+ không hình thành phức hydrate và A3- là gốc acid yếu.
-
-H2O H+ + OH-
-
-<Callout type="warning" title="Đối tượng Word cần biên tập">
-  Chưa chuyển đối tượng `T08-S01:e3504`.
-</Callout>
-
-<ChemFigure
-  src="/staging-assets/lessons/12/12a5af017fc2009b7792d86c009749300bd9ca6e8468767d599d7d1b2b281136.png"
-  alt="Hình trích từ DOCX; cần chủ dự án bổ sung mô tả"
-  caption="Nguồn T08-S01, hình 9"
-  sourceId="T08-S01"
-/>
-
-A3- + H+ HA2- Ka3-1
-
-<ChemFigure
-  src="/staging-assets/lessons/12/12a5af017fc2009b7792d86c009749300bd9ca6e8468767d599d7d1b2b281136.png"
-  alt="Hình trích từ DOCX; cần chủ dự án bổ sung mô tả"
-  caption="Nguồn T08-S01, hình 10"
-  sourceId="T08-S01"
-/>
-
-HA2- + H+ H2A- Ka2-1
-
-<ChemFigure
-  src="/staging-assets/lessons/12/12a5af017fc2009b7792d86c009749300bd9ca6e8468767d599d7d1b2b281136.png"
-  alt="Hình trích từ DOCX; cần chủ dự án bổ sung mô tả"
-  caption="Nguồn T08-S01, hình 11"
-  sourceId="T08-S01"
-/>
-
-H2A- + H+ H3A Ka1-1
-
-<Callout type="warning" title="Công thức cần biên tập">
-  Chưa chuyển semantic công thức `T08-S01:f7778`.
-</Callout>
-
-<ChemFigure
-  src="/staging-assets/lessons/12/12a5af017fc2009b7792d86c009749300bd9ca6e8468767d599d7d1b2b281136.png"
-  alt="Hình trích từ DOCX; cần chủ dự án bổ sung mô tả"
-  caption="Nguồn T08-S01, hình 12"
-  sourceId="T08-S01"
-/>
-
-CA3- = [A3- ] + [HA2- ] + [H2A- ] + [H3A]
-
-= [A3- ] + [H+]. [A3- ] . Ka3-1 + [H+]2. [A3- ]. Ka2-1. Ka3-1 + [H+].3[A3- ]. Ka3-1 Ka2-1. Ka1-1
-
-CA3- = [A3- ] (1+ [H+]. Ka3-1 + [H+]2. Ka2-1. Ka3-1 + [H+].3 Ka3-1 Ka2-1. Ka1-1) = [A3- ].
-
-<Callout type="warning" title="Công thức cần biên tập">
-  Chưa chuyển semantic công thức `T08-S01:f3655`.
-</Callout>
-
-<Callout type="warning" title="Đối tượng Word cần biên tập">
-  Chưa chuyển đối tượng `T08-S01:e7271`.
-</Callout>
-
-Với = 1+ [H+]. Ka3-1 + [H+]2. Ka2-1. Ka3-1 + [H+].3 Ka3-1 Ka2-1. Ka1-1
-
-<Callout type="warning" title="Đối tượng Word cần biên tập">
-  Chưa chuyển đối tượng `T08-S01:e6005`.
-</Callout>
-
-2.4.3. Ảnh hưởng của sự tạo phức
-
-Sự điện li. Chất điện li. Độ điện li. Hằng số điện li. Định luật bảo toàn nồng độ.
-
-SỰ ĐIỆN LI.
-
-Quá trình phân li các chất khi tan trong nước thành ion được gọi là sự điện li.
-
-CHẤT ĐIỆN LI.
-
-a) Chất điện li và chất không điện li
-
-<DataTable caption="Bảng 2 trích từ DOCX">
-
-<thead>
-  <tr>
-    <th>Chất</th>
-    <th>Chất điện li</th>
-    <th>Chất không điện li</th>
-  </tr>
-</thead>
-<tbody>
-  <tr>
-    <td>Khái niệm</td>
-    <td>Chất điện li là chất khi tan trong nước phân li thành các ion.</td>
-    <td>
-      Chất không điện li là chất khi tan trong nước không phân li thành các ion.
-    </td>
-  </tr>
-  <tr>
-    <td>Tính chất</td>
-    <td>Dẫn điện</td>
-    <td>Không dẫn điện</td>
-  </tr>
-  <tr>
-    <td>Ví dụ</td>
-    <td>Hầu hết dung dịch acid, base, muối.</td>
-    <td>
-      Các chất ở dạng rắn khan, nước cất, dung dịch saccharose (C12H22O11),
-      alcohol ethylic (C2H5OH), glycerol: C3H5(OH)3.
-    </td>
-  </tr>
-</tbody>
-
-</DataTable>
-
-b) Chất điện li mạnh và chất điện li yếu
-
-<DataTable caption="Bảng 3 trích từ DOCX">
-
-<thead>
-  <tr>
-    <th></th>
-    <th>Chất điện li mạnh: (α = 1)</th>
-    <th>Chất điện li yếu: (0 &lt; α &lt;1)</th>
-  </tr>
-</thead>
-<tbody>
-  <tr>
-    <td>Khái niệm</td>
-    <td>
-      Chất điện li mạnh là chất khi tan trong nước tất cả các phân tử chất tan
-      đều phân li ra ion.
-    </td>
-    <td>
-      Chất điện li yếu là chất khi tan trong nước chỉ có một phần số phân tử
-      chất tan phân li ra ion, phần còn lại vẫn tồn tại ở dạng phân tử trong
-      dung dịch.
-    </td>
-  </tr>
-  <tr>
-    <td>Biểu diễn</td>
-    <td>Bằng một mũi tên :</td>
-    <td>Bằng hai nửa mũi tên ngược chiều nhau:</td>
-  </tr>
-  <tr>
-    <td>Gồm các chất</td>
-    <td>
-      -Acid mạnh: H2SO4, HCl, HNO3, HClO3, HClO4, HBrO3, HBrO4 , HBr, HI.HCl H+
-      + Cl-
-    </td>
-    <td>
-      - Acid yếu: H2CO3, H2SO3, H2S, HClO, HClO2, HBrO, HBrO2, HF, CH3COOH,
-      HCOOH, H3PO4, HCN,...CH3COOH CH3COO- + H+
-    </td>
-  </tr>
-  <tr>
-    <td></td>
-    <td>
-      - Base mạnh = base tan (NaOH và Ba(OH)2, Sr(OH)2, Ca(OH)2 )NaOH Na+ + OH-
-    </td>
-    <td>
-      - Base yếu = base không tan (3OH và các trường hợp còn lại của
-      2OH).Bi(OH)3 Bi3+ + 3OH-
-    </td>
-  </tr>
-  <tr>
-    <td></td>
-    <td>
-      - Muối: hầu hết các muối trừ HgCl2, Hg(CN)2 là điện li yếu.K3PO4 3K+ +
-    </td>
-    <td>- Muối : HgCl2, Hg(CN)2HgCl2 Hg2+ + 2Cl-</td>
-  </tr>
-</tbody>
-
-</DataTable>
-
-<Callout type="warning" title="Đối tượng Word cần biên tập">
-  Chưa chuyển đối tượng `T08-S01:e7680`.
-</Callout>
-
-<Callout type="warning" title="Đối tượng Word cần biên tập">
-  Chưa chuyển đối tượng `T08-S01:e2337`.
-</Callout>
-
-<Callout type="warning" title="Đối tượng Word cần biên tập">
-  Chưa chuyển đối tượng `T08-S01:e8580`.
-</Callout>
-
-<Callout type="warning" title="Đối tượng Word cần biên tập">
-  Chưa chuyển đối tượng `T08-S01:e8433`.
-</Callout>
-
-<Callout type="warning" title="Đối tượng Word cần biên tập">
-  Chưa chuyển đối tượng `T08-S01:e2086`.
-</Callout>
-
-<Callout type="warning" title="Đối tượng Word cần biên tập">
-  Chưa chuyển đối tượng `T08-S01:e3007`.
-</Callout>
-
-<Callout type="warning" title="Đối tượng Word cần biên tập">
-  Chưa chuyển đối tượng `T08-S01:e3903`.
-</Callout>
-
-<Callout type="warning" title="Đối tượng Word cần biên tập">
-  Chưa chuyển đối tượng `T08-S01:e9836`.
-</Callout>
-
-<Callout type="warning" title="Đối tượng Word cần biên tập">
-  Chưa chuyển đối tượng `T08-S01:e6957`.
-</Callout>
-
-ĐỘ ĐIỆN LI
-
-Độ điện li (α) :
-
-<Callout type="warning" title="Đối tượng Word cần biên tập">
-  Chưa chuyển đối tượng `T08-S01:e0375`.
-</Callout>
-
-Với : n là số phân tử phân li ra ion, no là số phân tử hòa tan.
-
-C là nồng độ mol chất tan phân li thành ion, Co là nồng độ mol chất hòa tan.
-
-● Chú ý :
-
-- Khi pha loãng dung dịch, độ điện li của các chất điện li đều tăng.
-
-- Cân bằng điện li là cân bằng động và tuân theo nguyên lí chuyển dịch cân bằng Le Chatelier
-
-HẰNG SỐ ĐIỆN LI
-
-K =
-
-<ChemFigure
-  src="/staging-assets/lessons/83/83997a2588cee3d8dda53aa4a920d9fda38fc6f70095fdc33426f4d70ea21b23.png"
-  alt="Hình trích từ DOCX; cần chủ dự án bổ sung mô tả"
-  caption="Nguồn T08-S01, hình 13"
-  sourceId="T08-S01"
-/>
-
-- với những acid mạnh, base mạnh là những chất điện li hoàn toàn nên ta không dùng khái niệm cân bằng điện li
-
-- với những đa acid, đa base xảy ra theo nhiều nấc. Mỗi nấc được đặc trưng bởi một hằng số điện li riêng
-
-VD: H3PO4 H+ + H2PO4- ; K1 = 7,5. 10-3
-
-<Callout type="warning" title="Đối tượng Word cần biên tập">
-  Chưa chuyển đối tượng `T08-S01:e5177`.
-</Callout>
-
-H2PO4- H+ + HPO42- ; K2 = 6,3. 10-8
-
-<Callout type="warning" title="Đối tượng Word cần biên tập">
-  Chưa chuyển đối tượng `T08-S01:e7307`.
-</Callout>
-
-HPO42- H+ + PO43- ; K3 = 1,3. 10-12
-
-<Callout type="warning" title="Đối tượng Word cần biên tập">
-  Chưa chuyển đối tượng `T08-S01:e1552`.
-</Callout>
-
-H3PO4 3H+ + PO43- ; K = K1. K2. K3
-
-<Callout type="warning" title="Đối tượng Word cần biên tập">
-  Chưa chuyển đối tượng `T08-S01:e2462`.
-</Callout>
-
-K phụ thuộc vào nhiệt độ và bản chất của chất điện li
-
-- Mối liên hệ giữa K và α
-
-AmBn mAn+ + nBm-
-
-<Callout type="warning" title="Đối tượng Word cần biên tập">
-  Chưa chuyển đối tượng `T08-S01:e0161`.
-</Callout>
-
-t = 0 C 0 0
-
-tcb C(1-α ) mCα nCα
-
-K = =
-
-<ChemFigure
-  src="/staging-assets/lessons/36/36af79345133e7881c39674580ca5f8dcaba5026baebd3b7f750aac22508c61b.png"
-  alt="Hình trích từ DOCX; cần chủ dự án bổ sung mô tả"
-  caption="Nguồn T08-S01, hình 14"
-  sourceId="T08-S01"
-/>
-
-<ChemFigure
-  src="/staging-assets/lessons/73/7381eb90b3a5cd9ddaf73ec7b9cc3272cd65f44bbae842fd4332072299108f95.png"
-  alt="Hình trích từ DOCX; cần chủ dự án bổ sung mô tả"
-  caption="Nguồn T08-S01, hình 15"
-  sourceId="T08-S01"
-/>
-
-Với chất điện li yếu : α &lt;&lt; 1
-
-K =
-
-<ChemFigure
-  src="/staging-assets/lessons/11/116b736acaf864a3bfb094c329cc7077476c546aabfa356151216da60e8b213f.png"
-  alt="Hình trích từ DOCX; cần chủ dự án bổ sung mô tả"
-  caption="Nguồn T08-S01, hình 16"
-  sourceId="T08-S01"
-/>
-
-Cân bằng trong dung dịch acid yếu :
-
-Giả sử có một dung dịch acid yếu HA (HF, CH3COOH…), có nồng độ ban đầu là Co, độ điện li là α, hằng số phân li là .
-
-<Callout type="warning" title="Đối tượng Word cần biên tập">
-  Chưa chuyển đối tượng `T08-S01:e7633`.
-</Callout>
-
-Phương trình điện li :
-
-HA + H2O A- + H3O+
-
-<Callout type="warning" title="Đối tượng Word cần biên tập">
-  Chưa chuyển đối tượng `T08-S01:e1723`.
-</Callout>
-
-Hay :
-
-HA A- + H+
-
-<Callout type="warning" title="Đối tượng Word cần biên tập">
-  Chưa chuyển đối tượng `T08-S01:e4801`.
-</Callout>
-
-<Callout type="warning" title="Đối tượng Word cần biên tập">
-  Chưa chuyển đối tượng `T08-S01:e2199`.
-</Callout>
-
-bđ: Co
-
-p.li αCo αCo αCo
-
-<Callout type="warning" title="Đối tượng Word cần biên tập">
-  Chưa chuyển đối tượng `T08-S01:e8707`.
-</Callout>
-
-<Callout type="warning" title="Đối tượng Word cần biên tập">
-  Chưa chuyển đối tượng `T08-S01:e3829`.
-</Callout>
-
-cb: Co – αCo αCo αCo
-
-Tại thời điểm cân bằng ta có :
-
-(1)
-
-<Callout type="warning" title="Đối tượng Word cần biên tập">
-  Chưa chuyển đối tượng `T08-S01:e0946`.
-</Callout>
-
-Các công thức tính toán gần đúng được rút ra từ công thức (1) :
-
-- Vì HA là dung dịch chất điện li yếu nên (2)
-
-<Callout type="warning" title="Đối tượng Word cần biên tập">
-  Chưa chuyển đối tượng `T08-S01:e9968`.
-</Callout>
-
-<Callout type="warning" title="Đối tượng Word cần biên tập">
-  Chưa chuyển đối tượng `T08-S01:e2121`.
-</Callout>
-
-<Callout type="warning" title="Đối tượng Word cần biên tập">
-  Chưa chuyển đối tượng `T08-S01:e9612`.
-</Callout>
-
-<Callout type="warning" title="Đối tượng Word cần biên tập">
-  Chưa chuyển đối tượng `T08-S01:e6075`.
-</Callout>
-
-<Callout type="warning" title="Đối tượng Word cần biên tập">
-  Chưa chuyển đối tượng `T08-S01:e5882`.
-</Callout>
-
-Từ công thức (2) ta có thể suy ra công thức tính độ điện li α :
-
-<Callout type="warning" title="Đối tượng Word cần biên tập">
-  Chưa chuyển đối tượng `T08-S01:e9957`.
-</Callout>
-
-Cân bằng trong dung dịch base yếu
-
-Xét dung dịch NH3 có nồng độ ban đầu là Co, độ điện li là α, hằng số phân li là .
-
-<Callout type="warning" title="Đối tượng Word cần biên tập">
-  Chưa chuyển đối tượng `T08-S01:e3781`.
-</Callout>
-
-Phương trình điện li :
-
-NH3 + H2O OH- + NH4+
-
-<Callout type="warning" title="Đối tượng Word cần biên tập">
-  Chưa chuyển đối tượng `T08-S01:e1753`.
-</Callout>
-
-<Callout type="warning" title="Đối tượng Word cần biên tập">
-  Chưa chuyển đối tượng `T08-S01:e6304`.
-</Callout>
-
-bđ: Co
-
-p.li αCo αCo αCo
-
-<Callout type="warning" title="Đối tượng Word cần biên tập">
-  Chưa chuyển đối tượng `T08-S01:e7260`.
-</Callout>
-
-<Callout type="warning" title="Đối tượng Word cần biên tập">
-  Chưa chuyển đối tượng `T08-S01:e1606`.
-</Callout>
-
-cb: Co – αCo αCo αCo
-
-Tại thời điểm cân bằng ta có :
-
-(1)
-
-<Callout type="warning" title="Đối tượng Word cần biên tập">
-  Chưa chuyển đối tượng `T08-S01:e5216`.
-</Callout>
-
-Các công thức tính toán gần đúng được rút ra từ công thức (1) :
-
-- Vì NH3 là dung dịch chất điện li yếu nên (2)
-
-<Callout type="warning" title="Đối tượng Word cần biên tập">
-  Chưa chuyển đối tượng `T08-S01:e1428`.
-</Callout>
-
-<Callout type="warning" title="Đối tượng Word cần biên tập">
-  Chưa chuyển đối tượng `T08-S01:e5363`.
-</Callout>
-
-<Callout type="warning" title="Đối tượng Word cần biên tập">
-  Chưa chuyển đối tượng `T08-S01:e5598`.
-</Callout>
-
-<Callout type="warning" title="Đối tượng Word cần biên tập">
-  Chưa chuyển đối tượng `T08-S01:e7554`.
-</Callout>
-
-<Callout type="warning" title="Đối tượng Word cần biên tập">
-  Chưa chuyển đối tượng `T08-S01:e5939`.
-</Callout>
-
-Từ công thức (2) ta có thể suy ra công thức tính độ điện li α :
-
-<Callout type="warning" title="Đối tượng Word cần biên tập">
-  Chưa chuyển đối tượng `T08-S01:e4286`.
-</Callout>
-
-ĐỊNH LUẬT BẢO TOÀN NỒNG ĐỘ
-
-Trong dung dịch, các chất bị điện li ít nhiều thành các ion, ngoài ra chúng có sự tương tác với dung môi, với các ion khác.
-
-Định luật bảo toàn nồng độ phát biểu như sau: Nồng độ ban đầu của các ion bằng tổng nồng độ các dạng tồn tại của chúng trong dung dịch ở trạng thái cân bằng.
-
-Acid – base – muối: định nghĩa, phân loại, danh pháp, tính chất chung, tính acid – base của các ion. Phản ứng trao đổi ion.
-
-4.1. Acid – base – muối
-
-\*\*\* Lưu ý: Theo thuyết Arrhenius: Chỉ áp dụng đối với dung môi là nước.
-
-Theo thuyết Bronsted: Bao gồm cả dung môi là nước và dung môi khác nước hoặc không có dung môi.
-
-4.1.1. ACID
-
-Theo thuyết Arrhenius: Acid là chất khi tan trong nước điện li ra cation H+ .
-
-HCl → H+ + Cl-
-
-CH3COOH H+ + CH3COO-
-
-<Callout type="warning" title="Đối tượng Word cần biên tập">
-  Chưa chuyển đối tượng `T08-S01:e9993`.
-</Callout>
-
-Các dung dịch acid đều có một số tính chất chung , đó là tính chất của các cation H+ trong dung dịch.
-
-Theo thuyết Bronsted: Acid là chất nhường proton H+ để trở thành base liên hợp, acid càng mạnh thì base liên hợp với nó càng yếu và ngược lại.
-
-CH3COOH + H2O H3O+ + CH3COO-
-
-<Callout type="warning" title="Đối tượng Word cần biên tập">
-  Chưa chuyển đối tượng `T08-S01:e7165`.
-</Callout>
-
-CH3COOH là acid yếu nên base liên hợp với nó là một base mạnh.
-
-Như vậy theo Bronsted thì acid có thể là :
-
-Phân tử trung hòa: HCl, H2SO4, HNO3, NH4Cl, CuCl2...
-
-Cation: NH4+; Fe(H2O)2+; Al(H2O)3+; Cu(H2O)2+...
-
-Anion : HSO4-
-
-4.1.2. BASE
-
-Theo thuyết Arrhenius: Base là chất khi tan trong nước điện li ra anion OH- .
-
-NaOH → Na+ + OH-
-
-Các dung dịch base đều có một số tính chất chung , đó là tính chất của các anion OH- trong dung dịch.
-
-Theo thuyết Bronsted: Base là chất nhận proton H+ để trở thành acid liên hợp, base càng mạnh thì acid liên hợp với nó càng yếu và ngược lại.
-
-NH3 + H2O NH4+ + OH-
-
-<Callout type="warning" title="Đối tượng Word cần biên tập">
-  Chưa chuyển đối tượng `T08-S01:e7676`.
-</Callout>
-
-NH3 là base yếu nên NH4+ là acid liên hợp với nó là một acid mạnh.
-
-Như vậy theo Bronsted thì acid có thể là :
-
-Phân tử trung hòa: NaOH, Ba(OH)2, Cu(OH)2, NH3, Na2CO3...
-
-Cation: Fe(H2O)2+; Al(H2O)2+,...
-
-Anion : CO32-; S2-; SO32-; PO43-; SO42-; CH3COO-...
-
-4.1.3. Chất lưỡng tính
-
-Theo thuyết Arrhenius: Hydroxide lưỡng tính là hydroxide khi tan trong nước vừa có thể phân li như acid vừa có thể phân li như base.
-
-Zn(OH)2 Zn2+ + 2OH- : Phân li theo kiểu base
-
-<Callout type="warning" title="Đối tượng Word cần biên tập">
-  Chưa chuyển đối tượng `T08-S01:e2007`.
-</Callout>
-
-Zn(OH)2 + 2H2O [Zn(OH)4]2− + 2H+: Phân li theo kiểu acid
-
-<Callout type="warning" title="Đối tượng Word cần biên tập">
-  Chưa chuyển đối tượng `T08-S01:e0530`.
-</Callout>
-
-Để thể hiện tính acid của Zn(OH)2 người ta thường viết nó dưới dạng H2ZnO2.
-
-Các hydroxide thường gặp là: Al(OH)3, Zn(OH)2, Pb(OH)2, Sn(OH)2, Cr(OH)3, Be(OH)2.
-
-Theo thuyết Bronsted: Chất lưỡng tính (phân tử hoặc ion) khi tan trong nước vừa có khả năng nhường vừa có khả năng nhận proton H+.
-
-Các chất lưỡng tính thường gặp:
-
-Hydroxide lưỡng tính: Al(OH)3, Zn(OH)2, Pb(OH)2, Sn(OH)2, Cr(OH)3, Be(OH)2.
-
-Oxide lưỡng tính: Al2O3, ZnO, PbO, SnO, Cr2O3, BeO.
-
-Muối: NaHCO3; NaHS; NaHSO3; (NH4)2CO3; CH3COONH4 …
-
-Anion: HCO3-, HS-, HSO3-, H2PO4-…
-
-H2O
-
-Chú ý: Al, Zn, Be, Pb, Sn không có tính lưỡng tính mặc dù vẫn tác dụng được với dd acid và dd base.
-
-4.1.4. Chất trung tính: Là chất (phân tử hoặc ion) không có khả năng nhường và cũng không có khả năng nhận proton H+. Bao gồm:
-
-Muối tạo bởi acid mạnh và basse mạnh: NaCl, Ba(NO3)2, KNO3 …
-
-Anion gốc acid mạnh: ClO4-, Cl-, NO3-, Br-…
-
-Cation kim loại mạnh: Na+, Ca2+ …
-
-4.1.5. Muối
-
-Muối là hợp chất khi tan trong nước điện li ra cation kim loại (hoặc cation NH4+) và anion gốc acid.
-
-NaHCO3 → Na+ + HCO3-
-
-Khi hòa tan vào nước các muối sẽ phân li thành các ion và bị hydrate hóa.
-
-Phân loại
-
-Muối trung hoà là muối mà anion gốc acid không còn hydrogen có khả năng điện li ra ion H+ : NaCl, (NH4)2SO4, Na2CO3…
-
-Lưu ý:Na2HPO3, NaH2PO2 là muối trung hòa vì các H này không có khả năng phân li ra H+.
-
-Muối acid là muối mà gốc acid của muối vẫn còn hydrogen có khả năng điện li ra ion H+ : NaHCO3 (bột nở) , NaH2PO4, NaHSO4.
-
-Muối phức tạp
-
-Muối kép : NaCl.KCl ; KCl.MgCl2.6H2O ;...
-
-Phức chất : [Ag(NH3)2]Cl ; [Cu(NH3)4]SO4 ;...
-
-Muối ngậm nước: CuSO4.5H2O …
-
-Muối hỗn tạp: tạo bởi một cation và nhiều anion : CaOCl2…
-
-4.2. Phản ứng trao đổi ion.
-
-Khái niệm: phản ứng trao đổi ion trong dung dịch là phản ứng xảy ra có sự trao đổi ion giữa các chất điện li để tạo thành chất mới, trong đó, số oxi hóa của chúng trước và sau phản ứng không thay đổi.
-
-Điều kiện xảy ra phản ứng trao đổi ion:
-
-Phản ứng trao đổi ion chỉ xảy ra trong những trường hợp sau đây:
-
-Sản phẩm của phản ứng có kết tủa tạo thành.
-
-- → + 2
-
-<Callout type="warning" title="Đối tượng Word cần biên tập">
-  Chưa chuyển đối tượng `T08-S01:e7846`.
-</Callout>
-
-<Callout type="warning" title="Đối tượng Word cần biên tập">
-  Chưa chuyển đối tượng `T08-S01:e0170`.
-</Callout>
-
-<Callout type="warning" title="Đối tượng Word cần biên tập">
-  Chưa chuyển đối tượng `T08-S01:e6368`.
-</Callout>
-
-<Callout type="warning" title="Đối tượng Word cần biên tập">
-  Chưa chuyển đối tượng `T08-S01:e9711`.
-</Callout>
-
-Sản phẩm của phản ứng tạo thành chất điện li yếu.
-
-- → +
-
-<Callout type="warning" title="Đối tượng Word cần biên tập">
-  Chưa chuyển đối tượng `T08-S01:e5058`.
-</Callout>
-
-<Callout type="warning" title="Đối tượng Word cần biên tập">
-  Chưa chuyển đối tượng `T08-S01:e3801`.
-</Callout>
-
-<Callout type="warning" title="Đối tượng Word cần biên tập">
-  Chưa chuyển đối tượng `T08-S01:e4060`.
-</Callout>
-
-<Callout type="warning" title="Đối tượng Word cần biên tập">
-  Chưa chuyển đối tượng `T08-S01:e3312`.
-</Callout>
-
-CH3COONa + → CH3COOH +
-
-<Callout type="warning" title="Đối tượng Word cần biên tập">
-  Chưa chuyển đối tượng `T08-S01:e4172`.
-</Callout>
-
-<Callout type="warning" title="Đối tượng Word cần biên tập">
-  Chưa chuyển đối tượng `T08-S01:e0904`.
-</Callout>
-
-- 2 →
-
-<Callout type="warning" title="Đối tượng Word cần biên tập">
-  Chưa chuyển đối tượng `T08-S01:e4796`.
-</Callout>
-
-<Callout type="warning" title="Đối tượng Word cần biên tập">
-  Chưa chuyển đối tượng `T08-S01:e0365`.
-</Callout>
-
-<Callout type="warning" title="Đối tượng Word cần biên tập">
-  Chưa chuyển đối tượng `T08-S01:e5977`.
-</Callout>
-
-Sản phẩm của phản ứng tạo thành chất dễ bay hơi.
-
-- → + +
-
-<Callout type="warning" title="Đối tượng Word cần biên tập">
-  Chưa chuyển đối tượng `T08-S01:e4186`.
-</Callout>
-
-<Callout type="warning" title="Đối tượng Word cần biên tập">
-  Chưa chuyển đối tượng `T08-S01:e2693`.
-</Callout>
-
-<Callout type="warning" title="Đối tượng Word cần biên tập">
-  Chưa chuyển đối tượng `T08-S01:e3854`.
-</Callout>
-
-<Callout type="warning" title="Đối tượng Word cần biên tập">
-  Chưa chuyển đối tượng `T08-S01:e9063`.
-</Callout>
-
-<Callout type="warning" title="Đối tượng Word cần biên tập">
-  Chưa chuyển đối tượng `T08-S01:e3179`.
-</Callout>
-
-Tích số ion của nước, ý nghĩa. Dung dịch acid – base. pH và chất chỉ thị acid – base. Chuẩn độ acid – base.
-
-5.1. Tích số ion của nước
-
-Nước là chất điện ly yếu: H2O + H2O H3O+ + OH-
-
-<Callout type="warning" title="Đối tượng Word cần biên tập">
-  Chưa chuyển đối tượng `T08-S01:e4628`.
-</Callout>
-
-Tích số nồng độ H+ và OH- trong nước nguyên chất hoặc trong nước không quá đặc ở mỗi nhiệt độ là hằng số, gọi là tích số ion của nước (kí hiệu Kw). KW = [H+].[OH-]
-
-Ở 25oC : KW = [H+].[OH-] = 1,0.10-14 (1)
-
-Từ đó suy ra:
-
-<ChemFigure
-  src="/staging-assets/lessons/af/affd611993fc511c90ed03561c84022301e6e897e4ee5f1042cbb22a3eff7579.png"
-  alt="Hình trích từ DOCX; cần chủ dự án bổ sung mô tả"
-  caption="Nguồn T08-S01, hình 17"
-  sourceId="T08-S01"
-/>
-
-5.2. Phản ứng acid – base: Là phản ứng hóa học trong đó có sự cho và nhận proton.
-
-Các phản ứng thuộc loại acid – base bao gồm:
-
-Dung dịch acid và dung dịch base
-
-Dung dịch acid và base không tan
-
-Dung dịch acid và basic oxide
-
-Dung dịch base và acidic oxide
-
-5.3. pH và chất chỉ thị acid – base
-
-pH của dung dịch : Là chỉ số để đo nồng độ (đặc, loãng) của dung dịch acid hay base khi nồng độ của dung dịch nhỏ hơn 0,1M. Công thức tính : pH = - lg[](2)
-
-<Callout type="warning" title="Đối tượng Word cần biên tập">
-  Chưa chuyển đối tượng `T08-S01:e1846`.
-</Callout>
-
-Logarit hóa hai vế của (1) ta có một dung dịch:
-
-pH + pOH = 14 (3)
-
-Từ (3) suy ra :
-
-<ChemFigure
-  src="/staging-assets/lessons/60/607453ded6101fa0cd3fcf4c0f9c2938a2a5d04b358d87404d6f6e5249a24102.png"
-  alt="Hình trích từ DOCX; cần chủ dự án bổ sung mô tả"
-  caption="Nguồn T08-S01, hình 18"
-  sourceId="T08-S01"
-/>
-
-Chất chỉ thị acid – base
-
-Chất chỉ thị acid – base là chất có màu biến đổi phụ thuộc vào giá trị pH của dung dịch.
-
-<DataTable caption="Bảng 4 trích từ DOCX">
-
-<thead>
-  <tr>
-    <th>Giấy quỳ tím</th>
-    <th>Đỏ (pH ≤ 6)</th>
-    <th>Tím (pH = 7)</th>
-    <th>Xanh (pH ≥ 8)</th>
-  </tr>
-</thead>
-<tbody>
-  <tr>
-    <td>Phenolphthalein</td>
-    <td>Không màu (pH &lt; 8)</td>
-    <td>Màu hồng (pH ≥ 8)</td>
-    <td></td>
-  </tr>
-  <tr>
-    <td>Methyl da cam</td>
-    <td>Đỏ</td>
-    <td>Vàng cam</td>
-    <td></td>
-  </tr>
-  <tr>
-    <td>Giấy pH</td>
-    <td></td>
-    <td></td>
-    <td></td>
-  </tr>
-</tbody>
-
-</DataTable>
-
-<ChemFigure
-  src="/staging-assets/lessons/7c/7c7739c9ba78b5b7534eac7515e97ea6d4ed660f2181cf16a88ec683841ca30e.jpg"
-  alt="Hình trích từ DOCX; cần chủ dự án bổ sung mô tả"
-  caption="Nguồn T08-S01, hình 19"
-  sourceId="T08-S01"
-/>
-
-Lưu ý: (\*\*) trong dung dịch xút đặc thì màu hồng bị mất đi.
-
-Phương pháp tính pH
-
-## 1. Tính pH của dung dịch đơn acid mạnh HA Ca (M) (Dạng 1)
-
-HA ⭢ H+ + A-
-
-H2O ⮀ H+ + OH- Kw = 1,0. 10-14 ở 250C
-
-Áp dụng định luật bảo toàn điện tích :
-
-[H+ ] = [ OH- ] + [A- ]
-
-Với : [A- ] = Ca và [ OH- ] =
-
-⭢ [H+ ] = Ca + ⬄ [H+ ]2 - [H+ ].Ca - Kw = 0 (1)
-
-Biểu thức (1) là biểu thức tổng quát tính [H+ ] ⭢ pH của một dung dịch đơn acid mạnh bất kì.
-
-- Có thể đơn giản hoá phép tính một cách gần đúng như sau:
-
-* Nếu nồng độ acid Ca ≥ 10-6 M thì bỏ qua sự điện li của H2O
-
-=>[H+ ] = Ca hay pH = - lg [H+ ] = - lgCa
-
-- Nếu nồng độ acid 10-8 &lt;Ca &lt; 10-6 M thì giải phương trình bậc 2
-
-- Nếu nồng độ acid Ca ≤10-8 M thì bỏ qua [H+ ] do acid phân li ra
-
-=> Coi [H+ ] = [ OH- ] hay pH = 7
-
-## 2. Tính pH của dung dịch đơn base mạnh BOH Cb (M) (Dạng 2)
-
-BOH ⭢ B+ + OH-
-
-H2O ⮀ H+ + OH- Kw = 1,0. 10-14 ở 250C
-
-Áp dụng định luật bảo toàn điện tích :
-
-[ OH- ] = [M+ ] + [H+ ]
-
-Với : [M+ ] = Ca và [ OH- ] = ⭢ [H+ ]2 + [H+ ].Cb - Kw = 0 (2)
-
-Biểu thức (2) là biểu thức tổng quát tính [H+ ] ⭢ pH của một dung dịch đơn base mạnh bất kì.
-
-- Có thể đơn giản hoá phép tính một cách gần đúng như sau:
-
-* Nếu nồng độ acid Cb ≥ 10-6 M thì bỏ qua sự điện li của H2O
-
-=>[OH- ] = Cb hay pOH = - lg [ OH- ] = - lgCb ⭢ pH = 14- pOH
-
-- Nếu nồng độ acid 10-8 &lt;Cb &lt; 10-6 M thì giải phương trình bậc 2
-
-- Nếu nồng độ acid Cb ≤10-8 M thì bỏ qua [OH- ] do acid phân li ra
-
-=> Coi [H+ ] = [ OH- ] hay pH = 7
-
-## 3. Tính pH của dung dịch đơn acid yếu HA Ca (M) Hằng số Ka (Dạng 3)
-
-HA ⮀ H+ + A- Ka
-
-H2O ⮀ H+ + OH- Kw = 1,0. 10-14 ở 250C
-
-Áp dụng định luật bảo toàn điện tích :
-
-[H+ ] = [ OH- ] + [A- ] ⭢ [A- ] = [H+ ] - [ OH- ]
-
-Theo bảo toàn nồng độ : Ca = [A- ] + [HA ] => [HA ] = Ca - [H+ ] - [ OH- ]
-
-HA ⮀ H+ + A- Ka
-
-Biểu thức Ka : Ka = 🡺 [H+ ] = Ka
-
-Ta có : [H+ ] = Ka (3)
-
-Biểu thức (3) là biểu thức tổng quát tính [H+ ] ⭢ pH của một dung dịch đơn acid yếu bất kì.
-
-- Có thể đơn giản hoá phép tính một cách gần đúng như sau:
-
-Nếu Ka.Ca > 10-12 >>Kw = 10-14 Có thể coi H2O phân li không đáng kể
-
-Nếu > 400 hay α &lt; 0,05 có thể coi HA phân li không đáng kể
-
-[H+ ]2 = Ka.Ca ⭢ [H+ ] = pH = (pKa-lgCa)
-
-## 4. Tính pH của dung dịch đơn base yếu BOH Cb (M) Hằng số Kb = (Dạng 4)
-
-BOH ⮀ B+ + OH- Kb
-
-H2O ⮀ H+ + OH- Kw = 1,0. 10-14 ở 250C
-
-Lí luận tương tự, ta có :
-
-Nếu Kb.Cb > 10-12 >>Kw = 10-14 Có thể coi H2O phân li không đáng kể
-
-Nếu > 400 hay α &lt; 0,05 có thể coi MOH phân li không đáng kể
-
-[OH- ]2 = Kb.Cb ⭢ [OH- ] =
-
-pOH = (pKb-lgCb)
-
-Hay : pH = 14- pOH = 14 - (pKb-lgCb)
-
-## 5. Tính pH của dung dịch đa acid yếu HnA Ca (M) Hằng số Ka1 ,Ka2 ,Ka3…..,Kan (Dạng 5)
-
-Ví dụ : H3A ⮀ H+ + H2A- Ka1
-
-H2A- ⮀ H+ + HA2- Ka2
-
-HA2- ⮀ H+ + A3- Ka3
-
-H2O⮀ H+ + OH- Kw = 1,0. 10-14 ở 250C
-
-Thông thường , đối với các đa acid thì : Ka1 >>Ka2 >>Ka3 >>.....>>Kan và Ca.Ka1>>Kw = 10-14
-
-Nên có thể coi [H+ ] trong dung dịch chủ yếu do sự phân li ở nấc thứ 1 quyết định .
-
-Tính pH của dung dịch đa acid này tương tự đơn acid yếu .
-
-pH = (pKa1-lgCa)
-
-## 6. Tính pH của dung dịch đa base yếu : (Dạng 6)
-
-Lí luận tương tự, ta có :
-
-Thông thường , đối với các đa base thì : Kb1 >>Kb2 >>Kb3 >>.....>>Kbn và Cb.Kb1>>Kw = 10-14
-
-Nên có thể coi [OH- ] trong dung dịch chủ yếu do sự phân li ở nấc thứ 1 quyết định .
-
-Tính pH của dung dịch đa base này tương tự đơn base yếu .
-
-pOH = (pKb1-lgCb)
-
-Hay : pH = 14- pOH = 14 - (pKb1-lgCb)
-
-## 7. Tính pH của dung dịch muối (Dạng 7)
-
-7.1. Tính pH của dung dịch muối trung hoà :
-
-7.1.a. Tính pH của dd muối trung hoà tạo bởi acid mạnh và base mạnh
-
-Các ion trong dung dịch không bị thuỷ phân ⭢ Môi trường trung tính pH = 7
-
-7.1.b. Tính pH của dd muối trung hoà tạo bởi acid mạnh và base yếu
-
-Ví dụ :
-
-<Callout type="warning" title="Đối tượng Word cần biên tập">
-  Chưa chuyển đối tượng `T08-S01:e6483`.
-</Callout>
-
-- Về mặt định tính :
-
-Ion Cl- không bị thủy phân
-
-Ion NH4+ là một acid yếu ⭢ Môi trường acid pH &lt; 7
-
-- Về mặt định lượng :
-
-Tương tự như tính pH của dung dịch đơn hoặc đa acid yếu .
-
-7.1.c. Tính pH của dd muối trung hoà tạo bởi acid yếu và base mạnh
-
-Ví dụ :
-
-<Callout type="warning" title="Đối tượng Word cần biên tập">
-  Chưa chuyển đối tượng `T08-S01:e7788`.
-</Callout>
-
-- Về mặt định tính :
-
-Ion Na+ không bị thủy phân
-
-Ion CH3COO-- là một base yếu ⭢ Môi trường base pH > 7
-
-- Về mặt định lượng :
-
-Tương tự như tính pH của dung dịch đơn hoặc đa base yếu .
-
-7.1.d. Tính pH của dd muối trung hoà AB nồng độ CM tạo bởi acid yếu HA Ka1 và base yếu BOH Kb2
-
-- Về mặt định tính :
-
-Môi trường phụ thuộc vào hằng số Ka1 ; Kb2
-
-Nếu Ka 1 ≈ Kb2 ⭢ Môi trường gần như trung tính
-
-Nếu Ka 1> Kb2 ⭢ Môi trường acid
-
-Nếu Ka1 &lt; Kb2 ⭢ Môi trường base
-
-Về mặt định lượng :
-
-AB ⭢ A- + B+
-
-A- + H2O ⮀ HA + OH-
-
-B+ + H2O ⮀ BOH + H+
-
-H2O ⮀ H+ + OH- Kw = 1,0. 10-14
-
-Ka1= ; Kb2= ; Kw = [H+ ].[ OH- ] = 1,0. 10-14 ở 250C
-
-Bảo toàn nồng độ :
-
-[A-] + [HA] = C ; [B+] + [BOH] = C
-
-Bảo toàn điện tích :
-
-[B+] + [H+] = [A-] + [OH-]
-
-Suy ra :
-
-[A-] = [B+] + [H+] - [OH-]
-
-[HA] = C- [A-] = C- [B+] - [H+] + [OH-]
-
-[BOH] = C - [B+]
-
-⭢ Ka1 =
-
-Mặt khác, trong dung dịch muối tạo bởi acid yếu và base yếu có thể coi:
-
-[H+] - [OH-] ≈ 0
-
-⭢ Ka1= = Hay Ka1= Kb2 = Kb2
-
-Vậy :
-
-[H+] = hay pH = (pKa1 +pKa2)
-
-Hay :
-
-pH = 7 + pKa1- pKb2
-
-Ví dụ :
-
-Muối CH3COONH4 được tạo thành từ acid yếu CH3COOH pKa = 4,75 và base yếu NH3 pKb = 4,8
-
-Định tính : Ka ≈ Kb ⭢ Môi trường gần như trung tính
-
-Định lượng : pH = 7 + pKa - pKb = 7 + .4,75 - .4,8 = 6,98
-
-CH3COONH4⭢ CH3COO- + NH4+
-
-7.2. Tính pH của dd muối acid :
-
-7.2.a. Tính pH của dd muối acid tạo bởi acid mạnh và base mạnh
-
-Ví dụ : NaHSO4 ⭢Na+ + HSO4 -
-
-- Về mặt định tính :
-
-Ion Na+ không bị thủy phân
-
-Ion HSO4- là một acid khá mạnh phân li gần như hoàn toàn ⭢ Môi trường acid pH &lt; 7
-
-- Về mặt định lượng :
-
-Tương tự như tính pH của dung dịch đơn hoặc đa acid yếu .
-
-NaHSO4 ⭢Na+ + HSO4 -
-
-CM = 0,01M
-
-HSO4- ⮀ H+ + SO42- Ka = 10-2
-
-H2O ⮀ H+ + OH- Kw = 1,0. 10-14
-
-Ta có : KaC >> Kw =>bỏ qua cân bằng của H2O
-
-HSO4- ⮀ H+ + SO42- Ka = 10-2
-
-<Callout type="warning" title="Hình vẽ Word cần biên tập">
-  Chưa chuyển hình vẽ `T08-S01:d1378` (số 1).
-</Callout>
-
-<ChemFigure
-  src="/staging-assets/lessons/38/3824687c6662e574b48c829605ba3f4857a9597932cdcd38ee624f3e5f10b833.png"
-  alt="Hình trích từ DOCX; cần chủ dự án bổ sung mô tả"
-  caption="Nguồn T08-S01, hình 20"
-  sourceId="T08-S01"
-/>
-
-0,01 0 0
-
-x x x
-
-0,01-x x x
-
-Ka = = 10-2 Vì Kalớn hay &lt; 400 nên không thể coi 0,01-x ≈ 0,01
-
-=> Giải phương trình bậc hai, ta có : x = 6,18.10-3 => pH = -lg[H+ ] = 2,21
-
-7.2.b. Tính pH của dd muối acid tạo bởi acid yếu H2A và base mạnh MOH
-
-.Cân bằng trong dung dịch muối :
-
-HA- ⮀ H+ + A2- Ka2
-
-HA- + H+ ⮀ H2A Ka1-1
-
-H2O ⮀ H+ + OH- Kw = 1,0. 10-14
-
-Coi trong dung dịch có 2 quá trình phân li cho ion A2- :
-
-HA- ⮀ H+ + A2- Ka2
-
-2HA- ⮀ H2A + A2- Ka2.Ka1-1 (2)
-
-Nếu Ka2 .C &lt;&lt; Ka2.Ka1-1.C2 hay Ka1 &lt;&lt; C => Cân bằng 2 là chủ yếu
-
-2HA- H2A + A2- Ka2.Ka1-1
-
-<Callout type="warning" title="Đối tượng Word cần biên tập">
-  Chưa chuyển đối tượng `T08-S01:e2230`.
-</Callout>
-
-C 0 0
-
-2x x x
-
-C- 2x x x
-
-Ka2.Ka1-1 = ⬄ =
-
-Mặt khác : Ka2 = ⬄ [H+] = Ka2
-
-⭢ [H+] = Ka2 = = Vậy : pH = (pKa1 + pKa2)
-
-Phạm vi áp dụng : Kw >> Ka2C và Ka1 &lt;&lt; C
-
-## 8. Tính pH của dung dịch đệm: (Dạng 8)
-
-- Định nghĩa : Dung dịch đệm là dung dịch có pH hoàn toàn xác định được tạo nên khi trộn dung dịch của acid yếu và base yếu với muối của chúng với base mạnh hay acid mạnh.
-
-Ví dụ : CH3COOH và CH3COONa được gọi là đệm axetat
-
-NH4Cl và NH3 được gọi là đệm amoni
-
-- Đặc điểm :
-
-Dung dịch đệm có pH ít thay đổi khi ta thêm vào dung dịch một lượng nhỏ acid mạnh hoặc base mạnh hoặc pha loãng dung dịch.(không quá loãng)
-
-- Thành phần hệ đệm : HA Ca (M)và NaA Cb (M)
-
-Cân bằng :
-
-NaA ⭢ Na+ + A- [Na+] = Cb
-
-HA H+ + A- Ka
-
-<Callout type="warning" title="Đối tượng Word cần biên tập">
-  Chưa chuyển đối tượng `T08-S01:e0626`.
-</Callout>
-
-H2O H+ + OH- Kw = 1,0. 10-14 ở 250C
-
-<Callout type="warning" title="Đối tượng Word cần biên tập">
-  Chưa chuyển đối tượng `T08-S01:e2178`.
+<Callout type="definition" title="Điện li mạnh và yếu">
+  Mạnh: mọi phân tử tan đều phân li ($\alpha = 1$). Yếu: chỉ một phần phân tử
+  phân li ($0 &lt; \alpha &lt; 1$).
 </Callout>
-
-Ta có các phương trình :
-
-Ka = ⭢ [H+] = Ka ;
-
-[H+][OH-] = Kw = 1,0. 10-14
-
-Bảo toàn nồng độ : [HA] + [A-] = Ca + Cb
-
-Bảo toàn điện tích : [Na+] + [H+] = [OH-] + [A-]
-
-Từ các biểu thức trên, suy ra : [H+] = Ka So sánh [H+] ≈ Ka với [H+] của nước nguyên chất = 1,0.10-7 M
-
-+Trường hợp 1:
-
-Nếu [H+] ≈ Ka > 1,0.10-7 ⭢ Môi trường acid
-
-Có thể bỏ qua nồng độ [OH-] trong biểu thức trên Vậy : [H+] = Ka
-
-+Trường hợp 2:
-
-Nếu [H+] ≈ Ka &lt; 1,0.10-7 ⭢ Môi trường base
-
-Có thể bỏ qua nồng độ [H+] trong biểu thức trên Vậy : [H+] = Ka
-
-Trường hợp 3: Ca , Cb >> [H+], [OH-] (hay gặp trong thực tế)
-
-Có thể bỏ qua cả nồng [H+], [OH-] trong biểu thức trên
 
-Vậy : [H+] = Ka ⭢ pH = pKa - lg
+|      | Mạnh                                                                        | Yếu                                                                            |
+| ---- | --------------------------------------------------------------------------- | ------------------------------------------------------------------------------ |
+| Acid | $\ce{HCl}$, $\ce{HBr}$, $\ce{HI}$, $\ce{HNO3}$, $\ce{H2SO4}$, $\ce{HClO4}$… | $\ce{CH3COOH}$, $\ce{HF}$, $\ce{H2CO3}$, $\ce{H2S}$, $\ce{H3PO4}$, $\ce{HCN}$… |
+| Base | $\ce{NaOH}$, $\ce{Ba(OH)2}$, $\ce{Sr(OH)2}$, $\ce{Ca(OH)2}$                 | $\ce{NH3}$ và các hydroxide ít tan                                             |
+| Muối | Hầu hết muối                                                                | $\ce{HgCl2}$, $\ce{Hg(CN)2}$                                                   |
 
-Vậy phạm vi áp dụng của công thức tính pH trên là:
-
-KaCa , KbCb >> Kw và [H+], [OH-] &lt;&lt; Ca , Cb
-
-5.4. Chuẩn độ acid – base.
-
-Khái niệm
-
-Chuẩn độ là phương pháp xác định nồng độ của một chất bằng một dung dịch chuẩn đã biết nồng độ.
-
-Điểm tương đương là thời điểm mà hai chất tác dụng vừa đủ với nhau.
-
-Để nhận biết điểm tương đương người ta dùng những chất chỉ thị acid – base gây ra sự đổi màu ở khoảng pH gần với điểm tương đương.
-
-Thời điểm để kết thúc chuẩn độ được xác định bằng sự đổi màu của chất chỉ thị phenolphthalein.
-
-Nguyên tắc
-
-Trong phòng thí nghiệm, để tính nồng độ của dung dịch base mạnh (ví dụ NaOH), người ta chuẩn độ bằng một dung dịch acid mạnh (ví dụ HCl) đã biết trước nồng độ mol dựa trên phản ứng:
-
-NaOH + HCl NaCl + H2O
-
-<ChemFigure
-  src="/staging-assets/lessons/8e/8e746efaeaf95077cde66ed7cdaad5561adc201fee574d6cc4c5eb6848abce84.png"
-  alt="Hình trích từ DOCX; cần chủ dự án bổ sung mô tả"
-  caption="Nguồn T08-S01, hình 21"
-  sourceId="T08-S01"
-/>
-
-Ta có: nHCl = nNaOH ⭤ VHCl.CHCl = VNaOH.CNaOH ⭤
-
-<Callout type="warning" title="Đối tượng Word cần biên tập">
-  Chưa chuyển đối tượng `T08-S01:e6513`.
+<Callout type="definition" title="Độ điện li $\alpha$">
+  $\alpha = n/n_0 = C/C_0$: tỉ số phân tử (hoặc nồng độ) đã phân li trên tổng số
+  hòa tan.
 </Callout>
-
-Trong đó:
-
-CHCl và CNaOH lần lượt là nồng độ mol của dung dịch HCl và dung dịch NaOH.
-
-VHCl và VNaOH lần lượt là thể tích của dung dịch HCl và dung dịch NaOH (cùng đơn vị đo).
-
-Khi biết VHCl, VNaOH trong quá trình chuẩn độ và biết CHCl sẽ tính được CNaOH
-
-Cân bằng trong dung dịch các hệ: acid – base, dị thể, tạo phức và các hệ phức tạp.
-
-6.1. Cân bằng trong dung dịch các hệ acid – base
-
-Đối với acid
-
-acid : A + H2O ⇌ B + H3O+
-
-Áp dụng định luật tác dụng khối lượng:
-
-<ChemFigure
-  src="/staging-assets/lessons/9f/9f757ef0471acb356d10b49d0392bfd294d72a9be65b50473d79833597a541ef.gif"
-  alt="Hình trích từ DOCX; cần chủ dự án bổ sung mô tả"
-  caption="Nguồn T08-S01, hình 22"
-  sourceId="T08-S01"
-/>
-
-Hằng số cân bằng: ⇒ .
-
-<ChemFigure
-  src="/staging-assets/lessons/b2/b2b787ce24c00f77a289d1ad65403b7f3e934d8d92c39b38a7e395e61ae2ad00.gif"
-  alt="Hình trích từ DOCX; cần chủ dự án bổ sung mô tả"
-  caption="Nguồn T08-S01, hình 23"
-  sourceId="T08-S01"
-/>
-
-Đây là một hằng số gọi là hằng số acid, ký hiệu là KA ⇒
-
-<ChemFigure
-  src="/staging-assets/lessons/58/58c85d978c856907707d80fe7f7dffe1d5f2ae61776098c6dcf7ee1453a2ef1a.gif"
-  alt="Hình trích từ DOCX; cần chủ dự án bổ sung mô tả"
-  caption="Nguồn T08-S01, hình 24"
-  sourceId="T08-S01"
-/>
-
-⭢ Vậy pKA = -lgKA: được gọi là chỉ số acid.
-
-⇒ Hằng số acid KA càng lớn ( tức chỉ số acid pKA càng nhỏ) thì lực acid càng mạnh.
-
-Ví dụ: acid CH3COOH ( KA = 1,86.10-5, pKA = 4,73) mạnh hơn acid HCN (KA = 7,2.10-10, pKA = 9,14)
-
-Chú ý: [] là ký hiệu của nồng độ ở trạng thái cân bằng
-
-Đối với base
 
-Base B + H2O ⇌ A + OH -
-
-Hằng số base
-
-<ChemFigure
-  src="/staging-assets/lessons/c8/c8ad4041ab960ffe5032dc6c812c129f7fd6ae46726211c6e91aeb091a3dbc3e.gif"
-  alt="Hình trích từ DOCX; cần chủ dự án bổ sung mô tả"
-  caption="Nguồn T08-S01, hình 25"
-  sourceId="T08-S01"
-/>
-
-Chỉ số base: pKB = -lgKB
-
-⇒ Hằng số base KB càng lớn ( tức chỉ số base pKB càng nhỏ ) thì lực base càng mạnh.
-
-Ví dụ: NH3 (KNH3 = 1,79 10-5, pKNH3 = 4,75) là base mạnh hơn C6H5NH2 ( = 410 10-10, pKB = 9,4)
-
-<ChemFigure
-  src="/staging-assets/lessons/60/60d022e485eb90cc33f0770375e5f2baaf8b89ecf7e54e7dfd4230e53b5f0809.gif"
-  alt="Hình trích từ DOCX; cần chủ dự án bổ sung mô tả"
-  caption="Nguồn T08-S01, hình 26"
-  sourceId="T08-S01"
-/>
-
-<ChemFigure
-  src="/staging-assets/lessons/df/df451dfafa995d25c190e55231707e71f7f6356309e23db5e4ec7c994adbb5fa.gif"
-  alt="Hình trích từ DOCX; cần chủ dự án bổ sung mô tả"
-  caption="Nguồn T08-S01, hình 27"
-  sourceId="T08-S01"
-/>
-
-Liên hệ giữa KA và KB của một cặp acid – base liên hợp
-
-Ta có:
-
-<ChemFigure
-  src="/staging-assets/lessons/58/58c85d978c856907707d80fe7f7dffe1d5f2ae61776098c6dcf7ee1453a2ef1a.gif"
-  alt="Hình trích từ DOCX; cần chủ dự án bổ sung mô tả"
-  caption="Nguồn T08-S01, hình 28"
-  sourceId="T08-S01"
-/>
-
-<ChemFigure
-  src="/staging-assets/lessons/44/441d597a56034b65aa9e32f8b038f11c00a1c86a7d454b3e438cb21707936072.gif"
-  alt="Hình trích từ DOCX; cần chủ dự án bổ sung mô tả"
-  caption="Nguồn T08-S01, hình 29"
-  sourceId="T08-S01"
-/>
-
-⇒ KA KB = [H3O+][ OH - ] = KW
-
-<ChemFigure
-  src="/staging-assets/lessons/60/60d022e485eb90cc33f0770375e5f2baaf8b89ecf7e54e7dfd4230e53b5f0809.gif"
-  alt="Hình trích từ DOCX; cần chủ dự án bổ sung mô tả"
-  caption="Nguồn T08-S01, hình 30"
-  sourceId="T08-S01"
-/>
-
-Vậy pKA + pKB = pKW = 14
-
-⇒ Từ đó cho ta thấy: acid càng mạnh thì base liên hợp càng yếu
-
-6.2. Cân bằng trong dung dịch các hệ dị thể
-
-6.2.1 Định luật tác dụng khối lượng
-
-Tại T,p = const , diễn ra phản ứng :
-
-aA + bB + … ⇌ cC + dD + …
-
-=> Thế đẳng áp của phản ứng (ΔGpư) được xác định bởi phương trình :
-
-ΔG = ΔG0 + RTln = ΔG0 + RTln Q(I)
-
-<Callout type="warning" title="Đối tượng Word cần biên tập">
-  Chưa chuyển đối tượng `T08-S01:e4552`.
+<Callout type="note" title="Ghi nhớ">
+  - Pha loãng: $\alpha$ tăng. - Cân bằng điện li tuân theo Le Chatelier. -
+  Acid/base mạnh điện li hoàn toàn: không dùng $K$ điện li.
 </Callout>
 
-ΔG0 là thế đẳng áp của phản ứng ở điều kiện chuẩn .
+### Hằng số điện li
 
-(i) là hoạt độ của chất i .
+Đa acid / đa base điện li nhiều nấc. Ví dụ $\ce{H3PO4}$ ($25^{\circ}\mathrm{C}$):
 
-Khi phản ứng đạt đến trạng thái cân bằng => ΔG = 0
+$$
+\begin{align*}
+\ce{H3PO4 &<=> H+ + H2PO4-} && K_1 = 7{,}5\cdot 10^{-3}\\
+\ce{H2PO4- &<=> H+ + HPO4^{2-}} && K_2 = 6{,}3\cdot 10^{-8}\\
+\ce{HPO4^{2-} &<=> H+ + PO4^{3-}} && K_3 = 1{,}3\cdot 10^{-12}
+\end{align*}
+$$
 
-(I) => ΔG0 = - RTln (II)
-
-<Callout type="warning" title="Đối tượng Word cần biên tập">
-  Chưa chuyển đối tượng `T08-S01:e9866`.
-</Callout>
+$K = K_1 K_2 K_3$. $K$ phụ thuộc nhiệt độ và bản chất chất điện li.
 
-Từ (II) => ln = (III)
+Với $\ce{A_{m}B_{n} <=> m A^{n+} + n B^{m-}}$:
 
-<Callout type="warning" title="Đối tượng Word cần biên tập">
-  Chưa chuyển đối tượng `T08-S01:e5096`.
-</Callout>
+$$
+K = \dfrac{(mC\alpha)^m (nC\alpha)^n}{C(1-\alpha)}
+$$
 
-<Callout type="warning" title="Đối tượng Word cần biên tập">
-  Chưa chuyển đối tượng `T08-S01:e7625`.
-</Callout>
+Acid/base yếu ($\alpha \ll 1$): $K \approx C\alpha^{2}$, nên
+$\alpha \approx \sqrt{K/C}$.
 
-Khi T = const => = const = Ka(IV)
+## VII. Định luật bảo toàn nồng độ
 
-<Callout type="warning" title="Đối tượng Word cần biên tập">
-  Chưa chuyển đối tượng `T08-S01:e7620`.
+<Callout type="definition" title="Bảo toàn nồng độ">
+  Nồng độ ban đầu của một nguyên tố/ion bằng **tổng** nồng độ mọi dạng tồn tại
+  của nó ở cân bằng.
 </Callout>
 
-=> ΔG0 = - RTln Kcb(V)
+## VIII. Acid – base – muối
 
-Từ (I) => ΔG = - RT ln Kcb + RT ln Q = RT ln (VI)
-
-<Callout type="warning" title="Đối tượng Word cần biên tập">
-  Chưa chuyển đối tượng `T08-S01:e5005`.
+<Callout type="note" title="Hai thuyết">
+  - Arrhenius: chỉ trong nước. - Brønsted: có hoặc không có nước.
 </Callout>
-
-Tuỳ thuộc vào đặc điểm các chất trong phương trình phản ứng mà Kcb có thể được biểu thị ở các hình thức khác nhau.
 
-6.2.1. Cân bằng hoá học đồng thể trong pha khí lý tưởng.
+### Acid
 
-## A. Hằng số cân bằng Kp
+Arrhenius: tan trong nước cho $\ce{H+}$. Brønsted: **nhường** proton, trở thành
+base liên hợp. Acid càng mạnh thì base liên hợp càng yếu.
 
-Đối khí lý tưởng : Hoạt độ (i) = pi (áp suất riêng phần)
-
-=> Kp = Kcb = f(T)
-
-=> Kp = (VII)
-
-<Callout type="warning" title="Đối tượng Word cần biên tập">
-  Chưa chuyển đối tượng `T08-S01:e1086`.
-</Callout>
+Acid Brønsted có thể là phân tử ($\ce{HCl}$), cation ($\ce{NH4+}$), hoặc anion
+($\ce{HSO4-}$).
 
-Ví dụ : Phản ứng :2Cl2(k) + 2H2O (k) ⇌ 4HCl(k) + O2 (k) (\*)
+### Base
 
-Giả sử các khí trong phản ứng (\*) đều được coi là lý tưởng.
+Arrhenius: tan trong nước cho $\ce{OH-}$. Brønsted: **nhận** proton, trở thành
+acid liên hợp.
 
-=> Kp =
+Base Brønsted: phân tử ($\ce{NH3}$, $\ce{NaOH}$), anion ($\ce{CO3^{2-}}$,
+$\ce{CH3COO-}$), một số cation aqua.
 
-<Callout type="warning" title="Đối tượng Word cần biên tập">
-  Chưa chuyển đối tượng `T08-S01:e6378`.
-</Callout>
+### Chất lưỡng tính và trung tính
 
-Q =
+Lưỡng tính (Brønsted): vừa nhường vừa nhận $\ce{H+}$. Ví dụ $\ce{Al(OH)3}$,
+$\ce{Zn(OH)2}$, $\ce{HCO3-}$, $\ce{H2O}$.
 
-<Callout type="warning" title="Đối tượng Word cần biên tập">
-  Chưa chuyển đối tượng `T08-S01:e6756`.
+<Callout type="warning" title="Kim loại không lưỡng tính">
+  $\ce{Al}$, $\ce{Zn}$, $\ce{Be}$, $\ce{Pb}$, $\ce{Sn}$ **không** gọi là chất
+  lưỡng tính, dù vẫn tác dụng được với acid và base.
 </Callout>
-
-=> ΔG = RT lnQ - RT ln Kp
 
-b. Hằng số cân bằng theo số mol Kn
+Trung tính: không nhường cũng không nhận proton — muối acid mạnh + base mạnh
+($\ce{NaCl}$), anion gốc acid mạnh ($\ce{Cl-}$, $\ce{NO3-}$), cation kim loại
+mạnh ($\ce{Na+}$, $\ce{Ca^{2+}}$).
 
-Ta có :
-
-<Callout type="warning" title="Đối tượng Word cần biên tập">
-  Chưa chuyển đối tượng `T08-S01:e7312`.
-</Callout>
+### Muối
 
-n : tổng số mol các khí ; P là áp suất toàn phần của hệ .
+Muối điện li ra cation kim loại (hoặc $\ce{NH4+}$) và anion gốc acid.
 
-=>
+- **Muối trung hòa:** gốc acid không còn $\ce{H}$ điện li được ($\ce{NaCl}$,
+  $\ce{Na2CO3}$). $\ce{Na2HPO3}$, $\ce{NaH2PO2}$ vẫn là muối trung hòa vì $\ce{H}$
+  không phân li.
+- **Muối acid:** còn $\ce{H}$ điện li được ($\ce{NaHCO3}$, $\ce{NaHSO4}$).
+- Còn muối kép, phức, ngậm nước, hỗn tạp.
 
-<Callout type="warning" title="Đối tượng Word cần biên tập">
-  Chưa chuyển đối tượng `T08-S01:e2046`.
-</Callout>
+### Phản ứng trao đổi ion
 
-Với Δν = (c + d + … ) - ( a + b +…)
+Số oxi hóa không đổi. Phản ứng xảy ra khi tạo **kết tủa**, **chất điện li yếu**
+hoặc **chất dễ bay hơi**.
 
-Ta có : P . V = n.RT =>
+$$\ce{CH3COONa + HCl -> CH3COOH + NaCl}$$
 
-<Callout type="warning" title="Đối tượng Word cần biên tập">
-  Chưa chuyển đối tượng `T08-S01:e7572`.
-</Callout>
+## IX. Tích số ion của nước, pH, chỉ thị
 
-=> KP = Kn .
+$$\ce{2H2O <=> H3O+ + OH-}$$
 
-<Callout type="warning" title="Đối tượng Word cần biên tập">
-  Chưa chuyển đối tượng `T08-S01:e6015`.
+<Callout type="definition" title="Tích số ion của nước">
+  $K_w = [\ce{H+}][\ce{OH-}]$. Ở $25^{\circ}\mathrm{C}$:
+  $K_w = 1{,}0\cdot 10^{-14}$.
 </Callout>
 
-<Callout type="warning" title="Đối tượng Word cần biên tập">
-  Chưa chuyển đối tượng `T08-S01:e2783`.
+<Callout type="definition" title="pH">
+  $\mathrm{pH} = -\lg[\ce{H+}]$ (dùng khi dung dịch không quá đặc, thường
+  $C &lt; 0{,}1\,\mathrm{M}$).
 </Callout>
 
-c. Hằng số cân bằng Kc (Hằng số cân bằng nồng độ)
+$$
+\mathrm{pH} + \mathrm{pOH} = 14 \quad (25^{\circ}\mathrm{C})
+$$
 
-pi = [ i]. RT
+Phản ứng acid–base là phản ứng **cho–nhận proton** (acid + base, acid + oxide
+base, base + oxide acid…).
 
-[ i ] là nồng độ chất i ở thời điểm cân bằng.
+Chất chỉ thị đổi màu theo pH:
 
-=> Kp = (RT)(c + d + …) - (a + b + …)
-
-<Callout type="warning" title="Đối tượng Word cần biên tập">
-  Chưa chuyển đối tượng `T08-S01:e7879`.
-</Callout>
+| Chỉ thị         | Màu                                                           |
+| --------------- | ------------------------------------------------------------- |
+| Quỳ tím         | đỏ ($\mathrm{pH}\le 6$), tím ($7$), xanh ($\mathrm{pH}\ge 8$) |
+| Phenolphthalein | không màu ($\mathrm{pH}&lt;8$), hồng ($\mathrm{pH}\ge 8$)     |
+| Methyl da cam   | đỏ / vàng cam                                                 |
 
-<Callout type="warning" title="Hình vẽ Word cần biên tập">
-  Chưa chuyển hình vẽ `T08-S01:d4234` (số 2).
+<Callout type="warning" title="Phenolphthalein trong xút đặc">
+  Màu hồng **mất** trong dung dịch $\ce{NaOH}$ rất đặc.
 </Callout>
 
-Đặt : Δn = (c + d + …) - (a + b + …)
+## X. Các dạng tính pH
 
-Kc =
+### Dạng 1 — Acid mạnh $\mathrm{H}A$, $C_a$
 
-<Callout type="warning" title="Đối tượng Word cần biên tập">
-  Chưa chuyển đối tượng `T08-S01:e1700`.
-</Callout>
-
-=> Kp = Kc (RT)Δn => Kc = = f(T)
+Phương trình đúng: $[\ce{H+}]^2 - C_a[\ce{H+}] - K_w = 0$.
 
-<Callout type="warning" title="Đối tượng Word cần biên tập">
-  Chưa chuyển đối tượng `T08-S01:e7647`.
-</Callout>
+- $C_a \ge 10^{-6}\,\mathrm{M}$: $[\ce{H+}]\approx C_a$, $\mathrm{pH}=-\lg C_a$.
+- $10^{-8} &lt; C_a &lt; 10^{-6}$: giải bậc hai.
+- $C_a \le 10^{-8}$: $\mathrm{pH}\approx 7$.
 
-R = 0,082 atm. lit /độ . mol .
+### Dạng 2 — Base mạnh $\mathrm{B}OH$, $C_b$
 
-d. Đại lượng Kx
+- $C_b \ge 10^{-6}$: $[\ce{OH-}]\approx C_b$, $\mathrm{pH}=14+\lg C_b$.
+- $10^{-8} &lt; C_b &lt; 10^{-6}$: giải bậc hai.
+- $C_b \le 10^{-8}$: $\mathrm{pH}\approx 7$.
 
-Ta có : áp suất riêng phần Pi = xi . PT ( PT là áp suất toàn phần )
+### Dạng 3 — Acid yếu, $K_a$
 
-Trong đó : xi = => Kp = Kx . PΔn
+Nếu $K_a C_a \gg K_w$ và $C_a/K_a &gt; 400$ ($\alpha &lt; 0{,}05$):
 
-<Callout type="warning" title="Đối tượng Word cần biên tập">
-  Chưa chuyển đối tượng `T08-S01:e6811`.
-</Callout>
+$$
+[\ce{H+}] = \sqrt{K_a C_a},\qquad \mathrm{pH} = \tfrac12\bigl(\mathrm{p}K_a - \lg C_a\bigr)
+$$
 
-với Kx =
+### Dạng 4 — Base yếu, $K_b$
 
-<Callout type="warning" title="Đối tượng Word cần biên tập">
-  Chưa chuyển đối tượng `T08-S01:e7792`.
-</Callout>
+$$
+[\ce{OH-}] = \sqrt{K_b C_b},\qquad \mathrm{pH} = 14 - \tfrac12\bigl(\mathrm{p}K_b - \lg C_b\bigr)
+$$
 
-=> Kx = => Kx = f(T, PT)
+### Dạng 5–6 — Đa acid / đa base yếu
 
-<Callout type="warning" title="Đối tượng Word cần biên tập">
-  Chưa chuyển đối tượng `T08-S01:e7730`.
-</Callout>
+Thường $K_1 \gg K_2 \gg \cdots$ và $C K_1 \gg K_w$: pH quyết định bởi **nấc 1**,
+tính như đơn acid/base yếu với $K_1$.
 
-=> Kx không phải là hằng số cân bằng.
+### Dạng 7 — Muối
 
-e. Thứ nguyên của Kp , Kc, Kx.
+| Muối                  | Môi trường         | Cách tính       |
+| --------------------- | ------------------ | --------------- |
+| Acid mạnh + base mạnh | $\mathrm{pH}=7$    | không thủy phân |
+| Acid mạnh + base yếu  | $\mathrm{pH}&lt;7$ | như acid yếu    |
+| Acid yếu + base mạnh  | $\mathrm{pH}&gt;7$ | như base yếu    |
+| Acid yếu + base yếu   | so $K_a$ và $K_b$  | công thức dưới  |
 
-Kp = [atm(c + d +…) - (a + b + …)]
+Muối $\mathrm{AB}$ từ $\mathrm{HA}$ ($K_{a1}$) và $\mathrm{BOH}$ ($K_{b2}$), khi
+$[\ce{H+}]\approx[\ce{OH-}]$:
 
-<Callout type="warning" title="Đối tượng Word cần biên tập">
-  Chưa chuyển đối tượng `T08-S01:e3946`.
-</Callout>
+$$
+\mathrm{pH} = 7 + \tfrac12\mathrm{p}K_{a1} - \tfrac12\mathrm{p}K_{b2}
+$$
 
-Kc = [ (nồng độ)Δn]
+<Example title="Ví dụ: $\ce{CH3COONH4}$">
+  $\mathrm{p}K_a(\ce{CH3COOH})=4{,}75$, $\mathrm{p}K_b(\ce{NH3})=4{,}8$.
 
-<Callout type="warning" title="Đối tượng Word cần biên tập">
-  Chưa chuyển đối tượng `T08-S01:e0585`.
-</Callout>
+  <Solution>
+    $K_a \approx K_b$ nên môi trường gần trung tính.
 
-Kx không có đơn vị
+    $$
+    \mathrm{pH} = 7 + \tfrac12\cdot 4{,}75 - \tfrac12\cdot 4{,}8 = 6{,}98
+    $$
 
-6.2.3. Đối với phản ứng dị thể:
+  </Solution>
+</Example>
 
-Vì áp suất ảnh hưởng rất ít đến chất ngưng tụ (Chất rắn, chất lỏng), vì vậy trong các biểu thức hằng số cân bằng K không có mặt thành phần của chất ngưng tụ.
+Muối acid $\ce{NaHSO4}$ ($C=0{,}01\,\mathrm{M}$, $K_a(\ce{HSO4-})=10^{-2}$):
+không được bỏ $C-x\approx C$. Giải bậc hai cho $x=6{,}18\cdot 10^{-3}$,
+$\mathrm{pH}=2{,}21$.
 
-Ví dụ: C (gr) + CO2(g) ↔ 2CO(g)
+Muối acid $\ce{HA-}$ của $\ce{H2A}$ (khi $K_{a1}\ll C$ và $K_w \gg K_{a2}C$):
 
-;
+$$
+\mathrm{pH} = \tfrac12\bigl(\mathrm{p}K_{a1}+\mathrm{p}K_{a2}\bigr)
+$$
 
-<Callout type="warning" title="Đối tượng Word cần biên tập">
-  Chưa chuyển đối tượng `T08-S01:e4941`.
-</Callout>
+### Dạng 8 — Dung dịch đệm
 
-<Callout type="warning" title="Đối tượng Word cần biên tập">
-  Chưa chuyển đối tượng `T08-S01:e6939`.
+<Callout type="definition" title="Dung dịch đệm">
+  Hỗn hợp acid yếu và muối của nó (hoặc base yếu và muối của nó). pH ít đổi khi
+  thêm một ít acid/base mạnh hoặc pha loãng vừa phải.
 </Callout>
-
-6.3. Cân bằng trong dung dịch các hệ tạo phức
-
-Các phức chất được tạo thành từ các phân tử hay ion, có khả năng tồn tại độc lập trong dung dịch. Các phức chất có thể trung hòa điện hoặc tích điện âm hay dương. Phức chất gồm nhóm trung tâm (hay chất tạo phức) liên kết với phối tử bằng tương tác tĩnh điện hay liên kết phối trí. Số phối trí của phức phụ thuộc vào bản chất của ion trung tâm, bản chất của phối tử và quan hệ nồng độ giữa chúng. Thí dụ một số phản ứng tạo phức:
-
-Ag+ + 2NH3 ⭢ Ag(NH3)2+
 
-Cd 2+ + CN- ⭢ Cd(CN)+
+Ví dụ: đệm acetate $\ce{CH3COOH}/\ce{CH3COONa}$; đệm amoni $\ce{NH3}/\ce{NH4Cl}$.
 
-Trong trường hợp phức chất là ion thì bên cạnh ion phức còn có ion đối, vì vậy để phân biệt, người ta viết ion phức trong dấu ngoặc (cầu nội) để phân biệt với ion đối (cầu ngoại). Ví dụ: [Zn(NH3)4](OH)2…
+Khi $C_a,C_b \gg [\ce{H+}],[\ce{OH-}]$:
 
-Để đặc trưng cho độ bền của phức chất người ta thường sử dụng các hằng số bền hoặc hằng số tạo thành từng nấc. Ví dụ:
+$$
+\mathrm{pH} = \mathrm{p}K_a + \lg\dfrac{C_b}{C_a}
+$$
 
-Zn2+ + NH3 ⭢ Zn(NH3)2+
+## XI. Chuẩn độ acid–base
 
-<Callout type="warning" title="Đối tượng Word cần biên tập">
-  Chưa chuyển đối tượng `T08-S01:e2690`.
+<Callout type="definition" title="Chuẩn độ">
+  Xác định nồng độ chất chưa biết bằng dung dịch chuẩn đã biết nồng độ.
 </Callout>
 
-Zn(NH3)2+ + NH3 ⭢ Zn(NH3)22+
+Điểm tương đương: hai chất vừa đủ. Chọn chỉ thị đổi màu gần pH điểm tương đương.
 
-<Callout type="warning" title="Đối tượng Word cần biên tập">
-  Chưa chuyển đối tượng `T08-S01:e9425`.
-</Callout>
-
-Zn(NH3)22+ + NH3 ⭢ Zn(NH3)32+
+$$\ce{NaOH + HCl -> NaCl + H2O}$$
 
-<Callout type="warning" title="Đối tượng Word cần biên tập">
-  Chưa chuyển đối tượng `T08-S01:e8505`.
-</Callout>
+$$
+C_{\ce{HCl}} V_{\ce{HCl}} = C_{\ce{NaOH}} V_{\ce{NaOH}}
+$$
 
-Để đặc trung cho độ bền của phức người ta cũng dùng cả hằng số không bền từng nấc K và hằng số không bền tổng cộng K’. Các đại lượng này là nghịch đảo với các gía trị hằng số bền tương ứng . Ví dụ
+## XII. Các hệ cân bằng trong dung dịch
 
-Zn(NH3)32+ ⭢ Zn(NH3)22+ + NH3
+### 1. Hệ acid–base
 
-<Callout type="warning" title="Đối tượng Word cần biên tập">
-  Chưa chuyển đối tượng `T08-S01:e0091`.
-</Callout>
+$$
+K_A = \dfrac{[\mathrm{B}][\ce{H3O+}]}{[\mathrm{A}]},\qquad \mathrm{p}K_A = -\lg K_A
+$$
 
-Zn(NH3)22+⭢ Zn(NH3)2+ + NH3 ⭢
+$K_A$ lớn ($\mathrm{p}K_A$ nhỏ) thì acid mạnh. Cặp liên hợp:
 
-<Callout type="warning" title="Đối tượng Word cần biên tập">
-  Chưa chuyển đối tượng `T08-S01:e5508`.
-</Callout>
+$$
+K_A K_B = K_w,\qquad \mathrm{p}K_A + \mathrm{p}K_B = 14
+$$
 
-Zn(NH3)2+ ⭢ Zn2+ + NH3
+Ví dụ: $\ce{CH3COOH}$ ($K_A=1{,}86\cdot 10^{-5}$) mạnh hơn $\ce{HCN}$
+($K_A=7{,}2\cdot 10^{-10}$).
 
-<Callout type="warning" title="Đối tượng Word cần biên tập">
-  Chưa chuyển đối tượng `T08-S01:e4479`.
-</Callout>
+### 2. Hệ dị thể và các dạng $K$
 
-6.4. Cân bằng trong dung dịch các hệ phức tạp
+Định luật tác dụng khối lượng: $\Delta G = \Delta G^{\circ} + RT\ln Q$. Tại cân
+bằng $K_a = \mathrm{const}(T)$ và $\Delta G^{\circ}=-RT\ln K$.
 
-Xét ví dụ 2H2 + Cl2 ⇌ 2HCl(k) (1)ΔG0I
+Khí lý tưởng: $K_p$ viết theo áp suất riêng phần. Quan hệ thường dùng:
 
-<Callout type="warning" title="Hình vẽ Word cần biên tập">
-  Chưa chuyển hình vẽ `T08-S01:d4779` (số 3).
-</Callout>
+$$
+K_p = K_c\,(RT)^{\Delta n} = K_n\,P^{\Delta n} = K_x\,P^{\Delta n}
+$$
 
-<ChemFigure
-  src="/staging-assets/lessons/44/44efd24c03d30a5ae7a491fbfb43975ecb2739fa90ad534094b42870a2719878.png"
-  alt="Hình trích từ DOCX; cần chủ dự án bổ sung mô tả"
-  caption="Nguồn T08-S01, hình 31"
-  sourceId="T08-S01"
-/>
+$\Delta n$ là biến thiên số mol khí. $K_x$ **phụ thuộc cả** $T$ và $P$ nên
+không phải hằng số cân bằng theo nghĩa $K_p$, $K_c$.
 
-12H2 + O2 ⇌ 2H2O (k) (2)ΔG0II
+Phản ứng dị thể: **không** đưa chất rắn/lỏng ngưng tụ vào $K$. Ví dụ
+$\ce{C(s) + CO2(g) <=> 2CO(g)}$ thì $K_p = p_{\ce{CO}}^2 / p_{\ce{CO2}}$.
 
-2Cl2 + 2H2O(k) ⇌ 4HCl(k) + O2 (k ) ΔG0III
+### 3. Hệ tạo phức
 
-=> ΔG0III = 2ΔG0I - ΔG0II
+Phức: ion/phân tử trung tâm + phối tử (cầu nội trong ngoặc vuông). Độ bền:
+hằng số bền từng nấc $\beta_i$ hoặc hằng số không bền (nghịch đảo).
 
-ΔG0 = - RT ln Kp
+$$\ce{Ag+ + 2NH3 -> [Ag(NH3)2]+}$$
 
-=> - RT ln Kp (III) = - (RT lnK2P(I) - RT ln KP (II))
+### 4. Hệ phức tạp
 
-=>KP(III) =
+$\Delta G^{\circ}$ và $K$ của phản ứng tổ hợp được cộng/trừ đại số từ các
+phản ứng thành phần.
 
-<Callout type="warning" title="Đối tượng Word cần biên tập">
-  Chưa chuyển đối tượng `T08-S01:e9222`.
-</Callout>
+## XIII. Hệ thống phân tích ion (phác thảo)
 
-=> Một phản ứng là tổng đại số của các phản ứng thành phần thì hằng số cân bằng của phản ứng đó là tích các hằng số cân bằng của các phản ứng thành phần với luỹ thừa là phần đóng góp của phản ứng đó trong phản ứng tổng
-
-Đại cương về phân tích các ion trong dung dịch.
-
-7.1. Hệ thống phân tích các cation
-
-<DataTable caption="Bảng 5 trích từ DOCX">
-
-<thead>
-  <tr>
-    <th>Nhóm</th>
-    <th>Ion</th>
-    <th>Thuốc thử nhóm</th>
-    <th>Đặc điểm</th>
-  </tr>
-</thead>
-<tbody>
-  <tr>
-    <td>I</td>
-    <td>Ag+, Pb2+,2+Hg2</td>
-    <td>HCl 6M</td>
-    <td>Tủa clorid trắng, không tan trong HNO3</td>
-  </tr>
-  <tr>
-    <td>II</td>
-    <td>Ba2+, Sr2+, Ca2+</td>
-    <td>H2SO4 3M/cồn 90o</td>
-    <td>Tủa sulfat, không tan trong acid vô cơ, acid acetic</td>
-  </tr>
-  <tr>
-    <td>III</td>
-    <td>Al3+, Cr3+, Zn2+</td>
-    <td>NaOH 3M dư</td>
-    <td>Hydroxyd lưỡng tính, tan trong kiềm dư</td>
-  </tr>
-  <tr>
-    <td>IV</td>
-    <td>Fe3+, Mn2+, Mg2+, Bi3+</td>
-    <td>NaOH và H2O2</td>
-    <td>Hydroxyd không tan trong kiềm dư</td>
-  </tr>
-  <tr>
-    <td>V</td>
-    <td>Cu2+, Co2+, Hg2+</td>
-    <td>NH4OH dư</td>
-    <td>Hydroxyd, tạo phức tan trong NH4OH dư</td>
-  </tr>
-  <tr>
-    <td>VI</td>
-    <td>+Na+, K+, NH4</td>
-    <td>Không có thuốc thử nhóm</td>
-    <td></td>
-  </tr>
-</tbody>
-
-</DataTable>
-
-Tóm tắt các phản ứng đặc trưng của cation nhóm I
-
-<DataTable caption="Bảng 6 trích từ DOCX">
-
-<thead>
-  <tr>
-    <th>Thuốc thử</th>
-    <th>Ag+</th>
-    <th>Pb2+</th>
-    <th></th>
-  </tr>
-</thead>
-<tbody>
-  <tr>
-    <td>HCl loãng</td>
-    <td>Tủa trắng AgCl, tan trong NH4OH dư</td>
-    <td>Tủa trắng PbCl2, tan trong nước nóng</td>
-    <td>
-      Tủa trắng Hg2Cl2, tác dụng với NH4OH tạo hỗn hợp NH2HgCl + Hg0 đen xám
-    </td>
-  </tr>
-  <tr>
-    <td>H2SO4 loãng</td>
-    <td></td>
-    <td>Tủa trắng PbSO4</td>
-    <td>Tủa trắng Hg2SO4</td>
-  </tr>
-  <tr>
-    <td>NaOH/KOH</td>
-    <td>Tủa đen Ag2O</td>
-    <td>Tủa trắng Pb(OH)2, tan2-trong kiềm dư tạo PbO2</td>
-    <td>Tủa đen Hg2O</td>
-  </tr>
-  <tr>
-    <td>NH4OH dư</td>
-    <td>Tạo phức [Ag(NH3)2]+</td>
-    <td>Tủa trắng Pb(OH)2</td>
-    <td>Tủa [Hg2ONH2]NO3 + Hg0</td>
-  </tr>
-  <tr>
-    <td>K2CO3/ Na2CO3</td>
-    <td>Tủa trắng Ag2CO3</td>
-    <td>Tủa trắng Pb2(OH)2CO3</td>
-    <td>Hg2CO3 HgO + Hg + CO2</td>
-  </tr>
-  <tr>
-    <td>K2CrO4</td>
-    <td>Tủa đỏ nâu Ag2CrO4</td>
-    <td>Tủa vàng PbCrO4, tan trong kiềm dư</td>
-    <td>Tủa đỏ Hg2CrO4</td>
-  </tr>
-  <tr>
-    <td>KI</td>
-    <td>Tủa vàng AgI</td>
-    <td>Tủa vàng PbI2, tan trong nước nóng</td>
-    <td>Tủa vàng xanh Hg2I2, nếu dưthuốc thử tạo thành Hg0 +</td>
-  </tr>
-</tbody>
-
-</DataTable>
-
-<Callout type="warning" title="Đối tượng Word cần biên tập">
-  Chưa chuyển đối tượng `T08-S01:e1070`.
-</Callout>
+### 1. Hệ thống phân tích các Cation (Nhóm I – VI)
 
-<Callout type="warning" title="Đối tượng Word cần biên tập">
-  Chưa chuyển đối tượng `T08-S01:e3944`.
-</Callout>
+Dựa trên phản ứng đặc trưng với các thuốc thử nhóm để phân lập và nhận biết các cation trong dung dịch:
 
-<Callout type="warning" title="Đối tượng Word cần biên tập">
-  Chưa chuyển đối tượng `T08-S01:e1415`.
-</Callout>
+| Nhóm    | Cation thành phần                                              | Thuốc thử nhóm                            | Đặc điểm nhận biết / Tủa                                                                          |
+| :------ | :------------------------------------------------------------- | :---------------------------------------- | :------------------------------------------------------------------------------------------------ |
+| **I**   | $\ce{Ag+}$, $\ce{Pb^{2+}}$, $\ce{Hg2^{2+}}$                    | $\ce{HCl}$ $6\text{M}$                    | Tủa clorid màu trắng, không tan trong $\ce{HNO3}$ loãng                                           |
+| **II**  | $\ce{Ba^{2+}}$, $\ce{Sr^{2+}}$, $\ce{Ca^{2+}}$                 | $\ce{H2SO4}$ $3\text{M}$ / cồn $90^\circ$ | Tủa sulfat màu trắng, không tan trong acid vô cơ và acid acetic                                   |
+| **III** | $\ce{Al^{3+}}$, $\ce{Cr^{3+}}$, $\ce{Zn^{2+}}$                 | $\ce{NaOH}$ $3\text{M}$ dư                | Hydroxyd lưỡng tính, tan trong kiềm dư tạo phức hydroxo                                           |
+| **IV**  | $\ce{Fe^{3+}}$, $\ce{Mn^{2+}}$, $\ce{Mg^{2+}}$, $\ce{Bi^{3+}}$ | $\ce{NaOH}$ + $\ce{H2O2}$                 | Hydroxyd không tan trong kiềm dư                                                                  |
+| **V**   | $\ce{Cu^{2+}}$, $\ce{Co^{2+}}$, $\ce{Hg^{2+}}$                 | $\ce{NH3}$ dư                             | Hydroxyd tan trong dung dịch $\ce{NH3}$ dư tạo phức ammin                                         |
+| **VI**  | $\ce{Na+}$, $\ce{K+}$, $\ce{NH4+}$                             | Không có thuốc thử nhóm                   | Thử bằng phản ứng màu ngọn lửa hoặc thuốc thử đặc trưng riêng ($\ce{NH4+}$ giải phóng $\ce{NH3}$) |
 
-Tóm tắt các phản ứng đặc trưng của cation nhóm II
-
-<DataTable caption="Bảng 7 trích từ DOCX">
-
-<thead>
-  <tr>
-    <th>Thuốc thử</th>
-    <th>Ba2+</th>
-    <th>Sr2+</th>
-    <th>Ca2+</th>
-  </tr>
-</thead>
-<tbody>
-  <tr>
-    <td>H2SO4 loãng</td>
-    <td>Tủa trắng BaSO4</td>
-    <td>Tủa trắng SrSO4</td>
-    <td>Tủa trắng CaSO4 tan nhiều trong nước</td>
-  </tr>
-  <tr>
-    <td>Na2CO3</td>
-    <td>Tủa trắng BaCO3</td>
-    <td>Tủa trắng SrCO3</td>
-    <td>Tủa trắng CaCO3</td>
-  </tr>
-  <tr>
-    <td>K2CrO4Trung tínhAcid</td>
-    <td>Tủa vàng BaCrO4Tủa vàng BaCrO4</td>
-    <td>-Tủa vàng SrCrO4</td>
-    <td></td>
-  </tr>
-  <tr>
-    <td>(NH4)2C2O4</td>
-    <td>Tủa trắng BaC2O4</td>
-    <td>Tủa trắng SrC2O4</td>
-    <td>Tủa trắng CaC2O4</td>
-  </tr>
-  <tr>
-    <td>Thử màu ngọn lửa</td>
-    <td>Vàng lục</td>
-    <td>Đỏ thẫm</td>
-    <td>Đỏ gạch</td>
-  </tr>
-</tbody>
-
-</DataTable>
-
-Tóm tắt các phản ứng đặc trưng của Al3+ và Zn2+
-
-<DataTable caption="Bảng 8 trích từ DOCX">
-
-<thead>
-  <tr>
-    <th>Thuốc thử</th>
-    <th>Al3+</th>
-    <th>Zn2+</th>
-  </tr>
-</thead>
-<tbody>
-  <tr>
-    <td>NaOH dư</td>
-    <td></td>
-    <td></td>
-  </tr>
-  <tr>
-    <td>Na2CO3</td>
-    <td>Tủa keo trắng Al(OH)3</td>
-    <td>Tủa trắng Zn2(OH)2CO3</td>
-  </tr>
-  <tr>
-    <td>NH4OH dư</td>
-    <td>Tủa keo trắng Al(OH)3</td>
-    <td>Phức tan [Zn(NH3)4]2+</td>
-  </tr>
-  <tr>
-    <td>MTA</td>
-    <td></td>
-    <td>Có mặt vết Cu2+: tạo tủa tímCó mặt vết Co2+: tạo tủa lục</td>
-  </tr>
-  <tr>
-    <td>Aluminon</td>
-    <td>Tủa bông đỏ</td>
-    <td></td>
-  </tr>
-</tbody>
-
-</DataTable>
-
-<Callout type="warning" title="Đối tượng Word cần biên tập">
-  Chưa chuyển đối tượng `T08-S01:e6950`.
-</Callout>
+### 2. Hệ thống phân tích các Anion (Nhóm I – III)
 
-<Callout type="warning" title="Đối tượng Word cần biên tập">
-  Chưa chuyển đối tượng `T08-S01:e3171`.
-</Callout>
+| Nhóm    | Anion thành phần                                                                                  | Thuốc thử nhóm                                         | Đặc điểm nhận biết                                        |
+| :------ | :------------------------------------------------------------------------------------------------ | :----------------------------------------------------- | :-------------------------------------------------------- |
+| **I**   | $\ce{Cl-}$, $\ce{Br-}$, $\ce{I-}$, $\ce{SCN-}$, $\ce{CN-}$, $\ce{S^{2-}}$, $\ce{S2O3^{2-}}$       | $\ce{AgNO3}$ trong môi trường $\ce{HNO3}$ loãng        | Tạo tủa muối bạc không tan trong $\ce{HNO3}$ loãng        |
+| **II**  | $\ce{SO3^{2-}}$, $\ce{SO4^{2-}}$, $\ce{AsO3^{3-}}$, $\ce{PO4^{3-}}$, $\ce{BO2-}$, $\ce{CO3^{2-}}$ | $\ce{BaCl2}$ trong môi trường trung tính hoặc kiềm nhẹ | Tạo tủa bari màu trắng, tan trong acid (trừ $\ce{BaSO4}$) |
+| **III** | $\ce{NO3-}$, $\ce{NO2-}$, $\ce{MnO4-}$, $\ce{ClO3-}$, $\ce{CH3COO-}$, $\ce{C2O4^{2-}}$            | Không có thuốc thử nhóm                                | Nhận biết bằng các phản ứng đặc trưng riêng               |
 
-Tóm tắt các phản ứng đặc trưng của cation nhóm IV
-
-<DataTable caption="Bảng 9 trích từ DOCX">
-
-<thead>
-  <tr>
-    <th>Thuốc thử</th>
-    <th>Fe3+</th>
-    <th>Mn2+</th>
-    <th>Mg2+</th>
-    <th>Bi3+</th>
-  </tr>
-</thead>
-<tbody>
-  <tr>
-    <td>NaOH</td>
-    <td>Tủa nâu Fe(OH)3</td>
-    <td>Tủa trắng Mn(OH)2, hóa nâu trong không khí</td>
-    <td>Tủa trắng Mg(OH)2</td>
-    <td>Tủa trắng Bi(OH)3</td>
-  </tr>
-  <tr>
-    <td>Na2CO3</td>
-    <td>Tủa trắng Fe(OH)CO3</td>
-    <td>Tủa trắng MnCO3</td>
-    <td>Tủa trắng MgCO3</td>
-    <td>Tủa trắng Bi(OH)CO3</td>
-  </tr>
-  <tr>
-    <td>Na2HPO4</td>
-    <td>Tủavàngnhạt FePO4</td>
-    <td>Tủa trắng Mn3(PO4)2</td>
-    <td>Tủa MgHPO4 hoặc trong môi trường NH4OH - NH4Cl chotủa MgNH4PO4</td>
-    <td>Tủa trắng BiPO4</td>
-  </tr>
-  <tr>
-    <td>KI</td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td>Tủa đen BiI3, nếu dư KI tạo KBiI4 màu cam</td>
-  </tr>
-  <tr>
-    <td>KSCN</td>
-    <td>Tủa đỏ máu Fe(SCN)3 hoặc dư SCN- tạo phức tan đỏ máu [Fe(SCN)6]3-</td>
-    <td></td>
-    <td></td>
-    <td></td>
-  </tr>
-  <tr>
-    <td>K4[Fe(CN)6]</td>
-    <td>Tủaxanhphổ Fe4[Fe(CN)6]3</td>
-    <td></td>
-    <td></td>
-    <td></td>
-  </tr>
-</tbody>
-
-</DataTable>
-
-Tóm tắt các phản ứng đặc trưng của cation Cu2+ và Hg2+
-
-<DataTable caption="Bảng 10 trích từ DOCX">
-
-<thead>
-  <tr>
-    <th>Thuốc thử</th>
-    <th>Cu2+</th>
-    <th>Hg2+</th>
-  </tr>
-</thead>
-<tbody>
-  <tr>
-    <td>NaOH</td>
-    <td>Cu(OH)2 xanh kết tủa đen CuO</td>
-    <td>Tủa vàng HgO</td>
-  </tr>
-  <tr>
-    <td>NH4OH dư</td>
-    <td>[Cu(NH3)4]2+ xanh lam đậm</td>
-    <td>[Hg(NH3)4]2+</td>
-  </tr>
-  <tr>
-    <td>Na2S2O3</td>
-    <td>Tủa đen CuS tan trong HNO3</td>
-    <td>Tủa đen HgS, không tan trong HNO3</td>
-  </tr>
-  <tr>
-    <td>KI</td>
-    <td>Tủa trắng CuI + I2</td>
-    <td>Tủa đỏ cam HgI2, nếu dư KI tạo phức tan màu vàng nhạt [HgI4]2-</td>
-  </tr>
-  <tr>
-    <td>SnCl2/NaOH</td>
-    <td></td>
-    <td>Tủa đen Hg</td>
-  </tr>
-  <tr>
-    <td>NH4SCN</td>
-    <td>Tủa đen Cu(SCN)2</td>
-    <td>Tủa trắng Hg(SCN)2, nếu dư NH4SCN thì tạo phức (NH4)2[Hg(SCN)4]</td>
-  </tr>
-</tbody>
-
-</DataTable>
-
-7.2. Hệ thống phân tích các anion
-
-<DataTable caption="Bảng 11 trích từ DOCX">
-
-<thead>
-  <tr>
-    <th>Nhóm</th>
-    <th>Ion</th>
-    <th>Thuốc thử</th>
-    <th>Đặc điểm</th>
-  </tr>
-</thead>
-<tbody>
-  <tr>
-    <td>I</td>
-    <td>Cl-, Br-, I-, SCN-, CN-,2-S2-, S2O3</td>
-    <td>AgNO3 trong HNO3 loãng</td>
-    <td>Tủa</td>
-  </tr>
-  <tr>
-    <td>II</td>
-    <td>2-2-3-SO3 , SO4 , AsO3 ,3-2-PO4 , BO2 , CO3</td>
-    <td>BaCl2 trong môi trường trung tính hay kiềm nhẹ</td>
-    <td>Tủa trắng tan trong acid trừ BaSO4</td>
-  </tr>
-  <tr>
-    <td>III</td>
-    <td>---NO3 , NO2 , MnO4 ,--2-ClO3 , CH3COO , C2O4</td>
-    <td>Không có thuốc thử nhóm</td>
-    <td></td>
-  </tr>
-</tbody>
-
-</DataTable>
+{/* T08-S01:e7414 T08-S01:e3055 T08-S01:e6352 T08-S01:e0245 T08-S01:e4430 T08-S01:e2249 T08-S01:e0730 T08-S01:e6659 T08-S01:e9542 T08-S01:e9403 T08-S01:e5555 T08-S01:e3504 T08-S01:f7778 T08-S01:f3655 T08-S01:e7271 T08-S01:e6005 T08-S01:e7680 T08-S01:e2337 T08-S01:e8580 T08-S01:e8433 T08-S01:e2086 T08-S01:e3007 T08-S01:e3903 T08-S01:e9836 T08-S01:e6957 T08-S01:e0375 T08-S01:e5177 T08-S01:e7307 T08-S01:e1552 T08-S01:e2462 T08-S01:e0161 T08-S01:e7633 T08-S01:e1723 T08-S01:e4801 T08-S01:e2199 T08-S01:e8707 T08-S01:e3829 T08-S01:e0946 T08-S01:e9968 T08-S01:e2121 T08-S01:e9612 T08-S01:e6075 T08-S01:e5882 T08-S01:e9957 T08-S01:e3781 T08-S01:e1753 T08-S01:e6304 T08-S01:e7260 T08-S01:e1606 T08-S01:e5216 T08-S01:e1428 T08-S01:e5363 T08-S01:e5598 T08-S01:e7554 T08-S01:e5939 T08-S01:e4286 T08-S01:e9993 T08-S01:e7165 T08-S01:e7676 T08-S01:e2007 T08-S01:e0530 T08-S01:e7846 T08-S01:e0170 T08-S01:e6368 T08-S01:e9711 T08-S01:e5058 T08-S01:e3801 T08-S01:e4060 T08-S01:e3312 T08-S01:e4172 T08-S01:e0904 T08-S01:e4796 T08-S01:e0365 T08-S01:e5977 T08-S01:e4186 T08-S01:e2693 T08-S01:e3854 T08-S01:e9063 T08-S01:e3179 T08-S01:e4628 T08-S01:e1846 T08-S01:e6483 T08-S01:e7788 T08-S01:d1378 T08-S01:e2230 T08-S01:e0626 T08-S01:e2178 T08-S01:e6513 T08-S01:e4552 T08-S01:e9866 T08-S01:e5096 T08-S01:e7625 T08-S01:e7620 T08-S01:e5005 T08-S01:e1086 T08-S01:e6378 T08-S01:e6756 T08-S01:e7312 T08-S01:e2046 T08-S01:e7572 T08-S01:e6015 T08-S01:e2783 T08-S01:e7879 T08-S01:d4234 T08-S01:e1700 T08-S01:e7647 T08-S01:e6811 T08-S01:e7792 T08-S01:e7730 T08-S01:e3946 T08-S01:e0585 T08-S01:e4941 T08-S01:e6939 T08-S01:e2690 T08-S01:e9425 T08-S01:e8505 T08-S01:e0091 T08-S01:e5508 T08-S01:e4479 T08-S01:d4779 T08-S01:e9222 T08-S01:e1070 T08-S01:e3944 T08-S01:e1415 T08-S01:e6950 T08-S01:e3171 */}

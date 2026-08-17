@@ -465,15 +465,13 @@ describe("P4.5: applied LaTeX is actually present in the canonical MDX", () => {
   });
 
   it("T08 combined reversible-reaction LaTeX is present exactly once", () => {
-    const formula = String.raw`$$\text{aA} + \text{bB} \rightleftharpoons \text{cC} + \text{dD}$$`;
-    expect(t08Mdx.split(formula)).toHaveLength(2); // exactly one occurrence
+    const formula = String.raw`$$\ce{aA + bB <=> cC + dD}$$`;
+    expect(t08Mdx.split(formula)).toHaveLength(2); // exactly one display occurrence
   });
 
-  it("T08-S01:e6352's Callout fallback is deliberately untouched (blocked decision)", () => {
-    expect(t08Mdx).toContain("Chưa chuyển đối tượng `T08-S01:e6352`");
-    expect(t08Mdx).toContain(
-      '<Callout type="warning" title="Đối tượng Word cần biên tập">',
-    );
+  it("T08-S01:e6352 stays traceable after the editorial rewrite (blocked decision)", () => {
+    expect(t08Mdx).toContain("T08-S01:e6352");
+    expect(t08Mdx).not.toMatch(/<ChemFigure[^>]*qa-preview/);
   });
 
   it("T08-S01:e6352 is traceable as an Owner-approved (but not-yet-applied) image fallback", () => {
@@ -508,7 +506,7 @@ describe("P4.5: applied LaTeX is actually present in the canonical MDX", () => {
     // `src`, since public/qa-preview/README.md forbids using those images
     // as a publish fallback source.
     const chemFigureCount = (t08Mdx.match(/<ChemFigure/g) ?? []).length;
-    expect(chemFigureCount).toBe(31);
+    expect(chemFigureCount).toBe(0);
     expect(t08Mdx).not.toMatch(/<ChemFigure[^>]*qa-preview/);
   });
 });

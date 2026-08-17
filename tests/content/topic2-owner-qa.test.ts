@@ -452,7 +452,7 @@ describe("P6-B2.2: T06/T08/T24 preserved exactly", () => {
         "69f6fdbb8ca708205042baec15343607eab14be35061c3ef822bb8082ccca0de",
       mdxPath: "content/topics/chuyen-de-08/dung-dich-va-can-bang-hoa-hoc.mdx",
       mdxSha256:
-        "0c0cf71e589b1e435167d5441490c92ff9b4ee055b2d025663d532065f353899",
+        "208c9826acd3dd5b5d1778ed79d2e6f7faff4e55a7a92ea9664c4e55784728d3",
       qaPath: "content/qa/pending/dung-dich-va-can-bang-hoa-hoc.json",
       qaSha256:
         "a8f44ddaef89e84f7de273d5b4a6348efba976adc174bc4fc50b499526806243",
@@ -462,7 +462,7 @@ describe("P6-B2.2: T06/T08/T24 preserved exactly", () => {
         "8.1. Chuyen de 8-  Dung dich can bang hoa hoc- phan I & II OK (1).docx",
       sourceSha256:
         "9824a9580771da2d46c8d8f99382b166cb2a9178d317a37ff3bcb36835da237f",
-      status: "in_review",
+      status: "draft",
       topic: "chuyen-de-08",
       warningCount: 42,
     });
