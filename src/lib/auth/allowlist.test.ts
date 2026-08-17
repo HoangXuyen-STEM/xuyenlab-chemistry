@@ -89,13 +89,3 @@ describe("markAllowedEmailVerified", () => {
     ).resolves.toBeUndefined();
   });
 });
-y errors", async () => {
-    mockMarkEmailVerified.mockRejectedValue(new Error("db down"));
-    await expect(
-      markAllowedEmailVerified("hoc-sinh@example.com"),
-    ).resolves.toBeUndefined();
-  });
-});
-eenCalled();
-  });
-});
