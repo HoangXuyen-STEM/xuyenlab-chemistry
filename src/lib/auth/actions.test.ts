@@ -2,15 +2,17 @@ import { describe, expect, it, vi, beforeEach } from "vitest";
 
 import { initialAuthFormState } from "./form-state";
 
-const { redirect, getNeonAuth, isAllowedEmail } = vi.hoisted(() => ({
-  redirect: vi.fn(),
-  getNeonAuth: vi.fn(),
-  isAllowedEmail: vi.fn(),
-}));
+const { redirect, getNeonAuth, isAllowedEmail, markAllowedEmailVerified } =
+  vi.hoisted(() => ({
+    redirect: vi.fn(),
+    getNeonAuth: vi.fn(),
+    isAllowedEmail: vi.fn(),
+    markAllowedEmailVerified: vi.fn(),
+  }));
 
 vi.mock("next/navigation", () => ({ redirect }));
 vi.mock("./neon", () => ({ getNeonAuth }));
-vi.mock("./allowlist", () => ({ isAllowedEmail }));
+vi.mock("./allowlist", () => ({ isAllowedEmail, markAllowedEmailVerified }));
 
 import { signInWithPasswordAction, signUpWithPasswordAction } from "./actions";
 
@@ -24,94 +26,90 @@ function credentials(email: string, password: string): FormData {
 beforeEach(() => {
   redirect.mockReset();
   getNeonAuth.mockReset();
-  vi.mocked(isAllowedEmail).mockReset();
+  isAllowedEmail.mockReset();
+  markAllowedEmailVerified.mockReset();
+  markAllowedEmailVerified.mockResolvedValue(undefined);
 });
 
 describe("signInWithPasswordAction", () => {
-  it("rejects empty credentials without calling the provider", async () => {
+  it("rejects missing credentials", async () => {
     const state = await signInWithPasswordAction(
       initialAuthFormState,
       credentials("", ""),
     );
-
-    expect(state.error).toBe("Vui lòng nhập email và mật khẩu.");
+    expect(state.error).toMatch(/email và mật khẩu/i);
+    expect(isAllowedEmail).not.toHaveBeenCalled();
     expect(getNeonAuth).not.toHaveBeenCalled();
   });
 
-  it("does not forward the provider message for a failed sign-in", async () => {
-    getNeonAuth.mockResolvedValue({
-      signIn: {
-        email: vi.fn().mockResolvedValue({
-          error: {
-            code: "INVALID_EMAIL_OR_PASSWORD",
-            message: "User not found",
-          },
-        }),
-      },
-    });
+  it("rejects emails not on the allowlist before calling Neon Auth", async () => {
+    isAllowedEmail.mockResolvedValue(false);
 
     const state = await signInWithPasswordAction(
       initialAuthFormState,
-      credentials("hoc-sinh@example.com", "sai-mat-khau"),
+      credentials("revoked@example.com", "mat-khau-dung"),
     );
 
-    expect(state.error).toBe("Email hoặc mật khẩu không đúng.");
+    expect(state.error).toMatch(/danh sách cho phép/);
+    expect(getNeonAuth).not.toHaveBeenCalled();
     expect(redirect).not.toHaveBeenCalled();
+    expect(markAllowedEmailVerified).not.toHaveBeenCalled();
   });
 
-  it("explains an unverified email", async () => {
-    getNeonAuth.mockResolvedValue({
-      signIn: {
-        email: vi
-          .fn()
-          .mockResolvedValue({ error: { code: "EMAIL_NOT_VERIFIED" } }),
-      },
-    });
-
-    const state = await signInWithPasswordAction(
-      initialAuthFormState,
-      credentials("hoc-sinh@example.com", "mat-khau-dung"),
-    );
-
-    expect(state.error).toMatch(/chưa được xác minh/);
-  });
-
-  it("signs in with the normalized email and redirects to the library", async () => {
+  it("signs in allowed users and marks verified", async () => {
+    isAllowedEmail.mockResolvedValue(true);
     const signInEmail = vi.fn().mockResolvedValue({ error: null });
     getNeonAuth.mockResolvedValue({ signIn: { email: signInEmail } });
 
     await signInWithPasswordAction(
       initialAuthFormState,
-      credentials("  HocSinh@Example.COM ", "mat-khau-dung"),
+      credentials("allowed@example.com", "mat-khau-dung"),
     );
 
     expect(signInEmail).toHaveBeenCalledWith({
-      email: "hocsinh@example.com",
+      email: "allowed@example.com",
       password: "mat-khau-dung",
     });
+    expect(markAllowedEmailVerified).toHaveBeenCalledWith(
+      "allowed@example.com",
+    );
     expect(redirect).toHaveBeenCalledWith("/thu-vien");
   });
 
-  it("reports an unreachable provider instead of crashing the form", async () => {
-    // The `catch` marks the deliberate failure as observed so Vitest does not
-    // report it as an unhandled rejection.
-    const unreachable = Promise.reject(new Error("fetch failed"));
-    unreachable.catch(() => {});
-    getNeonAuth.mockReturnValue(unreachable);
+  it("maps invalid credential errors", async () => {
+    isAllowedEmail.mockResolvedValue(true);
+    const signInEmail = vi.fn().mockResolvedValue({
+      error: { code: "INVALID_CREDENTIALS", message: "invalid" },
+    });
+    getNeonAuth.mockResolvedValue({ signIn: { email: signInEmail } });
 
     const state = await signInWithPasswordAction(
       initialAuthFormState,
-      credentials("hoc-sinh@example.com", "mat-khau-dung"),
+      credentials("allowed@example.com", "sai"),
     );
 
-    expect(state.error).toMatch(/Không thể kết nối/);
+    expect(state.error).toMatch(/Email hoặc mật khẩu không đúng/);
+    expect(redirect).not.toHaveBeenCalled();
+    expect(markAllowedEmailVerified).not.toHaveBeenCalled();
+  });
+
+  it("returns connection error when Neon Auth throws", async () => {
+    isAllowedEmail.mockResolvedValue(true);
+    getNeonAuth.mockRejectedValue(new Error("network down"));
+
+    const state = await signInWithPasswordAction(
+      initialAuthFormState,
+      credentials("allowed@example.com", "mat-khau-dung"),
+    );
+
+    expect(state.error).toMatch(/network down|Không thể kết nối/);
     expect(redirect).not.toHaveBeenCalled();
   });
 });
 
 describe("signUpWithPasswordAction", () => {
   it("rejects registration when email is not allowed", async () => {
-    vi.mocked(isAllowedEmail).mockResolvedValue(false);
+    isAllowedEmail.mockResolvedValue(false);
 
     const state = await signUpWithPasswordAction(
       initialAuthFormState,
@@ -123,8 +121,8 @@ describe("signUpWithPasswordAction", () => {
     expect(redirect).not.toHaveBeenCalled();
   });
 
-  it("proceeds with sign-up when email is allowed", async () => {
-    vi.mocked(isAllowedEmail).mockResolvedValue(true);
+  it("proceeds with sign-up when email is allowed and marks verified", async () => {
+    isAllowedEmail.mockResolvedValue(true);
     const signUpEmail = vi.fn().mockResolvedValue({ error: null });
     getNeonAuth.mockResolvedValue({ signUp: { email: signUpEmail } });
 
@@ -138,6 +136,9 @@ describe("signUpWithPasswordAction", () => {
       password: "password123",
       name: "allowed-student",
     });
+    expect(markAllowedEmailVerified).toHaveBeenCalledWith(
+      "allowed-student@example.com",
+    );
     expect(redirect).toHaveBeenCalledWith("/thu-vien");
   });
 });
