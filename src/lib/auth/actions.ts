@@ -1,3 +1,5 @@
+import { redirect } from "next/navigation";
+
 import type { AuthFormState, PasswordResetFormState } from "./form-state";
 import { isAllowedEmail, markAllowedEmailVerified } from "./allowlist";
 import { getNeonAuth } from "./neon";
@@ -117,7 +119,6 @@ export async function signInWithPasswordAction(
     return { error: thrownMessage(error, MESSAGES.genericAuthError) };
   }
 
-  const { redirect } = await import("next/navigation");
   redirect(AFTER_LOGIN_PATH);
 }
 
@@ -154,7 +155,6 @@ export async function signUpWithPasswordAction(
     return { error: thrownMessage(error, MESSAGES.genericAuthError) };
   }
 
-  const { redirect } = await import("next/navigation");
   redirect(AFTER_LOGIN_PATH);
 }
 
@@ -172,7 +172,6 @@ export async function signInWithGoogleAction(): Promise<void> {
     );
   }
   if (result.data?.url) {
-    const { redirect } = await import("next/navigation");
     redirect(result.data.url);
   }
 }
@@ -242,10 +241,5 @@ export async function signOutAction(): Promise<void> {
   } catch {
     // Always redirect home even if sign-out fails
   }
-  redirect("/dang-nhap");
-}
-gn-out fails
-  }
-  const { redirect } = await import("next/navigation");
   redirect("/dang-nhap");
 }
