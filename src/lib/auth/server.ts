@@ -1,82 +1,90 @@
-import { AppError } from "@/lib/validation/app-error";
+import "server-only";
 
+import { redirect } from "next/navigation";
+
+import { isAllowedEmail, markAllowedEmailVerified } from "./allowlist";
 import { getNeonAuth } from "./neon";
-import type { AppSession, AppUser } from "./types";
 
-type NeonSession = {
-  user: {
-    id: string;
-    email: string;
-    name?: string | null;
-    emailVerified?: boolean;
-  };
+export type AppUser = {
+  id: string;
+  email: string;
+  name?: string | null;
+  image?: string | null;
+  role: "student" | "teacher";
 };
 
-type SessionReader = () => Promise<NeonSession | null>;
+type SessionUser = {
+  id?: string | null;
+  email?: string | null;
+  name?: string | null;
+  image?: string | null;
+};
 
-let testSessionReader: SessionReader | undefined;
-let neonSessionReader: SessionReader | undefined;
-
-function configuredTeacherEmails(): Set<string> {
+function teacherEmails(): Set<string> {
   return new Set(
     (process.env.TEACHER_EMAILS ?? "")
       .split(",")
-      .map((email) => email.trim().toLowerCase())
+      .map((value) => value.trim().toLowerCase())
       .filter(Boolean),
   );
 }
 
-function toAppUser(user: NeonSession["user"]): AppUser {
-  const email = user.email.trim().toLowerCase();
-  return {
-    id: user.id,
-    email,
-    displayName: user.name ?? null,
-    role: configuredTeacherEmails().has(email) ? "teacher" : "student",
-    emailVerified: user.emailVerified ?? false,
-  };
+function asSessionUser(value: unknown): SessionUser | null {
+  if (!value || typeof value !== "object") return null;
+  return value as SessionUser;
 }
 
-async function getNeonSessionReader(): Promise<SessionReader> {
-  if (neonSessionReader) return neonSessionReader;
-
-  // `./neon` keeps the provider import lazy so backend unit tests and non-auth
-  // build paths do not load Next request APIs, and shares one instance with the
-  // `/api/auth` handler, the proxy and the sign-in actions.
-  const auth = await getNeonAuth();
-  neonSessionReader = async () => {
-    const { data } = await auth.getSession();
-    return (data as NeonSession | null) ?? null;
-  };
-  return neonSessionReader;
+function resolveRole(email: string): AppUser["role"] {
+  return teacherEmails().has(email.toLowerCase()) ? "teacher" : "student";
 }
 
-export async function getSession(): Promise<AppSession | null> {
-  const readSession = testSessionReader ?? (await getNeonSessionReader());
-  const session = await readSession();
-  return session ? { user: toAppUser(session.user) } : null;
-}
-
-export async function requireUser(): Promise<AppUser> {
-  const session = await getSession();
-  if (!session)
-    throw new AppError("UNAUTHENTICATED", "Authentication is required.");
-  return session.user;
-}
-
-export async function requireTeacher(): Promise<AppUser & { role: "teacher" }> {
-  const user = await requireUser();
-  if (user.role !== "teacher")
-    throw new AppError("FORBIDDEN", "Teacher access is required.");
-  return { ...user, role: "teacher" };
-}
-
-/** Test seam. It is deliberately unavailable outside the test runtime. */
-export function setAuthSessionReaderForTests(
-  reader: SessionReader | undefined,
-): void {
-  if (process.env.NODE_ENV !== "test") {
-    throw new Error("Test auth session injection is only available in tests.");
+export async function getSessionUser(): Promise<AppUser | null> {
+  try {
+    const auth = await getNeonAuth();
+    const result = await auth.getSession();
+    const user = asSessionUser(result.data?.user);
+    if (!user?.id || !user.email) return null;
+    return {
+      id: user.id,
+      email: user.email,
+      name: user.name ?? null,
+      image: user.image ?? null,
+      role: resolveRole(user.email),
+    };
+  } catch {
+    return null;
   }
-  testSessionReader = reader;
+}
+
+export async function requireUser(redirectTo = "/dang-nhap"): Promise<AppUser> {
+  const user = await getSessionUser();
+  if (!user) redirect(redirectTo);
+
+  const allowed = await isAllowedEmail(user.email);
+  if (!allowed) {
+    try {
+      const auth = await getNeonAuth();
+      await auth.signOut();
+    } catch {
+      // Best-effort sign-out when access is revoked
+    }
+    redirect(
+      `${redirectTo}?error=${encodeURIComponent(
+        "Email chưa được ghi danh trong danh sách cho phép của lớp học. Vui lòng liên hệ giáo viên.",
+      )}`,
+    );
+  }
+
+  await markAllowedEmailVerified(user.email);
+  return user;
+}
+
+export async function requireTeacher(
+  redirectTo = "/dang-nhap",
+): Promise<AppUser> {
+  const user = await requireUser(redirectTo);
+  if (user.role !== "teacher") {
+    redirect("/thu-vien");
+  }
+  return user;
 }
