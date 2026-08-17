@@ -2,15 +2,17 @@ import { describe, expect, it, vi, beforeEach } from "vitest";
 
 import { initialAuthFormState } from "./form-state";
 
-const { redirect, getNeonAuth } = vi.hoisted(() => ({
+const { redirect, getNeonAuth, isAllowedEmail } = vi.hoisted(() => ({
   redirect: vi.fn(),
   getNeonAuth: vi.fn(),
+  isAllowedEmail: vi.fn(),
 }));
 
 vi.mock("next/navigation", () => ({ redirect }));
 vi.mock("./neon", () => ({ getNeonAuth }));
+vi.mock("./allowlist", () => ({ isAllowedEmail }));
 
-import { signInWithPasswordAction } from "./actions";
+import { signInWithPasswordAction, signUpWithPasswordAction } from "./actions";
 
 function credentials(email: string, password: string): FormData {
   const formData = new FormData();
@@ -22,6 +24,7 @@ function credentials(email: string, password: string): FormData {
 beforeEach(() => {
   redirect.mockReset();
   getNeonAuth.mockReset();
+  vi.mocked(isAllowedEmail).mockReset();
 });
 
 describe("signInWithPasswordAction", () => {
@@ -103,5 +106,38 @@ describe("signInWithPasswordAction", () => {
 
     expect(state.error).toMatch(/Không thể kết nối/);
     expect(redirect).not.toHaveBeenCalled();
+  });
+});
+
+describe("signUpWithPasswordAction", () => {
+  it("rejects registration when email is not allowed", async () => {
+    vi.mocked(isAllowedEmail).mockResolvedValue(false);
+
+    const state = await signUpWithPasswordAction(
+      initialAuthFormState,
+      credentials("unallowed-student@example.com", "password123"),
+    );
+
+    expect(state.error).toMatch(/danh sách cho phép/);
+    expect(getNeonAuth).not.toHaveBeenCalled();
+    expect(redirect).not.toHaveBeenCalled();
+  });
+
+  it("proceeds with sign-up when email is allowed", async () => {
+    vi.mocked(isAllowedEmail).mockResolvedValue(true);
+    const signUpEmail = vi.fn().mockResolvedValue({ error: null });
+    getNeonAuth.mockResolvedValue({ signUp: { email: signUpEmail } });
+
+    await signUpWithPasswordAction(
+      initialAuthFormState,
+      credentials("allowed-student@example.com", "password123"),
+    );
+
+    expect(signUpEmail).toHaveBeenCalledWith({
+      email: "allowed-student@example.com",
+      password: "password123",
+      name: "allowed-student",
+    });
+    expect(redirect).toHaveBeenCalledWith("/thu-vien");
   });
 });

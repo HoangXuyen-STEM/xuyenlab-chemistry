@@ -20,6 +20,19 @@ export interface BookmarkRecord {
   createdAt: Date;
 }
 
+export interface AllowedStudentRecord {
+  email: string;
+  invitedAt: Date;
+  verifiedAt: Date | null;
+}
+
+export interface AllowlistRepository {
+  isEmailAllowed(email: string): Promise<boolean>;
+  addAllowedStudent(email: string): Promise<AllowedStudentRecord>;
+  markEmailVerified(email: string): Promise<boolean>;
+  listAllowedStudents(): Promise<AllowedStudentRecord[]>;
+}
+
 export interface LearningRepository {
   listProgress(userId: string): Promise<ProgressRecord[]>;
   saveProgress(record: ProgressRecord): Promise<ProgressRecord>;
