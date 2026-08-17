@@ -4,139 +4,185 @@
       "bytes": 19866,
       "path": "staging-assets/lessons/11/116b736acaf864a3bfb094c329cc7077476c546aabfa356151216da60e8b213f.png",
       "sha256": "116b736acaf864a3bfb094c329cc7077476c546aabfa356151216da60e8b213f",
-      "sourceIds": ["T08-S01"]
+      "sourceIds": [
+        "T08-S01"
+      ]
     },
     {
       "bytes": 123,
       "path": "staging-assets/lessons/12/12a5af017fc2009b7792d86c009749300bd9ca6e8468767d599d7d1b2b281136.png",
       "sha256": "12a5af017fc2009b7792d86c009749300bd9ca6e8468767d599d7d1b2b281136",
-      "sourceIds": ["T08-S01"]
+      "sourceIds": [
+        "T08-S01"
+      ]
     },
     {
       "bytes": 18150,
       "path": "staging-assets/lessons/33/33f44212249802055b6ea0c0bfc8d605ab3b35aaa5205335230cc7cd84cd5d36.png",
       "sha256": "33f44212249802055b6ea0c0bfc8d605ab3b35aaa5205335230cc7cd84cd5d36",
-      "sourceIds": ["T06-S01"]
+      "sourceIds": [
+        "T06-S01"
+      ]
     },
     {
       "bytes": 22768,
       "path": "staging-assets/lessons/36/36af79345133e7881c39674580ca5f8dcaba5026baebd3b7f750aac22508c61b.png",
       "sha256": "36af79345133e7881c39674580ca5f8dcaba5026baebd3b7f750aac22508c61b",
-      "sourceIds": ["T08-S01"]
+      "sourceIds": [
+        "T08-S01"
+      ]
     },
     {
       "bytes": 70,
       "path": "staging-assets/lessons/38/3824687c6662e574b48c829605ba3f4857a9597932cdcd38ee624f3e5f10b833.png",
       "sha256": "3824687c6662e574b48c829605ba3f4857a9597932cdcd38ee624f3e5f10b833",
-      "sourceIds": ["T08-S01"]
+      "sourceIds": [
+        "T08-S01"
+      ]
     },
     {
       "bytes": 623,
       "path": "staging-assets/lessons/44/441d597a56034b65aa9e32f8b038f11c00a1c86a7d454b3e438cb21707936072.gif",
       "sha256": "441d597a56034b65aa9e32f8b038f11c00a1c86a7d454b3e438cb21707936072",
-      "sourceIds": ["T08-S01"]
+      "sourceIds": [
+        "T08-S01"
+      ]
     },
     {
       "bytes": 70,
       "path": "staging-assets/lessons/44/44efd24c03d30a5ae7a491fbfb43975ecb2739fa90ad534094b42870a2719878.png",
       "sha256": "44efd24c03d30a5ae7a491fbfb43975ecb2739fa90ad534094b42870a2719878",
-      "sourceIds": ["T08-S01"]
+      "sourceIds": [
+        "T08-S01"
+      ]
     },
     {
       "bytes": 646,
       "path": "staging-assets/lessons/58/58c85d978c856907707d80fe7f7dffe1d5f2ae61776098c6dcf7ee1453a2ef1a.gif",
       "sha256": "58c85d978c856907707d80fe7f7dffe1d5f2ae61776098c6dcf7ee1453a2ef1a",
-      "sourceIds": ["T08-S01"]
+      "sourceIds": [
+        "T08-S01"
+      ]
     },
     {
       "bytes": 6175,
       "path": "staging-assets/lessons/60/607453ded6101fa0cd3fcf4c0f9c2938a2a5d04b358d87404d6f6e5249a24102.png",
       "sha256": "607453ded6101fa0cd3fcf4c0f9c2938a2a5d04b358d87404d6f6e5249a24102",
-      "sourceIds": ["T08-S01"]
+      "sourceIds": [
+        "T08-S01"
+      ]
     },
     {
       "bytes": 108,
       "path": "staging-assets/lessons/60/60d022e485eb90cc33f0770375e5f2baaf8b89ecf7e54e7dfd4230e53b5f0809.gif",
       "sha256": "60d022e485eb90cc33f0770375e5f2baaf8b89ecf7e54e7dfd4230e53b5f0809",
-      "sourceIds": ["T08-S01"]
+      "sourceIds": [
+        "T08-S01"
+      ]
     },
     {
       "bytes": 16685,
       "path": "staging-assets/lessons/73/7381eb90b3a5cd9ddaf73ec7b9cc3272cd65f44bbae842fd4332072299108f95.png",
       "sha256": "7381eb90b3a5cd9ddaf73ec7b9cc3272cd65f44bbae842fd4332072299108f95",
-      "sourceIds": ["T08-S01"]
+      "sourceIds": [
+        "T08-S01"
+      ]
     },
     {
       "bytes": 16887,
       "path": "staging-assets/lessons/76/76e8a9324baf57ed03154de9be1ba748b436c537ee387837660ebc128f68492d.png",
       "sha256": "76e8a9324baf57ed03154de9be1ba748b436c537ee387837660ebc128f68492d",
-      "sourceIds": ["T02-S01"]
+      "sourceIds": [
+        "T02-S01"
+      ]
     },
     {
       "bytes": 11410,
       "path": "staging-assets/lessons/7c/7c7739c9ba78b5b7534eac7515e97ea6d4ed660f2181cf16a88ec683841ca30e.jpg",
       "sha256": "7c7739c9ba78b5b7534eac7515e97ea6d4ed660f2181cf16a88ec683841ca30e",
-      "sourceIds": ["T08-S01"]
+      "sourceIds": [
+        "T08-S01"
+      ]
     },
     {
       "bytes": 23053,
       "path": "staging-assets/lessons/83/83997a2588cee3d8dda53aa4a920d9fda38fc6f70095fdc33426f4d70ea21b23.png",
       "sha256": "83997a2588cee3d8dda53aa4a920d9fda38fc6f70095fdc33426f4d70ea21b23",
-      "sourceIds": ["T08-S01"]
+      "sourceIds": [
+        "T08-S01"
+      ]
     },
     {
       "bytes": 5246,
       "path": "staging-assets/lessons/8e/8e746efaeaf95077cde66ed7cdaad5561adc201fee574d6cc4c5eb6848abce84.png",
       "sha256": "8e746efaeaf95077cde66ed7cdaad5561adc201fee574d6cc4c5eb6848abce84",
-      "sourceIds": ["T08-S01"]
+      "sourceIds": [
+        "T08-S01"
+      ]
     },
     {
       "bytes": 48546,
       "path": "staging-assets/lessons/95/955c50af88187216dafd2353c74b540e510403a0c970d8f247cc0d2e01e25dce.jpeg",
       "sha256": "955c50af88187216dafd2353c74b540e510403a0c970d8f247cc0d2e01e25dce",
-      "sourceIds": ["T24-S01"]
+      "sourceIds": [
+        "T24-S01"
+      ]
     },
     {
       "bytes": 825,
       "path": "staging-assets/lessons/9f/9f757ef0471acb356d10b49d0392bfd294d72a9be65b50473d79833597a541ef.gif",
       "sha256": "9f757ef0471acb356d10b49d0392bfd294d72a9be65b50473d79833597a541ef",
-      "sourceIds": ["T08-S01"]
+      "sourceIds": [
+        "T08-S01"
+      ]
     },
     {
       "bytes": 10989,
       "path": "staging-assets/lessons/af/affd611993fc511c90ed03561c84022301e6e897e4ee5f1042cbb22a3eff7579.png",
       "sha256": "affd611993fc511c90ed03561c84022301e6e897e4ee5f1042cbb22a3eff7579",
-      "sourceIds": ["T08-S01"]
+      "sourceIds": [
+        "T08-S01"
+      ]
     },
     {
       "bytes": 456,
       "path": "staging-assets/lessons/b2/b2b787ce24c00f77a289d1ad65403b7f3e934d8d92c39b38a7e395e61ae2ad00.gif",
       "sha256": "b2b787ce24c00f77a289d1ad65403b7f3e934d8d92c39b38a7e395e61ae2ad00",
-      "sourceIds": ["T08-S01"]
+      "sourceIds": [
+        "T08-S01"
+      ]
     },
     {
       "bytes": 904,
       "path": "staging-assets/lessons/c8/c8ad4041ab960ffe5032dc6c812c129f7fd6ae46726211c6e91aeb091a3dbc3e.gif",
       "sha256": "c8ad4041ab960ffe5032dc6c812c129f7fd6ae46726211c6e91aeb091a3dbc3e",
-      "sourceIds": ["T08-S01"]
+      "sourceIds": [
+        "T08-S01"
+      ]
     },
     {
       "bytes": 28660,
       "path": "staging-assets/lessons/d0/d03b05cfd0bede85d8d061ac94bf9851cafb0a841b81b31d66e8100c9d8bccc5.png",
       "sha256": "d03b05cfd0bede85d8d061ac94bf9851cafb0a841b81b31d66e8100c9d8bccc5",
-      "sourceIds": ["T08-S01"]
+      "sourceIds": [
+        "T08-S01"
+      ]
     },
     {
       "bytes": 59926,
       "path": "staging-assets/lessons/d4/d430885438c33c62a0f3bbe2cf7e7969af17747d2da2be3622becd4639456453.jpeg",
       "sha256": "d430885438c33c62a0f3bbe2cf7e7969af17747d2da2be3622becd4639456453",
-      "sourceIds": ["T24-S01"]
+      "sourceIds": [
+        "T24-S01"
+      ]
     },
     {
       "bytes": 258,
       "path": "staging-assets/lessons/df/df451dfafa995d25c190e55231707e71f7f6356309e23db5e4ec7c994adbb5fa.gif",
       "sha256": "df451dfafa995d25c190e55231707e71f7f6356309e23db5e4ec7c994adbb5fa",
-      "sourceIds": ["T08-S01"]
+      "sourceIds": [
+        "T08-S01"
+      ]
     }
   ],
   "lessons": [
@@ -177,14 +223,14 @@
       "failureReportPath": "content/qa/import-reports/dung-dich-va-can-bang-hoa-hoc.failure.json",
       "failureReportSha256": "69f6fdbb8ca708205042baec15343607eab14be35061c3ef822bb8082ccca0de",
       "mdxPath": "content/topics/chuyen-de-08/dung-dich-va-can-bang-hoa-hoc.mdx",
-      "mdxSha256": "0c0cf71e589b1e435167d5441490c92ff9b4ee055b2d025663d532065f353899",
+      "mdxSha256": "91f14a263fe54b51c80fe5d6611ea17dca5f0b610f4d14c42ed37d69257cbbb3",
       "qaPath": "content/qa/pending/dung-dich-va-can-bang-hoa-hoc.json",
       "qaSha256": "a8f44ddaef89e84f7de273d5b4a6348efba976adc174bc4fc50b499526806243",
       "slug": "dung-dich-va-can-bang-hoa-hoc",
       "sourceId": "T08-S01",
       "sourcePath": "8.1. Chuyen de 8-  Dung dich can bang hoa hoc- phan I & II OK (1).docx",
       "sourceSha256": "9824a9580771da2d46c8d8f99382b166cb2a9178d317a37ff3bcb36835da237f",
-      "status": "in_review",
+      "status": "draft",
       "topic": "chuyen-de-08",
       "warningCount": 42
     },
