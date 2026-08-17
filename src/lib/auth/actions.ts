@@ -5,6 +5,7 @@ import { redirect } from "next/navigation";
 import { AppError } from "@/lib/validation/app-error";
 
 import type { AuthFormState, PasswordResetFormState } from "./form-state";
+import { isAllowedEmail } from "./allowlist";
 import { getNeonAuth } from "./neon";
 
 const AFTER_LOGIN_PATH = "/thu-vien";
@@ -13,6 +14,8 @@ const RESET_PASSWORD_PATH = "/dat-lai-mat-khau";
 const MESSAGES = {
   missingCredentials: "Vui lòng nhập email và mật khẩu.",
   invalidCredentials: "Email hoặc mật khẩu không đúng.",
+  notAllowed:
+    "Email chưa được ghi danh trong danh sách cho phép của lớp học. Vui lòng liên hệ giáo viên.",
   emailNotVerified:
     "Email chưa được xác minh. Vui lòng mở liên kết xác minh trong hộp thư của bạn.",
   unavailable: "Không thể kết nối dịch vụ đăng nhập. Vui lòng thử lại sau.",
@@ -94,6 +97,11 @@ export async function signUpWithPasswordAction(
   if (!email || !password) return { error: MESSAGES.missingCredentials };
   if (password.length < MIN_PASSWORD_LENGTH) {
     return { error: MESSAGES.weakPassword };
+  }
+
+  const allowed = await isAllowedEmail(email);
+  if (!allowed) {
+    return { error: MESSAGES.notAllowed };
   }
 
   try {
