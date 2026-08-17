@@ -22,6 +22,7 @@ beforeEach(() => {
   mockIsEmailAllowed.mockReset();
   mockMarkEmailVerified.mockReset();
   delete process.env.TEACHER_EMAILS;
+  delete process.env.DATABASE_URL;
 });
 
 describe("isAllowedEmail", () => {
@@ -40,6 +41,7 @@ describe("isAllowedEmail", () => {
   });
 
   it("queries allowlist repository for student emails", async () => {
+    process.env.DATABASE_URL = "postgresql://user:pass@localhost:5432/db";
     mockIsEmailAllowed.mockResolvedValue(true);
 
     const result = await isAllowedEmail("hoc-sinh@example.com");
@@ -49,6 +51,7 @@ describe("isAllowedEmail", () => {
   });
 
   it("returns false when student email is not in allowlist repository", async () => {
+    process.env.DATABASE_URL = "postgresql://user:pass@localhost:5432/db";
     mockIsEmailAllowed.mockResolvedValue(false);
 
     const result = await isAllowedEmail("la-hoc-sinh@example.com");
@@ -84,5 +87,15 @@ describe("markAllowedEmailVerified", () => {
     await expect(
       markAllowedEmailVerified("hoc-sinh@example.com"),
     ).resolves.toBeUndefined();
+  });
+});
+y errors", async () => {
+    mockMarkEmailVerified.mockRejectedValue(new Error("db down"));
+    await expect(
+      markAllowedEmailVerified("hoc-sinh@example.com"),
+    ).resolves.toBeUndefined();
+  });
+});
+eenCalled();
   });
 });
