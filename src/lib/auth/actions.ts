@@ -182,7 +182,9 @@ export async function requestPasswordResetAction(
   formData: FormData,
 ): Promise<PasswordResetFormState> {
   const email = field(formData, "email").toLowerCase();
-  if (!email) return { error: "Vui lòng nhập email." };
+  if (!email) {
+    return { error: "Vui lòng nhập email.", submitted: true };
+  }
 
   // Always return the same success message to avoid email enumeration.
   try {
@@ -196,7 +198,7 @@ export async function requestPasswordResetAction(
   } catch {
     // Swallow errors for anti-enumeration
   }
-  return { success: MESSAGES.passwordResetSent };
+  return { success: MESSAGES.passwordResetSent, submitted: true };
 }
 
 export async function resetPasswordAction(
@@ -205,9 +207,11 @@ export async function resetPasswordAction(
 ): Promise<PasswordResetFormState> {
   const token = field(formData, "token");
   const password = field(formData, "password");
-  if (!token) return { error: MESSAGES.missingResetToken };
+  if (!token) {
+    return { error: MESSAGES.missingResetToken, submitted: true };
+  }
   if (!password || password.length < MIN_PASSWORD_LENGTH) {
-    return { error: MESSAGES.weakPassword };
+    return { error: MESSAGES.weakPassword, submitted: true };
   }
 
   try {
@@ -219,12 +223,16 @@ export async function resetPasswordAction(
     if (result.error) {
       return {
         error: messageFromAuthError(result.error, MESSAGES.passwordResetFailed),
+        submitted: true,
       };
     }
   } catch (error) {
-    return { error: thrownMessage(error, MESSAGES.passwordResetFailed) };
+    return {
+      error: thrownMessage(error, MESSAGES.passwordResetFailed),
+      submitted: true,
+    };
   }
-  return { success: MESSAGES.passwordResetSuccess };
+  return { success: MESSAGES.passwordResetSuccess, submitted: true };
 }
 
 export async function signOutAction(): Promise<void> {
