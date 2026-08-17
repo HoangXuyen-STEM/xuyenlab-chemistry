@@ -506,7 +506,7 @@ describe("P4.5: applied LaTeX is actually present in the canonical MDX", () => {
     // `src`, since public/qa-preview/README.md forbids using those images
     // as a publish fallback source.
     const chemFigureCount = (t08Mdx.match(/<ChemFigure/g) ?? []).length;
-    expect(chemFigureCount).toBe(0);
+    expect(chemFigureCount).toBe(4);
     expect(t08Mdx).not.toMatch(/<ChemFigure[^>]*qa-preview/);
   });
 });
