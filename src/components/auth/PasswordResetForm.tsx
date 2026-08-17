@@ -3,14 +3,14 @@
 import { useActionState } from "react";
 
 import { resetPasswordAction } from "@/lib/auth/actions";
-import { initialAuthFormState } from "@/lib/auth/form-state";
+import { initialPasswordResetFormState } from "@/lib/auth/form-state";
 
 import styles from "./AuthForm.module.css";
 
 export function PasswordResetForm({ token }: { token: string }) {
   const [state, formAction, isPending] = useActionState(
     resetPasswordAction,
-    initialAuthFormState,
+    initialPasswordResetFormState,
   );
 
   return (
