@@ -1,11 +1,7 @@
-"use server";
-
 import { redirect } from "next/navigation";
 
-import { AppError } from "@/lib/validation/app-error";
-
 import type { AuthFormState, PasswordResetFormState } from "./form-state";
-import { isAllowedEmail } from "./allowlist";
+import { isAllowedEmail, markAllowedEmailVerified } from "./allowlist";
 import { getNeonAuth } from "./neon";
 
 const AFTER_LOGIN_PATH = "/thu-vien";
@@ -18,47 +14,83 @@ const MESSAGES = {
     "Email chưa được ghi danh trong danh sách cho phép của lớp học. Vui lòng liên hệ giáo viên.",
   emailNotVerified:
     "Email chưa được xác minh. Vui lòng mở liên kết xác minh trong hộp thư của bạn.",
-  unavailable: "Không thể kết nối dịch vụ đăng nhập. Vui lòng thử lại sau.",
-  notConfigured: "Dịch vụ đăng nhập chưa được cấu hình trên môi trường này.",
-  missingEmail: "Vui lòng nhập email.",
-  weakPassword: "Mật khẩu mới phải có ít nhất 8 ký tự.",
-  passwordMismatch: "Hai lần nhập mật khẩu không khớp.",
-  missingToken:
-    "Liên kết đặt lại mật khẩu không hợp lệ hoặc đã hết hạn. Hãy yêu cầu liên kết mới.",
-  resetFailed:
-    "Không đặt lại được mật khẩu. Liên kết có thể đã hết hạn; hãy yêu cầu liên kết mới.",
+  weakPassword: "Mật khẩu phải có ít nhất 8 ký tự.",
+  accountExists:
+    "Email này đã có tài khoản. Vui lòng đăng nhập hoặc đặt lại mật khẩu.",
+  passwordResetSent:
+    "Nếu email hợp lệ, hệ thống đã gửi hướng dẫn đặt lại mật khẩu.",
+  missingResetToken:
+    "Thiếu mã đặt lại mật khẩu. Vui lòng mở lại liên kết trong email.",
+  passwordResetFailed:
+    "Không thể đặt lại mật khẩu. Liên kết có thể đã hết hạn — vui lòng yêu cầu lại.",
+  passwordResetSuccess:
+    "Đã cập nhật mật khẩu. Bạn có thể đăng nhập bằng mật khẩu mới.",
+  genericAuthError:
+    "Không thể kết nối dịch vụ đăng nhập. Vui lòng thử lại sau.",
 } as const;
 
 const MIN_PASSWORD_LENGTH = 8;
-
-/** Absolute URL for provider callbacks; falls back to a relative path. */
-function appUrl(path: string): string {
-  const base = process.env.APP_BASE_URL;
-  return base ? new URL(path, base).toString() : path;
-}
 
 function field(formData: FormData, name: string): string {
   const value = formData.get(name);
   return typeof value === "string" ? value.trim() : "";
 }
 
-function errorCodeOf(error: unknown): string | undefined {
-  if (error && typeof error === "object" && "code" in error) {
-    const code = (error as { code?: unknown }).code;
-    if (typeof code === "string") return code;
-  }
-  return undefined;
+function displayNameFromEmail(email: string): string {
+  const local = email.split("@")[0]?.trim();
+  return local && local.length > 0 ? local : email;
 }
 
-/**
- * Maps a thrown value to a user-facing message. Provider messages are never
- * forwarded (`docs/contracts/backend.md`: no provider internals in responses).
- */
-function thrownMessage(error: unknown): string {
-  if (error instanceof AppError && error.code === "INTERNAL") {
-    return MESSAGES.notConfigured;
+function messageFromAuthError(error: unknown, fallback: string): string {
+  if (!error || typeof error !== "object") return fallback;
+  const record = error as {
+    code?: unknown;
+    message?: unknown;
+    status?: unknown;
+  };
+  const code = typeof record.code === "string" ? record.code.toUpperCase() : "";
+  const message =
+    typeof record.message === "string" ? record.message.toLowerCase() : "";
+
+  if (
+    code.includes("INVALID") ||
+    code.includes("CREDENTIAL") ||
+    message.includes("invalid") ||
+    message.includes("credential")
+  ) {
+    return MESSAGES.invalidCredentials;
   }
-  return MESSAGES.unavailable;
+  if (
+    code.includes("NOT_VERIFIED") ||
+    code.includes("UNVERIFIED") ||
+    message.includes("not verified") ||
+    message.includes("unverified")
+  ) {
+    return MESSAGES.emailNotVerified;
+  }
+  if (
+    code.includes("EXISTS") ||
+    code.includes("ALREADY") ||
+    message.includes("already") ||
+    message.includes("exists")
+  ) {
+    return MESSAGES.accountExists;
+  }
+  if (
+    code.includes("PASSWORD") ||
+    message.includes("password") ||
+    message.includes("weak")
+  ) {
+    return MESSAGES.weakPassword;
+  }
+  return fallback;
+}
+
+function thrownMessage(error: unknown, fallback: string): string {
+  if (error instanceof Error && error.message.trim()) {
+    return messageFromAuthError(error, error.message);
+  }
+  return messageFromAuthError(error, fallback);
 }
 
 export async function signInWithPasswordAction(
@@ -69,22 +101,24 @@ export async function signInWithPasswordAction(
   const password = field(formData, "password");
   if (!email || !password) return { error: MESSAGES.missingCredentials };
 
-  try {
-    const auth = await getNeonAuth();
-    const { error } = await auth.signIn.email({ email, password });
-    if (error) {
-      return {
-        error:
-          errorCodeOf(error) === "EMAIL_NOT_VERIFIED"
-            ? MESSAGES.emailNotVerified
-            : MESSAGES.invalidCredentials,
-      };
-    }
-  } catch (error) {
-    return { error: thrownMessage(error) };
+  const allowed = await isAllowedEmail(email);
+  if (!allowed) {
+    return { error: MESSAGES.notAllowed };
   }
 
-  // `redirect` throws its own control-flow signal, so it stays outside the try.
+  try {
+    const auth = await getNeonAuth();
+    const result = await auth.signIn.email({ email, password });
+    if (result.error) {
+      return {
+        error: messageFromAuthError(result.error, MESSAGES.invalidCredentials),
+      };
+    }
+    await markAllowedEmailVerified(email);
+  } catch (error) {
+    return { error: thrownMessage(error, MESSAGES.genericAuthError) };
+  }
+
   redirect(AFTER_LOGIN_PATH);
 }
 
@@ -106,46 +140,40 @@ export async function signUpWithPasswordAction(
 
   try {
     const auth = await getNeonAuth();
-    const name = email.split("@")[0] || "hoc-sinh";
-    const { error } = await auth.signUp.email({ email, password, name });
-    if (error) {
+    const result = await auth.signUp.email({
+      email,
+      password,
+      name: displayNameFromEmail(email),
+    });
+    if (result.error) {
       return {
-        error:
-          "Không tạo được tài khoản. Email này có thể đã được đăng ký trước đó.",
+        error: messageFromAuthError(result.error, MESSAGES.genericAuthError),
       };
     }
+    await markAllowedEmailVerified(email);
   } catch (error) {
-    return { error: thrownMessage(error) };
+    return { error: thrownMessage(error, MESSAGES.genericAuthError) };
   }
 
   redirect(AFTER_LOGIN_PATH);
 }
 
 export async function signInWithGoogleAction(): Promise<void> {
-  let providerUrl: string | undefined;
-  try {
-    const auth = await getNeonAuth();
-    const { data } = await auth.signIn.social({
-      provider: "google",
-      callbackURL: appUrl(AFTER_LOGIN_PATH),
-    });
-    const url = (data as { url?: unknown } | null | undefined)?.url;
-    if (typeof url === "string") providerUrl = url;
-  } catch {
-    providerUrl = undefined;
+  // Google OAuth cannot pre-check email before the IdP round-trip.
+  // Post-login enforcement lives in requireUser() / requireTeacher().
+  const auth = await getNeonAuth();
+  const result = await auth.signIn.social({
+    provider: "google",
+    callbackURL: AFTER_LOGIN_PATH,
+  });
+  if (result.error) {
+    throw new Error(
+      messageFromAuthError(result.error, MESSAGES.genericAuthError),
+    );
   }
-
-  redirect(providerUrl ?? "/dang-nhap?loi=google");
-}
-
-export async function signOutAction(): Promise<void> {
-  try {
-    const auth = await getNeonAuth();
-    await auth.signOut();
-  } catch {
-    // Sign-out is best effort; the login page is safe either way.
+  if (result.data?.url) {
+    redirect(result.data.url);
   }
-  redirect("/dang-nhap");
 }
 
 export async function requestPasswordResetAction(
@@ -153,45 +181,65 @@ export async function requestPasswordResetAction(
   formData: FormData,
 ): Promise<PasswordResetFormState> {
   const email = field(formData, "email").toLowerCase();
-  if (!email) return { error: MESSAGES.missingEmail, submitted: false };
-
-  try {
-    const auth = await getNeonAuth();
-    await auth.requestPasswordReset({
-      email,
-      redirectTo: appUrl(RESET_PASSWORD_PATH),
-    });
-  } catch (error) {
-    return { error: thrownMessage(error), submitted: false };
+  if (!email) {
+    return { error: "Vui lòng nhập email.", submitted: true };
   }
 
-  // Always report the same outcome so the form cannot enumerate accounts.
-  return { error: null, submitted: true };
+  // Always return the same success message to avoid email enumeration.
+  try {
+    const auth = await getNeonAuth();
+    const base =
+      process.env.APP_BASE_URL?.replace(/\/$/, "") ?? "http://localhost:3000";
+    await auth.requestPasswordReset({
+      email,
+      redirectTo: `${base}${RESET_PASSWORD_PATH}`,
+    });
+  } catch {
+    // Swallow errors for anti-enumeration
+  }
+  return { success: MESSAGES.passwordResetSent, submitted: true };
 }
 
 export async function resetPasswordAction(
-  _previous: AuthFormState,
+  _previous: PasswordResetFormState,
   formData: FormData,
-): Promise<AuthFormState> {
+): Promise<PasswordResetFormState> {
   const token = field(formData, "token");
-  const password = formData.get("password");
-  const confirmation = formData.get("confirmPassword");
-  if (!token) return { error: MESSAGES.missingToken };
-  if (typeof password !== "string" || password.length < MIN_PASSWORD_LENGTH) {
-    return { error: MESSAGES.weakPassword };
+  const password = field(formData, "password");
+  if (!token) {
+    return { error: MESSAGES.missingResetToken, submitted: true };
   }
-  if (password !== confirmation) return { error: MESSAGES.passwordMismatch };
+  if (!password || password.length < MIN_PASSWORD_LENGTH) {
+    return { error: MESSAGES.weakPassword, submitted: true };
+  }
 
   try {
     const auth = await getNeonAuth();
-    const { error } = await auth.resetPassword({
+    const result = await auth.resetPassword({
       newPassword: password,
       token,
     });
-    if (error) return { error: MESSAGES.resetFailed };
+    if (result.error) {
+      return {
+        error: messageFromAuthError(result.error, MESSAGES.passwordResetFailed),
+        submitted: true,
+      };
+    }
   } catch (error) {
-    return { error: thrownMessage(error) };
+    return {
+      error: thrownMessage(error, MESSAGES.passwordResetFailed),
+      submitted: true,
+    };
   }
+  return { success: MESSAGES.passwordResetSuccess, submitted: true };
+}
 
-  redirect("/dang-nhap?trang-thai=da-doi-mat-khau");
+export async function signOutAction(): Promise<void> {
+  try {
+    const auth = await getNeonAuth();
+    await auth.signOut();
+  } catch {
+    // Always redirect home even if sign-out fails
+  }
+  redirect("/dang-nhap");
 }
