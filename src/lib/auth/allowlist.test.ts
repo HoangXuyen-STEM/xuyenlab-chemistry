@@ -1,9 +1,10 @@
 import { describe, expect, it, vi, beforeEach } from "vitest";
 
-import { isAllowedEmail } from "./allowlist";
+import { isAllowedEmail, markAllowedEmailVerified } from "./allowlist";
 
-const { mockIsEmailAllowed } = vi.hoisted(() => ({
+const { mockIsEmailAllowed, mockMarkEmailVerified } = vi.hoisted(() => ({
   mockIsEmailAllowed: vi.fn(),
+  mockMarkEmailVerified: vi.fn(),
 }));
 
 vi.mock("@/lib/db/client", () => ({
@@ -13,11 +14,13 @@ vi.mock("@/lib/db/client", () => ({
 vi.mock("@/lib/db/allowlist.repo", () => ({
   createAllowlistRepository: () => ({
     isEmailAllowed: mockIsEmailAllowed,
+    markEmailVerified: mockMarkEmailVerified,
   }),
 }));
 
 beforeEach(() => {
   mockIsEmailAllowed.mockReset();
+  mockMarkEmailVerified.mockReset();
   delete process.env.TEACHER_EMAILS;
 });
 
@@ -59,5 +62,27 @@ describe("isAllowedEmail", () => {
     const result = await isAllowedEmail("hoc-sinh@example.com");
 
     expect(result).toBe(false);
+  });
+});
+
+describe("markAllowedEmailVerified", () => {
+  it("no-ops for empty and teacher emails", async () => {
+    process.env.TEACHER_EMAILS = "giao-vien@xuyenlab.edu.vn";
+    await markAllowedEmailVerified("");
+    await markAllowedEmailVerified("giao-vien@xuyenlab.edu.vn");
+    expect(mockMarkEmailVerified).not.toHaveBeenCalled();
+  });
+
+  it("marks student emails via repository", async () => {
+    mockMarkEmailVerified.mockResolvedValue(true);
+    await markAllowedEmailVerified("  Hoc-Sinh@Example.com ");
+    expect(mockMarkEmailVerified).toHaveBeenCalledWith("hoc-sinh@example.com");
+  });
+
+  it("swallows repository errors", async () => {
+    mockMarkEmailVerified.mockRejectedValue(new Error("db down"));
+    await expect(
+      markAllowedEmailVerified("hoc-sinh@example.com"),
+    ).resolves.toBeUndefined();
   });
 });
