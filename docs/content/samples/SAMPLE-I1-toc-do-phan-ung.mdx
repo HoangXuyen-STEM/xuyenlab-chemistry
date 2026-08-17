@@ -1,0 +1,125 @@
+---
+# ⚠️ SAMPLE — không phải bài học publish, không nằm trong content/topics/.
+# Mục đích: minh họa LESSON-STYLE-GUIDE.md (đơn giản · trực diện · rõ) để Owner
+# duyệt style trước khi biên tập lại các mục tương ứng trong catalog thật.
+# Chủ đề "tốc độ phản ứng" thuộc CĐ 6 — Động hóa học (T06-S01, DOCX
+# "6. Chuyen de 6. Dong hoa hoc.ok.docx"), đúng mục "I. TỐC ĐỘ PHẢN ỨNG" hiện có
+# trong content/topics/chuyen-de-06/dong-hoa-hoc.mdx (đang in_review, còn dán
+# gần nguyên văn DOCX). Sample này KHÔNG ghi đè file đó — dùng làm mẫu remediation
+# (Luồng B trong CONTENT-WORKFLOW.md) khi việc đó được giao riêng.
+title: "SAMPLE I.1–I.2 — Khái niệm và tốc độ trung bình"
+status: draft
+note: "File mẫu trong docs/content/samples — không load vào catalog bài học, không qua content:validate."
+---
+
+## I. Tốc độ phản ứng
+
+### 1. Khái niệm tốc độ phản ứng
+
+<Callout type="definition" title="Tốc độ phản ứng hóa học">
+  Tốc độ phản ứng $v$ là độ biến thiên nồng độ của một chất (chất đầu hoặc sản
+  phẩm) trong một đơn vị thời gian.
+</Callout>
+
+Tốc độ $v$ phụ thuộc nồng độ và nhiệt độ: $v = f(C, T)$. Khi nhiệt độ không
+đổi, $v$ chỉ còn phụ thuộc nồng độ.
+
+<Callout type="note" title="Đơn vị thường dùng">
+  - Nồng độ: mol·L⁻¹ (mol/L). - Thời gian: giây (s), phút, giờ.
+</Callout>
+
+### 2. Tốc độ trung bình
+
+<Callout type="definition" title="Tốc độ trung bình">
+  Tốc độ trung bình $\bar{v}$ là biến thiên nồng độ $\Delta C$ trong khoảng thời
+  gian $\Delta t$.
+</Callout>
+
+$$
+\bar{v} = \pm \dfrac{\Delta C}{\Delta t}
+$$
+
+| Ký hiệu                | Ý nghĩa            | Đơn vị  |
+| ---------------------- | ------------------ | ------- |
+| $\Delta C = C_2 - C_1$ | biến thiên nồng độ | mol·L⁻¹ |
+| $\Delta t = t_2 - t_1$ | khoảng thời gian   | s       |
+
+<Callout type="note" title="Quy ước dấu">
+  - Dấu **−** với chất **tham gia** (nồng độ giảm). - Dấu **+** với chất **sản
+  phẩm** (nồng độ tăng).
+</Callout>
+
+#### Tốc độ trung bình đơn giá
+
+Với phản ứng $\ce{aA + bB -> cC + dD}$:
+
+$$
+\bar{v}
+= -\dfrac{1}{a}\dfrac{\Delta C_A}{\Delta t}
+= -\dfrac{1}{b}\dfrac{\Delta C_B}{\Delta t}
+= \dfrac{1}{c}\dfrac{\Delta C_C}{\Delta t}
+= \dfrac{1}{d}\dfrac{\Delta C_D}{\Delta t}
+$$
+
+Các phân số trên **bằng nhau** — đó là tốc độ trung bình **đơn giá** (đã chia
+cho hệ số tỉ lượng).
+
+#### Tốc độ tức thời
+
+Khi khoảng thời gian rất nhỏ ($\Delta t \to 0$):
+
+$$
+v = \pm \dfrac{\mathrm{d}C}{\mathrm{d}t}
+$$
+
+<Callout type="note" title="Trung bình và tức thời">
+  - **Trung bình:** cả đoạn $\Delta t$ (dễ đo, dùng số liệu bảng). - **Tức
+  thời:** tại một thời điểm (đạo hàm / tiếp tuyến đồ thị $C$–$t$).
+</Callout>
+
+<Example title="Ví dụ: Phản ứng tổng hợp SO₃">
+  Cho phản ứng:
+
+$$
+\ce{2SO2 + O2 <=> 2SO3}
+$$
+
+Viết biểu thức tốc độ trung bình đơn giá và tốc độ tức thời đơn giá theo từng
+chất.
+
+<Solution>
+**Tốc độ trung bình đơn giá:**
+
+$$
+\bar{v}
+= -\dfrac{1}{2}\dfrac{\Delta C_{\ce{SO2}}}{\Delta t}
+= -\dfrac{\Delta C_{\ce{O2}}}{\Delta t}
+= \dfrac{1}{2}\dfrac{\Delta C_{\ce{SO3}}}{\Delta t}
+$$
+
+**Tốc độ tức thời đơn giá:**
+
+$$
+v
+= -\dfrac{1}{2}\dfrac{\mathrm{d}C_{\ce{SO2}}}{\mathrm{d}t}
+= -\dfrac{\mathrm{d}C_{\ce{O2}}}{\mathrm{d}t}
+= \dfrac{1}{2}\dfrac{\mathrm{d}C_{\ce{SO3}}}{\mathrm{d}t}
+$$
+
+</Solution>
+</Example>
+
+---
+
+## Ghi chú biên tập (so với DOCX gốc)
+
+| DOCX (gần nguyên văn)                  | Sample này                                     |
+| -------------------------------------- | ---------------------------------------------- |
+| Rất dài, lặp ý, dính rác OCR/converter | Một mục mỏng, mỗi ý xuất hiện một lần          |
+| Công thức lẫn trong chữ                | `$$` tách khối + bảng ký hiệu                  |
+| Ví dụ và lý thuyết trộn lẫn            | `<Example>` + `<Solution>` tách khối rõ        |
+| Học sinh phải tự lọc                   | `Callout type="definition"`/`"note"` dẫn đường |
+
+**Không** publish sample này như một bài học. Sau khi Owner chốt style, áp dụng
+guide vào bài thật theo đúng luồng trong
+[`CONTENT-WORKFLOW.md`](../CONTENT-WORKFLOW.md).
