@@ -6,3 +6,9 @@ Default ownership is UI, responsive layout, MDX presentation and print CSS. Work
 
 Before finishing, run the specified checks and write the required handoff under `docs/handoffs/`. Chat history is not a project dependency.
 
+## Content authoring (mandatory)
+
+- Style: `docs/content/LESSON-STYLE-GUIDE.md`
+- Workflow (all chuyên đề): `docs/content/CONTENT-WORKFLOW.md`
+- Locked sample: `docs/content/samples/SAMPLE-I1-toc-do-phan-ung.mdx`
+- Default new lessons: `status: draft`. No paste-from-DOCX. No new MDX components. No self-publish.
