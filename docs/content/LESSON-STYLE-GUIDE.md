@@ -59,8 +59,9 @@ $$
 
 ## 3. Component cho phép
 
-Danh sách component MDX hợp lệ = đúng những gì `mdx-components.tsx` đăng ký, khớp
-`docs/contracts/content.md` §"Supported MDX components". **Không có gì khác.**
+Danh sách component **được phép soạn trong bài** = bảng `docs/contracts/content.md`
+§"Supported MDX components". `mdx-components.tsx` còn đăng ký thêm `<Math>` (KaTeX
+trực tiếp) — **không dùng khi soạn bài**; công thức viết bằng `$` / `$$`.
 
 | Component                                 | Vị trí định nghĩa                              | Dùng khi                                 |
 | ----------------------------------------- | ---------------------------------------------- | ---------------------------------------- |
@@ -94,8 +95,8 @@ trong bảng trên.
   $$\ce{2SO2 + O2 <=> 2SO3}$$
   ```
 
-- `$$`/`$` được xử lý trực tiếp qua `remark-math` + `rehype-katex` (khai báo trong
-  `next.config.ts`) — không cần bọc `<Math>`, không cần plugin thêm.
+- `$$`/`$` được xử lý trực tiếp qua `remark-math` + `rehype-katex` trong
+  `next.config.ts` (`throwOnError: false`) — không bọc `<Math>`, không thêm plugin.
 - Viết đúng LaTeX: `\to`, `\dfrac{}{}`, `\text{...}`, `\pm`. Không dán rác converter
   (`ext` thay cho `\text`, `ightarrow` thay cho `\rightarrow`, `o 0` thay cho `\to 0`…).
 - Chọn **một** style ký hiệu nồng độ cho cả bài, ví dụ `C_{\ce{SO2}}`, và giữ nhất quán.
