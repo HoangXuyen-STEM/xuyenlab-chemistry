@@ -242,6 +242,10 @@ export async function signOutAction(): Promise<void> {
   } catch {
     // Always redirect home even if sign-out fails
   }
+  redirect("/dang-nhap");
+}
+gn-out fails
+  }
   const { redirect } = await import("next/navigation");
   redirect("/dang-nhap");
 }
