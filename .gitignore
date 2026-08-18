@@ -35,6 +35,11 @@ artifacts/
 scripts/.cache/
 generated-pdf/
 
+# Word sources live on Google Drive (single source of truth)
+*.docx
+*.doc
+_workspace/
+
 # Office lock files
 ~$*.doc
 ~$*.docx
