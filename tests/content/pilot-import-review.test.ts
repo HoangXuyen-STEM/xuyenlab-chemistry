@@ -2,7 +2,13 @@
 
 import { spawnSync } from "node:child_process";
 import { createHash } from "node:crypto";
-import { existsSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from "node:fs";
+import {
+  existsSync,
+  mkdtempSync,
+  readFileSync,
+  rmSync,
+  writeFileSync,
+} from "node:fs";
 import { tmpdir } from "node:os";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
@@ -85,7 +91,10 @@ test.skipIf(!hasPilotDocx)(
     const target = mkdtempSync(path.join(tmpdir(), "xuyenlab-p4-in-review-"));
     try {
       expect(run(importer, ["--target-root", target]).status).toBe(0);
-      const manifestPath = path.join(target, "content/pilot-staging-manifest.json");
+      const manifestPath = path.join(
+        target,
+        "content/pilot-staging-manifest.json",
+      );
       const manifest = readJson<PilotManifest>(manifestPath);
       for (const lesson of manifest.lessons) {
         signLesson(target, lesson);
@@ -109,10 +118,15 @@ test.skipIf(!hasPilotDocx)(
 test.skipIf(!hasPilotDocx)(
   "validator rejects unsigned or incomplete in_review QA",
   () => {
-    const target = mkdtempSync(path.join(tmpdir(), "xuyenlab-p4-unsigned-review-"));
+    const target = mkdtempSync(
+      path.join(tmpdir(), "xuyenlab-p4-unsigned-review-"),
+    );
     try {
       expect(run(importer, ["--target-root", target]).status).toBe(0);
-      const manifestPath = path.join(target, "content/pilot-staging-manifest.json");
+      const manifestPath = path.join(
+        target,
+        "content/pilot-staging-manifest.json",
+      );
       const manifest = readJson<PilotManifest>(manifestPath);
       for (const lesson of manifest.lessons) {
         signLesson(target, lesson);
@@ -135,7 +149,10 @@ test.skipIf(!hasPilotDocx)(
     const target = mkdtempSync(path.join(tmpdir(), "xuyenlab-p6-b1-0-guard-"));
     try {
       expect(run(importer, ["--target-root", target]).status).toBe(0);
-      const manifestPath = path.join(target, "content/pilot-staging-manifest.json");
+      const manifestPath = path.join(
+        target,
+        "content/pilot-staging-manifest.json",
+      );
       const manifest = readJson<PilotManifest>(manifestPath);
       for (const lesson of manifest.lessons) {
         signLesson(target, lesson);
