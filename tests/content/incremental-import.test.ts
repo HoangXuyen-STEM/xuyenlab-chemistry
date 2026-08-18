@@ -49,7 +49,7 @@ const topic24Args = [
   "Phân bón hóa học",
 ];
 
-itDocx("P6-B1.1 imports Topic 24 incrementally and preserves both pilots byte-for-byte", () => {
+itDocx("imports Topic 24 incrementally", () => {
   const target = mkdtempSync(path.join(tmpdir(), "xuyenlab-p6-b1-1-"));
   try {
     copyBaseline(target);
@@ -144,7 +144,7 @@ itDocx("P6-B1.1 imports Topic 24 incrementally and preserves both pilots byte-fo
   }
 }, 30_000);
 
-itDocx("P6-B1.1 detects Topic 24 manual drift before changing managed content", () => {
+itDocx("detects Topic 24 manual drift", () => {
   const target = mkdtempSync(path.join(tmpdir(), "xuyenlab-p6-b1-1-drift-"));
   try {
     copyBaseline(target);
