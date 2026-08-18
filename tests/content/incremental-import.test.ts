@@ -16,7 +16,7 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 
 import Ajv from "ajv";
-import { expect, test } from "vitest";
+import { describe, expect, test } from "vitest";
 
 const here = path.dirname(fileURLToPath(import.meta.url));
 const repoRoot = path.resolve(here, "../..");
@@ -49,9 +49,8 @@ const topic24Args = [
   "Phân bón hóa học",
 ];
 
-test.skipIf(!hasTopic24Docx)(
-  "P6-B1.1 imports Topic 24 incrementally and preserves both pilots byte-for-byte",
-  () => {
+describe.skipIf(!hasTopic24Docx)("Topic 24 incremental import", () => {
+  test("P6-B1.1 imports Topic 24 incrementally and preserves both pilots byte-for-byte", () => {
     const target = mkdtempSync(path.join(tmpdir(), "xuyenlab-p6-b1-1-"));
     try {
       copyBaseline(target);
@@ -147,13 +146,9 @@ test.skipIf(!hasTopic24Docx)(
     } finally {
       rmSync(target, { recursive: true, force: true });
     }
-  },
-  30_000,
-);
+  }, 30_000);
 
-test.skipIf(!hasTopic24Docx)(
-  "P6-B1.1 detects Topic 24 manual drift before changing managed content",
-  () => {
+  test("P6-B1.1 detects Topic 24 manual drift before changing managed content", () => {
     const target = mkdtempSync(path.join(tmpdir(), "xuyenlab-p6-b1-1-drift-"));
     try {
       copyBaseline(target);
@@ -183,9 +178,8 @@ test.skipIf(!hasTopic24Docx)(
     } finally {
       rmSync(target, { recursive: true, force: true });
     }
-  },
-  30_000,
-);
+  }, 30_000);
+});
 
 function copyBaseline(target: string) {
   const current = readJson<Manifest>(path.join(repoRoot, manifestPath));
