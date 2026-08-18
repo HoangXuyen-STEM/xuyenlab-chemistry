@@ -155,9 +155,9 @@ test.skipIf(!hasPilotDocx)(
       const refused = run(importer, ["--target-root", target]);
       expect(refused.status).not.toBe(0);
       expect(refused.stderr).toContain("Manual edits detected");
-      expect(run(importer, ["--target-root", target, "--force"]).status).not.toBe(
-        0,
-      );
+      expect(
+        run(importer, ["--target-root", target, "--force"]).status,
+      ).not.toBe(0);
 
       const replaced = run(importer, [
         "--target-root",
