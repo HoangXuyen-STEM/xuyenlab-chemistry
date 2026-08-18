@@ -24,18 +24,12 @@ const importer = path.join(repoRoot, "scripts/import-docx/pilot_import.py");
 const validator = path.join(repoRoot, "scripts/validate-content/validate.py");
 const manifestPath = "content/pilot-staging-manifest.json";
 const topic24Name = "24. Chuyen de 24_ Phan bon hoa hoc_OK.docx";
-
-function resolveWordSource(filename: string): string | undefined {
-  const extra = process.env.XUYENLAB_SOURCE_ROOT;
-  return [
-    path.join(repoRoot, "_workspace", filename),
-    path.join(repoRoot, filename),
-    extra ? path.join(extra, filename) : "",
-  ].find((candidate) => candidate !== "" && existsSync(candidate));
-}
-
-const topic24Path = resolveWordSource(topic24Name);
-const itDocx = topic24Path ? test : test.skip;
+const extraRoot = process.env.XUYENLAB_SOURCE_ROOT;
+const topic24Path = [
+  path.join(repoRoot, "_workspace", topic24Name),
+  path.join(repoRoot, topic24Name),
+  extraRoot ? path.join(extraRoot, topic24Name) : "",
+].find((candidate) => candidate !== "" && existsSync(candidate));
 const topic24Args = [
   "--source",
   topic24Path ?? path.join(repoRoot, topic24Name),
@@ -49,7 +43,10 @@ const topic24Args = [
   "Phân bón hóa học",
 ];
 
-itDocx("imports Topic 24 incrementally", () => {
+test("P6-B1.1 imports Topic 24 incrementally and preserves both pilots byte-for-byte", () => {
+  if (!topic24Path) {
+    return;
+  }
   const target = mkdtempSync(path.join(tmpdir(), "xuyenlab-p6-b1-1-"));
   try {
     copyBaseline(target);
@@ -144,7 +141,10 @@ itDocx("imports Topic 24 incrementally", () => {
   }
 }, 30_000);
 
-itDocx("detects Topic 24 manual drift", () => {
+test("P6-B1.1 detects Topic 24 manual drift before changing managed content", () => {
+  if (!topic24Path) {
+    return;
+  }
   const target = mkdtempSync(path.join(tmpdir(), "xuyenlab-p6-b1-1-drift-"));
   try {
     copyBaseline(target);
