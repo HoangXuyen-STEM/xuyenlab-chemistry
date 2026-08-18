@@ -12,6 +12,7 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
+import os
 from pathlib import Path
 import shutil
 import subprocess
@@ -39,6 +40,54 @@ PILOTS = (
 )
 MANIFEST_PATH = Path("content/pilot-staging-manifest.json")
 PRETTIER = REPO_ROOT / "node_modules/.bin/prettier"
+
+
+def source_search_roots() -> list[Path]:
+    roots = [REPO_ROOT / "_workspace", REPO_ROOT]
+    extra = os.environ.get("XUYENLAB_SOURCE_ROOT")
+    if extra:
+        roots.append(Path(extra).expanduser())
+    return roots
+
+
+def resolve_word_source(source: str | Path) -> Path:
+    given = Path(source)
+    if given.is_file():
+        return given.resolve()
+    relatives = []
+    if not given.is_absolute():
+        relatives.append(given)
+    relatives.append(Path(given.name))
+    seen: set[Path] = set()
+    for root in source_search_roots():
+        for relative in relatives:
+            candidate = (root / relative).resolve()
+            if candidate in seen:
+                continue
+            seen.add(candidate)
+            if candidate.is_file():
+                return candidate
+    raise FileNotFoundError(given)
+
+
+def manifest_source_path(resolved: Path) -> str:
+    workspace = (REPO_ROOT / "_workspace").resolve()
+    try:
+        resolved.relative_to(workspace)
+        return resolved.name
+    except ValueError:
+        pass
+    extra = os.environ.get("XUYENLAB_SOURCE_ROOT")
+    if extra:
+        try:
+            resolved.relative_to(Path(extra).expanduser().resolve())
+            return resolved.name
+        except ValueError:
+            pass
+    try:
+        return resolved.relative_to(REPO_ROOT).as_posix()
+    except ValueError:
+        return resolved.name
 
 
 def digest(payload: bytes) -> str:
@@ -75,7 +124,7 @@ def run_prototype(pilot: dict[str, Any], output_root: Path) -> Path:
             "python3",
             str(PROTOTYPE_PATH),
             "--source",
-            str(REPO_ROOT / pilot["source"]),
+            str(resolve_word_source(pilot["source"])),
             "--source-id",
             pilot["source_id"],
             "--topic",
@@ -475,13 +524,8 @@ def requested_lessons(args: argparse.Namespace) -> tuple[dict[str, Any], ...]:
         raise ValueError(
             "--source, --source-id, --topic, --slug and --title must be supplied together"
         )
-    source = args.source.resolve()
-    if not source.is_file():
-        raise FileNotFoundError(source)
-    try:
-        source_path = source.relative_to(REPO_ROOT).as_posix()
-    except ValueError as error:
-        raise ValueError("--source must resolve inside the repository") from error
+    source = resolve_word_source(args.source)
+    source_path = manifest_source_path(source)
     return (
         {
             "source_id": args.source_id,
