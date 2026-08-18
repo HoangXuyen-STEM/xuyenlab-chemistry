@@ -16,7 +16,7 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 
 import Ajv from "ajv";
-import { describe, expect, test } from "vitest";
+import { expect, test } from "vitest";
 
 const here = path.dirname(fileURLToPath(import.meta.url));
 const repoRoot = path.resolve(here, "../..");
@@ -35,7 +35,7 @@ function resolveWordSource(filename: string): string | undefined {
 }
 
 const topic24Path = resolveWordSource(topic24Name);
-const hasTopic24Docx = Boolean(topic24Path);
+const itDocx = topic24Path ? test : test.skip;
 const topic24Args = [
   "--source",
   topic24Path ?? path.join(repoRoot, topic24Name),
@@ -49,137 +49,132 @@ const topic24Args = [
   "Phân bón hóa học",
 ];
 
-describe.skipIf(!hasTopic24Docx)("Topic 24 incremental import", () => {
-  test("P6-B1.1 imports Topic 24 incrementally and preserves both pilots byte-for-byte", () => {
-    const target = mkdtempSync(path.join(tmpdir(), "xuyenlab-p6-b1-1-"));
-    try {
-      copyBaseline(target);
-      const before = readJson<Manifest>(path.join(target, manifestPath));
-      const pilotPaths = managedPilotPaths(before);
-      const pilotHashes = hashPaths(target, pilotPaths);
-      const pilotLessons = structuredClone(before.lessons);
-      const pilotAssets = structuredClone(before.assets);
+itDocx("P6-B1.1 imports Topic 24 incrementally and preserves both pilots byte-for-byte", () => {
+  const target = mkdtempSync(path.join(tmpdir(), "xuyenlab-p6-b1-1-"));
+  try {
+    copyBaseline(target);
+    const before = readJson<Manifest>(path.join(target, manifestPath));
+    const pilotPaths = managedPilotPaths(before);
+    const pilotHashes = hashPaths(target, pilotPaths);
+    const pilotLessons = structuredClone(before.lessons);
+    const pilotAssets = structuredClone(before.assets);
 
-      const first = run(importer, ["--target-root", target, ...topic24Args]);
-      expect(first.status, first.stderr).toBe(0);
-      expect(first.stdout).toContain('"result": "updated"');
+    const first = run(importer, ["--target-root", target, ...topic24Args]);
+    expect(first.status, first.stderr).toBe(0);
+    expect(first.stdout).toContain('"result": "updated"');
 
-      const after = readJson<Manifest>(path.join(target, manifestPath));
-      expect(after.lessons.slice(0, 2)).toEqual(pilotLessons);
-      expect(
-        after.assets.filter((asset) =>
-          asset.sourceIds.some((sourceId) =>
-            ["T06-S01", "T08-S01"].includes(sourceId),
-          ),
+    const after = readJson<Manifest>(path.join(target, manifestPath));
+    expect(after.lessons.slice(0, 2)).toEqual(pilotLessons);
+    expect(
+      after.assets.filter((asset) =>
+        asset.sourceIds.some((sourceId) =>
+          ["T06-S01", "T08-S01"].includes(sourceId),
         ),
-      ).toEqual(pilotAssets);
-      expect(hashPaths(target, pilotPaths)).toEqual(pilotHashes);
+      ),
+    ).toEqual(pilotAssets);
+    expect(hashPaths(target, pilotPaths)).toEqual(pilotHashes);
 
-      const topic24 = after.lessons.find(
-        (lesson) => lesson.sourceId === "T24-S01",
-      );
-      expect(topic24).toMatchObject({
-        slug: "phan-bon-hoa-hoc",
-        topic: "chuyen-de-24",
-        sourcePath: "24. Chuyen de 24_ Phan bon hoa hoc_OK.docx",
-        status: "draft",
-        blockingCount: 0,
-        warningCount: 3,
-      });
-      const mdx = readFileSync(path.join(target, topic24!.mdxPath), "utf8");
-      expect(mdx).toContain('section: "Phần I"');
-      expect(mdx).toContain("status: draft");
-      expect(mdx).not.toContain("Phần II:");
+    const topic24 = after.lessons.find(
+      (lesson) => lesson.sourceId === "T24-S01",
+    );
+    expect(topic24).toMatchObject({
+      slug: "phan-bon-hoa-hoc",
+      topic: "chuyen-de-24",
+      sourcePath: "24. Chuyen de 24_ Phan bon hoa hoc_OK.docx",
+      status: "draft",
+      blockingCount: 0,
+      warningCount: 3,
+    });
+    const mdx = readFileSync(path.join(target, topic24!.mdxPath), "utf8");
+    expect(mdx).toContain('section: "Phần I"');
+    expect(mdx).toContain("status: draft");
+    expect(mdx).not.toContain("Phần II:");
 
-      const report = readJson<FailureReport>(
-        path.join(target, topic24!.failureReportPath),
-      );
-      const schema = readJson<object>(
-        path.join(repoRoot, "scripts/import-docx/failure-report.schema.json"),
-      );
-      const validateReport = new Ajv({
-        allErrors: true,
-        jsonPointers: true,
-      }).compile(schema);
-      expect(validateReport(report), JSON.stringify(validateReport.errors)).toBe(
-        true,
-      );
-      expect(report.source).toEqual({
-        sourceId: "T24-S01",
-        sourcePath: "24. Chuyen de 24_ Phan bon hoa hoc_OK.docx",
-        section: "Phần I",
-      });
-      expect(report.summary).toMatchObject({
-        blockingCount: 0,
-        warningCount: 3,
-      });
+    const report = readJson<FailureReport>(
+      path.join(target, topic24!.failureReportPath),
+    );
+    const schema = readJson<object>(
+      path.join(repoRoot, "scripts/import-docx/failure-report.schema.json"),
+    );
+    const validateReport = new Ajv({
+      allErrors: true,
+      jsonPointers: true,
+    }).compile(schema);
+    expect(validateReport(report), JSON.stringify(validateReport.errors)).toBe(
+      true,
+    );
+    expect(report.source).toEqual({
+      sourceId: "T24-S01",
+      sourcePath: "24. Chuyen de 24_ Phan bon hoa hoc_OK.docx",
+      section: "Phần I",
+    });
+    expect(report.summary).toMatchObject({ blockingCount: 0, warningCount: 3 });
 
-      const qa = readJson<QaRecord>(path.join(target, topic24!.qaPath));
-      expect(qa).toMatchObject({
-        approvedForPublish: false,
-        reviewStatus: "pending",
-        reviewer: null,
-        reviewedAt: null,
-      });
-      expect(Object.values(qa.checks).every((value) => value === false)).toBe(
-        true,
-      );
-      expect(qa.publishWaiver).toBeUndefined();
+    const qa = readJson<QaRecord>(path.join(target, topic24!.qaPath));
+    expect(qa).toMatchObject({
+      approvedForPublish: false,
+      reviewStatus: "pending",
+      reviewer: null,
+      reviewedAt: null,
+    });
+    expect(Object.values(qa.checks).every((value) => value === false)).toBe(
+      true,
+    );
+    expect(qa.publishWaiver).toBeUndefined();
 
-      const queue = readJson<Array<{ status: string; remediationChoice: null }>>(
-        path.join(
-          target,
-          "content/qa/pending/phan-bon-hoa-hoc.remediation-queue.json",
-        ),
-      );
-      expect(queue).toHaveLength(3);
-      expect(queue.every((item) => item.status === "pending-owner-review")).toBe(
-        true,
-      );
-      expect(queue.every((item) => item.remediationChoice === null)).toBe(true);
-      expect(validate(target)).toEqual([]);
-
-      const rerun = run(importer, ["--target-root", target, ...topic24Args]);
-      expect(rerun.status, rerun.stderr).toBe(0);
-      expect(rerun.stdout).toContain('"result": "unchanged"');
-      expect(hashPaths(target, pilotPaths)).toEqual(pilotHashes);
-    } finally {
-      rmSync(target, { recursive: true, force: true });
-    }
-  }, 30_000);
-
-  test("P6-B1.1 detects Topic 24 manual drift before changing managed content", () => {
-    const target = mkdtempSync(path.join(tmpdir(), "xuyenlab-p6-b1-1-drift-"));
-    try {
-      copyBaseline(target);
-      expect(
-        run(importer, ["--target-root", target, ...topic24Args]).status,
-      ).toBe(0);
-      const manifest = readJson<Manifest>(path.join(target, manifestPath));
-      const topic24 = manifest.lessons.find(
-        (lesson) => lesson.sourceId === "T24-S01",
-      )!;
-      const mdxPath = path.join(target, topic24.mdxPath);
-      writeFileSync(mdxPath, `${readFileSync(mdxPath, "utf8")}\nmanual drift\n`);
-      const protectedPaths = [
-        ...managedPilotPaths(manifest),
-        topic24.mdxPath,
-        topic24.failureReportPath,
-        topic24.qaPath,
+    const queue = readJson<Array<{ status: string; remediationChoice: null }>>(
+      path.join(
+        target,
         "content/qa/pending/phan-bon-hoa-hoc.remediation-queue.json",
-        manifestPath,
-      ];
-      const before = hashPaths(target, protectedPaths);
+      ),
+    );
+    expect(queue).toHaveLength(3);
+    expect(queue.every((item) => item.status === "pending-owner-review")).toBe(
+      true,
+    );
+    expect(queue.every((item) => item.remediationChoice === null)).toBe(true);
+    expect(validate(target)).toEqual([]);
 
-      const refused = run(importer, ["--target-root", target, ...topic24Args]);
-      expect(refused.status).not.toBe(0);
-      expect(refused.stderr).toContain("Manual edits detected");
-      expect(hashPaths(target, protectedPaths)).toEqual(before);
-    } finally {
-      rmSync(target, { recursive: true, force: true });
-    }
-  }, 30_000);
-});
+    const rerun = run(importer, ["--target-root", target, ...topic24Args]);
+    expect(rerun.status, rerun.stderr).toBe(0);
+    expect(rerun.stdout).toContain('"result": "unchanged"');
+    expect(hashPaths(target, pilotPaths)).toEqual(pilotHashes);
+  } finally {
+    rmSync(target, { recursive: true, force: true });
+  }
+}, 30_000);
+
+itDocx("P6-B1.1 detects Topic 24 manual drift before changing managed content", () => {
+  const target = mkdtempSync(path.join(tmpdir(), "xuyenlab-p6-b1-1-drift-"));
+  try {
+    copyBaseline(target);
+    expect(
+      run(importer, ["--target-root", target, ...topic24Args]).status,
+    ).toBe(0);
+    const manifest = readJson<Manifest>(path.join(target, manifestPath));
+    const topic24 = manifest.lessons.find(
+      (lesson) => lesson.sourceId === "T24-S01",
+    )!;
+    const mdxPath = path.join(target, topic24.mdxPath);
+    writeFileSync(mdxPath, `${readFileSync(mdxPath, "utf8")}\nmanual drift\n`);
+    const protectedPaths = [
+      ...managedPilotPaths(manifest),
+      topic24.mdxPath,
+      topic24.failureReportPath,
+      topic24.qaPath,
+      "content/qa/pending/phan-bon-hoa-hoc.remediation-queue.json",
+      manifestPath,
+    ];
+    const before = hashPaths(target, protectedPaths);
+
+    const refused = run(importer, ["--target-root", target, ...topic24Args]);
+    expect(refused.status).not.toBe(0);
+    expect(refused.stderr).toContain("Manual edits detected");
+    expect(hashPaths(target, protectedPaths)).toEqual(before);
+  } finally {
+    rmSync(target, { recursive: true, force: true });
+  }
+}, 30_000);
 
 function copyBaseline(target: string) {
   const current = readJson<Manifest>(path.join(repoRoot, manifestPath));
