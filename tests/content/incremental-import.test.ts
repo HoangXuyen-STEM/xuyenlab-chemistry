@@ -4,6 +4,7 @@ import { spawnSync } from "node:child_process";
 import { createHash } from "node:crypto";
 import {
   copyFileSync,
+  existsSync,
   mkdirSync,
   mkdtempSync,
   readFileSync,
@@ -22,9 +23,22 @@ const repoRoot = path.resolve(here, "../..");
 const importer = path.join(repoRoot, "scripts/import-docx/pilot_import.py");
 const validator = path.join(repoRoot, "scripts/validate-content/validate.py");
 const manifestPath = "content/pilot-staging-manifest.json";
+const topic24Name = "24. Chuyen de 24_ Phan bon hoa hoc_OK.docx";
+
+function resolveWordSource(filename: string): string | undefined {
+  const extra = process.env.XUYENLAB_SOURCE_ROOT;
+  return [
+    path.join(repoRoot, "_workspace", filename),
+    path.join(repoRoot, filename),
+    extra ? path.join(extra, filename) : "",
+  ].find((candidate) => candidate !== "" && existsSync(candidate));
+}
+
+const topic24Path = resolveWordSource(topic24Name);
+const hasTopic24Docx = Boolean(topic24Path);
 const topic24Args = [
   "--source",
-  path.join(repoRoot, "24. Chuyen de 24_ Phan bon hoa hoc_OK.docx"),
+  topic24Path ?? path.join(repoRoot, topic24Name),
   "--source-id",
   "T24-S01",
   "--topic",
@@ -35,7 +49,7 @@ const topic24Args = [
   "Phân bón hóa học",
 ];
 
-test("P6-B1.1 imports Topic 24 incrementally and preserves both pilots byte-for-byte", () => {
+test.skipIf(!hasTopic24Docx)("P6-B1.1 imports Topic 24 incrementally and preserves both pilots byte-for-byte", () => {
   const target = mkdtempSync(path.join(tmpdir(), "xuyenlab-p6-b1-1-"));
   try {
     copyBaseline(target);
@@ -130,7 +144,7 @@ test("P6-B1.1 imports Topic 24 incrementally and preserves both pilots byte-for-
   }
 }, 30_000);
 
-test("P6-B1.1 detects Topic 24 manual drift before changing managed content", () => {
+test.skipIf(!hasTopic24Docx)("P6-B1.1 detects Topic 24 manual drift before changing managed content", () => {
   const target = mkdtempSync(path.join(tmpdir(), "xuyenlab-p6-b1-1-drift-"));
   try {
     copyBaseline(target);
