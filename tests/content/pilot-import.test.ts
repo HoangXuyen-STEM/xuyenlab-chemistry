@@ -1,7 +1,6 @@
 // @vitest-environment node
 
 import { spawnSync } from "node:child_process";
-import { createHash } from "node:crypto";
 import {
   copyFileSync,
   existsSync,
@@ -59,10 +58,6 @@ function readJson(filePath: string): unknown {
   return JSON.parse(readFileSync(filePath, "utf8")) as unknown;
 }
 
-function sha256(filePath: string): string {
-  return createHash("sha256").update(readFileSync(filePath)).digest("hex");
-}
-
 interface PilotManifest {
   lessons: Array<{
     sourceId: string;
@@ -75,28 +70,6 @@ interface PilotManifest {
     status: "draft" | "in_review";
   }>;
   assets: Array<{ path: string; sha256: string }>;
-}
-
-interface QaRecord {
-  reviewer: string | null;
-  reviewedAt: string | null;
-  checks: Record<string, boolean>;
-  approvedForPublish: boolean;
-  lessonSlug: string;
-  unresolved: Array<{ id: string; severity: string }>;
-  publishWaiver?: PublishWaiver;
-}
-
-interface PublishWaiver {
-  type: string;
-  scope: string;
-  authorizedBy: string;
-  authorizedDate: string;
-  doesNotAuthorize: string[];
-  remediationDebtRetained: boolean;
-  unresolvedBlockingCount: number;
-  acknowledgedBlockedItems: string[];
-  reference: { contractAmendment: string; handoff: string };
 }
 
 interface FailureReport {
